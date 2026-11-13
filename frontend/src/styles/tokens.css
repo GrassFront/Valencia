@@ -1,0 +1,79 @@
+:root {
+  --valencia-color-deep-green: #1b4d32;
+  --valencia-color-antique-gold: #c9a96a;
+  --valencia-color-ivory: #fbf5ea;
+  --valencia-color-ivory-guide: #f8f5ea;
+  --valencia-color-warm-beige: #e8dcc9;
+  --valencia-color-taupe: #c8b99a;
+  --valencia-color-rich-brown: #4b3a2b;
+  --valencia-color-ink: #233028;
+  --valencia-color-paper: #fffcf8;
+  --valencia-color-hairline: #ded6c8;
+
+  --valencia-font-display: var(--font-playfair-display), Georgia, serif;
+  --valencia-font-body: var(--font-manrope), Arial, sans-serif;
+
+  --valencia-space-4: 0.25rem;
+  --valencia-space-8: 0.5rem;
+  --valencia-space-12: 0.75rem;
+  --valencia-space-16: 1rem;
+  --valencia-radius-4: 0.25rem;
+
+  --valencia-shadow-drop: 0 4px 30px rgb(0 0 0 / 10%);
+  --valencia-shadow-popover: 0 4px 12px rgb(0 0 0 / 16%);
+
+  --valencia-container-wide: 82rem;
+  --valencia-container-booking: 67.5rem;
+  --valencia-container-booking-form: 63.5rem;
+}
+
+@theme inline {
+  --color-primary: var(--valencia-color-deep-green);
+  --color-accent: var(--valencia-color-antique-gold);
+  --color-ivory: var(--valencia-color-ivory);
+  --color-ivory-guide: var(--valencia-color-ivory-guide);
+  --color-warm-beige: var(--valencia-color-warm-beige);
+  --color-taupe: var(--valencia-color-taupe);
+  --color-rich-brown: var(--valencia-color-rich-brown);
+  --color-ink: var(--valencia-color-ink);
+  --color-paper: var(--valencia-color-paper);
+  --color-hairline: var(--valencia-color-hairline);
+
+  --font-display: var(--valencia-font-display);
+  --font-body: var(--valencia-font-body);
+  --font-sans: var(--valencia-font-body);
+
+  --text-brand-headline: 1.5rem;
+  --text-brand-headline--line-height: 25.3px;
+  --text-brand-headline--font-weight: 400;
+  --text-brand-headline--letter-spacing: -0.02em;
+  --text-brand-wordmark: 1.75rem;
+  --text-brand-wordmark--line-height: 1.2;
+  --text-brand-wordmark--font-weight: 600;
+  --text-brand-wordmark--letter-spacing: 0.1em;
+  --text-brand-eyebrow: 0.3625rem;
+  --text-brand-eyebrow--line-height: 8px;
+  --text-brand-eyebrow--font-weight: 600;
+  --text-brand-eyebrow--letter-spacing: 0.4em;
+
+  --text-booking-label: 0.875rem;
+  --text-booking-label--line-height: 1.25rem;
+  --text-booking-label--font-weight: 700;
+  --text-booking-label--letter-spacing: 0em;
+  --text-booking-value: 0.875rem;
+  --text-booking-value--line-height: 1.25rem;
+  --text-booking-value--font-weight: 400;
+  --text-booking-value--letter-spacing: 0em;
+  --text-booking-button: 0.9375rem;
+  --text-booking-button--line-height: 1.3125rem;
+  --text-booking-button--font-weight: 700;
+  --text-booking-button--letter-spacing: 0em;
+
+  --spacing: 0.25rem;
+  --radius-brand: var(--valencia-radius-4);
+  --shadow-brand: var(--valencia-shadow-drop);
+  --shadow-booking-popover: var(--valencia-shadow-popover);
+  --container-wide: var(--valencia-container-wide);
+  --container-booking: var(--valencia-container-booking);
+  --container-booking-form: var(--valencia-container-booking-form);
+}
