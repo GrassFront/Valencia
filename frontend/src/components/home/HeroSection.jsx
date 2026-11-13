@@ -59,8 +59,10 @@ export default function HeroSection({ onSearch }) {
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-[1000px] font-body text-[14px] sm:text-[17px] md:text-[20px] font-normal leading-[22px] sm:leading-[26px] md:leading-[30px] text-[#F8F5EA]/95 text-center px-2">
-            Italian-inspired elegance, thoughtful hospitality and spaces for stays and celebrations that feel truly special.
+          <p className="mx-auto max-w-[620px] font-body text-[14px] sm:text-[16px] md:text-[18px] lg:text-[19px] font-normal leading-[22px] sm:leading-[26px] md:leading-[29px] text-[#F8F5EA]/95 text-center px-2">
+            Italian-inspired elegance, thoughtful hospitality and spaces{" "}
+            <br className="hidden sm:inline" />
+            for stays and celebrations that feel truly special.
           </p>
         </div>
 

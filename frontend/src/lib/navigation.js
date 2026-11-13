@@ -6,9 +6,21 @@ export const NAV_ITEMS = [
     href: "#properties",
     hasDropdown: true,
     children: [
-      { label: "Valencia Patna", href: "#properties" },
-      { label: "Hotel JIA", href: "#properties" },
-      { label: "Umrao", href: "#properties" },
+      {
+        label: "Valencia",
+        subtitle: "A Luxury Boutique Hotel",
+        href: "#properties",
+      },
+      {
+        label: "Umrao The Banquet",
+        subtitle: "Weddings & Celebrations",
+        href: "#properties",
+      },
+      {
+        label: "Hotel JIA International",
+        subtitle: "Business & Leisure Stay",
+        href: "#properties",
+      },
     ],
   },
   {
@@ -16,9 +28,26 @@ export const NAV_ITEMS = [
     href: "#rooms",
     hasDropdown: true,
     children: [
-      { label: "Deluxe Room", href: "#rooms" },
-      { label: "Executive Suite", href: "#rooms" },
-      { label: "Presidential Suite", href: "#rooms" },
+      {
+        label: "Deluxe Room",
+        subtitle: "A welcoming retreat for restful stays",
+        href: "#rooms",
+      },
+      {
+        label: "Twin Room",
+        subtitle: "Shared stays with individual comfort",
+        href: "#rooms",
+      },
+      {
+        label: "Suite",
+        subtitle: "Room to unwind with separate retreat",
+        href: "#rooms",
+      },
+      {
+        label: "Presidential Suite",
+        subtitle: "An expansive setting for exceptional stay",
+        href: "#rooms",
+      },
     ],
   },
   { label: "Dining", href: "#dining" },
@@ -26,4 +55,3 @@ export const NAV_ITEMS = [
   { label: "Meetings", href: "#meetings" },
   { label: "Contact", href: "#contact" },
 ];
-

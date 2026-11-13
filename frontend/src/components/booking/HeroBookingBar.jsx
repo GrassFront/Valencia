@@ -7,45 +7,54 @@ import {
   Calendar,
   User,
   ChevronDown,
+  ChevronUp,
   ChevronLeft,
   ChevronRight,
   ArrowRight,
-  X,
-  Check,
 } from "lucide-react";
 import { classNames } from "../../lib/classNames";
 
+const DURATION_OPTIONS = [
+  "3 Hours",
+  "6 Hours",
+  "9 Hours",
+  "12 Hours",
+  "18 Hours",
+  "24 Hours",
+];
+
 const MONTH_DATA = [
-  { name: "October 2026", year: 2026, monthIndex: 9, startDayOffset: 4, days: 31 }, // Oct 1, 2026 is Thursday (offset 4)
-  { name: "November 2026", year: 2026, monthIndex: 10, startDayOffset: 0, days: 30 }, // Nov 1, 2026 is Sunday (offset 0)
-  { name: "December 2026", year: 2026, monthIndex: 11, startDayOffset: 2, days: 31 }, // Dec 1, 2026 is Tuesday (offset 2)
+  { name: "October 2026", year: 2026, monthIndex: 9, startDayOffset: 4, days: 31 },
+  { name: "November 2026", year: 2026, monthIndex: 10, startDayOffset: 0, days: 30 },
+  { name: "December 2026", year: 2026, monthIndex: 11, startDayOffset: 2, days: 31 },
 ];
 
 export default function HeroBookingBar({ onSearch }) {
-  const [stayMode, setStayMode] = useState("night"); // 'night' | 'hourly'
-  const [checkInDay, setCheckInDay] = useState(null); // number or null
-  const [checkOutDay, setCheckOutDay] = useState(null); // number or null
+  const [stayMode, setStayMode] = useState("hourly"); // 'night' | 'hourly'
+  const [checkInDay, setCheckInDay] = useState(null); // e.g. 26
+  const [checkOutDay, setCheckOutDay] = useState(null); // e.g. 28
   const [currentMonthIdx, setCurrentMonthIdx] = useState(0);
 
+  const [duration, setDuration] = useState("12 Hours");
+  const [customDurationInput, setCustomDurationInput] = useState("12 Hours");
+
+  const [rooms, setRooms] = useState(1);
   const [adults, setAdults] = useState(2);
   const [childrenCount, setChildrenCount] = useState(0);
-  const [rooms, setRooms] = useState(1);
-  const [duration, setDuration] = useState("6 Hours");
 
-  const [activePopover, setActivePopover] = useState(null); // 'checkIn' | 'checkOut' | 'guests' | 'duration' | null
+  const [activePopover, setActivePopover] = useState(null); // 'checkIn' | 'checkOut' | 'duration' | 'guests' | null
   const containerRef = useRef(null);
 
   const activeMonth = MONTH_DATA[currentMonthIdx];
 
-  // Derived formatted date strings
-  const checkInText = checkInDay
-    ? `${checkInDay} Oct 2026`
-    : "";
-  const checkOutText = checkOutDay
-    ? `${checkOutDay} Oct 2026`
-    : "";
+  // Derived display strings
+  const checkInText = checkInDay ? `${checkInDay} Oct 2026` : "";
+  const checkOutText = checkOutDay ? `${checkOutDay} Oct 2026` : "";
+  const guestsSummary = `${adults} ${adults === 1 ? "adult" : "adults"}${
+    childrenCount > 0 ? `, ${childrenCount} child` : ""
+  } · ${rooms} ${rooms === 1 ? "room" : "rooms"}`;
 
-  // Close popover when clicking outside or pressing Escape
+  // Dismiss popover on outside click or Escape
   useEffect(() => {
     function handleClickOutside(event) {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
@@ -70,7 +79,7 @@ export default function HeroBookingBar({ onSearch }) {
     onSearch?.({
       stayMode,
       checkInDate: checkInText || "Select date",
-      checkOutDate: stayMode === "night" ? (checkOutText || "Select date") : undefined,
+      checkOutDate: checkOutText || "Select date",
       duration: stayMode === "hourly" ? duration : undefined,
       adults,
       children: childrenCount,
@@ -78,23 +87,8 @@ export default function HeroBookingBar({ onSearch }) {
     });
   };
 
-  const handleDateClick = (day) => {
-    if (activePopover === "checkIn") {
-      setCheckInDay(day);
-      if (checkOutDay && checkOutDay <= day) {
-        setCheckOutDay(day + 2 <= activeMonth.days ? day + 2 : null);
-      }
-      setActivePopover("checkOut");
-    } else if (activePopover === "checkOut") {
-      if (checkInDay && day < checkInDay) {
-        // If selected check-out is before check-in, set as check-in
-        setCheckInDay(day);
-        setCheckOutDay(null);
-      } else {
-        setCheckOutDay(day);
-        setActivePopover(null);
-      }
-    }
+  const togglePopover = (name) => {
+    setActivePopover((prev) => (prev === name ? null : name));
   };
 
   return (
@@ -130,7 +124,7 @@ export default function HeroBookingBar({ onSearch }) {
                 setActivePopover(null);
               }}
               className={classNames(
-                "relative z-10 flex flex-1 items-center justify-center gap-2 rounded-[20px] text-[13.5px] sm:text-[14px] font-bold font-body transition-colors duration-300 select-none",
+                "relative z-10 flex flex-1 items-center justify-center gap-2 rounded-[20px] text-[13.5px] sm:text-[14px] font-bold font-body transition-colors duration-300 select-none cursor-pointer",
                 stayMode === "night"
                   ? "text-[#FBF5EA]"
                   : "text-[#1B4D32] hover:text-[#1B4D32]/80"
@@ -150,7 +144,7 @@ export default function HeroBookingBar({ onSearch }) {
                 setActivePopover(null);
               }}
               className={classNames(
-                "relative z-10 flex flex-1 items-center justify-center gap-2 rounded-[20px] text-[13.5px] sm:text-[14px] font-bold font-body transition-colors duration-300 select-none",
+                "relative z-10 flex flex-1 items-center justify-center gap-2 rounded-[20px] text-[13.5px] sm:text-[14px] font-bold font-body transition-colors duration-300 select-none cursor-pointer",
                 stayMode === "hourly"
                   ? "text-[#FBF5EA]"
                   : "text-[#1B4D32] hover:text-[#1B4D32]/80"
@@ -162,62 +156,136 @@ export default function HeroBookingBar({ onSearch }) {
           </div>
         </div>
 
-        {/* Row 2: Search Fields Row (Responsive: Flex on Desktop, 2x2 Grid on Tablet, Column on Mobile) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row items-stretch lg:items-center gap-2.5 lg:gap-3 w-full">
+        {/* Row 2: Fields Row */}
+        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row items-stretch lg:items-center gap-2 lg:gap-2.5 w-full">
           {/* Field 1: Check In */}
-          <button
-            type="button"
-            onClick={() =>
-              setActivePopover((prev) => (prev === "checkIn" ? null : "checkIn"))
-            }
-            aria-expanded={activePopover === "checkIn"}
-            className={classNames(
-              "flex h-[58px] lg:flex-1 items-center px-3 sm:px-3.5 gap-3 rounded-[10px] text-left transition-all border",
-              activePopover === "checkIn"
-                ? "bg-[#F3EAD9] border-[#1B4D32] shadow-sm"
-                : "bg-transparent border-transparent hover:bg-[#F6EFE3]"
-            )}
-          >
-            <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-              <Calendar size={23} className="stroke-[1.85]" />
-            </div>
-            <div className="flex flex-1 flex-col justify-center min-w-0">
-              <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
-                Check In
-              </span>
-              <span
-                className={classNames(
-                  "text-[13px] leading-[18px] font-body truncate",
-                  checkInText ? "font-medium text-[#233028]" : "font-normal text-[#8B8E87]"
-                )}
-              >
-                {checkInText || "Select date"}
-              </span>
-            </div>
-            <ChevronDown
-              size={18}
-              className={classNames(
-                "text-[#1B4D32] transition-transform stroke-[1.4] shrink-0",
-                activePopover === "checkIn" ? "rotate-180" : ""
-              )}
-            />
-          </button>
-
-          {/* Field 2: Check Out (or Duration in Hourly mode) */}
-          {stayMode === "night" ? (
+          <div className="relative flex-1">
             <button
               type="button"
-              onClick={() =>
-                setActivePopover((prev) =>
-                  prev === "checkOut" ? null : "checkOut"
-                )
-              }
+              onClick={() => togglePopover("checkIn")}
+              aria-expanded={activePopover === "checkIn"}
+              className={classNames(
+                "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                activePopover === "checkIn"
+                  ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
+                  : "border-transparent hover:bg-[#F6EFE3]"
+              )}
+            >
+              <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
+                <Calendar size={23} className="stroke-[1.85]" />
+              </div>
+              <div className="flex flex-1 flex-col justify-center min-w-0">
+                <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
+                  Check In
+                </span>
+                <span
+                  className={classNames(
+                    "text-[13px] leading-[18px] font-body truncate",
+                    checkInText ? "font-medium text-[#233028]" : "font-normal text-[#8B8E87]"
+                  )}
+                >
+                  {checkInText || "Select date"}
+                </span>
+              </div>
+              {activePopover === "checkIn" ? (
+                <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+              ) : (
+                <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+              )}
+            </button>
+
+            {/* Check-In Date Picker Popover */}
+            {activePopover === "checkIn" && (
+              <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-[calc(100vw-36px)] sm:w-[330px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+                {/* Month Navigator Header */}
+                <div className="flex items-center justify-between mb-4 px-1">
+                  <button
+                    type="button"
+                    disabled={currentMonthIdx === 0}
+                    onClick={() => setCurrentMonthIdx((prev) => Math.max(0, prev - 1))}
+                    className="p-1 rounded-full text-[#233028] hover:bg-[#F3EAD9] disabled:opacity-20 cursor-pointer"
+                    aria-label="Previous month"
+                  >
+                    <ChevronLeft size={20} className="stroke-[1.8]" />
+                  </button>
+                  <span className="font-bold text-[15px] text-[#233028] font-body">
+                    {activeMonth.name}
+                  </span>
+                  <button
+                    type="button"
+                    disabled={currentMonthIdx === MONTH_DATA.length - 1}
+                    onClick={() =>
+                      setCurrentMonthIdx((prev) => Math.min(MONTH_DATA.length - 1, prev + 1))
+                    }
+                    className="p-1 rounded-full text-[#233028] hover:bg-[#F3EAD9] disabled:opacity-20 cursor-pointer"
+                    aria-label="Next month"
+                  >
+                    <ChevronRight size={20} className="stroke-[1.8]" />
+                  </button>
+                </div>
+
+                {/* Days of Week in Gold (#BC9756) */}
+                <div className="grid grid-cols-7 gap-1 text-center text-[12px] font-semibold text-[#BC9756] mb-2 font-body">
+                  <span>Sun</span>
+                  <span>Mon</span>
+                  <span>Tue</span>
+                  <span>Wed</span>
+                  <span>Thu</span>
+                  <span>Fri</span>
+                  <span>Sat</span>
+                </div>
+
+                {/* Date Grid */}
+                <div className="grid grid-cols-7 gap-1 text-center text-[13px] font-body mb-5">
+                  {Array.from({ length: activeMonth.startDayOffset }).map((_, i) => (
+                    <span key={`empty-in-${i}`} className="h-8 w-8" />
+                  ))}
+                  {Array.from({ length: activeMonth.days }, (_, i) => i + 1).map((day) => {
+                    const isSelected = checkInDay === day;
+                    return (
+                      <button
+                        key={day}
+                        type="button"
+                        onClick={() => setCheckInDay(day)}
+                        className={classNames(
+                          "h-8 w-8 mx-auto rounded-full flex items-center justify-center font-medium transition-colors cursor-pointer",
+                          isSelected
+                            ? "bg-[#1B4D32] text-white font-bold"
+                            : "text-[#233028] hover:bg-[#F3EAD9]"
+                        )}
+                      >
+                        {day}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom Action Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!checkInDay) setCheckInDay(26);
+                    setActivePopover("checkOut");
+                  }}
+                  className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
+                >
+                  Apply Check-in Date
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Field 2: Check Out */}
+          <div className="relative flex-1">
+            <button
+              type="button"
+              onClick={() => togglePopover("checkOut")}
               aria-expanded={activePopover === "checkOut"}
               className={classNames(
-                "flex h-[58px] lg:flex-1 items-center px-3 sm:px-3.5 gap-3 rounded-[10px] text-left transition-all border",
+                "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
                 activePopover === "checkOut"
-                  ? "bg-[#F3EAD9] border-[#1B4D32] shadow-sm"
-                  : "bg-transparent border-transparent hover:bg-[#F6EFE3]"
+                  ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
+                  : "border-transparent hover:bg-[#F6EFE3]"
               )}
             >
               <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
@@ -236,388 +304,368 @@ export default function HeroBookingBar({ onSearch }) {
                   {checkOutText || "Select date"}
                 </span>
               </div>
-              <ChevronDown
-                size={18}
-                className={classNames(
-                  "text-[#1B4D32] transition-transform stroke-[1.4] shrink-0",
-                  activePopover === "checkOut" ? "rotate-180" : ""
-                )}
-              />
+              {activePopover === "checkOut" ? (
+                <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+              ) : (
+                <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+              )}
             </button>
-          ) : (
+
+            {/* Check-Out Date Picker Popover */}
+            {activePopover === "checkOut" && (
+              <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-[calc(100vw-36px)] sm:w-[330px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+                {/* Month Navigator Header */}
+                <div className="flex items-center justify-between mb-4 px-1">
+                  <button
+                    type="button"
+                    disabled={currentMonthIdx === 0}
+                    onClick={() => setCurrentMonthIdx((prev) => Math.max(0, prev - 1))}
+                    className="p-1 rounded-full text-[#233028] hover:bg-[#F3EAD9] disabled:opacity-20 cursor-pointer"
+                    aria-label="Previous month"
+                  >
+                    <ChevronLeft size={20} className="stroke-[1.8]" />
+                  </button>
+                  <span className="font-bold text-[15px] text-[#233028] font-body">
+                    {activeMonth.name}
+                  </span>
+                  <button
+                    type="button"
+                    disabled={currentMonthIdx === MONTH_DATA.length - 1}
+                    onClick={() =>
+                      setCurrentMonthIdx((prev) => Math.min(MONTH_DATA.length - 1, prev + 1))
+                    }
+                    className="p-1 rounded-full text-[#233028] hover:bg-[#F3EAD9] disabled:opacity-20 cursor-pointer"
+                    aria-label="Next month"
+                  >
+                    <ChevronRight size={20} className="stroke-[1.8]" />
+                  </button>
+                </div>
+
+                {/* Days of Week in Gold (#BC9756) */}
+                <div className="grid grid-cols-7 gap-1 text-center text-[12px] font-semibold text-[#BC9756] mb-2 font-body">
+                  <span>Sun</span>
+                  <span>Mon</span>
+                  <span>Tue</span>
+                  <span>Wed</span>
+                  <span>Thu</span>
+                  <span>Fri</span>
+                  <span>Sat</span>
+                </div>
+
+                {/* Date Grid */}
+                <div className="grid grid-cols-7 gap-1 text-center text-[13px] font-body mb-5">
+                  {Array.from({ length: activeMonth.startDayOffset }).map((_, i) => (
+                    <span key={`empty-out-${i}`} className="h-8 w-8" />
+                  ))}
+                  {Array.from({ length: activeMonth.days }, (_, i) => i + 1).map((day) => {
+                    const isSelected = checkOutDay === day;
+                    return (
+                      <button
+                        key={day}
+                        type="button"
+                        onClick={() => setCheckOutDay(day)}
+                        className={classNames(
+                          "h-8 w-8 mx-auto rounded-full flex items-center justify-center font-medium transition-colors cursor-pointer",
+                          isSelected
+                            ? "bg-[#1B4D32] text-white font-bold"
+                            : "text-[#233028] hover:bg-[#F3EAD9]"
+                        )}
+                      >
+                        {day}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom Action Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!checkOutDay) setCheckOutDay(28);
+                    setActivePopover(null);
+                  }}
+                  className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
+                >
+                  Apply Check-out Date
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Field 3: Duration (Shown when Hourly Booking is active) */}
+          {stayMode === "hourly" && (
+            <div className="relative flex-1">
+              <button
+                type="button"
+                onClick={() => togglePopover("duration")}
+                aria-expanded={activePopover === "duration"}
+                className={classNames(
+                  "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                  activePopover === "duration"
+                    ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
+                    : "border-transparent hover:bg-[#F6EFE3]"
+                )}
+              >
+                <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
+                  <Clock size={23} className="stroke-[1.85]" />
+                </div>
+                <div className="flex flex-1 flex-col justify-center min-w-0">
+                  <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
+                    Duration
+                  </span>
+                  <span className="text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body">
+                    {duration}
+                  </span>
+                </div>
+                {activePopover === "duration" ? (
+                  <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                ) : (
+                  <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                )}
+              </button>
+
+              {/* Duration Popover */}
+              {activePopover === "duration" && (
+                <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-[calc(100vw-36px)] sm:w-[340px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+                  {/* Header */}
+                  <div className="flex items-start gap-2.5 mb-4">
+                    <Clock size={22} className="text-[#1B4D32] stroke-[2] shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-[15px] font-bold text-[#233028] leading-[20px] font-body">
+                        Select Duration
+                      </h4>
+                      <p className="text-[11.5px] text-[#8B8E87] leading-[16px] font-body">
+                        Enter the number of hours for your stay
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Input Box */}
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      value={customDurationInput}
+                      onChange={(e) => {
+                        setCustomDurationInput(e.target.value);
+                        setDuration(e.target.value);
+                      }}
+                      className="w-full h-[46px] rounded-[10px] border border-[#1B4D32] bg-[#FBF5EA] px-4 text-[14px] font-semibold text-[#233028] outline-none font-body focus:ring-1 focus:ring-[#1B4D32]"
+                      placeholder="e.g. 12 Hours"
+                    />
+                  </div>
+
+                  {/* OR Divider */}
+                  <div className="flex items-center gap-3 my-3">
+                    <div className="flex-1 h-[1px] bg-[#E8DCC9]" />
+                    <span className="text-[11px] font-semibold text-[#8B8E87] uppercase tracking-wider">
+                      OR
+                    </span>
+                    <div className="flex-1 h-[1px] bg-[#E8DCC9]" />
+                  </div>
+
+                  {/* Common Durations Label */}
+                  <div className="text-[12px] font-semibold text-[#233028] mb-2.5 font-body">
+                    Choose from common durations
+                  </div>
+
+                  {/* Duration Chips (3x2 Grid) */}
+                  <div className="grid grid-cols-3 gap-2 mb-5">
+                    {DURATION_OPTIONS.map((opt) => {
+                      const isSelected = duration === opt;
+                      return (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            setDuration(opt);
+                            setCustomDurationInput(opt);
+                          }}
+                          className={classNames(
+                            "h-[36px] rounded-[18px] text-[13px] font-bold font-body transition-colors border cursor-pointer",
+                            isSelected
+                              ? "bg-[#1B4D32] text-[#FBF5EA] border-transparent shadow-sm"
+                              : "bg-[#FBF5EA] text-[#233028] border-[#E8DCC9] hover:bg-[#F3EAD9]"
+                          )}
+                        >
+                          {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Apply Button */}
+                  <button
+                    type="button"
+                    onClick={() => setActivePopover(null)}
+                    className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
+                  >
+                    Apply Duration
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Field 4: Guests & Rooms */}
+          <div className="relative flex-1">
             <button
               type="button"
-              onClick={() =>
-                setActivePopover((prev) =>
-                  prev === "duration" ? null : "duration"
-                )
-              }
-              aria-expanded={activePopover === "duration"}
+              onClick={() => togglePopover("guests")}
+              aria-expanded={activePopover === "guests"}
               className={classNames(
-                "flex h-[58px] lg:flex-1 items-center px-3 sm:px-3.5 gap-3 rounded-[10px] text-left transition-all border",
-                activePopover === "duration"
-                  ? "bg-[#F3EAD9] border-[#1B4D32] shadow-sm"
-                  : "bg-transparent border-transparent hover:bg-[#F6EFE3]"
+                "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                activePopover === "guests"
+                  ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
+                  : "border-transparent hover:bg-[#F6EFE3]"
               )}
             >
               <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-                <Clock size={23} className="stroke-[1.85]" />
+                <User size={23} className="stroke-[1.85]" />
               </div>
               <div className="flex flex-1 flex-col justify-center min-w-0">
                 <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
-                  Duration
+                  Guests & Rooms
                 </span>
-                <span className="text-[13px] font-medium leading-[18px] text-[#233028] truncate font-body">
-                  {duration}
+                <span className="text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body">
+                  {guestsSummary}
                 </span>
               </div>
-              <ChevronDown
-                size={18}
-                className={classNames(
-                  "text-[#1B4D32] transition-transform stroke-[1.4] shrink-0",
-                  activePopover === "duration" ? "rotate-180" : ""
-                )}
-              />
-            </button>
-          )}
-
-          {/* Field 3: Guests & Rooms */}
-          <button
-            type="button"
-            onClick={() =>
-              setActivePopover((prev) => (prev === "guests" ? null : "guests"))
-            }
-            aria-expanded={activePopover === "guests"}
-            className={classNames(
-              "flex h-[58px] lg:flex-1 items-center px-3 sm:px-3.5 gap-3 rounded-[10px] text-left transition-all border",
-              activePopover === "guests"
-                ? "bg-[#F3EAD9] border-[#1B4D32] shadow-sm"
-                : "bg-transparent border-transparent hover:bg-[#F6EFE3]"
-            )}
-          >
-            <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-              <User size={23} className="stroke-[1.85]" />
-            </div>
-            <div className="flex flex-1 flex-col justify-center min-w-0">
-              <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
-                Guests & Rooms
-              </span>
-              <div className="flex items-center gap-1 text-[13px] leading-[18px] font-normal text-[#8B8E87] font-body truncate">
-                <span>{adults}</span>
-                <span className="text-[12px]">{adults === 1 ? "adult" : "adults"} ·</span>
-                {childrenCount > 0 && (
-                  <>
-                    <span>{childrenCount}</span>
-                    <span className="text-[12px]">{childrenCount === 1 ? "child" : "children"} ·</span>
-                  </>
-                )}
-                <span>{rooms}</span>
-                <span className="text-[12px]">{rooms === 1 ? "room" : "rooms"}</span>
-              </div>
-            </div>
-            <ChevronDown
-              size={18}
-              className={classNames(
-                "text-[#1B4D32] transition-transform stroke-[1.4] shrink-0",
-                activePopover === "guests" ? "rotate-180" : ""
+              {activePopover === "guests" ? (
+                <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+              ) : (
+                <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               )}
-            />
-          </button>
+            </button>
 
-          {/* Field 4 / CTA Action Button: Search Rooms */}
+            {/* Guests & Rooms Popover */}
+            {activePopover === "guests" && (
+              <div className="absolute top-[calc(100%+8px)] left-0 lg:left-auto lg:right-0 z-50 w-[calc(100vw-36px)] sm:w-[340px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+                {/* Header */}
+                <div className="flex items-center gap-2.5 mb-4">
+                  <User size={22} className="text-[#1B4D32] stroke-[2] shrink-0" />
+                  <h4 className="text-[15px] font-bold text-[#233028] font-body">
+                    Guests & Rooms
+                  </h4>
+                </div>
+
+                {/* Section 1: Rooms */}
+                <div className="flex items-center justify-between py-1 mb-3">
+                  <span className="text-[14px] font-bold text-[#233028] font-body">
+                    Rooms
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      disabled={rooms <= 1}
+                      onClick={() => setRooms((prev) => Math.max(1, prev - 1))}
+                      className="w-8 h-8 rounded-full bg-[#F4ECE0] text-[#233028] flex items-center justify-center font-bold text-[16px] hover:bg-[#ebdcc8] disabled:opacity-25 transition-colors cursor-pointer"
+                    >
+                      -
+                    </button>
+                    <span className="w-5 text-center text-[14px] font-bold text-[#233028] font-body">
+                      {rooms}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={rooms >= 5}
+                      onClick={() => setRooms((prev) => Math.min(5, prev + 1))}
+                      className="w-8 h-8 rounded-full bg-[#F4ECE0] text-[#233028] flex items-center justify-center font-bold text-[16px] hover:bg-[#ebdcc8] disabled:opacity-25 transition-colors cursor-pointer"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                {/* Divider Line */}
+                <div className="h-[1px] w-full bg-[#E8DCC9]/80 my-3" />
+
+                {/* Section 2: Guests per Room */}
+                <div className="mb-5">
+                  <div className="text-[13px] font-bold text-[#233028] mb-3 font-body">
+                    Guests per Room
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Adults Column */}
+                    <div>
+                      <div className="text-[12px] font-semibold text-[#34413F] mb-2 font-body">
+                        Adults (12+ yrs)
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          disabled={adults <= 1}
+                          onClick={() => setAdults((prev) => Math.max(1, prev - 1))}
+                          className="w-8 h-8 rounded-full bg-[#F4ECE0] text-[#233028] flex items-center justify-center font-bold text-[16px] hover:bg-[#ebdcc8] disabled:opacity-25 transition-colors cursor-pointer"
+                        >
+                          -
+                        </button>
+                        <span className="w-5 text-center text-[14px] font-bold text-[#233028] font-body">
+                          {adults}
+                        </span>
+                        <button
+                          type="button"
+                          disabled={adults >= 8}
+                          onClick={() => setAdults((prev) => Math.min(8, prev + 1))}
+                          className="w-8 h-8 rounded-full bg-[#F4ECE0] text-[#233028] flex items-center justify-center font-bold text-[16px] hover:bg-[#ebdcc8] disabled:opacity-25 transition-colors cursor-pointer"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Children Column */}
+                    <div>
+                      <div className="text-[12px] font-semibold text-[#34413F] mb-2 font-body">
+                        Children (0-11 yrs)
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          disabled={childrenCount <= 0}
+                          onClick={() => setChildrenCount((prev) => Math.max(0, prev - 1))}
+                          className="w-8 h-8 rounded-full bg-[#F4ECE0] text-[#233028] flex items-center justify-center font-bold text-[16px] hover:bg-[#ebdcc8] disabled:opacity-25 transition-colors cursor-pointer"
+                        >
+                          -
+                        </button>
+                        <span className="w-5 text-center text-[14px] font-bold text-[#233028] font-body">
+                          {childrenCount}
+                        </span>
+                        <button
+                          type="button"
+                          disabled={childrenCount >= 6}
+                          onClick={() => setChildrenCount((prev) => Math.min(6, prev + 1))}
+                          className="w-8 h-8 rounded-full bg-[#F4ECE0] text-[#233028] flex items-center justify-center font-bold text-[16px] hover:bg-[#ebdcc8] disabled:opacity-25 transition-colors cursor-pointer"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Apply Button */}
+                <button
+                  type="button"
+                  onClick={() => setActivePopover(null)}
+                  className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
+                >
+                  Apply
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Search Rooms CTA Button */}
           <button
             type="button"
             onClick={handleSearch}
-            className="flex h-[48px] sm:h-[58px] lg:h-[44px] w-full lg:w-[248px] shrink-0 items-center justify-center gap-2.5 rounded-[8px] bg-[#1B4D32] px-6 text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f] transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center"
+            className="flex h-[48px] sm:h-[58px] lg:h-[44px] w-full lg:w-[220px] xl:w-[248px] shrink-0 items-center justify-center gap-2.5 rounded-[8px] bg-[#1B4D32] px-5 sm:px-6 text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f] transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer"
           >
             <span>Search Rooms</span>
             <ArrowRight size={20} className="stroke-[2]" />
           </button>
         </div>
       </div>
-
-      {/* Popovers Layer (Positioned with high z-index and ample spacing) */}
-      {/* Date Picker Popover */}
-      {(activePopover === "checkIn" || activePopover === "checkOut") && (
-        <div
-          className={classNames(
-            "absolute top-[calc(100%+10px)] z-50 w-[calc(100vw-32px)] sm:w-[330px] rounded-2xl border border-[#E8DCC9] bg-[#FFFDF9] p-4 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.22)] animate-in fade-in zoom-in-95 duration-150",
-            activePopover === "checkIn"
-              ? "left-2 sm:left-4"
-              : "left-2 sm:left-auto sm:right-4 lg:left-[27%] lg:right-auto"
-          )}
-        >
-          {/* Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-[#E8DCC9]/60">
-            <div>
-              <span className="text-[13.5px] font-bold text-[#1B4D32] block">
-                {activePopover === "checkIn" ? "Select Check-In Date" : "Select Check-Out Date"}
-              </span>
-              <span className="text-[11px] text-[#8B8E87]">
-                {checkInText ? `Check-in: ${checkInText}` : "Step 1 of 2"}
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => setActivePopover(null)}
-              className="p-1 rounded-full text-[#8B8E87] hover:bg-[#F8F5EA] hover:text-[#1B4D32]"
-            >
-              <X size={16} />
-            </button>
-          </div>
-
-          {/* Month Navigation */}
-          <div className="py-3">
-            <div className="flex items-center justify-between mb-3 px-1">
-              <button
-                type="button"
-                disabled={currentMonthIdx === 0}
-                onClick={() => setCurrentMonthIdx((prev) => Math.max(0, prev - 1))}
-                className="p-1 rounded-full text-[#1B4D32] hover:bg-[#F8F5EA] disabled:opacity-25"
-                aria-label="Previous month"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <span className="font-semibold text-[13.5px] text-[#233028]">
-                {activeMonth.name}
-              </span>
-              <button
-                type="button"
-                disabled={currentMonthIdx === MONTH_DATA.length - 1}
-                onClick={() =>
-                  setCurrentMonthIdx((prev) => Math.min(MONTH_DATA.length - 1, prev + 1))
-                }
-                className="p-1 rounded-full text-[#1B4D32] hover:bg-[#F8F5EA] disabled:opacity-25"
-                aria-label="Next month"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
-
-            {/* Days of Week */}
-            <div className="grid grid-cols-7 gap-1 text-center text-[11px] font-bold text-[#8B8E87] mb-1.5">
-              <span>Su</span>
-              <span>Mo</span>
-              <span>Tu</span>
-              <span>We</span>
-              <span>Th</span>
-              <span>Fr</span>
-              <span>Sa</span>
-            </div>
-
-            {/* Date Cells */}
-            <div className="grid grid-cols-7 gap-1 text-center text-[12.5px]">
-              {/* Empty leading day cells */}
-              {Array.from({ length: activeMonth.startDayOffset }).map((_, i) => (
-                <span key={`empty-${i}`} className="h-8 w-8" />
-              ))}
-
-              {Array.from({ length: activeMonth.days }, (_, i) => i + 1).map((day) => {
-                const isCheckIn = checkInDay === day;
-                const isCheckOut = checkOutDay === day;
-                const isInRange =
-                  checkInDay &&
-                  checkOutDay &&
-                  day > checkInDay &&
-                  day < checkOutDay;
-
-                return (
-                  <button
-                    key={day}
-                    type="button"
-                    onClick={() => handleDateClick(day)}
-                    className={classNames(
-                      "h-8 w-8 mx-auto rounded-full flex items-center justify-center font-medium transition-all",
-                      isCheckIn || isCheckOut
-                        ? "bg-[#1B4D32] text-white font-bold shadow-sm"
-                        : isInRange
-                        ? "bg-[#1B4D32]/15 text-[#1B4D32] font-semibold"
-                        : "text-[#233028] hover:bg-[#F3EAD9]"
-                    )}
-                  >
-                    {day}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Quick Action Footer */}
-          <div className="pt-2 border-t border-[#E8DCC9]/60 flex items-center justify-between text-[12px]">
-            <button
-              type="button"
-              onClick={() => {
-                setCheckInDay(null);
-                setCheckOutDay(null);
-              }}
-              className="text-[#8B8E87] hover:text-[#1B4D32] underline"
-            >
-              Clear
-            </button>
-            <button
-              type="button"
-              onClick={() => setActivePopover(null)}
-              className="px-3 py-1 bg-[#1B4D32] text-[#FBF5EA] rounded-md font-semibold hover:bg-[#153e28]"
-            >
-              Done
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Hourly Duration Popover */}
-      {activePopover === "duration" && (
-        <div className="absolute top-[calc(100%+10px)] left-2 sm:left-auto sm:right-4 lg:left-[27%] lg:right-auto z-50 w-[calc(100vw-32px)] sm:w-[250px] rounded-2xl border border-[#E8DCC9] bg-[#FFFDF9] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.22)] animate-in fade-in zoom-in-95 duration-150">
-          <div className="flex items-center justify-between pb-2 border-b border-[#E8DCC9]/60">
-            <span className="text-[13.5px] font-bold text-[#1B4D32]">Select Duration</span>
-            <button
-              type="button"
-              onClick={() => setActivePopover(null)}
-              className="p-1 text-[#8B8E87] hover:text-[#1B4D32]"
-            >
-              <X size={16} />
-            </button>
-          </div>
-          <div className="py-2.5 flex flex-col gap-1.5">
-            {["3 Hours", "6 Hours", "12 Hours", "24 Hours"].map((opt) => (
-              <button
-                key={opt}
-                type="button"
-                onClick={() => {
-                  setDuration(opt);
-                  setActivePopover(null);
-                }}
-                className={classNames(
-                  "flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[13px] font-medium transition-colors text-left",
-                  duration === opt
-                    ? "bg-[#1B4D32] text-white"
-                    : "text-[#233028] hover:bg-[#F8F5EA]"
-                )}
-              >
-                <span>{opt}</span>
-                {duration === opt && <Check size={16} />}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Guests & Rooms Popover */}
-      {activePopover === "guests" && (
-        <div className="absolute top-[calc(100%+10px)] left-2 sm:left-auto right-2 sm:right-4 lg:right-[260px] z-50 w-[calc(100vw-32px)] sm:w-[300px] rounded-2xl border border-[#E8DCC9] bg-[#FFFDF9] p-4 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.22)] animate-in fade-in zoom-in-95 duration-150">
-          <div className="flex items-center justify-between pb-3 border-b border-[#E8DCC9]/60">
-            <span className="text-[13.5px] font-bold text-[#1B4D32]">
-              Guests & Rooms
-            </span>
-            <button
-              type="button"
-              onClick={() => setActivePopover(null)}
-              className="p-1 text-[#8B8E87] hover:text-[#1B4D32]"
-            >
-              <X size={16} />
-            </button>
-          </div>
-          <div className="py-3 flex flex-col gap-3.5">
-            {/* Adults */}
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-[13px] font-bold text-[#233028]">Adults</div>
-                <div className="text-[11px] text-[#8B8E87]">Ages 13 or above</div>
-              </div>
-              <div className="flex items-center gap-2 border border-[#E8DCC9] rounded-lg px-2 py-1 bg-[#FBF5EA]">
-                <button
-                  type="button"
-                  disabled={adults <= 1}
-                  onClick={() => setAdults((prev) => Math.max(1, prev - 1))}
-                  className="w-6 h-6 flex items-center justify-center font-bold text-[#1B4D32] disabled:opacity-25"
-                >
-                  -
-                </button>
-                <span className="w-5 text-center text-[13px] font-bold text-[#233028]">
-                  {adults}
-                </span>
-                <button
-                  type="button"
-                  disabled={adults >= 8}
-                  onClick={() => setAdults((prev) => Math.min(8, prev + 1))}
-                  className="w-6 h-6 flex items-center justify-center font-bold text-[#1B4D32] disabled:opacity-25"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            {/* Children */}
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-[13px] font-bold text-[#233028]">Children</div>
-                <div className="text-[11px] text-[#8B8E87]">Ages 0 to 12</div>
-              </div>
-              <div className="flex items-center gap-2 border border-[#E8DCC9] rounded-lg px-2 py-1 bg-[#FBF5EA]">
-                <button
-                  type="button"
-                  disabled={childrenCount <= 0}
-                  onClick={() =>
-                    setChildrenCount((prev) => Math.max(0, prev - 1))
-                  }
-                  className="w-6 h-6 flex items-center justify-center font-bold text-[#1B4D32] disabled:opacity-25"
-                >
-                  -
-                </button>
-                <span className="w-5 text-center text-[13px] font-bold text-[#233028]">
-                  {childrenCount}
-                </span>
-                <button
-                  type="button"
-                  disabled={childrenCount >= 6}
-                  onClick={() =>
-                    setChildrenCount((prev) => Math.min(6, prev + 1))
-                  }
-                  className="w-6 h-6 flex items-center justify-center font-bold text-[#1B4D32] disabled:opacity-25"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            {/* Rooms */}
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-[13px] font-bold text-[#233028]">Rooms</div>
-                <div className="text-[11px] text-[#8B8E87]">Total rooms</div>
-              </div>
-              <div className="flex items-center gap-2 border border-[#E8DCC9] rounded-lg px-2 py-1 bg-[#FBF5EA]">
-                <button
-                  type="button"
-                  disabled={rooms <= 1}
-                  onClick={() => setRooms((prev) => Math.max(1, prev - 1))}
-                  className="w-6 h-6 flex items-center justify-center font-bold text-[#1B4D32] disabled:opacity-25"
-                >
-                  -
-                </button>
-                <span className="w-5 text-center text-[13px] font-bold text-[#233028]">
-                  {rooms}
-                </span>
-                <button
-                  type="button"
-                  disabled={rooms >= 5}
-                  onClick={() => setRooms((prev) => Math.min(5, prev + 1))}
-                  className="w-6 h-6 flex items-center justify-center font-bold text-[#1B4D32] disabled:opacity-25"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={() => setActivePopover(null)}
-            className="w-full mt-2 py-2 rounded-lg bg-[#1B4D32] text-[#FBF5EA] text-[13px] font-bold hover:bg-[#153e28] transition-colors"
-          >
-            Apply
-          </button>
-        </div>
-      )}
     </div>
   );
 }

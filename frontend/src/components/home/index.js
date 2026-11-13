@@ -1,2 +1,12 @@
 export { default as HeroSection } from "./HeroSection";
-
+export { default as ExperienceSection } from "./ExperienceSection";
+export { default as ValenciaExperience } from "./ExperienceSection";
+export { default as ServicesSection } from "./ServicesSection";
+export { default as EverythingSection } from "./ServicesSection";
+export { default as RoomsSection } from "./RoomsSection";
+export { default as FindYourStaySection } from "./RoomsSection";
+export { default as PropertiesSection } from "./PropertiesSection";
+export { default as CollectionSection } from "./PropertiesSection";
+export { default as DiscoverOurCollection } from "./PropertiesSection";
+export { default as DiningSection } from "./DiningSection";
+export { default as DiningExperience } from "./DiningSection";

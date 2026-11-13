@@ -1,5 +1,12 @@
 import { MainLayout } from "../components/layout";
-import { HeroSection } from "../components/home";
+import {
+  HeroSection,
+  ExperienceSection,
+  ServicesSection,
+  RoomsSection,
+  PropertiesSection,
+  DiningSection,
+} from "../components/home";
 
 export const metadata = {
   title: "Valencia - A Luxury Boutique Hotel",
@@ -11,6 +18,11 @@ export default function HomePage() {
   return (
     <MainLayout activeNavItem="Home">
       <HeroSection />
+      <ExperienceSection />
+      <ServicesSection />
+      <RoomsSection />
+      <PropertiesSection />
+      <DiningSection />
     </MainLayout>
   );
 }
