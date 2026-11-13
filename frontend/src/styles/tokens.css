@@ -1,6 +1,10 @@
 :root {
   --valencia-color-deep-green: #1b4d32;
   --valencia-color-antique-gold: #c9a96a;
+  --valencia-color-gold: #bc9756;
+  --valencia-color-charcoal: #34413f;
+  --valencia-color-muted-gray: #8b8e87;
+  --valencia-color-whatsapp: #2ab318;
   --valencia-color-ivory: #fbf5ea;
   --valencia-color-ivory-guide: #f8f5ea;
   --valencia-color-warm-beige: #e8dcc9;
@@ -30,6 +34,10 @@
 @theme inline {
   --color-primary: var(--valencia-color-deep-green);
   --color-accent: var(--valencia-color-antique-gold);
+  --color-gold: var(--valencia-color-gold);
+  --color-charcoal: var(--valencia-color-charcoal);
+  --color-muted-gray: var(--valencia-color-muted-gray);
+  --color-whatsapp: var(--valencia-color-whatsapp);
   --color-ivory: var(--valencia-color-ivory);
   --color-ivory-guide: var(--valencia-color-ivory-guide);
   --color-warm-beige: var(--valencia-color-warm-beige);
