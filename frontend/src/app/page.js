@@ -6,6 +6,7 @@ import {
   RoomsSection,
   PropertiesSection,
   DiningSection,
+  GlimpseOfValenciaSection,
   GuestExperiencesSection,
   YourNextStayBooking,
 } from "../components/home";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <RoomsSection />
       <PropertiesSection />
       <DiningSection />
+      <GlimpseOfValenciaSection />
       <GuestExperiencesSection />
       <YourNextStayBooking />
     </MainLayout>

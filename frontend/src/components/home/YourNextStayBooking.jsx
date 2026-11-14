@@ -115,7 +115,7 @@ export default function YourNextStayBooking() {
           >
             <span className="relative w-4 h-4 flex items-center justify-center">
               <Image
-                src="/images/homepage/your-stay/moon.svg"
+                src="/images/homepage/your stay above footer/moon_svgrepo.com.svg"
                 alt=""
                 width={16}
                 height={16}
@@ -143,8 +143,8 @@ export default function YourNextStayBooking() {
               <Image
                 src={
                   stayMode === "hourly"
-                    ? "/images/homepage/your-stay/clock-white.svg"
-                    : "/images/homepage/your-stay/clock-green.svg"
+                    ? "/images/homepage/your stay above footer/clock-three_svgrepo.com.svg"
+                    : "/images/homepage/your stay above footer/clock-three_svgrepo.com 2.svg"
                 }
                 alt=""
                 width={16}
@@ -168,7 +168,7 @@ export default function YourNextStayBooking() {
             >
               <div className="field-icon">
                 <Image
-                  src="/images/homepage/your-stay/calendar-checkin.svg"
+                  src="/images/homepage/your stay above footer/Check In/Icon.svg"
                   alt="Calendar"
                   width={22}
                   height={22}
@@ -184,7 +184,7 @@ export default function YourNextStayBooking() {
                 }`}
               >
                 <Image
-                  src="/images/homepage/your-stay/chevron.svg"
+                  src="/images/homepage/your stay above footer/Check In/Chevron.svg"
                   alt=""
                   width={12}
                   height={12}
@@ -279,7 +279,7 @@ export default function YourNextStayBooking() {
             >
               <div className="field-icon">
                 <Image
-                  src="/images/homepage/your-stay/calendar-checkout.svg"
+                  src="/images/homepage/your stay above footer/Check Out/Icon.svg"
                   alt="Calendar"
                   width={22}
                   height={22}
@@ -295,7 +295,7 @@ export default function YourNextStayBooking() {
                 }`}
               >
                 <Image
-                  src="/images/homepage/your-stay/chevron.svg"
+                  src="/images/homepage/your stay above footer/Check In/Chevron.svg"
                   alt=""
                   width={12}
                   height={12}
@@ -390,7 +390,7 @@ export default function YourNextStayBooking() {
             >
               <div className="field-icon">
                 <Image
-                  src="/images/homepage/your-stay/clock-green.svg"
+                  src="/images/homepage/your stay above footer/clock-three_svgrepo.com 2.svg"
                   alt="Duration"
                   width={22}
                   height={22}
@@ -406,7 +406,7 @@ export default function YourNextStayBooking() {
                 }`}
               >
                 <Image
-                  src="/images/homepage/your-stay/chevron.svg"
+                  src="/images/homepage/your stay above footer/Check In/Chevron.svg"
                   alt=""
                   width={12}
                   height={12}
@@ -420,7 +420,7 @@ export default function YourNextStayBooking() {
                 <div className="duration-header">
                   <div className="field-icon mt-0.5">
                     <Image
-                      src="/images/homepage/your-stay/clock-green.svg"
+                      src="/images/homepage/your stay above footer/clock-three_svgrepo.com 2.svg"
                       alt=""
                       width={22}
                       height={22}
@@ -500,7 +500,7 @@ export default function YourNextStayBooking() {
             >
               <div className="field-icon">
                 <Image
-                  src="/images/homepage/your-stay/guests.svg"
+                  src="/images/homepage/your stay above footer/Guests & Rooms/Icon.svg"
                   alt="Guests"
                   width={22}
                   height={22}
@@ -516,7 +516,7 @@ export default function YourNextStayBooking() {
                 }`}
               >
                 <Image
-                  src="/images/homepage/your-stay/chevron.svg"
+                  src="/images/homepage/your stay above footer/Check In/Chevron.svg"
                   alt=""
                   width={12}
                   height={12}
@@ -530,7 +530,7 @@ export default function YourNextStayBooking() {
                 <div className="guests-header">
                   <div className="field-icon">
                     <Image
-                      src="/images/homepage/your-stay/guests.svg"
+                      src="/images/homepage/your stay above footer/Guests & Rooms/Icon.svg"
                       alt=""
                       width={22}
                       height={22}
@@ -637,7 +637,7 @@ export default function YourNextStayBooking() {
             <span>Search Rooms</span>
             <span className="search-cta-arrow">
               <Image
-                src="/images/homepage/your-stay/search-arrow.svg"
+                src="/images/homepage/your stay above footer/Search arrow.svg"
                 alt=""
                 width={18}
                 height={18}

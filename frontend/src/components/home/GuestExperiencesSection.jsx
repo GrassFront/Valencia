@@ -9,7 +9,7 @@ const REVIEWS = [
     id: "ritika",
     name: "Ritika Sharma",
     location: "MUMBAI, INDIA",
-    portrait: "/images/homepage/guest-experiences/ritika-sharma.png",
+    portrait: "/images/homepage/GUEST EXPERIENCES/Ritika Sharma/Cropped portrait.png",
     headline: "“An absolutely\nremarkable stay.”",
     text: "The attention to detail, warm hospitality and elegant rooms made our stay truly special. Everything felt so thoughtfully curated.",
   },
@@ -17,7 +17,7 @@ const REVIEWS = [
     id: "arjun",
     name: "Arjun Kapoor",
     location: "DELHI, INDIA",
-    portrait: "/images/homepage/guest-experiences/arjun-kapoor.png",
+    portrait: "/images/homepage/GUEST EXPERIENCES/Arjun Kapoor/Cropped portrait.png",
     headline: "“A perfect blend of\nluxury and comfort.”",
     text: "From check-in to checkout, every moment was memorable. The ambience, service and attention to detail exceeded our expectations.",
   },
@@ -25,7 +25,7 @@ const REVIEWS = [
     id: "neha",
     name: "Neha Patel",
     location: "BENGALURU, INDIA",
-    portrait: "/images/homepage/guest-experiences/neha-patel.png",
+    portrait: "/images/homepage/GUEST EXPERIENCES/Neha Patel/Cropped portrait.png",
     headline: "“Exceptional experience\nin every way.”",
     text: "The food, service and ambience were outstanding. A truly refined experience with impeccable hospitality. We can’t wait to return.",
   },
@@ -124,7 +124,7 @@ export default function GuestExperiencesSection() {
                     <span className="quote-mark">“</span>
                     <div className="five-stars">
                       <Image
-                        src="/images/homepage/guest-experiences/five-stars.svg"
+                        src="/images/homepage/GUEST EXPERIENCES/Five stars.svg"
                         alt="5 stars"
                         width={92}
                         height={24}

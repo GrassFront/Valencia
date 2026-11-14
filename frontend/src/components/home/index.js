@@ -10,5 +10,8 @@ export { default as CollectionSection } from "./PropertiesSection";
 export { default as DiscoverOurCollection } from "./PropertiesSection";
 export { default as DiningSection } from "./DiningSection";
 export { default as DiningExperience } from "./DiningSection";
+export { default as GlimpseOfValenciaSection } from "./GlimpseOfValenciaSection";
+export { default as GalleryAndThoughtfulDetails } from "./GlimpseOfValenciaSection";
+export { default as Component08GalleryAndThoughtfulDetails } from "./GlimpseOfValenciaSection";
 export { default as GuestExperiencesSection } from "./GuestExperiencesSection";
 export { default as YourNextStayBooking } from "./YourNextStayBooking";
