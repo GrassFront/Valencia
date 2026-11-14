@@ -11,7 +11,7 @@
   padding: 77px 20px 77px 20px;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
 }
 
@@ -79,7 +79,7 @@
 
 .your-next-stay-booking .search-bar-card {
   position: relative;
-  z-index: 10;
+  z-index: 30;
   width: 100%;
   max-width: 1180px;
   background-color: #F8F5EA;
@@ -151,20 +151,34 @@
   }
 }
 
+.your-next-stay-booking .field-wrapper {
+  position: relative;
+  flex: 1 1 auto;
+}
+
 .your-next-stay-booking .field-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   cursor: pointer;
-  flex: 1 1 auto;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
   user-select: none;
+  background-color: transparent;
+  box-sizing: border-box;
 }
 
 .your-next-stay-booking .field-item:hover {
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.your-next-stay-booking .field-item-active {
+  border: 1px solid #1B4D32 !important;
+  background-color: #F8F5EA !important;
+  box-shadow: 0 2px 8px rgba(27, 77, 50, 0.1);
 }
 
 .your-next-stay-booking .field-icon {
@@ -206,6 +220,11 @@
   height: 12px;
   margin-left: auto;
   opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.your-next-stay-booking .field-chevron-up {
+  transform: rotate(180deg);
 }
 
 .your-next-stay-booking .field-divider {
@@ -220,6 +239,343 @@
   .your-next-stay-booking .field-divider {
     display: block;
   }
+}
+
+/* ======================================================== */
+/* Interactive Popovers                                     */
+/* ======================================================== */
+
+.your-next-stay-booking .booking-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 60;
+  width: calc(100vw - 40px);
+  max-width: 335px;
+  background-color: #F8F5EA;
+  border: 1px solid #E8DCC9;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.2);
+  animation: popoverFadeIn 0.18s ease-out;
+}
+
+.your-next-stay-booking .booking-popover-right {
+  left: auto;
+  right: 0;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Calendar Styles */
+.your-next-stay-booking .cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.your-next-stay-booking .cal-header-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #233028;
+  transition: background-color 0.2s ease;
+}
+
+.your-next-stay-booking .cal-header-btn:hover {
+  background-color: #EFE4D2;
+}
+
+.your-next-stay-booking .cal-header-title {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #233028;
+}
+
+.your-next-stay-booking .cal-days-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #BC9756;
+  margin-bottom: 8px;
+}
+
+.your-next-stay-booking .cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.your-next-stay-booking .cal-day-cell {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #233028;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.your-next-stay-booking .cal-day-cell:hover {
+  background-color: #EFE4D2;
+}
+
+.your-next-stay-booking .cal-day-selected {
+  background-color: #1B4D32 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.your-next-stay-booking .cal-apply-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #1B4D32;
+  color: #F8F5EA;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.your-next-stay-booking .cal-apply-btn:hover {
+  background-color: #153E28;
+}
+
+/* Duration Popover Styles */
+.your-next-stay-booking .duration-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.your-next-stay-booking .duration-title {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #233028;
+  margin: 0;
+  line-height: 20px;
+}
+
+.your-next-stay-booking .duration-subtitle {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 12px;
+  color: #8B8E87;
+  margin: 2px 0 0 0;
+  line-height: 16px;
+}
+
+.your-next-stay-booking .duration-input {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #1B4D32;
+  background-color: #F8F5EA;
+  padding: 0 14px;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #233028;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.your-next-stay-booking .duration-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.your-next-stay-booking .duration-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #E8DCC9;
+}
+
+.your-next-stay-booking .duration-divider-text {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8B8E87;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.your-next-stay-booking .duration-chips-label {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #233028;
+  margin-bottom: 10px;
+}
+
+.your-next-stay-booking .duration-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.your-next-stay-booking .duration-chip {
+  height: 36px;
+  border-radius: 18px;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #E8DCC9;
+  background-color: #F8F5EA;
+  color: #233028;
+}
+
+.your-next-stay-booking .duration-chip:hover {
+  background-color: #EFE4D2;
+}
+
+.your-next-stay-booking .duration-chip-active {
+  background-color: #1B4D32 !important;
+  color: #F8F5EA !important;
+  border-color: transparent !important;
+  box-shadow: 0 2px 6px rgba(27, 77, 50, 0.2);
+}
+
+/* Guests & Rooms Popover Styles */
+.your-next-stay-booking .guests-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.your-next-stay-booking .guests-title {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B4D32;
+  margin: 0;
+}
+
+.your-next-stay-booking .stepper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  margin-bottom: 12px;
+}
+
+.your-next-stay-booking .stepper-label {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #233028;
+}
+
+.your-next-stay-booking .stepper-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.your-next-stay-booking .stepper-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #F4ECE0;
+  color: #233028;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.your-next-stay-booking .stepper-btn:hover:not(:disabled) {
+  background-color: #EBDCC8;
+}
+
+.your-next-stay-booking .stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.your-next-stay-booking .stepper-val {
+  width: 20px;
+  text-align: center;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #233028;
+}
+
+.your-next-stay-booking .guests-divider {
+  height: 1px;
+  background-color: #E8DCC9;
+  margin: 12px 0;
+}
+
+.your-next-stay-booking .guests-subhead {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #233028;
+  margin-bottom: 12px;
+}
+
+.your-next-stay-booking .guests-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.your-next-stay-booking .guests-col-label {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #34413F;
+  margin-bottom: 8px;
 }
 
 /* Search Rooms CTA Button */
@@ -276,7 +632,7 @@
     line-height: 28px;
   }
 
-  .your-next-stay-booking .field-item {
+  .your-next-stay-booking .field-wrapper {
     min-width: 45%;
     border-bottom: 1px solid #E8DCC9;
     padding-bottom: 8px;
@@ -309,7 +665,7 @@
     line-height: 24px;
   }
 
-  .your-next-stay-booking .field-item {
+  .your-next-stay-booking .field-wrapper {
     min-width: 100%;
   }
 
