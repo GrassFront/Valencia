@@ -6,6 +6,8 @@ import {
   RoomsSection,
   PropertiesSection,
   DiningSection,
+  BeyondYourStaySection,
+  BannerSection,
   GlimpseOfValenciaSection,
   GuestExperiencesSection,
   YourNextStayBooking,
@@ -26,6 +28,8 @@ export default function HomePage() {
       <RoomsSection />
       <PropertiesSection />
       <DiningSection />
+      <BeyondYourStaySection />
+      <BannerSection />
       <GlimpseOfValenciaSection />
       <GuestExperiencesSection />
       <YourNextStayBooking />
