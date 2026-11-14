@@ -1,5 +1,5 @@
 import Header from "./Header";
-import WhatsAppButton from "../common/WhatsAppButton";
+import Footer from "../footer";
 
 export default function MainLayout({ children, activeNavItem = "Home" }) {
   return (
@@ -8,7 +8,7 @@ export default function MainLayout({ children, activeNavItem = "Home" }) {
       <main className="flex-1 w-full">
         {children}
       </main>
-      <WhatsAppButton />
+      <Footer />
     </div>
   );
 }
