@@ -101,7 +101,7 @@ export default function RegisterForm() {
         <div className="w-full">
           <AuthInput
             id="register-fullname"
-            label="Full name"
+            label="Full Name"
             placeholder="Enter your full name"
             value={fullName}
             onChange={(e) => {
@@ -124,7 +124,7 @@ export default function RegisterForm() {
             htmlFor="register-mobile"
             className="font-body text-[16px] sm:text-[18px] leading-[24px] text-[#514B46] select-none"
           >
-            Mobile number
+            Mobile Number
           </label>
           <div className="w-full flex items-start gap-[10px]">
             {/* Country code selector */}
@@ -149,9 +149,8 @@ export default function RegisterForm() {
             {/* Mobile number input */}
             <div className="flex-1">
               <div
-                className={`w-full h-[50px] sm:h-[52px] bg-[#FCFBF9] border ${
-                  errors.mobileNumber ? "border-red-500" : "border-[#D5D5D5]"
-                } focus-within:border-[#164C3B] rounded-[6px] px-[22px] flex items-center`}
+                className={`w-full h-[50px] sm:h-[52px] bg-[#FCFBF9] border ${errors.mobileNumber ? "border-red-500" : "border-[#D5D5D5]"
+                  } focus-within:border-[#164C3B] rounded-[6px] px-[22px] flex items-center`}
               >
                 <input
                   id="register-mobile"
@@ -185,7 +184,7 @@ export default function RegisterForm() {
           <AuthInput
             id="register-email"
             type="email"
-            label="Email address"
+            label="Email Address"
             placeholder="you@example.com"
             value={email}
             onChange={(e) => {

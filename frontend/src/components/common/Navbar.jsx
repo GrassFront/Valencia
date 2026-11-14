@@ -42,7 +42,7 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
         {/* Desktop Navigation Links (Visible on xl screens 1200px+) */}
         <div className="hidden xl:flex items-center gap-3.5 2xl:gap-5 h-[50px] shrink-0">
           {NAV_ITEMS.map((item) => {
-            const isActive = item.label === activeItem || item.active;
+            const isActive = activeItem ? item.label === activeItem : item.active;
             const hasChildren = item.hasDropdown && item.children;
 
             return (
@@ -78,7 +78,7 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
                 {/* Active Indicator Underline */}
                 {isActive && (
                   <span
-                    className="absolute bottom-0 left-0 h-[2px] w-[37px] bg-[#BC9756]"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#BC9756]"
                     aria-hidden="true"
                   />
                 )}
@@ -166,7 +166,9 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
       {mobileMenuOpen && (
         <div className="xl:hidden bg-[#F8F5EA] border-t border-[#E8DCC9] px-6 py-5 shadow-2xl animate-in slide-in-from-top duration-200">
           <div className="flex flex-col gap-2">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.map((item) => {
+              const isMobileActive = activeItem ? item.label === activeItem : item.active;
+              return (
               <div key={item.label} className="border-b border-[#E8DCC9]/40 last:border-b-0 pb-2">
                 <div
                   className="flex items-center justify-between py-2 cursor-pointer"
@@ -177,7 +179,7 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
                     onClick={() => !item.hasDropdown && setMobileMenuOpen(false)}
                     className={classNames(
                       "text-[15px] font-medium transition-colors",
-                      item.active ? "text-[#BC9756] font-semibold" : "text-[#34413F]"
+                      isMobileActive ? "text-[#BC9756] font-semibold" : "text-[#34413F]"
                     )}
                   >
                     {item.label}
@@ -214,7 +216,8 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
                   </div>
                 )}
               </div>
-            ))}
+            );
+            })}
             <Link
               href="/login"
               onClick={() => setMobileMenuOpen(false)}

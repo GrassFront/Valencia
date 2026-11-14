@@ -68,7 +68,7 @@ export default function ForgotPasswordForm() {
           <AuthInput
             id="forgot-email"
             type="email"
-            label="Email address"
+            label="Email Address"
             placeholder="you@example.com"
             value={email}
             onChange={(e) => {

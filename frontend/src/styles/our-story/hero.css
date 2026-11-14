@@ -1,0 +1,153 @@
+/* ==============================================================
+   Our Story - Hero Section Styles
+   Matches Figma: "Our Story / Hero" (Frame 29)
+   ============================================================== */
+
+.story-hero-section {
+  position: relative;
+  width: 100%;
+  background-color: #35220e;
+  overflow: hidden;
+}
+
+.story-hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 598px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 72px 24px 48px 32px;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 1280px) {
+  .story-hero-container {
+    height: 598px;
+    padding: 72px 48px 0 95px;
+  }
+}
+
+.story-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.story-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.story-hero-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 799px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(33, 21, 6, 0.94) 0%, rgba(33, 21, 6, 0.82) 55%, rgba(33, 21, 6, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.story-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story-hero-breadcrumb {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 28px;
+  color: #D6C5A5;
+}
+
+.story-hero-breadcrumb a {
+  color: #D6C5A5;
+  transition: color 0.2s ease;
+}
+
+.story-hero-breadcrumb a:hover {
+  color: #FFFFFF;
+}
+
+.story-hero-eyebrow {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.28em;
+  color: #C9A96A;
+  text-transform: uppercase;
+}
+
+.story-hero-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 90px;
+  color: #FFFDF7;
+  letter-spacing: -0.01em;
+}
+
+.story-hero-statement {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 54px;
+  color: #F5E9CF;
+}
+
+.story-hero-description {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 27px;
+  color: #E5E1D7;
+  max-width: 650px;
+}
+
+.story-hero-scroll {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  z-index: 3;
+  margin-top: 36px;
+}
+
+@media (min-width: 1280px) {
+  .story-hero-scroll {
+    position: absolute;
+    left: 95px;
+    bottom: 45px;
+    margin-top: 0;
+  }
+}
+
+.story-hero-scroll-label {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  color: #F8F5EA;
+  text-transform: uppercase;
+}

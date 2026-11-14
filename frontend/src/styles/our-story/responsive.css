@@ -1,0 +1,470 @@
+/* ==============================================================
+   Our Story - Responsive Media Queries
+   Pixel-perfect across Desktop (1440px), Laptop (1200px), Tablet (768px-1024px), Mobile (<768px)
+   ============================================================== */
+
+/* --- Laptops & Intermediate Viewports (1024px - 1279px) --- */
+@media (max-width: 1279px) {
+  /* Hero */
+  .story-hero-container {
+    padding: 60px 40px 0;
+    height: 560px;
+    min-height: 560px;
+  }
+  .story-hero-title {
+    font-size: 64px;
+    line-height: 74px;
+  }
+  .story-hero-statement {
+    font-size: 38px;
+    line-height: 46px;
+  }
+  .story-hero-scroll {
+    left: 40px;
+    top: 465px;
+  }
+
+  /* Family Section */
+  .family-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 32px;
+    gap: 40px;
+    min-height: auto;
+  }
+  .family-image-wrapper {
+    width: 100%;
+    max-width: 650px;
+    height: 520px;
+  }
+  .family-content {
+    width: 100%;
+    max-width: 650px;
+    padding-top: 0;
+  }
+  .family-heading {
+    font-size: 48px;
+    line-height: 54px;
+  }
+  .family-bg-watermark {
+    opacity: 0.25;
+    width: 250px;
+    height: 430px;
+  }
+
+  /* Philosophy Section - Fully Responsive on Tablet */
+  .philosophy-container {
+    padding: 44px 30px 54px;
+    gap: 36px;
+    min-height: auto;
+  }
+  .philosophy-item {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .philosophy-v-divider {
+    display: none !important;
+  }
+
+  /* Journey Timeline Section */
+  .journey-container {
+    padding: 44px 36px 54px;
+    min-height: auto;
+  }
+  .journey-intro {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .journey-disclaimer-box {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    padding-top: 0;
+  }
+  .journey-disclaimer-label,
+  .journey-disclaimer-text {
+    text-align: left;
+  }
+  .journey-timeline-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 44px;
+    min-height: auto;
+    margin-top: 24px;
+  }
+  .journey-connector-line {
+    display: none !important;
+  }
+  .journey-milestone {
+    max-width: 520px;
+    height: auto;
+  }
+  .journey-illustration-wrap {
+    margin-top: 16px;
+  }
+
+  /* Chef Section */
+  .chef-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 44px 32px 50px;
+    gap: 36px;
+    min-height: auto;
+  }
+  .chef-portrait-wrap {
+    width: 100%;
+    max-width: 540px;
+    height: 480px;
+  }
+  .chef-content {
+    width: 100%;
+    max-width: 640px;
+    padding-top: 0;
+  }
+  .chef-title {
+    font-size: 54px;
+    line-height: 68px;
+  }
+  .chef-corner-bg {
+    opacity: 0.12;
+  }
+
+  /* CTA Section */
+  .cta-container {
+    padding: 80px 36px;
+    min-height: auto;
+  }
+  .cta-content-frame {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    min-height: auto;
+  }
+  .cta-headline {
+    font-size: 52px;
+    line-height: 66px;
+  }
+}
+
+/* --- Tablets (768px - 1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .story-hero-container {
+    padding: 50px 28px 0;
+    height: 520px;
+    min-height: 520px;
+  }
+  .story-hero-title {
+    font-size: 56px;
+    line-height: 66px;
+  }
+  .story-hero-statement {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .story-hero-description {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .story-hero-scroll {
+    left: 28px;
+    top: 440px;
+  }
+
+  .family-container {
+    padding: 44px 24px;
+  }
+  .family-heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+  .family-body-text {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .philosophy-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  .journey-title {
+    font-size: 48px;
+    line-height: 58px;
+  }
+  .journey-subtitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .chef-title {
+    font-size: 46px;
+    line-height: 58px;
+  }
+  .chef-bio-p {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .cta-container {
+    padding: 80px 40px 130px;
+    min-height: 520px;
+    align-items: flex-start;
+  }
+  .cta-content-frame {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .cta-headline {
+    font-size: 46px;
+    line-height: 58px;
+  }
+  .cta-description {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .cta-bg-image {
+    height: 340px;
+    opacity: 0.35;
+  }
+}
+
+/* --- Mobile Devices (< 768px) --- */
+@media (max-width: 767px) {
+  /* Hero */
+  .story-hero-container {
+    padding: 36px 20px 70px;
+    min-height: 480px;
+    height: auto;
+  }
+  .story-hero-eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    line-height: 24px;
+  }
+  .story-hero-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+  .story-hero-statement {
+    font-size: 26px;
+    line-height: 34px;
+  }
+  .story-hero-description {
+    font-size: 15px;
+    line-height: 23px;
+  }
+  .story-hero-scroll {
+    position: static;
+    margin-top: 36px;
+  }
+
+  /* Family */
+  .family-container {
+    flex-direction: column;
+    padding: 36px 20px;
+    gap: 32px;
+  }
+  .family-image-wrapper {
+    width: 100%;
+    height: 380px;
+  }
+  .family-eyebrow-row {
+    width: 100%;
+    gap: 12px;
+  }
+  .family-eyebrow-divider {
+    width: 32px;
+  }
+  .family-eyebrow-text {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+  }
+  .family-heading {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .family-body-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .family-cards-list {
+    width: 100%;
+  }
+  .family-card-item {
+    gap: 16px;
+  }
+  .family-card-icon {
+    width: 58px;
+    height: 48px;
+  }
+  .family-card-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .family-card-desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .family-divider-line {
+    width: 100%;
+  }
+  .family-bg-watermark {
+    display: none;
+  }
+
+  /* Philosophy */
+  .philosophy-container {
+    padding: 36px 20px 48px;
+    gap: 30px;
+  }
+  .philosophy-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+  }
+  .philosophy-title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .philosophy-subtitle {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .philosophy-item {
+    max-width: 280px !important;
+  }
+  .philosophy-v-divider {
+    display: none !important;
+  }
+  .philosophy-edge-left,
+  .philosophy-edge-right {
+    display: none !important;
+  }
+
+  /* Journey Timeline */
+  .journey-container {
+    padding: 36px 20px 48px;
+    gap: 20px;
+  }
+  .journey-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+  }
+  .journey-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .journey-subtitle {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .journey-disclaimer-box {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .journey-disclaimer-label,
+  .journey-disclaimer-text {
+    text-align: left;
+  }
+  .journey-timeline-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+  .journey-connector-line {
+    display: none !important;
+  }
+  .journey-milestone {
+    max-width: 100%;
+    height: auto;
+  }
+  .journey-milestone-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .journey-milestone-desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* Chef */
+  .chef-container {
+    flex-direction: column;
+    padding: 32px 20px 42px;
+    gap: 28px;
+  }
+  .chef-portrait-wrap {
+    width: 100%;
+    height: 360px;
+  }
+  .chef-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  .chef-title {
+    font-size: 38px;
+    line-height: 48px;
+  }
+  .chef-role {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+  .chef-bio-p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .chef-stats-row {
+    gap: 16px;
+  }
+  .chef-stat-number {
+    font-size: 46px;
+    line-height: 56px;
+  }
+  .chef-stat-desc {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .chef-button {
+    width: 100%;
+    max-width: 293px;
+  }
+  .chef-corner-bg {
+    display: none;
+  }
+
+  /* CTA */
+  .cta-container {
+    padding: 60px 20px 120px;
+    min-height: auto;
+    align-items: flex-start;
+  }
+  .cta-content-frame {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .cta-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.25em;
+  }
+  .cta-headline {
+    font-size: 34px;
+    line-height: 44px;
+  }
+  .cta-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .cta-button {
+    width: 100%;
+    max-width: 376px;
+    height: 58px;
+  }
+  .cta-button-text {
+    font-size: 16px;
+  }
+  .cta-bg-image {
+    height: 240px;
+    opacity: 0.30;
+  }
+}

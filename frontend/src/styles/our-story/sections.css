@@ -1,0 +1,839 @@
+/* ==============================================================
+   Our Story - Sections Styles
+   Pixel-perfect on Desktop with fluid responsiveness across Tablet & Mobile
+   ============================================================== */
+
+/* --------------------------------------------------------------
+   02 / The family behind Valencia
+   -------------------------------------------------------------- */
+.family-section {
+  position: relative;
+  width: 100%;
+  background: #FAF7EF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.family-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 51px;
+  isolation: isolate;
+}
+
+.family-bg-watermark {
+  position: absolute;
+  width: 310px;
+  height: 534px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.family-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 592px;
+  flex-shrink: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 7px;
+}
+
+@media (min-width: 1280px) {
+  .family-image-wrapper {
+    align-self: stretch;
+    height: auto;
+    min-height: 600px;
+  }
+}
+
+.family-content {
+  position: relative;
+  width: 100%;
+  max-width: 710px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  z-index: 2;
+}
+
+@media (min-width: 1280px) {
+  .family-content {
+    justify-content: space-between;
+  }
+}
+
+.family-eyebrow-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 590px;
+  height: 25px;
+}
+
+.family-eyebrow-divider {
+  width: 90px;
+  height: 1px;
+  background: #C9A96A;
+  flex-shrink: 0;
+}
+
+.family-eyebrow-text {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0.3em;
+  color: #BE9555;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.family-heading {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 68px;
+  color: #1B4D32;
+  width: 100%;
+}
+
+.family-body-text {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 27px;
+  color: #6E5A4A;
+  width: 100%;
+  max-width: 640px;
+}
+
+.family-cards-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.family-card-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  min-height: 69px;
+}
+
+.family-card-icon {
+  width: 76px;
+  height: 64px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.family-card-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 38px;
+  color: #1B4D32;
+}
+
+.family-card-desc {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #6E5A4A;
+}
+
+.family-divider-line {
+  width: 100%;
+  max-width: 435px;
+  height: 1px;
+  background: #C9A96A;
+  flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------
+   03 / Our Philosophy
+   -------------------------------------------------------------- */
+.philosophy-section {
+  position: relative;
+  width: 100%;
+  background: #F9F5EA;
+  overflow: hidden;
+}
+
+.philosophy-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 576px;
+  margin: 0 auto;
+  padding: 48px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 46px;
+  isolation: isolate;
+}
+
+.philosophy-edge-left {
+  position: absolute;
+  width: 210px;
+  height: 410px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.philosophy-edge-right {
+  position: absolute;
+  width: 225px;
+  height: 410px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.philosophy-heading-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  z-index: 2;
+}
+
+.philosophy-gold-accent {
+  width: 68px;
+  height: 1px;
+  background: #BE9549;
+  flex-shrink: 0;
+}
+
+.philosophy-eyebrow {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.3em;
+  color: #6F503A;
+  text-transform: uppercase;
+}
+
+.philosophy-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 53px;
+  line-height: 60px;
+  color: #173E33;
+}
+
+.philosophy-subtitle {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  color: #795A46;
+}
+
+/* Fluid responsive grid for Philosophy principles */
+.philosophy-grid {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1256px;
+  z-index: 2;
+}
+
+.philosophy-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  max-width: 314px;
+  text-align: center;
+}
+
+.philosophy-icon-wrap {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+}
+
+.philosophy-item-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 37px;
+  color: #173E33;
+}
+
+.philosophy-item-desc {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #795A46;
+  max-width: 260px;
+}
+
+.philosophy-v-divider {
+  width: 1px;
+  height: 181px;
+  background: #DDCDB3;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+
+/* --------------------------------------------------------------
+   04 / Our Journey — Illustrative timeline
+   -------------------------------------------------------------- */
+.journey-section {
+  position: relative;
+  width: 100%;
+  background: #4B3523;
+  color: #F9F6EF;
+  overflow: hidden;
+}
+
+.journey-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 675px;
+  margin: 0 auto;
+  padding: 48px 90px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.journey-intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1260px;
+}
+
+.journey-intro-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  max-width: 900px;
+}
+
+.journey-eyebrow {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 0.4em;
+  color: #ECC378;
+  text-transform: uppercase;
+}
+
+.journey-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 59px;
+  line-height: 68px;
+  color: #F9F6EF;
+}
+
+.journey-subtitle {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 32px;
+  color: #E8E0D5;
+}
+
+.journey-disclaimer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  width: 340px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.journey-disclaimer-label {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: 0.22em;
+  color: #ECC378;
+  text-transform: uppercase;
+}
+
+.journey-disclaimer-text {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: #E8E0D5;
+}
+
+.journey-timeline-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  max-width: 1260px;
+  min-height: 435px;
+  isolation: isolate;
+  margin-top: 10px;
+}
+
+.journey-connector-line {
+  position: absolute;
+  width: 880px;
+  height: 1.5px;
+  left: 190px;
+  top: 57px;
+  background: #ECC378;
+  z-index: 0;
+}
+
+.journey-milestone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 407px;
+  height: 435px;
+  z-index: 1;
+  text-align: center;
+}
+
+.journey-year {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 35px;
+  color: #ECC378;
+}
+
+.journey-node {
+  box-sizing: border-box;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #4B3523;
+  border: 1.5px solid #ECC378;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.journey-milestone-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 40px;
+  color: #F9F6EF;
+}
+
+.journey-property-label {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 25px;
+  letter-spacing: 0.25em;
+  color: #ECC378;
+  text-transform: uppercase;
+}
+
+.journey-milestone-desc {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #E8E0D5;
+  max-width: 380px;
+}
+
+.journey-illustration-wrap {
+  margin-top: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+}
+
+
+/* --------------------------------------------------------------
+   05 / Meet Chef Michael
+   -------------------------------------------------------------- */
+.chef-section {
+  position: relative;
+  width: 100%;
+  background: #FAF7EE;
+  overflow: hidden;
+}
+
+.chef-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 651px;
+  margin: 0 auto;
+  padding: 33px 50px 45px 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 66px;
+  isolation: isolate;
+}
+
+.chef-corner-bg {
+  position: absolute;
+  width: 407px;
+  height: 346px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.2;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.chef-portrait-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 589px;
+  border-radius: 7px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+@media (min-width: 1280px) {
+  .chef-portrait-wrap {
+    align-self: stretch;
+    height: auto;
+    min-height: 586px;
+  }
+}
+
+.chef-portrait-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 7px;
+}
+
+.chef-content {
+  position: relative;
+  width: 100%;
+  max-width: 704px;
+  padding-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  z-index: 2;
+}
+
+@media (min-width: 1280px) {
+  .chef-content {
+    justify-content: space-between;
+    padding-top: 24px;
+  }
+}
+
+.chef-eyebrow {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 0.15em;
+  color: #B78B32;
+  text-transform: uppercase;
+}
+
+.chef-title {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 90px;
+  color: #164633;
+}
+
+.chef-role {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.18em;
+  color: #593B2A;
+  text-transform: uppercase;
+}
+
+.chef-bio-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 18px;
+  max-width: 640px;
+}
+
+.chef-bio-p {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+  color: #745240;
+}
+
+.chef-divider {
+  width: 100%;
+  max-width: 382px;
+  height: 1px;
+  background: #D7B777;
+  flex-shrink: 0;
+}
+
+.chef-stats-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  max-width: 440px;
+  height: 73px;
+}
+
+.chef-stat-number {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 61px;
+  line-height: 73px;
+  color: #CBA24E;
+  flex-shrink: 0;
+}
+
+.chef-stat-v-divider {
+  width: 1px;
+  height: 49px;
+  background: #D7B777;
+  flex-shrink: 0;
+}
+
+.chef-stat-desc {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 27px;
+  color: #745240;
+}
+
+.chef-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  width: 293px;
+  height: 55px;
+  background: #CBA24E;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 4px;
+}
+
+.chef-button:hover {
+  background: #C09540;
+}
+
+.chef-button-text {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 28px;
+  letter-spacing: 0.18em;
+  color: #4B2E19;
+  text-transform: uppercase;
+}
+
+
+/* --------------------------------------------------------------
+   06 / Find your place with us (CTA)
+   -------------------------------------------------------------- */
+.cta-section {
+  position: relative;
+  width: 100%;
+  background: #1B4D32;
+  overflow: hidden;
+}
+
+.cta-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 561px;
+  margin: 0 auto;
+  padding: 119px 88px 140px 88px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  isolation: isolate;
+}
+
+.cta-bg-image {
+  position: absolute;
+  width: 100%;
+  height: 442px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: bottom;
+}
+
+.cta-border-top {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0px;
+  top: 4px;
+  background: #C9A96A;
+  z-index: 1;
+}
+
+.cta-border-bottom {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0px;
+  bottom: 0px;
+  background: #C9A96A;
+  z-index: 2;
+}
+
+.cta-content-frame {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+  max-width: 1238px;
+  min-height: 220px;
+  z-index: 3;
+}
+
+.cta-copy-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  max-width: 832px;
+}
+
+.cta-eyebrow {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.38em;
+  color: #D0B365;
+  text-transform: uppercase;
+}
+
+.cta-headline {
+  font-family: var(--valencia-font-display), 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 65px;
+  line-height: 84px;
+  color: #F8F5EA;
+}
+
+.cta-description {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 32px;
+  color: #E5E4CF;
+  max-width: 850px;
+}
+
+.cta-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 376px;
+  height: 67px;
+  background: #D5B766;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #C7A959;
+}
+
+.cta-button-text {
+  font-family: var(--valencia-font-body), 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #174B34;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

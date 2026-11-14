@@ -1,25 +1,25 @@
 export const NAV_ITEMS = [
-  { label: "Home", href: "/", active: true },
-  { label: "Our Story", href: "#our-story" },
+  { label: "Home", href: "/" },
+  { label: "Our Story", href: "/our-story" },
   {
     label: "Properties",
-    href: "#properties",
+    href: "/properties",
     hasDropdown: true,
     children: [
       {
         label: "Valencia",
         subtitle: "A Luxury Boutique Hotel",
-        href: "#properties",
+        href: "/properties#valencia",
       },
       {
         label: "Umrao The Banquet",
         subtitle: "Weddings & Celebrations",
-        href: "#properties",
+        href: "/properties#umrao",
       },
       {
         label: "Hotel JIA International",
         subtitle: "Business & Leisure Stay",
-        href: "#properties",
+        href: "/properties#jia",
       },
     ],
   },
