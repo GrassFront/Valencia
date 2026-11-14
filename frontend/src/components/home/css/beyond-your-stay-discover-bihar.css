@@ -1,0 +1,461 @@
+/* beyond-your-stay-discover-bihar.css */
+
+.beyond-your-stay-discover-bihar {
+  position: relative;
+  width: 100%;
+  background: #F8F6EC;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.beyond-your-stay-container {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 648px;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  padding: 32px 42px;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: NALANDA PHOTOGRAPH
+   ========================================================================== */
+.nalanda-photograph-and-caption {
+  width: 731px;
+  max-width: 53%;
+  height: 582px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.nalanda-cropped-reference {
+  position: relative;
+  width: 100%;
+  height: 582px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #E2DAC8;
+}
+
+.nalanda-image {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nalanda-cropped-reference:hover .nalanda-image {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: DESTINATIONS AND ACTIONS
+   ========================================================================== */
+.bihar-destinations-and-actions {
+  width: 561px;
+  flex: 1;
+  min-height: 582px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Eyebrow */
+.beyond-your-stay-discover-bihar .eyebrow {
+  width: 100%;
+  max-width: 561px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  align-items: center;
+}
+
+.beyond-your-stay {
+  color: #C19B61;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.beyond-your-stay-discover-bihar .rectangle {
+  width: 113px;
+  height: 1.4px;
+  background: #C19B61;
+  border-radius: 1px;
+}
+
+/* Heading */
+.beyond-your-stay-discover-bihar .heading {
+  width: 100%;
+  max-width: 561px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 14px;
+}
+
+.stay-in-patna {
+  color: #20523D;
+  font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.discover-bihar {
+  color: #B78B44;
+  font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
+  font-size: 58px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 64px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+/* Description */
+.make-valencia-your-base-in-patna-and {
+  width: 100%;
+  max-width: 561px;
+  color: #6B6860;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  margin: 16px 0 18px 0;
+}
+
+/* Destination List */
+.destination-list {
+  width: 100%;
+  max-width: 561px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.destination-row {
+  width: 100%;
+  height: 81px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.destination-icon-col {
+  width: 84px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.destination-name {
+  width: 119px;
+  color: #24563F;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.destination-v-divider {
+  width: 1px;
+  height: 37px;
+  background: #DDC79E;
+  flex-shrink: 0;
+}
+
+.destination-desc-col {
+  flex: 1;
+  padding-left: 34px;
+  display: flex;
+  align-items: center;
+}
+
+.destination-desc-text {
+  color: #6B6860;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+.destination-h-divider {
+  width: 100%;
+  height: 1px;
+  background: #E8DCC3;
+}
+
+/* Explore Actions */
+.explore-actions {
+  width: 100%;
+  max-width: 561px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Button 1: EXPLORE PROPERTIES */
+.explore-bihar-button {
+  height: 48px;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  background: #20533F;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.explore-bihar-button:hover {
+  background: #174030;
+  box-shadow: 0 4px 14px rgba(32, 83, 63, 0.3);
+}
+
+.explore-properties {
+  color: #ECEDE2;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16.2px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.explore-bihar-button .arrow {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.explore-bihar-button:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Link 2: VIEW ROOMS & SUITES */
+.view-rooms-link {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.underlined-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.view-rooms-suites {
+  color: #507360;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16.2px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.view-rooms-link:hover .view-rooms-suites {
+  color: #20523D;
+}
+
+.underlined-link .rectangle-7 {
+  width: 100%;
+  height: 1.3px;
+  background: #C39A51;
+  transition: background-color 0.25s ease;
+}
+
+.view-rooms-link .arrow-2 {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.view-rooms-link:hover .arrow-2 {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .beyond-your-stay-container {
+    gap: 40px;
+    padding: 30px 24px;
+  }
+
+  .stay-in-patna,
+  .discover-bihar {
+    font-size: 48px;
+    line-height: 54px;
+  }
+
+  .make-valencia-your-base-in-patna-and {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .destination-name {
+    font-size: 18px;
+    width: 105px;
+  }
+
+  .destination-desc-text {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .destination-desc-col {
+    padding-left: 20px;
+  }
+
+  .explore-actions {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 992px) {
+  .beyond-your-stay-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    padding: 40px 24px;
+  }
+
+  .nalanda-photograph-and-caption {
+    width: 100%;
+    max-width: 731px;
+    height: 420px;
+  }
+
+  .nalanda-cropped-reference {
+    height: 420px;
+  }
+
+  .bihar-destinations-and-actions {
+    width: 100%;
+    max-width: 640px;
+    min-height: auto;
+  }
+
+  .stay-in-patna,
+  .discover-bihar {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .beyond-your-stay-container {
+    padding: 32px 16px;
+    gap: 28px;
+  }
+
+  .nalanda-photograph-and-caption {
+    height: 260px;
+  }
+
+  .nalanda-cropped-reference {
+    height: 260px;
+  }
+
+  .stay-in-patna,
+  .discover-bihar {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .make-valencia-your-base-in-patna-and {
+    font-size: 15px;
+    line-height: 22px;
+    margin: 12px 0 14px 0;
+  }
+
+  .destination-row {
+    height: auto;
+    padding: 12px 0;
+  }
+
+  .destination-icon-col {
+    width: 60px;
+    height: 44px;
+  }
+
+  .destination-name {
+    width: 90px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .destination-desc-col {
+    padding-left: 14px;
+  }
+
+  .destination-desc-text {
+    font-size: 13.5px;
+    line-height: 19px;
+  }
+
+  .explore-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    height: auto;
+    margin-top: 16px;
+  }
+
+  .explore-bihar-button {
+    width: 100%;
+  }
+
+  .view-rooms-link {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

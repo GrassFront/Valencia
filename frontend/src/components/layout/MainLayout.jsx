@@ -1,8 +1,8 @@
 import Header from "./Header";
-import Footer from "../common/Footer";
+import Footer from "../footer";
 import WhatsAppButton from "../common/WhatsAppButton";
 
-export default function MainLayout({ children, activeNavItem = "Home", showFooter = false }) {
+export default function MainLayout({ children, activeNavItem = "Home", showFooter = true }) {
   return (
     <div className="min-h-screen flex flex-col bg-[#FBF5EA] text-[#233028]">
       <Header activeItem={activeNavItem} />
@@ -14,4 +14,3 @@ export default function MainLayout({ children, activeNavItem = "Home", showFoote
     </div>
   );
 }
-

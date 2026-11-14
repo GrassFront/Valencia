@@ -6,6 +6,11 @@ import {
   RoomsSection,
   PropertiesSection,
   DiningSection,
+  BeyondYourStaySection,
+  BannerSection,
+  GlimpseOfValenciaSection,
+  GuestExperiencesSection,
+  YourNextStayBooking,
 } from "../components/home";
 
 export const metadata = {
@@ -23,6 +28,11 @@ export default function HomePage() {
       <RoomsSection />
       <PropertiesSection />
       <DiningSection />
+      <BeyondYourStaySection />
+      <BannerSection />
+      <GlimpseOfValenciaSection />
+      <GuestExperiencesSection />
+      <YourNextStayBooking />
     </MainLayout>
   );
 }
