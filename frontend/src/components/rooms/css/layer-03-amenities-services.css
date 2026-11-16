@@ -1,0 +1,205 @@
+/* layer-03-amenities-services.css */
+
+.layer-03-amenities-services {
+  position: relative;
+  width: 100%;
+  background: #E7DAC3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 77px 24px;
+  box-sizing: border-box;
+}
+
+/* Eyebrow: AMENITIES & SERVICES */
+.amenities-services-eyebrow {
+  color: #66503C;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Headline */
+.amenities-services-headline {
+  color: #153F2C;
+  font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 4.3vw, 61px);
+  font-weight: 400;
+  line-height: 1.18;
+  text-align: center;
+  margin: 0;
+  max-width: 1320px;
+}
+
+/* Subtitle */
+.amenities-services-subtitle {
+  color: #66503C;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0;
+  max-width: 1280px;
+}
+
+/* Proposed Amenities Notice Badge */
+.proposed-amenities-confirmation-notice {
+  height: 34px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 5px;
+  border: 1px solid #B5A184;
+  box-sizing: border-box;
+  margin-top: 2px;
+}
+
+.proposed-amenities-subject-to {
+  color: #66503C;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Spacer */
+.space-before-amenity-icons {
+  width: 100%;
+  height: 14px;
+}
+
+/* Six Proposed Amenities Grid / Row */
+.six-proposed-amenities {
+  width: 100%;
+  max-width: 1296px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.amenity-column-item {
+  position: relative;
+  flex: 1;
+  max-width: 216px;
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 13px;
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+
+/* Amenity Icon Container */
+.amenity-large-icon-wrapper {
+  width: 80px;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.amenity-large-svg {
+  width: 80px;
+  height: 76px;
+  display: block;
+}
+
+/* Amenity Title */
+.amenity-column-title {
+  color: #174B36;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Vertical Hairline Divider between items */
+.amenity-vertical-divider {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 106px;
+  background: #BCA98C;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1140px) {
+  .layer-03-amenities-services {
+    padding: 60px 20px;
+  }
+
+  .six-proposed-amenities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px 0;
+  }
+
+  .amenity-column-item {
+    max-width: none;
+  }
+
+  /* Hide vertical desktop dividers in grid layout */
+  .amenity-vertical-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .layer-03-amenities-services {
+    padding: 48px 16px;
+    gap: 12px;
+  }
+
+  .amenities-services-eyebrow {
+    font-size: 13.5px;
+    letter-spacing: 0.25em;
+  }
+
+  .amenities-services-headline {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .amenities-services-subtitle {
+    font-size: 16px;
+  }
+
+  .proposed-amenities-subject-to {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+  }
+
+  .six-proposed-amenities {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 0;
+  }
+
+  .amenity-column-title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

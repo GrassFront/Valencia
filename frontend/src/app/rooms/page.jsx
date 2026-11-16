@@ -1,5 +1,9 @@
 import { MainLayout } from "@/components/layout";
-import { RoomsHeroSection, RoomsListingSection } from "@/components/rooms";
+import {
+  RoomsHeroSection,
+  RoomsListingSection,
+  AmenitiesAndServicesSection,
+} from "@/components/rooms";
 import { YourNextStayBooking } from "@/components/home";
 
 export const metadata = {
@@ -18,7 +22,10 @@ export default function RoomsAndSuitesPage() {
         {/* Section 02: Choose Your Stay Filters & Room Cards Grid */}
         <RoomsListingSection />
 
-        {/* Section 03: Upper Section of Footer (Your Next Stay Booking) */}
+        {/* Section 03: Layer 03 Amenities & Services (Thoughtful comforts for your stay) */}
+        <AmenitiesAndServicesSection />
+
+        {/* Section 04: Upper Section of Footer (Your Next Stay Booking) */}
         <YourNextStayBooking />
       </div>
     </MainLayout>

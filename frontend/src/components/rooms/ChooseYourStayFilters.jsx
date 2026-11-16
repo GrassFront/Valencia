@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import "./css/choose-your-stay-filters.css";
 
 const CATEGORIES = [
@@ -129,11 +129,8 @@ export default function ChooseYourStayFilters({
                 }`}
               >
                 <span className="filter-select-value">{selectedGuests}</span>
-                <Image
-                  src="/images/Room and Suites/Frame.svg"
-                  alt=""
-                  width={16}
-                  height={16}
+                <ChevronDown
+                  size={16}
                   className={`filter-chevron-icon ${
                     openDropdown === "guests" ? "filter-chevron-open" : ""
                   }`}
@@ -177,11 +174,8 @@ export default function ChooseYourStayFilters({
                 }`}
               >
                 <span className="filter-select-value">{selectedPrice}</span>
-                <Image
-                  src="/images/Room and Suites/Frame.svg"
-                  alt=""
-                  width={16}
-                  height={16}
+                <ChevronDown
+                  size={16}
                   className={`filter-chevron-icon ${
                     openDropdown === "price" ? "filter-chevron-open" : ""
                   }`}
@@ -225,11 +219,8 @@ export default function ChooseYourStayFilters({
                 }`}
               >
                 <span className="filter-select-value">{selectedSort}</span>
-                <Image
-                  src="/images/Room and Suites/Frame.svg"
-                  alt=""
-                  width={16}
-                  height={16}
+                <ChevronDown
+                  size={16}
                   className={`filter-chevron-icon ${
                     openDropdown === "sort" ? "filter-chevron-open" : ""
                   }`}
