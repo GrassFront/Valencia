@@ -3,6 +3,7 @@ import {
   RoomsHeroSection,
   RoomsListingSection,
   AmenitiesAndServicesSection,
+  BeforeYourStayArrivalDetailsSection,
 } from "@/components/rooms";
 import { YourNextStayBooking } from "@/components/home";
 
@@ -25,7 +26,10 @@ export default function RoomsAndSuitesPage() {
         {/* Section 03: Layer 03 Amenities & Services (Thoughtful comforts for your stay) */}
         <AmenitiesAndServicesSection />
 
-        {/* Section 04: Upper Section of Footer (Your Next Stay Booking) */}
+        {/* Section 04: Layer 04 Before Your Stay (A few details for a smooth arrival) */}
+        <BeforeYourStayArrivalDetailsSection />
+
+        {/* Section 05: Upper Section of Footer (Your Next Stay Booking) */}
         <YourNextStayBooking />
       </div>
     </MainLayout>

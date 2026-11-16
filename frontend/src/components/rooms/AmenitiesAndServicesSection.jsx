@@ -7,37 +7,37 @@ const PROPOSED_AMENITIES = [
   {
     id: "wi-fi",
     title: "Wi-Fi",
-    icon: "/images/Room and Suites/Frame.svg",
+    icon: "/images/Room and Suites/amenities-services/wifi.svg",
     alt: "High-speed Wi-Fi",
   },
   {
     id: "air-conditioning",
     title: "Air Conditioning",
-    icon: "/images/Room and Suites/Frame 2.svg",
+    icon: "/images/Room and Suites/amenities-services/ac.svg",
     alt: "Climate control and air conditioning",
   },
   {
     id: "in-room-dining",
     title: "In-room Dining",
-    icon: "/images/Room and Suites/Frame 3.svg",
+    icon: "/images/Room and Suites/amenities-services/dining.svg",
     alt: "Gourmet in-room dining service",
   },
   {
     id: "housekeeping",
     title: "Housekeeping",
-    icon: "/images/Room and Suites/Frame 4.svg",
+    icon: "/images/Room and Suites/amenities-services/housekeeping.svg",
     alt: "Daily housekeeping and fresh linens",
   },
   {
     id: "parking",
     title: "Parking",
-    icon: "/images/Room and Suites/Frame 5.svg",
+    icon: "/images/Room and Suites/amenities-services/parking.svg",
     alt: "Secure on-site parking",
   },
   {
     id: "guest-assistance",
     title: "Guest Assistance",
-    icon: "/images/Room and Suites/Frame 6.svg",
+    icon: "/images/Room and Suites/amenities-services/guest-assistance.svg",
     alt: "24/7 front desk and guest assistance",
   },
 ];

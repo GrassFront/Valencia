@@ -6,3 +6,5 @@ export { RoomCategoriesGrid } from "./RoomCategoriesAlternativeRatesAndAmenities
 export { default as RoomsListingSection } from "./RoomsListingSection";
 export { default as AmenitiesAndServicesSection } from "./AmenitiesAndServicesSection";
 export { Component03AmenitiesServices } from "./AmenitiesAndServicesSection";
+export { default as BeforeYourStayArrivalDetailsSection } from "./BeforeYourStayArrivalDetailsSection";
+export { Component04BeforeYourStayArrivalDetails } from "./BeforeYourStayArrivalDetailsSection";

@@ -1,0 +1,194 @@
+/* layer-04-before-your-stay-arrival-details.css */
+
+.layer-04-before-your-stay-arrival-details {
+  position: relative;
+  width: 100%;
+  background: #FAF7EE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 78px 0;
+}
+
+/* Master Centered Container */
+.before-your-stay-container {
+  width: 100%;
+  max-width: 1314px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 0 clamp(24px, 4.5vw, 63px);
+}
+
+/* 1. Header Section */
+.heading-and-policy-action {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.before-your-stay-section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.before-your-stay-eyebrow {
+  color: #B58E4E;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.before-your-stay-headline {
+  color: #174B36;
+  font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
+  font-size: clamp(32px, 3.6vw, 50px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* 2. Arrival Policy Cards (3 Columns) */
+.arrival-policy-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.arrival-policy-card {
+  width: 100%;
+  min-height: 302px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 34px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 6px;
+  background: #F3EEE3;
+  border: 1px solid #DED1BC;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.arrival-policy-card:hover {
+  transform: translateY(-3px);
+  border-color: #CBB696;
+  box-shadow: 0 8px 24px rgba(75, 58, 43, 0.08);
+}
+
+/* Policy Icon */
+.policy-card-icon-wrapper {
+  width: 106px;
+  height: 84px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.policy-card-svg {
+  width: 106px;
+  height: 84px;
+  display: block;
+}
+
+/* Policy Title */
+.policy-card-title {
+  color: #174B36;
+  font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Policy Description */
+.policy-card-description {
+  color: #695849;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0;
+}
+
+/* 3. Bottom Note */
+.policy-details-are-awaiting {
+  color: #695849;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 4px 0 0 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .arrival-policy-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .arrival-policy-card {
+    padding: 26px 24px;
+    min-height: auto;
+  }
+
+  .policy-card-title {
+    font-size: 28px;
+  }
+
+  .policy-card-description {
+    font-size: 17px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 680px) {
+  .layer-04-before-your-stay-arrival-details {
+    padding: 48px 0;
+  }
+
+  .arrival-policy-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .before-your-stay-headline {
+    font-size: 28px;
+  }
+
+  .policy-card-icon-wrapper {
+    width: 86px;
+    height: 68px;
+  }
+
+  .policy-card-svg {
+    width: 86px;
+    height: 68px;
+  }
+
+  .policy-card-title {
+    font-size: 24px;
+  }
+
+  .policy-card-description {
+    font-size: 15.5px;
+    line-height: 23px;
+  }
+}
