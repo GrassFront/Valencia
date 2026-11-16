@@ -10,4 +10,5 @@ body {
   background: var(--valencia-color-ivory);
   color: var(--valencia-color-ink);
   font-family: var(--valencia-font-body);
+  zoom: 0.9;
 }

@@ -62,26 +62,27 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  <span className="whitespace-nowrap">{item.label}</span>
+                  <span className="relative whitespace-nowrap">
+                    {item.label}
+                    {isActive && (
+                      <span
+                        className="absolute -bottom-[14px] left-0 right-0 h-[2.5px] bg-[#BC9756]"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </span>
                   {item.hasDropdown && (
                     <ChevronDown
                       size={14}
                       className={classNames(
-                        "transition-transform text-[#34413F] stroke-[1.8] shrink-0",
+                        "transition-transform stroke-[1.8] shrink-0",
+                        isActive ? "text-[#BC9756]" : "text-[#34413F]",
                         openDropdown === item.label ? "rotate-180 text-[#BC9756]" : ""
                       )}
                       aria-hidden="true"
                     />
                   )}
                 </Link>
-
-                {/* Active Indicator Underline */}
-                {isActive && (
-                  <span
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#BC9756]"
-                    aria-hidden="true"
-                  />
-                )}
 
                 {/* Refined Luxury Dropdown Menu */}
                 {hasChildren && openDropdown === item.label && (

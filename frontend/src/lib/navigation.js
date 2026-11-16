@@ -25,28 +25,28 @@ export const NAV_ITEMS = [
   },
   {
     label: "Rooms & Suites",
-    href: "#rooms",
+    href: "/rooms",
     hasDropdown: true,
     children: [
       {
         label: "Deluxe Room",
         subtitle: "A welcoming retreat for restful stays",
-        href: "#rooms",
+        href: "/rooms#deluxe",
       },
       {
         label: "Twin Room",
         subtitle: "Shared stays with individual comfort",
-        href: "#rooms",
+        href: "/rooms#twin",
       },
       {
         label: "Suite",
         subtitle: "Room to unwind with separate retreat",
-        href: "#rooms",
+        href: "/rooms#suite",
       },
       {
         label: "Presidential Suite",
         subtitle: "An expansive setting for exceptional stay",
-        href: "#rooms",
+        href: "/rooms#presidential-suite",
       },
     ],
   },
