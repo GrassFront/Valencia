@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function OurStoryPage() {
   return (
-    <MainLayout activeNavItem="Our Story" showFooter={true}>
+    <MainLayout activeNavItem="Our Story" showFooter={true} footerVariant="secondary">
       <OurStoryHero />
       <FamilySection />
       <PhilosophySection />

@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function PropertiesPage() {
   return (
-    <MainLayout activeNavItem="Properties" showFooter={true}>
+    <MainLayout activeNavItem="Properties" showFooter={true} footerVariant="primary">
       <div className="properties-page flex flex-col w-full">
         {/* Section 01: Hero Introduction */}
         <PropertiesHero />

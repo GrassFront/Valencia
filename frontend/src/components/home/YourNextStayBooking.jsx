@@ -75,6 +75,7 @@ export default function YourNextStayBooking() {
 
   return (
     <section
+      id="booking"
       aria-label="Your Next Stay Booking"
       className="your-next-stay-booking"
     >

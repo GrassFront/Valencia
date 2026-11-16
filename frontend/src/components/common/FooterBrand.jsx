@@ -54,74 +54,66 @@ const SOCIAL_LINKS = [
   },
 ];
 
-export default function FooterBrand() {
+export default function FooterBrand({ variant = "primary" }) {
+  const isSecondary = variant === "secondary" || variant === "green";
+
   return (
     <div className="flex flex-col items-center text-center w-full">
-      {/* Brand Header: Crest + Wordmark + Subtitle */}
+      {/* Brand Header */}
       <Link
         href="/"
         className="inline-flex flex-col items-center transition-transform duration-300 hover:scale-[1.02]"
         aria-label="Valencia - A Luxury Boutique Hotel"
       >
-        {/* Crest Emblem */}
-        <div className="relative w-[122px] sm:w-[135px] h-[74px] sm:h-[82px]">
-          <Image
-            src="/images/Footer/valencia-crest-trans.png"
-            alt="Valencia Crest"
-            fill
-            sizes="(max-width: 640px) 122px, 135px"
-            className="object-contain object-center"
-            priority={false}
-          />
-        </div>
+        {isSecondary ? (
+          /* Secondary (Green) variant: Uses green artwork logo as seen in screenshot */
+          <div className="relative w-[240px] sm:w-[270px] lg:w-[280px] h-[155px] sm:h-[175px] lg:h-[188px]">
+            <Image
+              src="/images/logo/logo-artwork.png"
+              alt="Valencia - A Luxury Boutique Hotel"
+              fill
+              sizes="(max-width: 640px) 240px, 280px"
+              priority={false}
+              className="object-contain object-center"
+            />
+          </div>
+        ) : (
+          /* Primary (Brown) variant: Uses transparent crest + stylized typography */
+          <>
+            {/* Crest Emblem */}
+            <div className="relative w-[122px] sm:w-[135px] h-[74px] sm:h-[82px]">
+              <Image
+                src="/images/Footer/valencia-crest-trans.png"
+                alt="Valencia Crest"
+                fill
+                sizes="(max-width: 640px) 122px, 135px"
+                className="object-contain object-center"
+                priority={false}
+              />
+            </div>
 
-        {/* VALENCIA Wordmark */}
-        <span
-          className="uppercase tracking-[0.1em] font-normal"
-          style={{
-            fontFamily: "var(--font-playfair-display), 'Playfair Display', Georgia, serif",
-            fontWeight: 600,
-            fontSize: "41.26px",
-            lineHeight: "120%",
-            letterSpacing: "0.1em",
-            color: "#FAF9FA",
-          }}
-        >
-          VALENCIA
-        </span>
+            {/* VALENCIA Wordmark */}
+            <span className="uppercase tracking-[0.1em] font-display font-semibold text-[36px] sm:text-[41px] leading-[1.2] text-[#FAF9FA]">
+              VALENCIA
+            </span>
 
-        {/* A LUXURY BOUTIQUE HOTEL with decorative rules */}
-        <div className="flex items-center justify-center gap-2.5 sm:gap-3 mt-1.5 w-full">
-          <span className="inline-block w-7 sm:w-10 h-[1px] bg-[#C9A96A] opacity-80" />
-          <span
-            className="uppercase whitespace-nowrap"
-            style={{
-              fontFamily: "var(--font-playfair-display), 'Playfair Display', Georgia, serif",
-              fontWeight: 500,
-              fontSize: "9.87px",
-              lineHeight: "120%",
-              letterSpacing: "0.18em",
-              color: "#C9A96A",
-            }}
-          >
-            A LUXURY BOUTIQUE HOTEL
-          </span>
-          <span className="inline-block w-7 sm:w-10 h-[1px] bg-[#C9A96A] opacity-80" />
-        </div>
+            {/* A LUXURY BOUTIQUE HOTEL with decorative rules */}
+            <div className="flex items-center justify-center gap-2.5 sm:gap-3 mt-1.5 w-full">
+              <span className="inline-block w-7 sm:w-10 h-[1px] bg-[#C9A96A] opacity-80" />
+              <span className="uppercase whitespace-nowrap font-display font-medium text-[9.5px] sm:text-[10px] leading-[1.2] tracking-[0.18em] text-[#C9A96A]">
+                A LUXURY BOUTIQUE HOTEL
+              </span>
+              <span className="inline-block w-7 sm:w-10 h-[1px] bg-[#C9A96A] opacity-80" />
+            </div>
+          </>
+        )}
       </Link>
 
       {/* Where Elegance Feels Like Home. */}
       <h2
-        className="mt-2.5 sm:mt-3 mb-1"
-        style={{
-          fontFamily: "var(--font-playfair-display), 'Playfair Display', Georgia, serif",
-          fontWeight: 400,
-          fontSize: "31px",
-          lineHeight: "35px",
-          letterSpacing: "0%",
-          textAlign: "center",
-          color: "#F8F5EA",
-        }}
+        className={`font-display font-normal text-[28px] sm:text-[31px] leading-[35px] text-[#F8F5EA] text-center ${
+          isSecondary ? "mt-1 sm:mt-2 mb-1" : "mt-2.5 sm:mt-3 mb-1"
+        }`}
       >
         Where Elegance
         <br />
@@ -129,35 +121,13 @@ export default function FooterBrand() {
       </h2>
 
       {/* Thoughtful stays and memorable gatherings in Patna. */}
-      <p
-        className="px-2"
-        style={{
-          fontFamily: "var(--font-manrope), 'Manrope', sans-serif",
-          fontWeight: 400,
-          fontSize: "12px",
-          lineHeight: "20px",
-          letterSpacing: "0%",
-          textAlign: "center",
-          color: "#F8F5EA",
-        }}
-      >
+      <p className="px-2 font-body font-normal text-[12px] leading-[20px] text-[#F8F5EA] text-center">
         Thoughtful stays and memorable gatherings in Patna.
       </p>
 
       {/* CONNECT WITH US */}
       <div className="mt-2.5 sm:mt-3">
-        <p
-          className="uppercase mb-1.5 sm:mb-2"
-          style={{
-            fontFamily: "var(--font-manrope), 'Manrope', sans-serif",
-            fontWeight: 600,
-            fontSize: "12px",
-            lineHeight: "20px",
-            letterSpacing: "0.24em",
-            textAlign: "center",
-            color: "#E2BA6D",
-          }}
-        >
+        <p className="uppercase mb-1.5 sm:mb-2 font-body font-semibold text-[12px] leading-[20px] tracking-[0.24em] text-[#E2BA6D] text-center">
           CONNECT WITH US
         </p>
 
@@ -172,7 +142,9 @@ export default function FooterBrand() {
               aria-label={item.name}
               className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full border border-[#E2BA6D] flex items-center justify-center text-[#E2BA6D] transition-all duration-300 hover:border-[#FAF4EB] hover:text-[#FAF4EB] hover:scale-105"
             >
-              <span className="scale-85 flex items-center justify-center">{item.icon}</span>
+              <span className="scale-85 flex items-center justify-center">
+                {item.icon}
+              </span>
             </a>
           ))}
         </div>

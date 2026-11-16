@@ -94,7 +94,7 @@ export default function HeroBookingBar({ onSearch }) {
   return (
     <div
       ref={containerRef}
-      className="relative z-30 w-full max-w-[1080px] rounded-[22px] bg-[#FBF5EA] p-3 sm:p-4 lg:px-5 lg:py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.16)] border border-[#E8DCC9]/80"
+      className="relative z-30 w-full max-w-[1080px] lg:max-w-[1140px] xl:max-w-[1180px] rounded-[22px] bg-[#FBF5EA] p-3 sm:p-4 lg:px-4 xl:px-5 lg:py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.16)] border border-[#E8DCC9]/80"
       aria-label="Hotel booking search bar"
     >
       <div className="flex flex-col gap-3">
@@ -157,30 +157,30 @@ export default function HeroBookingBar({ onSearch }) {
         </div>
 
         {/* Row 2: Fields Row */}
-        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row items-stretch lg:items-center gap-2 lg:gap-2.5 w-full">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row items-stretch lg:items-center gap-2 lg:gap-2 xl:gap-2.5 w-full">
           {/* Field 1: Check In */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 min-w-0">
             <button
               type="button"
               onClick={() => togglePopover("checkIn")}
               aria-expanded={activePopover === "checkIn"}
               className={classNames(
-                "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                "flex h-[58px] lg:h-[54px] xl:h-[58px] w-full items-center px-2.5 xl:px-3.5 gap-2 xl:gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
                 activePopover === "checkIn"
                   ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
                   : "border-transparent hover:bg-[#F6EFE3]"
               )}
             >
-              <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-                <Calendar size={23} className="stroke-[1.85]" />
+              <div className="flex h-[24px] w-[24px] xl:h-[26px] xl:w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
+                <Calendar size={22} className="stroke-[1.85]" />
               </div>
               <div className="flex flex-1 flex-col justify-center min-w-0">
-                <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
+                <span className="text-[12.5px] xl:text-[13px] font-bold leading-[18px] text-[#233028] font-body whitespace-nowrap">
                   Check In
                 </span>
                 <span
                   className={classNames(
-                    "text-[13px] leading-[18px] font-body truncate",
+                    "text-[12px] xl:text-[13px] leading-[18px] font-body truncate whitespace-nowrap",
                     checkInText ? "font-medium text-[#233028]" : "font-normal text-[#8B8E87]"
                   )}
                 >
@@ -188,9 +188,9 @@ export default function HeroBookingBar({ onSearch }) {
                 </span>
               </div>
               {activePopover === "checkIn" ? (
-                <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                <ChevronUp size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               ) : (
-                <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                <ChevronDown size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               )}
             </button>
 
@@ -276,28 +276,28 @@ export default function HeroBookingBar({ onSearch }) {
           </div>
 
           {/* Field 2: Check Out */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 min-w-0">
             <button
               type="button"
               onClick={() => togglePopover("checkOut")}
               aria-expanded={activePopover === "checkOut"}
               className={classNames(
-                "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                "flex h-[58px] lg:h-[54px] xl:h-[58px] w-full items-center px-2.5 xl:px-3.5 gap-2 xl:gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
                 activePopover === "checkOut"
                   ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
                   : "border-transparent hover:bg-[#F6EFE3]"
               )}
             >
-              <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-                <Calendar size={23} className="stroke-[1.85]" />
+              <div className="flex h-[24px] w-[24px] xl:h-[26px] xl:w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
+                <Calendar size={22} className="stroke-[1.85]" />
               </div>
               <div className="flex flex-1 flex-col justify-center min-w-0">
-                <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
+                <span className="text-[12.5px] xl:text-[13px] font-bold leading-[18px] text-[#233028] font-body whitespace-nowrap">
                   Check Out
                 </span>
                 <span
                   className={classNames(
-                    "text-[13px] leading-[18px] font-body truncate",
+                    "text-[12px] xl:text-[13px] leading-[18px] font-body truncate whitespace-nowrap",
                     checkOutText ? "font-medium text-[#233028]" : "font-normal text-[#8B8E87]"
                   )}
                 >
@@ -305,9 +305,9 @@ export default function HeroBookingBar({ onSearch }) {
                 </span>
               </div>
               {activePopover === "checkOut" ? (
-                <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                <ChevronUp size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               ) : (
-                <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                <ChevronDown size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               )}
             </button>
 
@@ -394,33 +394,33 @@ export default function HeroBookingBar({ onSearch }) {
 
           {/* Field 3: Duration (Shown when Hourly Booking is active) */}
           {stayMode === "hourly" && (
-            <div className="relative flex-1">
+            <div className="relative flex-1 min-w-0">
               <button
                 type="button"
                 onClick={() => togglePopover("duration")}
                 aria-expanded={activePopover === "duration"}
                 className={classNames(
-                  "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                  "flex h-[58px] lg:h-[54px] xl:h-[58px] w-full items-center px-2.5 xl:px-3.5 gap-2 xl:gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
                   activePopover === "duration"
                     ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
                     : "border-transparent hover:bg-[#F6EFE3]"
                 )}
               >
-                <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-                  <Clock size={23} className="stroke-[1.85]" />
+                <div className="flex h-[24px] w-[24px] xl:h-[26px] xl:w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
+                  <Clock size={22} className="stroke-[1.85]" />
                 </div>
                 <div className="flex flex-1 flex-col justify-center min-w-0">
-                  <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
+                  <span className="text-[12.5px] xl:text-[13px] font-bold leading-[18px] text-[#233028] font-body whitespace-nowrap">
                     Duration
                   </span>
-                  <span className="text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body">
+                  <span className="text-[12px] xl:text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body whitespace-nowrap">
                     {duration}
                   </span>
                 </div>
                 {activePopover === "duration" ? (
-                  <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                  <ChevronUp size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
                 ) : (
-                  <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                  <ChevronDown size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
                 )}
               </button>
 
@@ -507,33 +507,33 @@ export default function HeroBookingBar({ onSearch }) {
           )}
 
           {/* Field 4: Guests & Rooms */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 lg:flex-[1.18] min-w-0">
             <button
               type="button"
               onClick={() => togglePopover("guests")}
               aria-expanded={activePopover === "guests"}
               className={classNames(
-                "flex h-[58px] w-full items-center px-3 sm:px-3.5 gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
+                "flex h-[58px] lg:h-[54px] xl:h-[58px] w-full items-center px-2.5 xl:px-3.5 gap-2 xl:gap-2.5 rounded-[10px] text-left transition-all border cursor-pointer",
                 activePopover === "guests"
                   ? "border-[#1B4D32] bg-[#FBF5EA] shadow-sm"
                   : "border-transparent hover:bg-[#F6EFE3]"
               )}
             >
-              <div className="flex h-[26px] w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
-                <User size={23} className="stroke-[1.85]" />
+              <div className="flex h-[24px] w-[24px] xl:h-[26px] xl:w-[26px] shrink-0 items-center justify-center text-[#1B4D32]">
+                <User size={22} className="stroke-[1.85]" />
               </div>
               <div className="flex flex-1 flex-col justify-center min-w-0">
-                <span className="text-[13px] font-bold leading-[18px] text-[#233028] font-body">
+                <span className="text-[12.5px] xl:text-[13px] font-bold leading-[18px] text-[#233028] font-body whitespace-nowrap">
                   Guests & Rooms
                 </span>
-                <span className="text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body">
+                <span className="text-[12px] xl:text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body whitespace-nowrap">
                   {guestsSummary}
                 </span>
               </div>
               {activePopover === "guests" ? (
-                <ChevronUp size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                <ChevronUp size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               ) : (
-                <ChevronDown size={18} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
+                <ChevronDown size={16} className="text-[#1B4D32] stroke-[1.5] shrink-0" />
               )}
             </button>
 
@@ -659,7 +659,7 @@ export default function HeroBookingBar({ onSearch }) {
           <button
             type="button"
             onClick={handleSearch}
-            className="flex h-[48px] sm:h-[58px] lg:h-[44px] w-full lg:w-[220px] xl:w-[248px] shrink-0 items-center justify-center gap-2.5 rounded-[8px] bg-[#1B4D32] px-5 sm:px-6 text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f] transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer"
+            className="flex h-[48px] sm:h-[58px] lg:h-[54px] xl:h-[58px] w-full lg:w-auto lg:min-w-[160px] xl:min-w-[185px] whitespace-nowrap shrink-0 items-center justify-center gap-2.5 rounded-[8px] bg-[#1B4D32] px-5 sm:px-6 text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f] transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer"
           >
             <span>Search Rooms</span>
             <ArrowRight size={20} className="stroke-[2]" />
