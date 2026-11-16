@@ -9,7 +9,7 @@ export const NAV_ITEMS = [
       {
         label: "Valencia",
         subtitle: "A Luxury Boutique Hotel",
-        href: "/properties#valencia",
+        href: "/valencia",
       },
       {
         label: "Umrao The Banquet",

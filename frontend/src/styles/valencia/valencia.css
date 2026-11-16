@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Valencia Page Scoped Styles & Exact Design Tokens
+   ========================================================================== */
+
+.valencia-page {
+  background-color: #FAF6EB;
+  color: #543E30;
+  font-family: var(--valencia-font-body, 'Manrope', sans-serif);
+  overflow-x: hidden;
+}
+
+/* Precise Display Heading Fonts */
+.valencia-heading-display {
+  font-family: var(--valencia-font-display, 'Playfair Display', Georgia, serif);
+}
+
+/* Smooth Scrolling Anchor Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Image Hover Glow & Transitions */
+.valencia-img-card {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.valencia-img-card:hover {
+  transform: scale(1.02);
+}
+
+/* Custom Scrollbar for Modal and Popovers */
+.valencia-page ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.valencia-page ::-webkit-scrollbar-track {
+  background: #FAF6EB;
+}
+
+.valencia-page ::-webkit-scrollbar-thumb {
+  background: #BD9749;
+  border-radius: 3px;
+}
+
+.valencia-page ::-webkit-scrollbar-thumb:hover {
+  background: #164C36;
+}
+
+/* Responsive Fluid Adjustments */
+@media (max-width: 1024px) {
+  .valencia-hero-title {
+    font-size: 56px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .valencia-hero-title {
+    font-size: 40px !important;
+    line-height: 1.15 !important;
+  }
+}

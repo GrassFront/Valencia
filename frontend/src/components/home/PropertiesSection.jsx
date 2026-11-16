@@ -231,7 +231,7 @@ export default function PropertiesSection() {
                 {/* Button / VIEW STAY */}
                 <div className="pt-2">
                   <Link
-                    href="#rooms"
+                    href="/valencia"
                     className="inline-flex h-[38px] xl:h-[43px] w-[170px] xl:w-[186px] items-center justify-center gap-2.5 bg-[#1B4D32] text-[#F8F5EA] rounded-[2px] transition-colors duration-200 hover:bg-[#153e28] active:bg-[#0f2c1c]"
                   >
                     <span className="font-body font-semibold text-[10px] leading-[20px] tracking-[0.18em] uppercase whitespace-nowrap">

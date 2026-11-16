@@ -19,7 +19,8 @@ const MONTH_DATA = [
   { name: "December 2026", year: 2026, monthIndex: 11, startDayOffset: 2, days: 31 },
 ];
 
-export default function YourNextStayBooking() {
+export default function YourNextStayBooking({ variant = "default", className = "" }) {
+  const isValencia = variant === "valencia";
   const [stayMode, setStayMode] = useState("hourly"); // 'hourly' | 'night'
   const [checkInDay, setCheckInDay] = useState(null);
   const [checkOutDay, setCheckOutDay] = useState(null);
@@ -77,7 +78,7 @@ export default function YourNextStayBooking() {
     <section
       id="booking"
       aria-label="Your Next Stay Booking"
-      className="your-next-stay-booking"
+      className={`your-next-stay-booking ${isValencia ? "variant-valencia" : ""} ${className}`.trim()}
     >
       {/* Background Neoclassical Palace Image Overlay */}
       <div
@@ -93,7 +94,9 @@ export default function YourNextStayBooking() {
 
       {/* Subtitle */}
       <p className="subtitle">
-        Choose your dates and discover your stay at VALENCIA.
+        {isValencia
+          ? "Choose your dates and find your perfect room at VALENCIA."
+          : "Choose your dates and discover your stay at VALENCIA."}
       </p>
 
       {/* Booking Search Bar Card */}
@@ -635,7 +638,7 @@ export default function YourNextStayBooking() {
             onClick={handleSearch}
             className="search-cta-btn"
           >
-            <span>Search Rooms</span>
+            <span>{isValencia ? "Book Your Stay" : "Search Rooms"}</span>
             <span className="search-cta-arrow">
               <Image
                 src="/images/homepage/your stay above footer/Search arrow.svg"
@@ -647,6 +650,13 @@ export default function YourNextStayBooking() {
           </button>
         </div>
       </div>
+
+      {isValencia && (
+        <a href="#contact" className="valencia-contact-link">
+          <span>Need help with your booking? Contact us</span>
+          <span>→</span>
+        </a>
+      )}
     </section>
   );
 }

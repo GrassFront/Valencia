@@ -121,7 +121,7 @@ export default function PropertiesShowcase() {
             {/* Action Button */}
             <div className="pt-1">
               <Link
-                href="#compare"
+                href="/valencia"
                 className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[210px] h-[48px] bg-[#174B34] hover:bg-[#123d2a] text-[#F8F5EA] rounded-[3px] font-body font-semibold text-[15px] sm:text-[16px] leading-[21px] tracking-[0.12em] transition-colors uppercase group/btn"
               >
                 <span>VIEW STAY</span>

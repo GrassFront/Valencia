@@ -6,7 +6,7 @@ const PROPERTIES = [
     isUppercase: true,
     subtitle: "Luxury Boutique Hotel · Patna",
     detail: "Address & phone: to be confirmed",
-    href: "/properties#valencia",
+    href: "/valencia",
   },
   {
     name: "Umrao The Banquet",

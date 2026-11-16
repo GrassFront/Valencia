@@ -673,3 +673,58 @@
     padding: 14px 14px 16px 14px;
   }
 }
+
+/* Valencia Page Variant */
+.your-next-stay-booking.variant-valencia {
+  background-color: #164C36;
+  min-height: 454px;
+  height: auto;
+  padding: 48px 16px 44px 16px;
+  gap: 0px;
+}
+
+@media (min-width: 1280px) {
+  .your-next-stay-booking.variant-valencia {
+    height: 454px;
+    padding: 48px 0px 44px 0px;
+  }
+}
+
+.your-next-stay-booking.variant-valencia .your-next-stay-booking-native-image-crop {
+  opacity: 0.12;
+}
+
+.your-next-stay-booking.variant-valencia .eyebrow {
+  color: #BD9749;
+  margin-bottom: 8px;
+}
+
+.your-next-stay-booking.variant-valencia .title {
+  color: #FAF6EB;
+  margin-bottom: 6px;
+}
+
+.your-next-stay-booking.variant-valencia .subtitle {
+  color: #FAF6EB;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.your-next-stay-booking.variant-valencia .valencia-contact-link {
+  margin-top: 20px;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 16px;
+  color: #FAF6EB;
+  opacity: 0.9;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.your-next-stay-booking.variant-valencia .valencia-contact-link:hover {
+  opacity: 1;
+  color: #FFFFFF;
+}
+
