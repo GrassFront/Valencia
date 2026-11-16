@@ -21,7 +21,9 @@ export default function ChooseYourStayFilters({
   onCategoryChange,
   onFilterChange,
 }) {
-  const [selectedCategory, setSelectedCategory] = useState(activeCategory);
+  const [internalCategory, setInternalCategory] = useState(activeCategory);
+  const selectedCategory = activeCategory !== undefined ? activeCategory : internalCategory;
+
   const [selectedGuests, setSelectedGuests] = useState("Any occupancy");
   const [selectedPrice, setSelectedPrice] = useState("All rates");
   const [selectedSort, setSelectedSort] = useState("Recommended");
@@ -48,7 +50,7 @@ export default function ChooseYourStayFilters({
   }, []);
 
   const handleCategoryClick = (catId) => {
-    setSelectedCategory(catId);
+    setInternalCategory(catId);
     if (onCategoryChange) onCategoryChange(catId);
   };
 
