@@ -5,7 +5,6 @@ import {
   DeluxeRoomBeforeYourStayBookingPolicies,
   DeluxeRoomExploreMoreWaysToStay,
 } from "@/components/rooms";
-import { YourNextStayBooking } from "@/components/home";
 
 export const metadata = {
   title: "Deluxe Room | Valencia - A Luxury Boutique Hotel",
@@ -15,7 +14,7 @@ export const metadata = {
 
 export default function DeluxeRoomPage() {
   return (
-    <MainLayout activeNavItem="Rooms & Suites" showFooter={true} footerVariant="primary">
+    <MainLayout activeNavItem="Rooms & Suites" showFooter={true} footerVariant="secondary">
       <div className="deluxe-room-page flex flex-col w-full">
         {/* Section 01: Hero Gallery with Breadcrumb & Back button */}
         <DeluxeRoomHeroGallery />
@@ -28,9 +27,6 @@ export default function DeluxeRoomPage() {
 
         {/* Section 04: Explore More Ways to Stay */}
         <DeluxeRoomExploreMoreWaysToStay />
-
-        {/* Section 05: Upper Section of Footer (Your Next Stay Booking) */}
-        <YourNextStayBooking />
       </div>
     </MainLayout>
   );

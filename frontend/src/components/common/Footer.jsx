@@ -18,15 +18,16 @@ export function FooterSecondary(props) {
   return <Footer variant="secondary" {...props} />;
 }
 
-export default function Footer({ variant = "primary", className = "" }) {
+export default function Footer({ variant = "primary", className = "", style = {} }) {
   const isSecondary = variant === "secondary" || variant === "green";
-  const bgClass = isSecondary ? "bg-[#1B4D32]" : "bg-[#4B3523]";
+  const bgClass = isSecondary ? "bg-[var(--colour-deep-green,#1B4D32)]" : "bg-[#4B3523]";
   const borderTopClass = isSecondary ? "bg-[#C9A96A]/25" : "bg-[#C9A96A]/15";
   const dividerClass = isSecondary ? "bg-[#C9A96A]/30" : "bg-[#C9A96A]/25";
 
   return (
     <footer
       aria-label="Site Footer"
+      style={isSecondary ? { backgroundColor: "var(--colour-deep-green, #1B4D32)", ...style } : style}
       className={`relative w-full ${bgClass} text-[#FAF4EB] overflow-hidden ${className}`}
     >
       {/* Decorative subtle top hairline */}
