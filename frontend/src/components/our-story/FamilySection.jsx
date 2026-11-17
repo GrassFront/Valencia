@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FamilySection() {
   return (
@@ -77,7 +78,7 @@ export default function FamilySection() {
           {/* Hospitality Family List */}
           <div className="family-cards-list w-full max-w-[440px] flex flex-col gap-[14px] pt-4 xl:pt-6">
             {/* 1. VALENCIA */}
-            <div className="family-card-item flex items-center gap-[28px] min-h-[69px]">
+            <Link href="/valencia" className="family-card-item flex items-center gap-[28px] min-h-[69px] hover:opacity-85 transition-opacity">
               <div className="family-card-icon relative w-[76px] h-[64px] shrink-0">
                 <Image
                   src="/images/OurStory/storyIcon1.png"
@@ -95,13 +96,13 @@ export default function FamilySection() {
                   Luxury boutique stays · Flagship
                 </p>
               </div>
-            </div>
+            </Link>
 
             {/* Gold divider */}
             <div className="family-divider-line w-full max-w-[435px] h-[1px] bg-[#C9A96A]" />
 
             {/* 2. Umrao The Banquet */}
-            <div className="family-card-item flex items-center gap-[28px] min-h-[69px]">
+            <Link href="/umrao" className="family-card-item flex items-center gap-[28px] min-h-[69px] hover:opacity-85 transition-opacity">
               <div className="family-card-icon relative w-[76px] h-[64px] shrink-0">
                 <Image
                   src="/images/OurStory/storyIcon2.png"
@@ -119,7 +120,7 @@ export default function FamilySection() {
                   Weddings, events &amp; gatherings
                 </p>
               </div>
-            </div>
+            </Link>
 
             {/* Gold divider */}
             <div className="family-divider-line w-full max-w-[435px] h-[1px] bg-[#C9A96A]" />

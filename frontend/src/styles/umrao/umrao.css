@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Umrao Page Scoped Styles & Exact Design Tokens
+   ========================================================================== */
+
+.umrao-page {
+  background-color: #FAF6EC;
+  color: #543522;
+  font-family: var(--valencia-font-body, 'Manrope', Arial, sans-serif);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Playfair Display Typography */
+.umrao-font-display {
+  font-family: var(--valencia-font-display, 'Playfair Display', Georgia, serif);
+}
+
+/* Manrope Body Typography */
+.umrao-font-body {
+  font-family: var(--valencia-font-body, 'Manrope', Arial, sans-serif);
+}
+
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Section Custom Gradient Overlay */
+.umrao-hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(41, 18, 6, 0.98) 0%,
+    rgba(51, 23, 8, 0.92) 38%,
+    rgba(51, 23, 8, 0.35) 65%,
+    rgba(51, 23, 8, 0.08) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .umrao-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(41, 18, 6, 0.94) 0%,
+      rgba(51, 23, 8, 0.88) 60%,
+      rgba(51, 23, 8, 0.96) 100%
+    );
+  }
+}
+
+/* Hover transition on venue cards & gallery photos */
+.umrao-card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+.umrao-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(84, 53, 34, 0.12);
+}
+
+/* Gallery image scale on hover */
+.umrao-gallery-img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .umrao-gallery-img {
+  transform: scale(1.04);
+}
+
+/* Form input custom focus styling */
+.umrao-input {
+  background-color: #FCFAF6;
+  border: 1px solid #BFB3A8;
+  color: #503522;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.umrao-input:focus {
+  outline: none;
+  border-color: #194E35;
+  box-shadow: 0 0 0 2px rgba(25, 78, 53, 0.15);
+}
+
+.umrao-input::placeholder {
+  color: #776B61;
+}
+
+/* Custom date picker styling - prevent native calendar indicator collision */
+.umrao-page input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.umrao-page input[type="date"]::-webkit-inner-spin-button,
+.umrao-page input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+/* Custom scrollbars */
+.umrao-page ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.umrao-page ::-webkit-scrollbar-track {
+  background: #FAF6EC;
+}
+
+.umrao-page ::-webkit-scrollbar-thumb {
+  background: #C8A153;
+  border-radius: 3px;
+}
+
+.umrao-page ::-webkit-scrollbar-thumb:hover {
+  background: #194E35;
+}

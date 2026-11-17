@@ -6,14 +6,14 @@ const PROPERTIES = [
     isUppercase: true,
     subtitle: "Luxury Boutique Hotel · Patna",
     detail: "Address & phone: to be confirmed",
-    href: "/properties#valencia",
+    href: "/valencia",
   },
   {
     name: "Umrao The Banquet",
     isUppercase: false,
     subtitle: "Zero Mile, Masaurhi Road, Patna 800007",
     detail: "Phone: to be confirmed",
-    href: "/properties#umrao",
+    href: "/umrao",
   },
   {
     name: "Hotel Jia International",

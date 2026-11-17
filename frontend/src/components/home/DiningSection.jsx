@@ -189,7 +189,7 @@ export default function DiningSection() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 xl:gap-[22px] w-full max-w-[640px] pt-1">
             {/* Primary Button: EXPLORE DINING */}
             <Link
-              href="#the-town-house"
+              href="/valencia#dining"
               className="inline-flex h-[46px] xl:h-[49px] w-full sm:w-[230px] xl:w-[253px] items-center justify-center gap-2.5 sm:gap-3 bg-[#1B4D32] text-[#F8F5EA] rounded-[2px] transition-colors duration-200 hover:bg-[#153e28] active:bg-[#0f2c1c] cursor-pointer"
             >
               <span className="font-body font-semibold text-[10.5px] xl:text-[11px] leading-[24px] tracking-[0.18em] xl:tracking-[0.2em] uppercase whitespace-nowrap">

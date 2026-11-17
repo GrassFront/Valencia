@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     turbopackPluginRuntimeStrategy: "workerThreads",
   },
+  images: {
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       "*.css": {

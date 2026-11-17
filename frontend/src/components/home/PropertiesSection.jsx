@@ -231,7 +231,7 @@ export default function PropertiesSection() {
                 {/* Button / VIEW STAY */}
                 <div className="pt-2">
                   <Link
-                    href="#rooms"
+                    href="/valencia"
                     className="inline-flex h-[38px] xl:h-[43px] w-[170px] xl:w-[186px] items-center justify-center gap-2.5 bg-[#1B4D32] text-[#F8F5EA] rounded-[2px] transition-colors duration-200 hover:bg-[#153e28] active:bg-[#0f2c1c]"
                   >
                     <span className="font-body font-semibold text-[10px] leading-[20px] tracking-[0.18em] uppercase whitespace-nowrap">
@@ -304,14 +304,14 @@ export default function PropertiesSection() {
                   </span>
 
                   {/* Property Name */}
-                  <div className="flex flex-col items-start pt-0.5 min-w-0">
+                  <Link href="/umrao" className="flex flex-col items-start pt-0.5 min-w-0 hover:opacity-85 transition-opacity">
                     <h3 className="font-display font-normal text-[22px] sm:text-[25px] xl:text-[27px] 2xl:text-[29px] leading-[26px] sm:leading-[30px] xl:leading-[32px] text-[#242B25] truncate max-w-full">
                       UMRAO
                     </h3>
                     <span className="font-display font-normal text-[16px] sm:text-[19px] xl:text-[20px] 2xl:text-[22px] leading-[20px] sm:leading-[23px] xl:leading-[25px] text-[#242B25] truncate max-w-full">
                       THE BANQUET
                     </span>
-                  </div>
+                  </Link>
 
                   {/* Gold Divider: 30px x 1px */}
                   <span className="w-[30px] h-[1px] bg-[#C9A96A] my-0.5 xl:my-1" aria-hidden="true" />
@@ -325,7 +325,7 @@ export default function PropertiesSection() {
                 {/* Button / ENQUIRE NOW */}
                 <div className="pt-1 w-full">
                   <Link
-                    href="#events"
+                    href="/umrao"
                     className="inline-flex h-[32px] sm:h-[34px] w-full max-w-[214px] items-center justify-center gap-2 border border-[#B68D57] rounded-[2px] text-[#B68D57] hover:bg-[#B68D57] hover:text-[#FAF7F0] transition-colors duration-200"
                   >
                     <span className="font-body font-semibold text-[9px] sm:text-[9.5px] 2xl:text-[10px] leading-[20px] tracking-[0.14em] sm:tracking-[0.18em] uppercase whitespace-nowrap">
