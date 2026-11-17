@@ -1,0 +1,304 @@
+/* deluxe-room-before-your-stay-booking.css */
+
+.deluxe-room-before-your-stay-booking-section {
+  width: 100%;
+  background: #E9DBC3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.deluxe-room-before-your-stay-booking {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 64px 72px 50px 72px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #E9DBC3;
+  box-sizing: border-box;
+}
+
+/* Header & CTA */
+.policy-introduction-and-cta {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.policy-introduction {
+  flex: 1;
+  max-width: 975px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.before-your-stay {
+  color: #BC934B;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.a-few-details-for-a-restful-visit {
+  width: 100%;
+  color: #184D3C;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 59px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+}
+
+.review-the-essentials-before-confirming {
+  width: 100%;
+  color: #69523E;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0;
+}
+
+.view-booking-policy-button {
+  height: 53px;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 1.25px solid #184D3C;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.view-booking-policy-button:hover {
+  background: rgba(24, 77, 60, 0.08);
+}
+
+.view-booking-policy {
+  color: #184D3C;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 1.8px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.icon-arrow-up-right {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-spacing {
+  width: 100%;
+  height: 48px;
+}
+
+/* 3 Policy Columns */
+.three-booking-policy-columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.check-in-check-out {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 28px 0 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  border-right: 1px solid #CCAF79;
+}
+
+.cancellation-amendments {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 28px 0 28px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  border-right: 1px solid #CCAF79;
+}
+
+.children-extra-beds {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 0 0 28px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+
+.icon-check-in-check-out,
+.icon-cancellation-amendments,
+.icon-children-extra-beds {
+  width: 80px;
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.check-in-check-out-2,
+.cancellation-amendments-2,
+.children-extra-beds-2 {
+  color: #184D3C;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: clamp(21px, 1.85vw, 26px);
+  font-weight: 400;
+  line-height: 1.35;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.arrival-and-departure-times-will-be,
+.terms-depend-on-your-selected-rate-plan,
+.contact-our-team-for-availability-age {
+  color: #69523E;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0;
+}
+
+.section-spacing-2 {
+  width: 100%;
+  height: 36px;
+}
+
+/* Bottom Note */
+.policy-confirmation-note {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.rectangle-3-policy {
+  width: 100%;
+  height: 1px;
+  background: #CCAF79;
+  border: none;
+}
+
+.final-policy-details-will-be-provided {
+  width: 100%;
+  color: #69523E;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 23px;
+  margin: 0;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .deluxe-room-before-your-stay-booking {
+    padding: 48px 32px 40px 32px;
+  }
+
+  .a-few-details-for-a-restful-visit {
+    font-size: 42px;
+  }
+
+  .review-the-essentials-before-confirming {
+    font-size: 20px;
+  }
+
+  .three-booking-policy-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .check-in-check-out,
+  .cancellation-amendments,
+  .children-extra-beds {
+    padding: 0 0 24px 0;
+    border-right: none;
+    border-bottom: 1px solid #CCAF79;
+  }
+
+  .children-extra-beds {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .deluxe-room-before-your-stay-booking {
+    padding: 36px 20px 32px 20px;
+  }
+
+  .policy-introduction-and-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .a-few-details-for-a-restful-visit {
+    font-size: 32px;
+  }
+
+  .review-the-essentials-before-confirming {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .view-booking-policy-button {
+    width: 100%;
+  }
+
+  .check-in-check-out-2,
+  .cancellation-amendments-2,
+  .children-extra-beds-2 {
+    font-size: 22px;
+    line-height: 32px;
+    white-space: normal;
+  }
+
+  .arrival-and-departure-times-will-be,
+  .terms-depend-on-your-selected-rate-plan,
+  .contact-our-team-for-availability-age {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

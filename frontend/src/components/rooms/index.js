@@ -11,3 +11,5 @@ export { Component04BeforeYourStayArrivalDetails } from "./BeforeYourStayArrival
 export { default as DeluxeRoomHeroGallery } from "./DeluxeRoomHeroGallery";
 export { DeluxeRoomHeroGalleryCroppedReference } from "./DeluxeRoomHeroGallery";
 export { default as DeluxeRoomDetailsAndBooking } from "./DeluxeRoomDetailsAndBooking";
+export { default as DeluxeRoomBeforeYourStayBookingPolicies } from "./DeluxeRoomBeforeYourStayBookingPolicies";
+export { DeluxeRoomBeforeYourStayBookingPolicies as DeluxeRoomBeforeYourStayBookingPoliciesRef } from "./DeluxeRoomBeforeYourStayBookingPolicies";

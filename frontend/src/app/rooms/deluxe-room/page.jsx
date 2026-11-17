@@ -1,5 +1,9 @@
 import { MainLayout } from "@/components/layout";
-import { DeluxeRoomHeroGallery, DeluxeRoomDetailsAndBooking } from "@/components/rooms";
+import {
+  DeluxeRoomHeroGallery,
+  DeluxeRoomDetailsAndBooking,
+  DeluxeRoomBeforeYourStayBookingPolicies,
+} from "@/components/rooms";
 import { YourNextStayBooking } from "@/components/home";
 
 export const metadata = {
@@ -18,7 +22,10 @@ export default function DeluxeRoomPage() {
         {/* Section 02: Room Details & Booking Section */}
         <DeluxeRoomDetailsAndBooking />
 
-        {/* Section 03: Upper Section of Footer (Your Next Stay Booking) */}
+        {/* Section 03: Before Your Stay - Booking Policies */}
+        <DeluxeRoomBeforeYourStayBookingPolicies />
+
+        {/* Section 04: Upper Section of Footer (Your Next Stay Booking) */}
         <YourNextStayBooking />
       </div>
     </MainLayout>
