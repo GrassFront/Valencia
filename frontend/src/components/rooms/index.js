@@ -8,3 +8,5 @@ export { default as AmenitiesAndServicesSection } from "./AmenitiesAndServicesSe
 export { Component03AmenitiesServices } from "./AmenitiesAndServicesSection";
 export { default as BeforeYourStayArrivalDetailsSection } from "./BeforeYourStayArrivalDetailsSection";
 export { Component04BeforeYourStayArrivalDetails } from "./BeforeYourStayArrivalDetailsSection";
+export { default as DeluxeRoomHeroGallery } from "./DeluxeRoomHeroGallery";
+export { DeluxeRoomHeroGalleryCroppedReference } from "./DeluxeRoomHeroGallery";

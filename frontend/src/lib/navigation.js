@@ -31,7 +31,7 @@ export const NAV_ITEMS = [
       {
         label: "Deluxe Room",
         subtitle: "A welcoming retreat for restful stays",
-        href: "/rooms#deluxe",
+        href: "/rooms/deluxe-room",
       },
       {
         label: "Twin Room",
