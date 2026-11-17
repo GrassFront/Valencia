@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Hotel Jia Page Scoped Styles & Exact Design Tokens
+   ========================================================================== */
+
+.jia-page {
+  background-color: #FAF6EC;
+  color: #4F3523;
+  font-family: var(--valencia-font-body, 'Manrope', Arial, sans-serif);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Playfair Display Typography */
+.jia-font-display {
+  font-family: var(--valencia-font-display, 'Playfair Display', Georgia, serif);
+}
+
+/* Manrope Body Typography */
+.jia-font-body {
+  font-family: var(--valencia-font-body, 'Manrope', Arial, sans-serif);
+}
+
+/* Hero Section Custom Gradient Overlay matching exact Figma CSS token */
+.jia-hero-overlay {
+  background: linear-gradient(
+    90deg,
+    #332215 0%,
+    #332215 25.95%,
+    rgba(51, 34, 21, 0.1) 70%,
+    rgba(51, 34, 21, 0) 100%
+  );
+}
+
+@media (max-width: 1024px) {
+  .jia-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(51, 34, 21, 0.95) 0%,
+      rgba(51, 34, 21, 0.85) 60%,
+      rgba(51, 34, 21, 0.92) 100%
+    );
+  }
+}
+
+/* Hover transition on room cards & looking-ahead cards */
+.jia-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
+}
+
+.jia-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(79, 53, 35, 0.12);
+}
+
+/* Scale effect for images on card hover */
+.jia-img-scale {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .jia-img-scale {
+  transform: scale(1.04);
+}
+
+/* Custom form input styling */
+.jia-input {
+  background-color: #FCFBF8;
+  border: 1px solid #BFB3A4;
+  color: #4F3523;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jia-input:focus {
+  outline: none;
+  border-color: #194E35;
+  box-shadow: 0 0 0 2px rgba(25, 78, 53, 0.15);
+}
+
+.jia-input::placeholder {
+  color: #786D61;
+}
+
+/* Custom scrollbars */
+.jia-page ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.jia-page ::-webkit-scrollbar-track {
+  background: #FAF6EC;
+}
+
+.jia-page ::-webkit-scrollbar-thumb {
+  background: #C99D4B;
+  border-radius: 3px;
+}

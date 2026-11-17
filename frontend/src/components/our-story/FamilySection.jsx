@@ -126,7 +126,10 @@ export default function FamilySection() {
             <div className="family-divider-line w-full max-w-[435px] h-[1px] bg-[#C9A96A]" />
 
             {/* 3. Hotel Jia International */}
-            <div className="family-card-item flex items-center gap-[28px] min-h-[69px]">
+            <Link
+              href="/hotel-jia"
+              className="family-card-item flex items-center gap-[28px] min-h-[69px] hover:opacity-85 transition-opacity"
+            >
               <div className="family-card-icon relative w-[76px] h-[64px] shrink-0">
                 <Image
                   src="/images/OurStory/storyIcon3.png"
@@ -144,7 +147,7 @@ export default function FamilySection() {
                   Comfortable city stays
                 </p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
