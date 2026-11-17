@@ -1,0 +1,804 @@
+/* deluxe-room-details-and-booking.css */
+
+.deluxe-room-details-and-booking-section {
+  width: 100%;
+  background: #F8F5EB;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.deluxe-room-details-and-booking {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+  padding: 30px 48px 60px 64px;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #F8F5EB;
+  box-sizing: border-box;
+}
+
+/* ================= LEFT COLUMN: ROOM DETAILS ================= */
+.room-details {
+  flex: 1;
+  max-width: 797px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Room at a glance */
+.room-at-a-glance {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 0px 0px 20px 0px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.your-deluxe-retreat {
+  color: #A47A28;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 3.7px;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.room-at-a-glance-2 {
+  color: #154C38;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 4px 0;
+}
+
+.four-room-specifications {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 0px 20px 0px;
+}
+
+.room-size,
+.bed-type,
+.occupancy,
+.view {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.icon-size,
+.icon-bed,
+.icon-people,
+.icon-eye {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.room-size-2,
+.bed-type-2,
+.occupancy-2,
+.view-2 {
+  color: #877B70;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0;
+}
+
+.layer-32-m2-344-sq-ft,
+.king-size-bed,
+.layer-2-adults-1-child,
+.garden-view {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 140%;
+  margin: 0;
+}
+
+.illustrative-room-specifications {
+  color: #99938C;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 6px 0 0 0;
+}
+
+/* Dividers */
+.rectangle,
+.rectangle-2,
+.rectangle-3,
+.rectangle-4 {
+  width: 100%;
+  height: 1.4px;
+  background: #D8CCB4;
+  border: none;
+  margin: 24px 0;
+}
+
+/* Room Introduction */
+.room-introduction {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0px 8px 0px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.a-little-time-entirely-yours {
+  color: #154C38;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 43px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 6px 0;
+}
+
+.settle-into-a-calm-retreat-with-warm,
+.thoughtful-details-create-a-welcoming {
+  width: 100%;
+  max-width: 790px;
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Comfort Amenities */
+.amenities {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 4px 0px 8px 0px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.comfort-thoughtfully-considered {
+  color: #154C38;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 43px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 4px 0;
+}
+
+.amenities-row-1,
+.amenities-row-2,
+.amenities-row-3 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 34px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.wi-fi,
+.air-conditioning,
+.tea-coffee,
+.television,
+.bath-essentials,
+.housekeeping {
+  width: calc(50% - 17px);
+  max-width: 381px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.icon-wifi,
+.icon-snow,
+.icon-tea,
+.icon-tv,
+.icon-bath,
+.icon-broom {
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description,
+.description-2,
+.description-3,
+.description-4,
+.description-5,
+.description-6 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.wi-fi-2,
+.air-conditioning-2,
+.tea-coffee-2,
+.television-2,
+.bath-essentials-2,
+.housekeeping-2 {
+  color: #343237;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.stay-connected-with-complimentary-high,
+.maintain-your-ideal-comfort-whatever,
+.in-room-tea-and-coffee-making,
+.enjoy-a-range-of-entertainment-options,
+.premium-bath-amenities-for-a-refreshing,
+.daily-housekeeping-for-a-comfortable {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.proposed-amenities-subject-to {
+  color: #99938C;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 8px 0 0 0;
+}
+
+/* ================= RIGHT COLUMN: PLAN YOUR STAY BOOKING CARD ================= */
+.plan-your-stay-booking-card {
+  width: 494px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px;
+  border-radius: 10px;
+  background: #FCFAF6;
+  border: 1.5px solid #DED3BE;
+  box-shadow: 0px 4px 20px 0px rgba(64, 51, 26, 0.07);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.booking-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-your-stay {
+  color: #154C38;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.demo-rates-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: #F0DFB6;
+}
+
+.demo-rates {
+  color: #A47A28;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.deluxe-room-tag {
+  color: #A47A28;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Dates & Guests */
+.stay-dates-and-guests {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 8px 0 10px 0;
+}
+
+.dates {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.check-in,
+.check-out {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.check-in-2,
+.check-out-2,
+.guests-2 {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+.check-in-input,
+.check-out-input,
+.guests-input {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 14px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  background: #FEFDFC;
+  border: 1.3px solid #DEDCDD;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.check-in-input:hover,
+.check-out-input:hover,
+.guests-input:hover {
+  border-color: #154C38;
+}
+
+.layer-12-nov-2026,
+.layer-14-nov-2026,
+.layer-2-adults-1-room {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+.icon-calendar,
+.icon-calendar-2,
+.icon-down {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guests {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Rate Selection */
+.select-your-rate {
+  color: #154C38;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 4px 0 0 0;
+}
+
+.rate-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.room-only,
+.breakfast-included {
+  width: 100%;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 5px;
+  background: #FEFDFC;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rate-card-selected {
+  border: 1.8px solid #154C38;
+}
+
+.rate-card-unselected {
+  border: 1.3px solid #DEDCDD;
+}
+
+.rate-card-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.radio-selected,
+.radio-unselected {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.room-only-2,
+.breakfast-included-2 {
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 140%;
+  margin: 0;
+}
+
+.rate-card-selected .room-only-2,
+.rate-card-selected .breakfast-included-2 {
+  color: #154C38;
+}
+
+.rate-card-unselected .room-only-2,
+.rate-card-unselected .breakfast-included-2 {
+  color: #343237;
+}
+
+.nightly-rate,
+.nightly-rate-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.rs6-000,
+.rs7-000 {
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 115%;
+  margin: 0;
+}
+
+.rate-card-selected .rs6-000,
+.rate-card-selected .rs7-000 {
+  color: #154C38;
+}
+
+.rate-card-unselected .rs6-000,
+.rate-card-unselected .rs7-000 {
+  color: #343237;
+}
+
+.night,
+.night-2 {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+.view-rate-conditions {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 140%;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 2px 0 0 0;
+  display: inline-block;
+}
+
+/* Price summary */
+.price-summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 8px 0;
+}
+
+.rs6-000-x-2-nights,
+.taxes-fees-demo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rs6-000-x-2-nights-2,
+.taxes-fees-demo-2 {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+.rs12-000,
+.rs1-200 {
+  color: #343237;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 140%;
+  margin: 0;
+}
+
+.total-for-stay {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.total-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.total {
+  color: #343237;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.for-2-nights {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+.rs13-200 {
+  color: #154C38;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.book-now {
+  width: 100%;
+  height: 57px;
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #154C38;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 6px;
+}
+
+.book-now:hover {
+  background: #103b2c;
+  transform: translateY(-1px);
+}
+
+.book-now:active {
+  transform: translateY(0);
+}
+
+.book-now-2 {
+  color: #FFFFFF;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 3.5px;
+  margin: 0;
+}
+
+.icon-arrow {
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-notes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  padding: 8px 0 0 0;
+}
+
+.continue-to-guest-details-and-payment {
+  color: #55535A;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+.sample-dates-rates-and-taxes-for-design {
+  color: #99938C;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 0;
+}
+
+/* ================= RESPONSIVE ADAPTATIONS ================= */
+@media (max-width: 1200px) {
+  .deluxe-room-details-and-booking {
+    flex-direction: column;
+    padding: 30px 24px 60px 24px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .room-details {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .plan-your-stay-booking-card {
+    width: 100%;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 768px) {
+  .deluxe-room-details-and-booking {
+    padding: 24px 16px 48px 16px;
+    gap: 36px;
+  }
+
+  .room-at-a-glance-2 {
+    font-size: 38px;
+  }
+
+  .a-little-time-entirely-yours,
+  .comfort-thoughtfully-considered {
+    font-size: 32px;
+  }
+
+  .four-room-specifications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .amenities-row-1,
+  .amenities-row-2,
+  .amenities-row-3 {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .wi-fi,
+  .air-conditioning,
+  .tea-coffee,
+  .television,
+  .bath-essentials,
+  .housekeeping {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .plan-your-stay-booking-card {
+    width: 100%;
+    padding: 20px 18px;
+  }
+
+  .plan-your-stay {
+    font-size: 30px;
+  }
+
+  .dates {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .room-only,
+  .breakfast-included {
+    height: auto;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .total {
+    font-size: 24px;
+  }
+
+  .rs13-200 {
+    font-size: 28px;
+  }
+}

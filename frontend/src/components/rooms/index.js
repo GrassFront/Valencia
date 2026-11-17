@@ -10,3 +10,4 @@ export { default as BeforeYourStayArrivalDetailsSection } from "./BeforeYourStay
 export { Component04BeforeYourStayArrivalDetails } from "./BeforeYourStayArrivalDetailsSection";
 export { default as DeluxeRoomHeroGallery } from "./DeluxeRoomHeroGallery";
 export { DeluxeRoomHeroGalleryCroppedReference } from "./DeluxeRoomHeroGallery";
+export { default as DeluxeRoomDetailsAndBooking } from "./DeluxeRoomDetailsAndBooking";
