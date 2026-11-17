@@ -13,3 +13,5 @@ export { DeluxeRoomHeroGalleryCroppedReference } from "./DeluxeRoomHeroGallery";
 export { default as DeluxeRoomDetailsAndBooking } from "./DeluxeRoomDetailsAndBooking";
 export { default as DeluxeRoomBeforeYourStayBookingPolicies } from "./DeluxeRoomBeforeYourStayBookingPolicies";
 export { DeluxeRoomBeforeYourStayBookingPolicies as DeluxeRoomBeforeYourStayBookingPoliciesRef } from "./DeluxeRoomBeforeYourStayBookingPolicies";
+export { default as DeluxeRoomExploreMoreWaysToStay } from "./DeluxeRoomExploreMoreWaysToStay";
+export { DeluxeRoomExploreMoreWaysToStay as DeluxeRoomExploreMoreWaysToStayRef } from "./DeluxeRoomExploreMoreWaysToStay";

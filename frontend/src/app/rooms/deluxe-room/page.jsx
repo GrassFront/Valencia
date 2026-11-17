@@ -3,6 +3,7 @@ import {
   DeluxeRoomHeroGallery,
   DeluxeRoomDetailsAndBooking,
   DeluxeRoomBeforeYourStayBookingPolicies,
+  DeluxeRoomExploreMoreWaysToStay,
 } from "@/components/rooms";
 import { YourNextStayBooking } from "@/components/home";
 
@@ -25,7 +26,10 @@ export default function DeluxeRoomPage() {
         {/* Section 03: Before Your Stay - Booking Policies */}
         <DeluxeRoomBeforeYourStayBookingPolicies />
 
-        {/* Section 04: Upper Section of Footer (Your Next Stay Booking) */}
+        {/* Section 04: Explore More Ways to Stay */}
+        <DeluxeRoomExploreMoreWaysToStay />
+
+        {/* Section 05: Upper Section of Footer (Your Next Stay Booking) */}
         <YourNextStayBooking />
       </div>
     </MainLayout>

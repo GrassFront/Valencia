@@ -1,0 +1,332 @@
+/* deluxe-room-explore-more-ways-to-stay.css */
+
+.deluxe-room-explore-more-ways-to-stay-section {
+  width: 100%;
+  background: #F9F6ED;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.deluxe-room-explore-more-ways-to-stay {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 56px 48px 64px 48px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #F9F6ED;
+  box-sizing: border-box;
+}
+
+/* Header */
+.explore-more-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.section-heading {
+  flex: 1;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.explore-more-ways-to-stay {
+  color: #164B36;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 57px;
+  font-weight: 600;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.find-the-room-that-feels-right-for-your {
+  color: #644F3F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 31px;
+  margin: 0;
+}
+
+.all-rooms-and-suites {
+  height: 50px;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1.5px solid #3F6C58;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 12px;
+  transition: all 0.2s ease;
+}
+
+.all-rooms-and-suites:hover {
+  background: rgba(36, 79, 60, 0.08);
+}
+
+.all-rooms-suites {
+  color: #244F3C;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18.9px;
+  letter-spacing: 1.1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.arrow-right {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3 Room Cards Grid */
+.related-rooms-three-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.room-card-twin-room,
+.room-card-suite,
+.room-card-presidential-suite {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 8px 8px 12px 8px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  background: #FCF9F1;
+  border: 1px solid #E6DFD0;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-card-twin-room:hover,
+.room-card-suite:hover,
+.room-card-presidential-suite:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 24px rgba(22, 75, 54, 0.08);
+}
+
+/* Photo */
+.room-photo-wrapper {
+  width: 100%;
+  height: 315px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #EAE3D4;
+}
+
+.room-image {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.room-card-twin-room:hover .room-image,
+.room-card-suite:hover .room-image,
+.room-card-presidential-suite:hover .room-image {
+  transform: scale(1.03);
+}
+
+/* Concept Image Badge */
+.concept-image-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  height: 29px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  background: rgba(66, 60, 48, 0.92);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.concept-image-icon {
+  width: 18px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.concept-image {
+  color: #FFFFFF;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.5px;
+  margin: 0;
+}
+
+/* Details */
+.room-details-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 12px 18px 12px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.room-card-title {
+  color: #164B36;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 43px;
+  margin: 0;
+}
+
+.room-card-desc {
+  color: #644F3F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 0;
+}
+
+/* View Details Button */
+.view-details-btn {
+  width: 100%;
+  height: 51px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #194E36;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.view-details-btn:hover {
+  background: #123d29;
+}
+
+.view-details-btn-text {
+  color: #FFFFFF;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18.9px;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.view-details-arrow {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .deluxe-room-explore-more-ways-to-stay {
+    padding: 48px 28px 56px 28px;
+  }
+
+  .explore-more-ways-to-stay {
+    font-size: 42px;
+  }
+
+  .find-the-room-that-feels-right-for-your {
+    font-size: 19px;
+  }
+
+  .related-rooms-three-cards {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .room-photo-wrapper {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .deluxe-room-explore-more-ways-to-stay {
+    padding: 36px 16px 48px 16px;
+    gap: 24px;
+  }
+
+  .explore-more-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .explore-more-ways-to-stay {
+    font-size: 32px;
+  }
+
+  .find-the-room-that-feels-right-for-your {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .all-rooms-and-suites {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .room-card-title {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .room-card-desc {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .room-photo-wrapper {
+    height: 220px;
+  }
+}
