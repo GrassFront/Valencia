@@ -244,6 +244,25 @@ export default function PatnaLocationsMap() {
                   </span>
                 </div>
 
+                {currentLoc.id === "umrao" && (
+                  <Link
+                    href="/umrao"
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#174B34] text-[#FAF6EC] font-body font-bold text-[12px] hover:bg-[#123d2a] transition-colors mt-1 shadow-xs"
+                  >
+                    <span>Explore Umrao The Banquet</span>
+                    <ArrowRight size={13} />
+                  </Link>
+                )}
+                {currentLoc.id === "valencia" && (
+                  <Link
+                    href="/valencia"
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#174B34] text-[#FAF6EC] font-body font-bold text-[12px] hover:bg-[#123d2a] transition-colors mt-1 shadow-xs"
+                  >
+                    <span>Explore Valencia Hotel</span>
+                    <ArrowRight size={13} />
+                  </Link>
+                )}
+
                 {/* Badge: MAP PREVIEW · LOCATIONS PENDING */}
                 <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-[8px] bg-[#EAE1CE] border border-[#C9A96A]/40 mt-1">
                   <span className="font-body font-bold text-[9px] sm:text-[10px] leading-[15px] tracking-[0.2em] text-[#745B48] uppercase">

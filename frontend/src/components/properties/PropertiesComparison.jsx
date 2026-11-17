@@ -172,7 +172,7 @@ export default function PropertiesComparison() {
               {/* Umrao Action */}
               <div className="bg-[#FAF7F0] border-[0.5px] border-[#E3D9C8] flex items-center justify-center px-6">
                 <Link
-                  href="#umrao"
+                  href="/umrao"
                   className="w-full max-w-[290px] h-[42px] bg-[#204B36] hover:bg-[#173828] text-[#F8F5EA] rounded-[5px] flex items-center justify-center gap-2 font-body font-bold text-[14px] lg:text-[15px] leading-[20px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
                 >
                   <span>ENQUIRE</span>
@@ -284,7 +284,7 @@ export default function PropertiesComparison() {
                   selectedMobileTab === "valencia"
                     ? "#valencia"
                     : selectedMobileTab === "umrao"
-                      ? "#umrao"
+                      ? "/umrao"
                       : "#jia"
                 }
                 className="w-full h-[46px] bg-[#204B36] text-[#F8F5EA] rounded-[5px] flex items-center justify-center gap-2 font-body font-bold text-[14px] tracking-[0.12em] uppercase"

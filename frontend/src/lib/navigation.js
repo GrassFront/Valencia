@@ -14,7 +14,7 @@ export const NAV_ITEMS = [
       {
         label: "Umrao The Banquet",
         subtitle: "Weddings & Celebrations",
-        href: "/properties#umrao",
+        href: "/umrao",
       },
       {
         label: "Hotel JIA International",

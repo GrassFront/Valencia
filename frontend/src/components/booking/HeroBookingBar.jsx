@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   Moon,
   Clock,
@@ -29,10 +30,16 @@ const MONTH_DATA = [
   { name: "December 2026", year: 2026, monthIndex: 11, startDayOffset: 2, days: 31 },
 ];
 
-export default function HeroBookingBar({ onSearch }) {
-  const [stayMode, setStayMode] = useState("hourly"); // 'night' | 'hourly'
-  const [checkInDay, setCheckInDay] = useState(null); // e.g. 26
-  const [checkOutDay, setCheckOutDay] = useState(null); // e.g. 28
+export default function HeroBookingBar({
+  onSearch,
+  buttonText = "Search Rooms",
+  className = "",
+  initialStayMode = "hourly",
+}) {
+  const router = useRouter();
+  const [stayMode, setStayMode] = useState(initialStayMode); // 'night' | 'hourly'
+  const [checkIn, setCheckIn] = useState(null); // { day, monthIdx }
+  const [checkOut, setCheckOut] = useState(null); // { day, monthIdx }
   const [currentMonthIdx, setCurrentMonthIdx] = useState(0);
 
   const [duration, setDuration] = useState("12 Hours");
@@ -47,9 +54,16 @@ export default function HeroBookingBar({ onSearch }) {
 
   const activeMonth = MONTH_DATA[currentMonthIdx];
 
+  const formatSelectedDate = (dateObj) => {
+    if (!dateObj) return "";
+    const m = MONTH_DATA[dateObj.monthIdx] || MONTH_DATA[0];
+    const monthShort = m.name.split(" ")[0].slice(0, 3);
+    return `${dateObj.day} ${monthShort} ${m.year}`;
+  };
+
   // Derived display strings
-  const checkInText = checkInDay ? `${checkInDay} Oct 2026` : "";
-  const checkOutText = checkOutDay ? `${checkOutDay} Oct 2026` : "";
+  const checkInText = formatSelectedDate(checkIn);
+  const checkOutText = formatSelectedDate(checkOut);
   const guestsSummary = `${adults} ${adults === 1 ? "adult" : "adults"}${
     childrenCount > 0 ? `, ${childrenCount} child` : ""
   } · ${rooms} ${rooms === 1 ? "room" : "rooms"}`;
@@ -76,15 +90,28 @@ export default function HeroBookingBar({ onSearch }) {
 
   const handleSearch = () => {
     setActivePopover(null);
-    onSearch?.({
-      stayMode,
-      checkInDate: checkInText || "Select date",
-      checkOutDate: checkOutText || "Select date",
-      duration: stayMode === "hourly" ? duration : undefined,
-      adults,
-      children: childrenCount,
-      rooms,
-    });
+    if (onSearch) {
+      onSearch({
+        stayMode,
+        checkInDate: checkInText || "Select date",
+        checkOutDate: checkOutText || "Select date",
+        duration: stayMode === "hourly" ? duration : undefined,
+        adults,
+        children: childrenCount,
+        rooms,
+      });
+    } else {
+      if (typeof window !== "undefined" && window.location.pathname.startsWith("/rooms")) {
+        const el =
+          document.querySelector(".choose-your-stay-filters") ||
+          document.querySelector(".rooms-listing-wrapper");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
+      router.push("/rooms");
+    }
   };
 
   const togglePopover = (name) => {
@@ -94,7 +121,10 @@ export default function HeroBookingBar({ onSearch }) {
   return (
     <div
       ref={containerRef}
-      className="relative z-30 w-full max-w-[1080px] lg:max-w-[1140px] xl:max-w-[1180px] rounded-[22px] bg-[#FBF5EA] p-3 sm:p-4 lg:px-4 xl:px-5 lg:py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.16)] border border-[#E8DCC9]/80"
+      className={classNames(
+        "relative z-30 w-full max-w-[1080px] lg:max-w-[1140px] xl:max-w-[1180px] rounded-[22px] bg-[#FBF5EA] p-3 sm:p-4 lg:px-4 xl:px-5 lg:py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.16)] border border-[#E8DCC9]/80",
+        className
+      )}
       aria-label="Hotel booking search bar"
     >
       <div className="flex flex-col gap-3">
@@ -241,12 +271,13 @@ export default function HeroBookingBar({ onSearch }) {
                     <span key={`empty-in-${i}`} className="h-8 w-8" />
                   ))}
                   {Array.from({ length: activeMonth.days }, (_, i) => i + 1).map((day) => {
-                    const isSelected = checkInDay === day;
+                    const isSelected =
+                      checkIn?.day === day && checkIn?.monthIdx === currentMonthIdx;
                     return (
                       <button
                         key={day}
                         type="button"
-                        onClick={() => setCheckInDay(day)}
+                        onClick={() => setCheckIn({ day, monthIdx: currentMonthIdx })}
                         className={classNames(
                           "h-8 w-8 mx-auto rounded-full flex items-center justify-center font-medium transition-colors cursor-pointer",
                           isSelected
@@ -264,7 +295,7 @@ export default function HeroBookingBar({ onSearch }) {
                 <button
                   type="button"
                   onClick={() => {
-                    if (!checkInDay) setCheckInDay(26);
+                    if (!checkIn) setCheckIn({ day: 26, monthIdx: currentMonthIdx });
                     setActivePopover("checkOut");
                   }}
                   className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
@@ -313,7 +344,7 @@ export default function HeroBookingBar({ onSearch }) {
 
             {/* Check-Out Date Picker Popover */}
             {activePopover === "checkOut" && (
-              <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-[calc(100vw-36px)] sm:w-[330px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+              <div className="absolute top-[calc(100%+8px)] left-0 sm:left-auto sm:right-0 lg:left-0 z-50 w-[calc(100vw-36px)] sm:w-[330px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
                 {/* Month Navigator Header */}
                 <div className="flex items-center justify-between mb-4 px-1">
                   <button
@@ -358,12 +389,13 @@ export default function HeroBookingBar({ onSearch }) {
                     <span key={`empty-out-${i}`} className="h-8 w-8" />
                   ))}
                   {Array.from({ length: activeMonth.days }, (_, i) => i + 1).map((day) => {
-                    const isSelected = checkOutDay === day;
+                    const isSelected =
+                      checkOut?.day === day && checkOut?.monthIdx === currentMonthIdx;
                     return (
                       <button
                         key={day}
                         type="button"
-                        onClick={() => setCheckOutDay(day)}
+                        onClick={() => setCheckOut({ day, monthIdx: currentMonthIdx })}
                         className={classNames(
                           "h-8 w-8 mx-auto rounded-full flex items-center justify-center font-medium transition-colors cursor-pointer",
                           isSelected
@@ -381,7 +413,7 @@ export default function HeroBookingBar({ onSearch }) {
                 <button
                   type="button"
                   onClick={() => {
-                    if (!checkOutDay) setCheckOutDay(28);
+                    if (!checkOut) setCheckOut({ day: 28, monthIdx: currentMonthIdx });
                     setActivePopover(null);
                   }}
                   className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
@@ -392,7 +424,7 @@ export default function HeroBookingBar({ onSearch }) {
             )}
           </div>
 
-          {/* Field 3: Duration (Shown when Hourly Booking is active) */}
+          {/* Field 3: Duration (Shown only when Hourly Booking is active) */}
           {stayMode === "hourly" && (
             <div className="relative flex-1 min-w-0">
               <button
@@ -426,7 +458,7 @@ export default function HeroBookingBar({ onSearch }) {
 
               {/* Duration Popover */}
               {activePopover === "duration" && (
-                <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-[calc(100vw-36px)] sm:w-[340px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute top-[calc(100%+8px)] left-0 sm:left-auto sm:right-0 lg:left-0 z-50 w-[calc(100vw-36px)] sm:w-[340px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
                   {/* Header */}
                   <div className="flex items-start gap-2.5 mb-4">
                     <Clock size={22} className="text-[#1B4D32] stroke-[2] shrink-0 mt-0.5" />
@@ -539,7 +571,7 @@ export default function HeroBookingBar({ onSearch }) {
 
             {/* Guests & Rooms Popover */}
             {activePopover === "guests" && (
-              <div className="absolute top-[calc(100%+8px)] left-0 lg:left-auto lg:right-0 z-50 w-[calc(100vw-36px)] sm:w-[340px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
+              <div className="absolute top-[calc(100%+8px)] left-0 sm:left-auto sm:right-0 lg:left-auto lg:right-0 z-50 w-[calc(100vw-36px)] sm:w-[340px] rounded-[18px] border border-[#E8DCC9] bg-[#FBF5EA] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.18)] animate-in fade-in zoom-in-95 duration-150">
                 {/* Header */}
                 <div className="flex items-center gap-2.5 mb-4">
                   <User size={22} className="text-[#1B4D32] stroke-[2] shrink-0" />
@@ -661,7 +693,7 @@ export default function HeroBookingBar({ onSearch }) {
             onClick={handleSearch}
             className="flex h-[48px] sm:h-[58px] lg:h-[54px] xl:h-[58px] w-full lg:w-auto lg:min-w-[160px] xl:min-w-[185px] whitespace-nowrap shrink-0 items-center justify-center gap-2.5 rounded-[8px] bg-[#1B4D32] px-5 sm:px-6 text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f] transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer"
           >
-            <span>Search Rooms</span>
+            <span>{buttonText}</span>
             <ArrowRight size={20} className="stroke-[2]" />
           </button>
         </div>
