@@ -253,6 +253,15 @@ export default function PatnaLocationsMap() {
                     <ArrowRight size={13} />
                   </Link>
                 )}
+                {currentLoc.id === "jia" && (
+                  <Link
+                    href="/hotel-jia"
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#174B34] text-[#FAF6EC] font-body font-bold text-[12px] hover:bg-[#123d2a] transition-colors mt-1 shadow-xs"
+                  >
+                    <span>Explore Hotel Jia International</span>
+                    <ArrowRight size={13} />
+                  </Link>
+                )}
                 {currentLoc.id === "valencia" && (
                   <Link
                     href="/valencia"

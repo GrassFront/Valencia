@@ -20,7 +20,7 @@ const PROPERTIES = [
     isUppercase: false,
     subtitle: "Fraser Road, opposite Buddha Smriti Park, Patna",
     detail: "Phone: to be confirmed",
-    href: "/properties#jia",
+    href: "/hotel-jia",
   },
 ];
 

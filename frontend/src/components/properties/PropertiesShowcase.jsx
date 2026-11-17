@@ -238,9 +238,11 @@ export default function PropertiesShowcase() {
                 </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="font-display font-bold text-[28px] sm:text-[34px] lg:text-[38px] leading-[1.2] text-[#174B34]">
-                  Hotel Jia International
-                </h3>
+                <Link href="/hotel-jia" className="hover:opacity-90 transition-opacity">
+                  <h3 className="font-display font-bold text-[28px] sm:text-[34px] lg:text-[38px] leading-[1.2] text-[#174B34]">
+                    Hotel Jia International
+                  </h3>
+                </Link>
                 <p className="font-body font-normal text-[14.5px] sm:text-[16px] leading-[22px] text-[#51554F]">
                   Comfortable city stays on Fraser Road, Patna.
                 </p>
@@ -265,7 +267,7 @@ export default function PropertiesShowcase() {
               {/* Action Button */}
               <div className="pt-1">
                 <Link
-                  href="#contact"
+                  href="/hotel-jia"
                   className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[220px] h-[44px] bg-[#174B34] hover:bg-[#123d2a] text-[#F8F5EA] rounded-[3px] font-body font-semibold text-[15px] sm:text-[16px] leading-[21px] tracking-[0.12em] transition-colors uppercase group/btn"
                 >
                   <span>VIEW HOTEL</span>

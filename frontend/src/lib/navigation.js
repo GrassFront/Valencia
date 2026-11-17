@@ -19,7 +19,7 @@ export const NAV_ITEMS = [
       {
         label: "Hotel JIA International",
         subtitle: "Business & Leisure Stay",
-        href: "/properties#jia",
+        href: "/hotel-jia",
       },
     ],
   },

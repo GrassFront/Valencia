@@ -378,14 +378,14 @@ export default function PropertiesSection() {
                   </span>
 
                   {/* Property Name */}
-                  <div className="flex flex-col items-start pt-0.5 min-w-0">
+                  <Link href="/hotel-jia" className="flex flex-col items-start pt-0.5 min-w-0 hover:opacity-85 transition-opacity">
                     <h3 className="font-display font-normal text-[22px] sm:text-[25px] xl:text-[27px] 2xl:text-[29px] leading-[26px] sm:leading-[30px] xl:leading-[32px] text-[#242B25] truncate max-w-full">
                       HOTEL JIA
                     </h3>
                     <span className="font-display font-normal text-[16px] sm:text-[19px] xl:text-[20px] 2xl:text-[22px] leading-[20px] sm:leading-[23px] xl:leading-[25px] text-[#242B25] truncate max-w-full">
                       INTERNATIONAL
                     </span>
-                  </div>
+                  </Link>
 
                   {/* Gold Divider: 30px x 1px */}
                   <span className="w-[30px] h-[1px] bg-[#C9A96A] my-0.5 xl:my-1" aria-hidden="true" />
@@ -399,7 +399,7 @@ export default function PropertiesSection() {
                 {/* Button / VIEW HOTEL */}
                 <div className="pt-1 w-full">
                   <Link
-                    href="#properties"
+                    href="/hotel-jia"
                     className="inline-flex h-[32px] sm:h-[34px] w-full max-w-[214px] items-center justify-center gap-2 border border-[#B68D57] rounded-[2px] text-[#B68D57] hover:bg-[#B68D57] hover:text-[#FAF7F0] transition-colors duration-200"
                   >
                     <span className="font-body font-semibold text-[9px] sm:text-[9.5px] 2xl:text-[10px] leading-[20px] tracking-[0.14em] sm:tracking-[0.18em] uppercase whitespace-nowrap">
