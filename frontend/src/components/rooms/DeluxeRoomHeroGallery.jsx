@@ -33,9 +33,16 @@ const DELUXE_GALLERY_PHOTOS = [
   },
 ];
 
-export default function DeluxeRoomHeroGallery() {
+export default function DeluxeRoomHeroGallery({
+  roomName = "Deluxe Room",
+  eyebrow = "YOUR PRIVATE RETREAT",
+  subtitle = "A welcoming retreat for restful stays.",
+  photos = DELUXE_GALLERY_PHOTOS,
+}) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+
+  const galleryPhotos = photos && photos.length > 0 ? photos : DELUXE_GALLERY_PHOTOS;
 
   // Close lightbox on Escape
   useEffect(() => {
@@ -43,12 +50,12 @@ export default function DeluxeRoomHeroGallery() {
       if (e.key === "Escape") setLightboxOpen(false);
       if (e.key === "ArrowLeft") {
         setActivePhotoIdx((prev) =>
-          prev === 0 ? DELUXE_GALLERY_PHOTOS.length - 1 : prev - 1
+          prev === 0 ? galleryPhotos.length - 1 : prev - 1
         );
       }
       if (e.key === "ArrowRight") {
         setActivePhotoIdx((prev) =>
-          prev === DELUXE_GALLERY_PHOTOS.length - 1 ? 0 : prev + 1
+          prev === galleryPhotos.length - 1 ? 0 : prev + 1
         );
       }
     }
@@ -56,7 +63,7 @@ export default function DeluxeRoomHeroGallery() {
       window.addEventListener("keydown", handleKeyDown);
     }
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxOpen]);
+  }, [lightboxOpen, galleryPhotos.length]);
 
   const openLightbox = (idx = 0) => {
     setActivePhotoIdx(idx);
@@ -66,16 +73,20 @@ export default function DeluxeRoomHeroGallery() {
   const handlePrevPhoto = (e) => {
     e.stopPropagation();
     setActivePhotoIdx((prev) =>
-      prev === 0 ? DELUXE_GALLERY_PHOTOS.length - 1 : prev - 1
+      prev === 0 ? galleryPhotos.length - 1 : prev - 1
     );
   };
 
   const handleNextPhoto = (e) => {
     e.stopPropagation();
     setActivePhotoIdx((prev) =>
-      prev === DELUXE_GALLERY_PHOTOS.length - 1 ? 0 : prev + 1
+      prev === galleryPhotos.length - 1 ? 0 : prev + 1
     );
   };
+
+  const photoMain = galleryPhotos[0] || DELUXE_GALLERY_PHOTOS[0];
+  const photoSub1 = galleryPhotos[1] || DELUXE_GALLERY_PHOTOS[1];
+  const photoSub2 = galleryPhotos[2] || DELUXE_GALLERY_PHOTOS[2];
 
   return (
     <section
@@ -93,16 +104,16 @@ export default function DeluxeRoomHeroGallery() {
             Rooms &amp; Suites
           </Link>
           <span className="deluxe-breadcrumb-separator">/</span>
-          <span className="deluxe-breadcrumb-active">Deluxe Room</span>
+          <span className="deluxe-breadcrumb-active">{roomName}</span>
         </nav>
 
         {/* 2. Room Title and Back Return Link */}
         <div className="deluxe-room-header-row">
           <div className="deluxe-room-heading-block">
-            <p className="deluxe-room-eyebrow">YOUR PRIVATE RETREAT</p>
-            <h1 className="deluxe-room-title">Deluxe Room</h1>
+            <p className="deluxe-room-eyebrow">{eyebrow}</p>
+            <h1 className="deluxe-room-title">{roomName}</h1>
             <p className="deluxe-room-subtitle">
-              A welcoming retreat for restful stays.
+              {subtitle}
             </p>
           </div>
 
@@ -127,14 +138,14 @@ export default function DeluxeRoomHeroGallery() {
             onClick={() => openLightbox(0)}
             role="button"
             tabIndex={0}
-            aria-label="View main bedroom photo in fullscreen"
+            aria-label={`View main ${roomName} photo in fullscreen`}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") openLightbox(0);
             }}
           >
             <Image
-              src="/images/Room and Suites/delux room/Upload target.png"
-              alt="Deluxe Room Master Bedroom"
+              src={photoMain.src}
+              alt={photoMain.alt}
               width={832}
               height={710}
               className="main-bedroom-img"
@@ -151,14 +162,14 @@ export default function DeluxeRoomHeroGallery() {
               onClick={() => openLightbox(1)}
               role="button"
               tabIndex={0}
-              aria-label="View reading corner photo in fullscreen"
+              aria-label={`View ${roomName} interior photo in fullscreen`}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") openLightbox(1);
               }}
             >
               <Image
-                src="/images/Room and Suites/delux room/Upload target2.png"
-                alt="Deluxe Room Reading Corner"
+                src={photoSub1.src}
+                alt={photoSub1.alt}
                 width={534}
                 height={339}
                 className="reading-corner-img"
@@ -172,14 +183,14 @@ export default function DeluxeRoomHeroGallery() {
               onClick={() => openLightbox(2)}
               role="button"
               tabIndex={0}
-              aria-label="View bathroom photo in fullscreen"
+              aria-label={`View ${roomName} bathroom photo in fullscreen`}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") openLightbox(2);
               }}
             >
               <Image
-                src="/images/Room and Suites/delux room/Upload target3.png"
-                alt="Deluxe Room Bathroom"
+                src={photoSub2.src}
+                alt={photoSub2.alt}
                 width={534}
                 height={365}
                 className="bathroom-img"
@@ -194,7 +205,7 @@ export default function DeluxeRoomHeroGallery() {
                   openLightbox(0);
                 }}
                 className="view-all-photos-btn"
-                aria-label="View all photos of Deluxe Room"
+                aria-label={`View all photos of ${roomName}`}
               >
                 <div className="grid-icon-box" aria-hidden="true">
                   <span className="grid-box-dot" />
@@ -219,7 +230,7 @@ export default function DeluxeRoomHeroGallery() {
           onClick={() => setLightboxOpen(false)}
           role="dialog"
           aria-modal="true"
-          aria-label="Deluxe Room Photo Gallery Modal"
+          aria-label={`${roomName} Photo Gallery Modal`}
         >
           <div
             className="deluxe-lightbox-container"
@@ -248,8 +259,8 @@ export default function DeluxeRoomHeroGallery() {
             {/* Main Lightbox Image */}
             <div className="deluxe-lightbox-image-wrapper">
               <Image
-                src={DELUXE_GALLERY_PHOTOS[activePhotoIdx].src}
-                alt={DELUXE_GALLERY_PHOTOS[activePhotoIdx].alt}
+                src={galleryPhotos[activePhotoIdx]?.src || photoMain.src}
+                alt={galleryPhotos[activePhotoIdx]?.alt || photoMain.alt}
                 fill
                 className="deluxe-lightbox-img"
                 unoptimized
@@ -269,10 +280,10 @@ export default function DeluxeRoomHeroGallery() {
             {/* Caption & Counter */}
             <div className="flex flex-col items-center gap-1">
               <p className="text-white font-body text-[15px] font-medium">
-                {DELUXE_GALLERY_PHOTOS[activePhotoIdx].caption}
+                {galleryPhotos[activePhotoIdx]?.caption}
               </p>
               <span className="deluxe-lightbox-counter">
-                {activePhotoIdx + 1} / {DELUXE_GALLERY_PHOTOS.length}
+                {activePhotoIdx + 1} / {galleryPhotos.length}
               </span>
             </div>
           </div>

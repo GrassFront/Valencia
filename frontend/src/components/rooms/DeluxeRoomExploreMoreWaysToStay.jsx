@@ -5,31 +5,39 @@ import Image from "next/image";
 import Link from "next/link";
 import "./css/deluxe-room-explore-more-ways-to-stay.css";
 
-const relatedRooms = [
+const ALL_ROOMS = [
+  {
+    id: "deluxe-room",
+    title: "Deluxe Room",
+    description: "A welcoming retreat for restful stays.",
+    image: "/images/Room and Suites/delux room/Upload target.png",
+    href: "/rooms/deluxe-room",
+  },
   {
     id: "twin-room",
     title: "Twin Room",
     description: "A comfortable stay with twin beds, ideal for friends or family.",
     image: "/images/Room and Suites/delux room/Twin Room/Reference photo crop.png",
-    href: "/rooms#twin-room",
+    href: "/rooms/twin-room",
   },
   {
     id: "suite",
     title: "Suite",
     description: "More space to relax with a separate living area.",
     image: "/images/Room and Suites/delux room/Suite/Reference photo crop.png",
-    href: "/rooms#suite",
+    href: "/rooms/suite",
   },
   {
     id: "presidential-suite",
     title: "Presidential Suite",
     description: "An expansive retreat with refined interiors and added space.",
     image: "/images/Room and Suites/delux room/Presidential Suite/Reference photo crop.png",
-    href: "/rooms#presidential-suite",
+    href: "/rooms/presidential-suite",
   },
 ];
 
-export default function DeluxeRoomExploreMoreWaysToStay() {
+export default function DeluxeRoomExploreMoreWaysToStay({ currentRoomId = "deluxe-room" }) {
+  const displayedRooms = ALL_ROOMS.filter((room) => room.id !== currentRoomId);
   return (
     <section className="deluxe-room-explore-more-ways-to-stay-section">
       <div className="deluxe-room-explore-more-ways-to-stay">
@@ -58,7 +66,7 @@ export default function DeluxeRoomExploreMoreWaysToStay() {
 
         {/* 3 Related Room Cards */}
         <div className="related-rooms-three-cards">
-          {relatedRooms.map((room) => (
+          {displayedRooms.map((room) => (
             <div key={room.id} className="room-card-twin-room">
               {/* Photo */}
               <div className="room-photo-wrapper">

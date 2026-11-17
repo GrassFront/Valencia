@@ -36,17 +36,17 @@ export const NAV_ITEMS = [
       {
         label: "Twin Room",
         subtitle: "Shared stays with individual comfort",
-        href: "/rooms#twin",
+        href: "/rooms/twin-room",
       },
       {
         label: "Suite",
         subtitle: "Room to unwind with separate retreat",
-        href: "/rooms#suite",
+        href: "/rooms/suite",
       },
       {
         label: "Presidential Suite",
         subtitle: "An expansive setting for exceptional stay",
-        href: "/rooms#presidential-suite",
+        href: "/rooms/presidential-suite",
       },
     ],
   },

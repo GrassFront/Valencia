@@ -5,27 +5,35 @@ import Image from "next/image";
 import Link from "next/link";
 import "./css/deluxe-room-details-and-booking.css";
 
-export default function DeluxeRoomDetailsAndBooking() {
+export default function DeluxeRoomDetailsAndBooking({
+  roomTag = "DELUXE ROOM",
+  eyebrow = "YOUR DELUXE RETREAT",
+  roomSize = "32 m² / 344 sq ft",
+  bedType = "King-size bed",
+  occupancy = "2 adults + 1 child",
+  view = "Garden view",
+  introTitle = "A little time, entirely yours.",
+  introParagraph1 = "Settle into a calm retreat with warm interiors, comfortable furnishings and space to unwind after a day in Patna.",
+  introParagraph2 = "Thoughtful details create a welcoming space for restful nights and unhurried mornings.",
+  roomOnlyRate = 6000,
+  breakfastIncludedRate = 7000,
+  roomKey = "deluxe",
+}) {
   const [selectedRate, setSelectedRate] = useState("room-only"); // "room-only" or "breakfast-included"
   const [showRateConditions, setShowRateConditions] = useState(false);
 
   const isRoomOnly = selectedRate === "room-only";
+  const currentRate = isRoomOnly ? roomOnlyRate : breakfastIncludedRate;
+  const stayTotalNum = currentRate * 2;
+  const taxesFeesNum = Math.round(stayTotalNum * 0.1);
+  const totalNum = stayTotalNum + taxesFeesNum;
 
-  const rateDetails = isRoomOnly
-    ? {
-        ratePerNight: 6000,
-        rateFormatted: "₹6,000",
-        stayTotal: "₹12,000",
-        taxesFees: "₹1,200",
-        total: "₹13,200",
-      }
-    : {
-        ratePerNight: 7000,
-        rateFormatted: "₹7,000",
-        stayTotal: "₹14,000",
-        taxesFees: "₹1,400",
-        total: "₹15,400",
-      };
+  const rateDetails = {
+    rateFormatted: `₹${currentRate.toLocaleString("en-IN")}`,
+    stayTotal: `₹${stayTotalNum.toLocaleString("en-IN")}`,
+    taxesFees: `₹${taxesFeesNum.toLocaleString("en-IN")}`,
+    total: `₹${totalNum.toLocaleString("en-IN")}`,
+  };
 
   return (
     <section className="deluxe-room-details-and-booking-section">
@@ -34,7 +42,7 @@ export default function DeluxeRoomDetailsAndBooking() {
         <div className="room-details">
           {/* 01. Room at a glance */}
           <div className="room-at-a-glance">
-            <p className="your-deluxe-retreat">YOUR DELUXE RETREAT</p>
+            <p className="your-deluxe-retreat">{eyebrow}</p>
             <h2 className="room-at-a-glance-2">Room at a glance.</h2>
 
             <div className="four-room-specifications">
@@ -50,7 +58,7 @@ export default function DeluxeRoomDetailsAndBooking() {
                   />
                 </div>
                 <p className="room-size-2">Room size</p>
-                <p className="layer-32-m2-344-sq-ft">32 m² / 344 sq ft</p>
+                <p className="layer-32-m2-344-sq-ft">{roomSize}</p>
               </div>
 
               {/* Bed Type */}
@@ -65,7 +73,7 @@ export default function DeluxeRoomDetailsAndBooking() {
                   />
                 </div>
                 <p className="bed-type-2">Bed type</p>
-                <p className="king-size-bed">King-size bed</p>
+                <p className="king-size-bed">{bedType}</p>
               </div>
 
               {/* Occupancy */}
@@ -80,7 +88,7 @@ export default function DeluxeRoomDetailsAndBooking() {
                   />
                 </div>
                 <p className="occupancy-2">Occupancy</p>
-                <p className="layer-2-adults-1-child">2 adults + 1 child</p>
+                <p className="layer-2-adults-1-child">{occupancy}</p>
               </div>
 
               {/* View */}
@@ -88,14 +96,14 @@ export default function DeluxeRoomDetailsAndBooking() {
                 <div className="icon-eye">
                   <Image
                     src="/images/Room and Suites/delux room/Icon/eye.svg"
-                    alt="Garden view icon"
+                    alt="View icon"
                     width={44}
                     height={44}
                     unoptimized
                   />
                 </div>
                 <p className="view-2">View</p>
-                <p className="garden-view">Garden view</p>
+                <p className="garden-view">{view}</p>
               </div>
             </div>
 
@@ -106,13 +114,12 @@ export default function DeluxeRoomDetailsAndBooking() {
 
           {/* 02. Room Introduction */}
           <div className="room-introduction">
-            <h3 className="a-little-time-entirely-yours">A little time, entirely yours.</h3>
+            <h3 className="a-little-time-entirely-yours">{introTitle}</h3>
             <p className="settle-into-a-calm-retreat-with-warm">
-              Settle into a calm retreat with warm interiors, comfortable furnishings and space to
-              unwind after a day in Patna.
+              {introParagraph1}
             </p>
             <p className="thoughtful-details-create-a-welcoming">
-              Thoughtful details create a welcoming space for restful nights and unhurried mornings.
+              {introParagraph2}
             </p>
           </div>
 
@@ -267,7 +274,7 @@ export default function DeluxeRoomDetailsAndBooking() {
             </div>
           </div>
 
-          <p className="deluxe-room-tag">DELUXE ROOM</p>
+          <p className="deluxe-room-tag">{roomTag}</p>
 
           {/* Dates & Guests */}
           <div className="stay-dates-and-guests">
@@ -358,7 +365,7 @@ export default function DeluxeRoomDetailsAndBooking() {
               </div>
 
               <div className="nightly-rate">
-                <p className="rs6-000">₹6,000</p>
+                <p className="rs6-000">₹{roomOnlyRate.toLocaleString("en-IN")}</p>
                 <p className="night">/ night</p>
               </div>
             </div>
@@ -395,7 +402,7 @@ export default function DeluxeRoomDetailsAndBooking() {
               </div>
 
               <div className="nightly-rate-2">
-                <p className="rs7-000">₹7,000</p>
+                <p className="rs7-000">₹{breakfastIncludedRate.toLocaleString("en-IN")}</p>
                 <p className="night-2">/ night</p>
               </div>
             </div>
@@ -447,7 +454,7 @@ export default function DeluxeRoomDetailsAndBooking() {
             </div>
 
             <Link
-              href={`/contact?enquiry=booking&room=deluxe&rate=${selectedRate}`}
+              href={`/contact?enquiry=booking&room=${roomKey}&rate=${selectedRate}`}
               className="book-now no-underline"
             >
               <span className="book-now-2">BOOK NOW</span>
