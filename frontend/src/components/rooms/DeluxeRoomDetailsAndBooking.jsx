@@ -428,7 +428,7 @@ export default function DeluxeRoomDetailsAndBooking({
           )}
 
           {/* Price summary */}
-          <div className="price-summary">
+          <div className="room-price-summary">
             <div className="rectangle-3"></div>
 
             <div className="rs6-000-x-2-nights">
@@ -454,7 +454,7 @@ export default function DeluxeRoomDetailsAndBooking({
             </div>
 
             <Link
-              href={`/contact?enquiry=booking&room=${roomKey}&rate=${selectedRate}`}
+              href={`/booking?room=${roomKey}&rate=${selectedRate}`}
               className="book-now no-underline"
             >
               <span className="book-now-2">BOOK NOW</span>

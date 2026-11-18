@@ -1,0 +1,988 @@
+/* booking-review-reservation.css */
+:root {
+  --colour-deep-green: #1B4D32;
+  --colour-antique-gold: #C9A96A;
+  --colour-dark-green: #164A39;
+}
+
+.booking-review-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: #F9F6ED;
+  display: flex;
+  justify-content: center;
+}
+
+.booking-review-reservation {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 24px clamp(16px, 4vw, 64px) 40px clamp(16px, 4vw, 64px);
+  box-sizing: border-box;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #F9F6ED;
+}
+
+/* ================= HEADER ================= */
+.booking-review-reservation .secure-booking-header {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid rgba(227, 220, 204, 0.6);
+  margin-bottom: 24px;
+}
+
+.booking-review-reservation .brand-valencia-logo {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.booking-review-reservation .original-emblem {
+  width: 76px;
+  height: 52px;
+  background: url('/images/booking/Original emblem.png') center / contain no-repeat;
+  flex-shrink: 0;
+}
+
+.booking-review-reservation .wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+.booking-review-reservation .valencia {
+  color: var(--colour-deep-green, #1B4D32);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.booking-review-reservation .brand-descriptor {
+  color: var(--colour-antique-gold, #C9A96A);
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  margin: 0;
+}
+
+.booking-review-reservation .booking-navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.booking-review-reservation .back-to-room {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.booking-review-reservation .back-to-room:hover {
+  opacity: 0.75;
+}
+
+.booking-review-reservation .back {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-review-reservation .back-to-guest-details {
+  color: #174D3B;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 21px;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.booking-review-reservation .secure-lock {
+  width: 21px;
+  height: 21px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-review-reservation .secure-booking {
+  color: #8B8680;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0;
+}
+
+/* ================= STEP PROGRESS BAR ================= */
+.booking-review-reservation .booking-progress {
+  width: 100%;
+  max-width: 820px;
+  margin: 8px auto 36px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.booking-review-reservation .step-1,
+.booking-review-reservation .step-2,
+.booking-review-reservation .step-3,
+.booking-review-reservation .step-4 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.booking-review-reservation .step-indicator,
+.booking-review-reservation .step-indicator-2,
+.booking-review-reservation .step-indicator-3,
+.booking-review-reservation .step-indicator-4 {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.booking-review-reservation .step-indicator,
+.booking-review-reservation .step-indicator-2 {
+  background: #B69A55;
+  color: #FFFFFF;
+}
+
+.booking-review-reservation .step-indicator-3 {
+  background: #164A39;
+  color: #FFFFFF;
+}
+
+.booking-review-reservation .step-indicator-4 {
+  background: #E9DFCE;
+  color: #534D47;
+  cursor: default;
+}
+
+.booking-review-reservation .layer-3,
+.booking-review-reservation .layer-4 {
+  margin: 0;
+  line-height: 1;
+}
+
+.booking-review-reservation .rooms,
+.booking-review-reservation .details,
+.booking-review-reservation .payment {
+  color: #8B8680;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.booking-review-reservation .details {
+  color: #2C2825;
+}
+
+.booking-review-reservation .review {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .progress-connector,
+.booking-review-reservation .progress-connector-2,
+.booking-review-reservation .progress-connector-3 {
+  flex: 1 1 auto;
+  height: 2px;
+  max-width: 120px;
+  margin: 0 8px;
+}
+
+.booking-review-reservation .progress-connector {
+  background: #C4AC77;
+}
+
+.booking-review-reservation .progress-connector-2 {
+  background: #DED0B6;
+}
+
+.booking-review-reservation .progress-connector-3 {
+  background: #DED0B6;
+}
+
+/* ================= INTRO ================= */
+.booking-review-reservation .review-introduction {
+  width: 100%;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-review-reservation .review-your-reservation {
+  color: #123E2E;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 3.2vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.booking-review-reservation .check-your-stay-and-guest-details {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ================= MAIN TWO COLUMNS ================= */
+.booking-review-reservation .reservation-review-columns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* ================= LEFT COLUMN ================= */
+.booking-review-reservation .stay-guest-and-policies {
+  flex: 1 1 750px;
+  max-width: 802px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 1. YOUR STAY CARD */
+.booking-review-reservation .your-stay {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #FDFBF7;
+  border: 1px solid #E8DDCB;
+}
+
+.booking-review-reservation .stay-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-review-reservation .your-stay-2 {
+  color: #164A39;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .edit-room-dates {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.booking-review-reservation .room-image-and-stay-details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
+.booking-review-reservation .rectangle {
+  width: 252px;
+  height: 167px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  background-color: #E8DDCB;
+  flex-shrink: 0;
+}
+
+.booking-review-reservation .room-stay-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.booking-review-reservation .deluxe-room {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .valencia-patna {
+  color: #7B756E;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.booking-review-reservation .check-in-and-check-out {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 4px;
+}
+
+.booking-review-reservation .check-in,
+.booking-review-reservation .check-out {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.booking-review-reservation .check-in-2,
+.booking-review-reservation .check-out-2 {
+  color: #908A83;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.booking-review-reservation .layer-12-nov-2026,
+.booking-review-reservation .layer-14-nov-2026 {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .layer-2-nights-2-adults-1-room {
+  color: #6E6862;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 4px 0 0 0;
+}
+
+.booking-review-reservation .rectangle-2 {
+  width: 100%;
+  height: 1px;
+  background: #E5D9C4;
+  margin: 6px 0;
+}
+
+.booking-review-reservation .included-room-features {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.booking-review-reservation .king-bed,
+.booking-review-reservation .room-only-rate {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.booking-review-reservation .text {
+  color: #D6C4A5;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* 2. GUEST DETAILS CARD */
+.booking-review-reservation .guest-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 24px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #FDFBF7;
+  border: 1px solid #E8DDCB;
+}
+
+.booking-review-reservation .guest-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-review-reservation .guest-details-2 {
+  color: #164A39;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .edit-details {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.booking-review-reservation .guest-data-row,
+.booking-review-reservation .guest-data-row-2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.booking-review-reservation .guest-name,
+.booking-review-reservation .mobile-number,
+.booking-review-reservation .email-address,
+.booking-review-reservation .estimated-arrival {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.booking-review-reservation .guest-name-2,
+.booking-review-reservation .mobile-number-2,
+.booking-review-reservation .email-address-2,
+.booking-review-reservation .estimated-arrival-2 {
+  color: #8B8680;
+  font-family: "Manrope", sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.booking-review-reservation .aarav-sharma,
+.booking-review-reservation .layer-91-3210,
+.booking-review-reservation .aarav-example-com,
+.booking-review-reservation .layer-3-00-pm {
+  color: #2C2825;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.booking-review-reservation .rectangle-3 {
+  width: 100%;
+  height: 1px;
+  background: #E5D9C4;
+  margin: 4px 0;
+}
+
+.booking-review-reservation .special-request {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.booking-review-reservation .special-request-2 {
+  color: #8B8680;
+  font-family: "Manrope", sans-serif;
+  font-size: 12.5px;
+  margin: 0;
+}
+
+.booking-review-reservation .a-quiet-room-if-available {
+  color: #2C2825;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-style: italic;
+  margin: 0;
+}
+
+.booking-review-reservation .requests-are-subject-to-availability {
+  color: #908A83;
+  font-family: "Manrope", sans-serif;
+  font-size: 12.5px;
+  margin: 2px 0 0 0;
+}
+
+/* 3. BOOKING POLICIES CARD */
+.booking-review-reservation .booking-policies {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 24px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #FDFBF7;
+  border: 1px solid #E8DDCB;
+}
+
+.booking-review-reservation .booking-policies-2 {
+  color: #164A39;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .cancellation-changes,
+.booking-review-reservation .arrival-departure {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.booking-review-reservation .policy-icon,
+.booking-review-reservation .policy-icon-2 {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.booking-review-reservation .policy-text,
+.booking-review-reservation .policy-text-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.booking-review-reservation .cancellation-changes-2,
+.booking-review-reservation .arrival-departure-2 {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .your-selected-rate-determines,
+.booking-review-reservation .check-in-and-check-out-timings-will-be {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 13.5px;
+  line-height: 19px;
+  margin: 0;
+}
+
+.booking-review-reservation .rectangle-4 {
+  width: 100%;
+  height: 1px;
+  background: #E5D9C4;
+}
+
+.booking-review-reservation .policy-design-preview-notice {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 5px;
+  background: #F2EBDD;
+  margin-top: 4px;
+}
+
+.booking-review-reservation .design-preview-final-rate-specific {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 18px;
+}
+
+/* ================= RIGHT COLUMN: PRICE SUMMARY ================= */
+.booking-review-reservation .price-summary {
+  width: 100%;
+  max-width: 492px;
+  flex: 0 0 492px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  background: #FDFBF7;
+  border: 1px solid #E8DDCB;
+  overflow: hidden;
+}
+
+.booking-review-reservation .rectangle-5 {
+  width: 100%;
+  height: 315px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  background-color: #E8DDCB;
+}
+
+.booking-review-reservation .price-summary-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.booking-review-reservation .price-summary-2 {
+  color: #164A39;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.booking-review-reservation .deluxe-room-2 {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: -4px 0 0 0;
+}
+
+.booking-review-reservation .layer-2-nights-1-room {
+  color: #7B756E;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  margin: -6px 0 0 0;
+}
+
+.booking-review-reservation .rectangle-6,
+.booking-review-reservation .rectangle-7 {
+  width: 100%;
+  height: 1px;
+  background: #E5D9C4;
+}
+
+.booking-review-reservation .rs6-000-x-2-nights,
+.booking-review-reservation .taxes-fees-demo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.booking-review-reservation .rs6-000-x-2-nights-2,
+.booking-review-reservation .taxes-fees-demo-2 {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+  margin: 0;
+}
+
+.booking-review-reservation .rs12-000,
+.booking-review-reservation .rs1-200 {
+  color: #2C2825;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.booking-review-reservation .total-payable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.booking-review-reservation .total-payable-2 {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.booking-review-reservation .rs13-200 {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.booking-review-reservation .price-notes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #908A83;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.booking-review-reservation .price-notes p {
+  margin: 0;
+}
+
+.booking-review-reservation .no-payment-notice {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 6px;
+  background: #F2EBDD;
+  margin-top: 6px;
+}
+
+.booking-review-reservation .no-payment-has-been-taken-yet {
+  color: #514B49;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ================= BOTTOM BAR ================= */
+.booking-review-reservation .agreement-and-continue {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px 0 0 0;
+}
+
+.booking-review-reservation .agreement-and-back-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booking-review-reservation .terms-acceptance {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.booking-review-reservation .checkbox-unchecked {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 1.5px solid #527A6B;
+  background: #FDFBF7;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.booking-review-reservation .checkbox-unchecked.checked {
+  background: #164A39;
+  border-color: #164A39;
+}
+
+.booking-review-reservation .checkbox-unchecked.checked::after {
+  content: "";
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.booking-review-reservation .i-agree-to-the-terms-conditions-and {
+  color: #164A39;
+  font-family: "Manrope", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+}
+
+.booking-review-reservation .payment-next-step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.booking-review-reservation .continue-to-payment {
+  width: 294px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #164A39;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.booking-review-reservation .continue-to-payment:disabled {
+  background: #9BB2A7;
+  cursor: not-allowed;
+}
+
+.booking-review-reservation .continue-to-payment:not(:disabled):hover {
+  background: #0E3427;
+}
+
+.booking-review-reservation .continue-to-payment-2 {
+  color: #FFFFFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.booking-review-reservation .you-will-review-payment-options-on-the {
+  color: #908A83;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Concept image badge */
+.booking-review-reservation .concept-badge {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+  .booking-review-reservation .reservation-review-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .booking-review-reservation .stay-guest-and-policies,
+  .booking-review-reservation .price-summary {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .booking-review-reservation .agreement-and-continue {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .booking-review-reservation .payment-next-step {
+    align-items: stretch;
+  }
+
+  .booking-review-reservation .continue-to-payment {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-review-reservation .booking-progress {
+    gap: 6px;
+  }
+
+  .booking-review-reservation .rooms,
+  .booking-review-reservation .details,
+  .booking-review-reservation .review,
+  .booking-review-reservation .payment {
+    display: none;
+  }
+
+  .booking-review-reservation .room-image-and-stay-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .booking-review-reservation .rectangle {
+    width: 100%;
+    height: 180px;
+  }
+
+  .booking-review-reservation .guest-data-row,
+  .booking-review-reservation .guest-data-row-2 {
+    grid-template-columns: 1fr;
+  }
+}

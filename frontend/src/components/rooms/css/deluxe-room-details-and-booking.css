@@ -572,7 +572,7 @@
 }
 
 /* Price summary */
-.price-summary {
+.room-price-summary {
   width: 100%;
   display: flex;
   flex-direction: column;
