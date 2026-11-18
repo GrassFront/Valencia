@@ -5,9 +5,9 @@ const EXPLORE_LINKS = [
   { label: "Our Story", href: "/our-story" },
   { label: "Our Properties", href: "/properties" },
   { label: "Rooms & Suites", href: "/#rooms" },
-  { label: "Dining", href: "/#dining" },
+  { label: "Dining", href: "/dining" },
   { label: "Weddings & Events", href: "/#events" },
-  { label: "Meetings", href: "/#meetings" },
+  { label: "Meetings", href: "/meetings" },
   { label: "Contact", href: "/#contact" },
 ];
 
