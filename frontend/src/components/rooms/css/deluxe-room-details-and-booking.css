@@ -809,3 +809,257 @@
     font-size: 28px;
   }
 }
+
+/* ================= DYNAMIC POPOVERS (DATES & GUESTS) ================= */
+.check-in,
+.check-out,
+.guests {
+  position: relative;
+}
+
+.check-in-input.is-active,
+.check-out-input.is-active,
+.guests-input.is-active {
+  border-color: #154C38 !important;
+  box-shadow: 0 0 0 1px #154C38;
+}
+
+.room-booking-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 60;
+  background: #FAF7EF;
+  border: 1px solid #DFD6C8;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  padding: 18px;
+  box-sizing: border-box;
+  animation: fadeInPopover 0.15s ease-out;
+}
+
+@keyframes fadeInPopover {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.room-booking-popover.calendar-popover {
+  width: 310px;
+}
+
+.check-in .calendar-popover {
+  left: 0;
+}
+
+.check-out .calendar-popover {
+  right: 0;
+}
+
+.room-booking-popover.guests-popover {
+  width: 100%;
+  left: 0;
+}
+
+/* Calendar Header */
+.popover-cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.popover-cal-title {
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: #154C38;
+  margin: 0;
+}
+
+.popover-cal-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.popover-cal-btn {
+  background: transparent;
+  border: 1px solid #DFD6C8;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #154C38;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+
+.popover-cal-btn:hover {
+  background: #154C38;
+  color: #FFFFFF;
+}
+
+/* Calendar Weekdays */
+.popover-cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #827B72;
+  margin-bottom: 6px;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+}
+
+/* Calendar Days Grid */
+.popover-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.popover-cal-day {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #49372B;
+  transition: all 0.12s ease;
+}
+
+.popover-cal-day:hover:not(:disabled) {
+  background: #E2ECD9;
+  color: #154C38;
+}
+
+.popover-cal-day.selected {
+  background: #154C38 !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.popover-cal-day.in-range {
+  background: #E2ECD9;
+  color: #154C38;
+}
+
+.popover-cal-day:disabled {
+  color: #C8C2B7;
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* Guests Popover Content */
+.popover-guest-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ECE4D6;
+}
+
+.popover-guest-row:last-of-type {
+  border-bottom: none;
+}
+
+.popover-guest-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.popover-guest-title {
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: #233028;
+  margin: 0;
+}
+
+.popover-guest-subtitle {
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 12px;
+  color: #827B72;
+  margin: 0;
+}
+
+.popover-counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.popover-counter-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #DFD6C8;
+  background: #FAF8F2;
+  color: #154C38;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.popover-counter-btn:hover:not(:disabled) {
+  background: #154C38;
+  color: #FFFFFF;
+  border-color: #154C38;
+}
+
+.popover-counter-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.popover-counter-val {
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: #233028;
+  min-width: 18px;
+  text-align: center;
+}
+
+.popover-apply-btn {
+  width: 100%;
+  height: 38px;
+  background: #154C38;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: background 0.2s ease;
+}
+
+.popover-apply-btn:hover {
+  background: #0C3E2E;
+}
+
+@media (max-width: 640px) {
+  .check-out .calendar-popover {
+    right: auto;
+    left: 0;
+  }
+}

@@ -1,9 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./css/deluxe-room-details-and-booking.css";
+
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+const MONTH_SHORT = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
+const WEEK_DAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
 export default function DeluxeRoomDetailsAndBooking({
   roomTag = "DELUXE ROOM",
@@ -22,9 +34,50 @@ export default function DeluxeRoomDetailsAndBooking({
   const [selectedRate, setSelectedRate] = useState("room-only"); // "room-only" or "breakfast-included"
   const [showRateConditions, setShowRateConditions] = useState(false);
 
+  // Popover State: null | 'checkIn' | 'checkOut' | 'guests'
+  const [activePopover, setActivePopover] = useState(null);
+
+  // Dates state: Default 12 Nov 2026 to 14 Nov 2026
+  const [checkInDate, setCheckInDate] = useState({ year: 2026, month: 10, day: 12 });
+  const [checkOutDate, setCheckOutDate] = useState({ year: 2026, month: 10, day: 14 });
+  const [calendarView, setCalendarView] = useState({ year: 2026, month: 10 });
+
+  // Guests state
+  const [adults, setAdults] = useState(2);
+  const [childrenCount, setChildrenCount] = useState(0);
+  const [rooms, setRooms] = useState(1);
+
+  const bookingCardRef = useRef(null);
+
+  // Close popovers on click outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (bookingCardRef.current && !bookingCardRef.current.contains(event.target)) {
+        setActivePopover(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const formatDisplayDate = (d) => `${d.day} ${MONTH_SHORT[d.month]} ${d.year}`;
+  const checkInText = formatDisplayDate(checkInDate);
+  const checkOutText = formatDisplayDate(checkOutDate);
+
+  const tCheckIn = new Date(checkInDate.year, checkInDate.month, checkInDate.day).getTime();
+  const tCheckOut = new Date(checkOutDate.year, checkOutDate.month, checkOutDate.day).getTime();
+  const diffDays = Math.round((tCheckOut - tCheckIn) / (1000 * 60 * 60 * 24));
+  const nightsCount = diffDays > 0 ? diffDays : 1;
+
+  const guestsSummary = `${adults} ${adults === 1 ? "adult" : "adults"}${
+    childrenCount > 0 ? `, ${childrenCount} child` : ""
+  } · ${rooms} ${rooms === 1 ? "room" : "rooms"}`;
+
   const isRoomOnly = selectedRate === "room-only";
   const currentRate = isRoomOnly ? roomOnlyRate : breakfastIncludedRate;
-  const stayTotalNum = currentRate * 2;
+  const stayTotalNum = currentRate * nightsCount;
   const taxesFeesNum = Math.round(stayTotalNum * 0.1);
   const totalNum = stayTotalNum + taxesFeesNum;
 
@@ -33,6 +86,51 @@ export default function DeluxeRoomDetailsAndBooking({
     stayTotal: `₹${stayTotalNum.toLocaleString("en-IN")}`,
     taxesFees: `₹${taxesFeesNum.toLocaleString("en-IN")}`,
     total: `₹${totalNum.toLocaleString("en-IN")}`,
+  };
+
+  // Calendar logic
+  const daysInMonth = new Date(calendarView.year, calendarView.month + 1, 0).getDate();
+  const firstDayOfWeek = new Date(calendarView.year, calendarView.month, 1).getDay();
+  const emptySlots = Array.from({ length: firstDayOfWeek });
+  const dayNumbers = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+  const handlePrevMonth = () => {
+    setCalendarView((prev) => {
+      if (prev.month === 0) return { year: prev.year - 1, month: 11 };
+      return { year: prev.year, month: prev.month - 1 };
+    });
+  };
+
+  const handleNextMonth = () => {
+    setCalendarView((prev) => {
+      if (prev.month === 11) return { year: prev.year + 1, month: 0 };
+      return { year: prev.year, month: prev.month + 1 };
+    });
+  };
+
+  const handleSelectDay = (day, mode) => {
+    const selected = { year: calendarView.year, month: calendarView.month, day };
+    const selTime = new Date(selected.year, selected.month, selected.day).getTime();
+
+    if (mode === "checkIn") {
+      setCheckInDate(selected);
+      const currOutTime = new Date(checkOutDate.year, checkOutDate.month, checkOutDate.day).getTime();
+      if (currOutTime <= selTime) {
+        const nextDay = new Date(selected.year, selected.month, selected.day + 1);
+        setCheckOutDate({
+          year: nextDay.getFullYear(),
+          month: nextDay.getMonth(),
+          day: nextDay.getDate(),
+        });
+      }
+      setActivePopover("checkOut");
+    } else {
+      const inTime = new Date(checkInDate.year, checkInDate.month, checkInDate.day).getTime();
+      if (selTime > inTime) {
+        setCheckOutDate(selected);
+        setActivePopover(null);
+      }
+    }
   };
 
   return (
@@ -265,7 +363,7 @@ export default function DeluxeRoomDetailsAndBooking({
         </div>
 
         {/* ================= RIGHT COLUMN: PLAN YOUR STAY BOOKING CARD ================= */}
-        <div className="plan-your-stay-booking-card">
+        <div className="plan-your-stay-booking-card" ref={bookingCardRef}>
           {/* Header */}
           <div className="booking-heading">
             <h3 className="plan-your-stay">Plan your stay</h3>
@@ -279,10 +377,17 @@ export default function DeluxeRoomDetailsAndBooking({
           {/* Dates & Guests */}
           <div className="stay-dates-and-guests">
             <div className="dates">
+              {/* Check-in */}
               <div className="check-in">
                 <p className="check-in-2">Check-in</p>
-                <div className="check-in-input" tabIndex={0} role="button" aria-label="Select check-in date">
-                  <p className="layer-12-nov-2026">12 Nov 2026</p>
+                <div
+                  className={`check-in-input ${activePopover === "checkIn" ? "is-active" : ""}`}
+                  tabIndex={0}
+                  role="button"
+                  aria-label="Select check-in date"
+                  onClick={() => setActivePopover((prev) => (prev === "checkIn" ? null : "checkIn"))}
+                >
+                  <p className="layer-12-nov-2026">{checkInText}</p>
                   <div className="icon-calendar">
                     <Image
                       src="/images/Room and Suites/delux room/Icon/calendar.svg"
@@ -293,12 +398,85 @@ export default function DeluxeRoomDetailsAndBooking({
                     />
                   </div>
                 </div>
+
+                {/* Check-In Popover */}
+                {activePopover === "checkIn" && (
+                  <div className="room-booking-popover calendar-popover">
+                    <div className="popover-cal-header">
+                      <span className="popover-cal-title">
+                        {MONTH_NAMES[calendarView.month]} {calendarView.year}
+                      </span>
+                      <div className="popover-cal-nav">
+                        <button
+                          type="button"
+                          className="popover-cal-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handlePrevMonth();
+                          }}
+                          aria-label="Previous month"
+                        >
+                          ‹
+                        </button>
+                        <button
+                          type="button"
+                          className="popover-cal-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleNextMonth();
+                          }}
+                          aria-label="Next month"
+                        >
+                          ›
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="popover-cal-weekdays">
+                      {WEEK_DAYS.map((wd) => (
+                        <span key={wd}>{wd}</span>
+                      ))}
+                    </div>
+
+                    <div className="popover-cal-grid">
+                      {emptySlots.map((_, idx) => (
+                        <div key={`empty-${idx}`} />
+                      ))}
+                      {dayNumbers.map((d) => {
+                        const isSelected =
+                          d === checkInDate.day &&
+                          calendarView.month === checkInDate.month &&
+                          calendarView.year === checkInDate.year;
+                        return (
+                          <button
+                            key={d}
+                            type="button"
+                            className={`popover-cal-day ${isSelected ? "selected" : ""}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSelectDay(d, "checkIn");
+                            }}
+                          >
+                            {d}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
 
+              {/* Check-out */}
               <div className="check-out">
                 <p className="check-out-2">Check-out</p>
-                <div className="check-out-input" tabIndex={0} role="button" aria-label="Select check-out date">
-                  <p className="layer-14-nov-2026">14 Nov 2026</p>
+                <div
+                  className={`check-out-input ${activePopover === "checkOut" ? "is-active" : ""}`}
+                  tabIndex={0}
+                  role="button"
+                  aria-label="Select check-out date"
+                  onClick={() => setActivePopover((prev) => (prev === "checkOut" ? null : "checkOut"))}
+                >
+                  <p className="layer-14-nov-2026">{checkOutText}</p>
                   <div className="icon-calendar-2">
                     <Image
                       src="/images/Room and Suites/delux room/Icon/calendar 2.svg"
@@ -309,13 +487,94 @@ export default function DeluxeRoomDetailsAndBooking({
                     />
                   </div>
                 </div>
+
+                {/* Check-Out Popover */}
+                {activePopover === "checkOut" && (
+                  <div className="room-booking-popover calendar-popover">
+                    <div className="popover-cal-header">
+                      <span className="popover-cal-title">
+                        {MONTH_NAMES[calendarView.month]} {calendarView.year}
+                      </span>
+                      <div className="popover-cal-nav">
+                        <button
+                          type="button"
+                          className="popover-cal-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handlePrevMonth();
+                          }}
+                          aria-label="Previous month"
+                        >
+                          ‹
+                        </button>
+                        <button
+                          type="button"
+                          className="popover-cal-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleNextMonth();
+                          }}
+                          aria-label="Next month"
+                        >
+                          ›
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="popover-cal-weekdays">
+                      {WEEK_DAYS.map((wd) => (
+                        <span key={wd}>{wd}</span>
+                      ))}
+                    </div>
+
+                    <div className="popover-cal-grid">
+                      {emptySlots.map((_, idx) => (
+                        <div key={`empty-co-${idx}`} />
+                      ))}
+                      {dayNumbers.map((d) => {
+                        const isSelected =
+                          d === checkOutDate.day &&
+                          calendarView.month === checkOutDate.month &&
+                          calendarView.year === checkOutDate.year;
+                        const dTime = new Date(calendarView.year, calendarView.month, d).getTime();
+                        const inTime = new Date(checkInDate.year, checkInDate.month, checkInDate.day).getTime();
+                        const isDisabled = dTime <= inTime;
+                        const isInRange = dTime > inTime && dTime < tCheckOut;
+
+                        return (
+                          <button
+                            key={d}
+                            type="button"
+                            disabled={isDisabled}
+                            className={`popover-cal-day ${isSelected ? "selected" : ""} ${
+                              isInRange ? "in-range" : ""
+                            }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSelectDay(d, "checkOut");
+                            }}
+                          >
+                            {d}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
+            {/* Guests */}
             <div className="guests">
               <p className="guests-2">Guests</p>
-              <div className="guests-input" tabIndex={0} role="button" aria-label="Select guests">
-                <p className="layer-2-adults-1-room">2 adults · 1 room</p>
+              <div
+                className={`guests-input ${activePopover === "guests" ? "is-active" : ""}`}
+                tabIndex={0}
+                role="button"
+                aria-label="Select guests"
+                onClick={() => setActivePopover((prev) => (prev === "guests" ? null : "guests"))}
+              >
+                <p className="layer-2-adults-1-room">{guestsSummary}</p>
                 <div className="icon-down">
                   <Image
                     src="/images/Room and Suites/delux room/Icon/down.svg"
@@ -326,6 +585,121 @@ export default function DeluxeRoomDetailsAndBooking({
                   />
                 </div>
               </div>
+
+              {/* Guests Popover */}
+              {activePopover === "guests" && (
+                <div className="room-booking-popover guests-popover">
+                  {/* Rooms */}
+                  <div className="popover-guest-row">
+                    <div className="popover-guest-label">
+                      <p className="popover-guest-title">Rooms</p>
+                      <p className="popover-guest-subtitle">Maximum 5 rooms</p>
+                    </div>
+                    <div className="popover-counter-controls">
+                      <button
+                        type="button"
+                        className="popover-counter-btn"
+                        disabled={rooms <= 1}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setRooms((prev) => Math.max(1, prev - 1));
+                        }}
+                      >
+                        –
+                      </button>
+                      <span className="popover-counter-val">{rooms}</span>
+                      <button
+                        type="button"
+                        className="popover-counter-btn"
+                        disabled={rooms >= 5}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setRooms((prev) => Math.min(5, prev + 1));
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Adults */}
+                  <div className="popover-guest-row">
+                    <div className="popover-guest-label">
+                      <p className="popover-guest-title">Adults</p>
+                      <p className="popover-guest-subtitle">Ages 12 and above</p>
+                    </div>
+                    <div className="popover-counter-controls">
+                      <button
+                        type="button"
+                        className="popover-counter-btn"
+                        disabled={adults <= 1}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setAdults((prev) => Math.max(1, prev - 1));
+                        }}
+                      >
+                        –
+                      </button>
+                      <span className="popover-counter-val">{adults}</span>
+                      <button
+                        type="button"
+                        className="popover-counter-btn"
+                        disabled={adults >= 4}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setAdults((prev) => Math.min(4, prev + 1));
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Children */}
+                  <div className="popover-guest-row">
+                    <div className="popover-guest-label">
+                      <p className="popover-guest-title">Children</p>
+                      <p className="popover-guest-subtitle">Ages 0 to 11</p>
+                    </div>
+                    <div className="popover-counter-controls">
+                      <button
+                        type="button"
+                        className="popover-counter-btn"
+                        disabled={childrenCount <= 0}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setChildrenCount((prev) => Math.max(0, prev - 1));
+                        }}
+                      >
+                        –
+                      </button>
+                      <span className="popover-counter-val">{childrenCount}</span>
+                      <button
+                        type="button"
+                        className="popover-counter-btn"
+                        disabled={childrenCount >= 3}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setChildrenCount((prev) => Math.min(3, prev + 1));
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="popover-apply-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActivePopover(null);
+                    }}
+                  >
+                    Done
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -433,7 +807,7 @@ export default function DeluxeRoomDetailsAndBooking({
 
             <div className="rs6-000-x-2-nights">
               <p className="rs6-000-x-2-nights-2">
-                {rateDetails.rateFormatted} × 2 nights
+                {rateDetails.rateFormatted} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}
               </p>
               <p className="rs12-000">{rateDetails.stayTotal}</p>
             </div>
@@ -448,13 +822,13 @@ export default function DeluxeRoomDetailsAndBooking({
             <div className="total-for-stay">
               <div className="total-label">
                 <p className="total">Total</p>
-                <p className="for-2-nights">For 2 nights</p>
+                <p className="for-2-nights">For {nightsCount} {nightsCount === 1 ? "night" : "nights"}</p>
               </div>
               <p className="rs13-200">{rateDetails.total}</p>
             </div>
 
             <Link
-              href={`/booking?room=${roomKey}&rate=${selectedRate}`}
+              href={`/booking?room=${roomKey}&rate=${selectedRate}&checkin=${encodeURIComponent(checkInText)}&checkout=${encodeURIComponent(checkOutText)}&nights=${nightsCount}&adults=${adults}&rooms=${rooms}`}
               className="book-now no-underline"
             >
               <span className="book-now-2">BOOK NOW</span>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
 import { BookingReviewReservation } from "./BookingReviewReservation";
 import { BookingPayment } from "./BookingPayment";
+import { BookingConfirmationHotelContactVersion } from "./BookingConfirmationHotelContactVersion";
 import "./css/booking-guest-details.css";
 
 const ROOM_DATA = {
@@ -181,8 +182,20 @@ export function BookingGuestDetails() {
           }
         }}
         onComplete={() => {
-          router.push("/");
+          setCurrentStep(5);
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
         }}
+      />
+    );
+  }
+
+  if (currentStep === 5) {
+    return (
+      <BookingConfirmationHotelContactVersion
+        guestData={formData}
+        bookingReference="VAL-DEMO-1026"
       />
     );
   }
