@@ -50,8 +50,8 @@ export const NAV_ITEMS = [
       },
     ],
   },
-  { label: "Dining", href: "#dining" },
+  { label: "Dining", href: "/dining" },
   { label: "Weddings & Events", href: "#events" },
-  { label: "Meetings", href: "#meetings" },
+  { label: "Meetings", href: "/meetings" },
   { label: "Contact", href: "#contact" },
 ];

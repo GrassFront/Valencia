@@ -96,7 +96,7 @@ export default function ChefSection() {
 
             {/* Button: Explore Dining */}
             <Link
-              href="/#dining"
+              href="/dining"
               className="chef-button group inline-flex items-center justify-center gap-[18px] w-full sm:w-[293px] h-[55px] bg-[#CBA24E] hover:bg-[#C09540] rounded-[2px] transition-colors cursor-pointer shadow-sm"
             >
               <span className="chef-button-text font-body font-semibold text-[15px] sm:text-[16px] leading-[28px] tracking-[0.18em] text-[#4B2E19] uppercase">

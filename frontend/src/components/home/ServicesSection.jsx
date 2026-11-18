@@ -47,7 +47,7 @@ const SERVICES = [
     titleSizeClass: "text-[26px] xl:text-[28px]",
     description: "A welcoming table for good food and memorable company.",
     linkLabel: "EXPLORE DINING",
-    href: "/valencia#dining",
+    href: "/dining",
     image: "/images/homepage/homepage_sec3_dining.png",
     alt: "Valencia Dining - Intimate restaurant tables and culinary experience",
     iconSrc: "/icon/homepage/dining_icon.png",

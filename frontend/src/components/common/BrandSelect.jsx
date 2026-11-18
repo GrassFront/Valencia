@@ -191,7 +191,7 @@ export default function BrandSelect({
         }}
         onKeyDown={handleKeyDown}
         className={classNames(
-          "w-full h-[48px] rounded-[8px] px-4 sm:px-[21px] flex items-center justify-between umrao-input bg-[#FCFAF6] cursor-pointer group text-left transition-all",
+          "w-full h-[48px] rounded-[8px] px-4 sm:px-[21px] flex items-center justify-between border border-solid border-[#D4C3A3] umrao-input bg-[#FCFAF6] cursor-pointer group text-left transition-all",
           "focus:outline-none focus:ring-2 focus:ring-[#194E35]/20 focus:border-[#194E35]",
           isOpen && "border-[#194E35] ring-2 ring-[#194E35]/20 shadow-xs",
           disabled && "opacity-50 cursor-not-allowed",
