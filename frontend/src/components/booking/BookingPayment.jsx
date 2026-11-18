@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
+import { BookingConfirmationHotelContactVersion } from "./BookingConfirmationHotelContactVersion";
 import "./css/booking-payment.css";
 
 const ROOM_DATA = {
@@ -107,115 +108,19 @@ export function BookingPayment({ onBack, onComplete }) {
 
   if (isSuccess) {
     return (
-      <div className="booking-payment-wrapper">
-        <div className="booking-payment">
-          <div
-            style={{
-              width: "100%",
-              maxWidth: "800px",
-              margin: "40px auto",
-              background: "#FDFBF7",
-              border: "1px solid #E9DFD1",
-              borderRadius: "8px",
-              padding: "48px 32px",
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <div
-              style={{
-                width: "64px",
-                height: "64px",
-                borderRadius: "50%",
-                background: "#125440",
-                color: "#FFFFFF",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "32px",
-              }}
-            >
-              ✓
-            </div>
-            <h1 style={{ color: "#125440", fontFamily: "Playfair Display, serif", fontSize: "32px", margin: 0 }}>
-              Payment Successful &amp; Booking Confirmed!
-            </h1>
-            <p style={{ color: "#727387", fontFamily: "Manrope, sans-serif", fontSize: "16px", maxWidth: "540px", lineHeight: "24px", margin: 0 }}>
-              Your reservation at VALENCIA Patna is confirmed. A receipt and booking confirmation email have been sent to your email.
-            </p>
-            <div
-              style={{
-                width: "100%",
-                maxWidth: "480px",
-                background: "#F5EDDF",
-                borderRadius: "6px",
-                padding: "20px",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "14px",
-                textAlign: "left",
-                fontFamily: "Manrope, sans-serif",
-              }}
-            >
-              <div>
-                <p style={{ color: "#727387", fontSize: "12px", margin: 0 }}>Booking Reference</p>
-                <p style={{ color: "#125440", fontSize: "15px", fontWeight: "600", margin: "2px 0 0 0" }}>VAL-2026-84920</p>
-              </div>
-              <div>
-                <p style={{ color: "#727387", fontSize: "12px", margin: 0 }}>Payment Method</p>
-                <p style={{ color: "#125440", fontSize: "15px", fontWeight: "600", margin: "2px 0 0 0" }}>
-                  {paymentMethod === "upi" ? "UPI App" : paymentMethod === "card" ? "Credit / Debit Card" : "Netbanking"}
-                </p>
-              </div>
-              <div>
-                <p style={{ color: "#727387", fontSize: "12px", margin: 0 }}>Stay Duration</p>
-                <p style={{ color: "#125440", fontSize: "15px", fontWeight: "600", margin: "2px 0 0 0" }}>
-                  {checkInDate} — {checkOutDate} ({nightsCount} nights)
-                </p>
-              </div>
-              <div>
-                <p style={{ color: "#727387", fontSize: "12px", margin: 0 }}>Amount Paid</p>
-                <p style={{ color: "#125440", fontSize: "15px", fontWeight: "600", margin: "2px 0 0 0" }}>{formatPrice(totalPayable)}</p>
-              </div>
-            </div>
-            <div style={{ display: "flex", gap: "16px", marginTop: "12px" }}>
-              <Link
-                href="/"
-                style={{
-                  padding: "12px 28px",
-                  borderRadius: "5px",
-                  background: "#125440",
-                  color: "#FFFFFF",
-                  fontFamily: "Manrope, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  textDecoration: "none",
-                }}
-              >
-                Return to Home
-              </Link>
-              <Link
-                href="/rooms"
-                style={{
-                  padding: "12px 28px",
-                  borderRadius: "5px",
-                  background: "#C9A96A",
-                  color: "#FFFFFF",
-                  fontFamily: "Manrope, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  textDecoration: "none",
-                }}
-              >
-                Explore Other Rooms
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BookingConfirmationHotelContactVersion
+        guestData={{
+          firstName: "Aarav",
+          lastName: "Sharma",
+          email: "aarav@example.com",
+          phone: "3210",
+          countryCode: "+91",
+          arrival: "3:00 PM (guest estimate)",
+          specialRequest: "Quiet room requested",
+        }}
+        paymentMethod={paymentMethod === "upi" ? "UPI" : paymentMethod === "card" ? "Credit / Debit Card" : "Netbanking"}
+        bookingReference="VAL-DEMO-1026"
+      />
     );
   }
 

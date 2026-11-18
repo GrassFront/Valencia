@@ -7,3 +7,8 @@ export { default as YourNextStayBooking } from "../home/YourNextStayBooking";
 export { BookingGuestDetails, default as BookingGuestDetailsDefault } from "./BookingGuestDetails";
 export { BookingReviewReservation, default as BookingReviewReservationDefault } from "./BookingReviewReservation";
 export { BookingPayment, default as BookingPaymentDefault } from "./BookingPayment";
+export {
+  BookingConfirmationHotelContactVersion,
+  BookingConfirmation,
+  default as BookingConfirmationDefault,
+} from "./BookingConfirmationHotelContactVersion";
