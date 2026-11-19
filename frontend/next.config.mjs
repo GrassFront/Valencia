@@ -15,6 +15,15 @@ const nextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/weddings-and-events",
+        destination: "/events",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
