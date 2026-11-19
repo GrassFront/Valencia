@@ -1599,6 +1599,772 @@
   margin: 0;
 }
 
+/* ================= STEP 3: REVIEW & PAYMENT STYLING ================= */
+.cab-taxi-book-flow .cab-review-payment-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cab-taxi-book-flow .step-item.step-3-active .step-circle {
+  background: #F0EADF;
+  color: #3F3027;
+}
+
+.cab-taxi-book-flow .step-item.step-3-active .step-label {
+  color: #075B28;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .review-your-ride-heading {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 4px 0 0 0;
+}
+
+.cab-taxi-book-flow .review-your-ride-subtitle {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 400;
+  margin: 4px 0 0 0;
+}
+
+.cab-taxi-book-flow .review-columns {
+  width: 100%;
+  max-width: 1336px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3.6vw, 52px) 24px clamp(16px, 3.6vw, 52px);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: 32px;
+  align-items: start;
+}
+
+.cab-taxi-book-flow .transfer-contact-and-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Base Card Style */
+.cab-taxi-book-flow .your-transfer-card,
+.cab-taxi-book-flow .pickup-contact-card,
+.cab-taxi-book-flow .how-to-pay-card {
+  width: 100%;
+  border-radius: 14px;
+  background: #FFFEFC;
+  border: 1px solid #EAE2D7;
+  padding: 22px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cab-taxi-book-flow .card-top-heading-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cab-taxi-book-flow .card-primary-title {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cab-taxi-book-flow .edit-trip-action-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.cab-taxi-book-flow .edit-trip-action-link:hover {
+  color: #075B28;
+}
+
+/* Pickup and Destination Flow */
+.cab-taxi-book-flow .pickup-dropoff-flow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  padding: 4px 6px;
+}
+
+.cab-taxi-book-flow .flow-route-pins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+  flex-shrink: 0;
+}
+
+.cab-taxi-book-flow .pin-icon-wrap-sm {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cab-taxi-book-flow .vertical-dashed-line {
+  flex: 1;
+  width: 2px;
+  border-left: 2px dashed #075B28;
+  margin: 4px 0;
+}
+
+.cab-taxi-book-flow .flow-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.cab-taxi-book-flow .flow-label {
+  color: #BC913B;
+  font-family: "Manrope", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cab-taxi-book-flow .flow-main-address {
+  color: #292824;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 2px 0 0 0;
+}
+
+.cab-taxi-book-flow .flow-sub-address {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  margin: 2px 0 0 0;
+}
+
+.cab-taxi-book-flow .flow-hotel-address {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 2px 0 0 0;
+}
+
+.cab-taxi-book-flow .card-divider-line {
+  width: 100%;
+  height: 1px;
+  background: #EAE2D7;
+  margin: 2px 0;
+}
+
+/* Ride Specs Row */
+.cab-taxi-book-flow .ride-specs-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.cab-taxi-book-flow .ride-spec-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  color: #292824;
+}
+
+/* Selected Vehicle Subcard */
+.cab-taxi-book-flow .selected-vehicle-subcard {
+  width: 100%;
+  border-radius: 10px;
+  background: #F0F5E9;
+  padding: 10px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cab-taxi-book-flow .vehicle-subcard-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.cab-taxi-book-flow .vehicle-subcard-img {
+  width: 118px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cab-taxi-book-flow .vehicle-subcard-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cab-taxi-book-flow .vehicle-subcard-name {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .vehicle-subcard-desc {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  margin: 2px 0 0 0;
+}
+
+.cab-taxi-book-flow .change-vehicle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #075B28;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.cab-taxi-book-flow .change-vehicle-btn:hover {
+  opacity: 0.8;
+}
+
+/* Pickup Contact Card */
+.cab-taxi-book-flow .contact-details-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cab-taxi-book-flow .contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  color: #292824;
+}
+
+.cab-taxi-book-flow .linked-hotel-booking-pill {
+  width: 100%;
+  border-radius: 8px;
+  background: #F6F0E5;
+  padding: 9px 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+  color: #292824;
+}
+
+.cab-taxi-book-flow .bed-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cab-taxi-book-flow .linked-ref-code {
+  color: #075B28;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Payment Method Card */
+.cab-taxi-book-flow .payment-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  width: 100%;
+}
+
+.cab-taxi-book-flow .payment-choice-card {
+  border-radius: 10px;
+  background: #FFFEFC;
+  border: 1px solid #EAE2D7;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cab-taxi-book-flow .payment-choice-card:hover {
+  border-color: #075B28;
+}
+
+.cab-taxi-book-flow .payment-choice-card.selected {
+  background: #EDF7E3;
+  border: 1.5px solid #075B28;
+}
+
+.cab-taxi-book-flow .choice-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.cab-taxi-book-flow .choice-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.cab-taxi-book-flow .choice-title {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .choice-subtitle {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  margin: 2px 0 0 0;
+}
+
+.cab-taxi-book-flow .choice-radio {
+  font-size: 22px;
+  color: #075B28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cab-taxi-book-flow .payment-guidance-info {
+  border-radius: 8px;
+  background: #EDF7E3;
+  padding: 7px 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.cab-taxi-book-flow .guidance-info-icon {
+  color: #075B28;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .guidance-text {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  margin: 0;
+}
+
+/* Right Column: Fare and Confirmation */
+.cab-taxi-book-flow .fare-and-confirmation {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.cab-taxi-book-flow .fare-summary-card {
+  width: 100%;
+  border-radius: 14px;
+  background: #FFFEFC;
+  border: 1px solid #EAE2D7;
+  padding: 22px 26px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cab-taxi-book-flow .fare-summary-title {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .fare-summary-type {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  margin: 0 0 4px 0;
+}
+
+.cab-taxi-book-flow .fare-line-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  color: #292824;
+  padding: 2px 0;
+}
+
+.cab-taxi-book-flow .fare-total-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.cab-taxi-book-flow .total-label {
+  color: #292824;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .total-amount {
+  color: #BC913B;
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .separate-fare-notice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #6C5F56;
+  font-family: "Manrope", sans-serif;
+  padding-top: 2px;
+}
+
+/* Before You Confirm Card */
+.cab-taxi-book-flow .before-you-confirm-card {
+  width: 100%;
+  border-radius: 14px;
+  background: #F6F0E5;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 22px 26px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cab-taxi-book-flow .before-confirm-title {
+  color: #292824;
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .before-confirm-bullet {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cab-taxi-book-flow .view-cancellation-terms-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #075B28;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0;
+  text-align: left;
+  margin-top: 2px;
+}
+
+.cab-taxi-book-flow .terms-agreement-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  user-select: none;
+}
+
+.cab-taxi-book-flow .custom-terms-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1.5px solid #075B28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.cab-taxi-book-flow .custom-terms-checkbox.checked {
+  background: #075B28;
+  border-color: #075B28;
+}
+
+.cab-taxi-book-flow .terms-label {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  cursor: pointer;
+}
+
+.cab-taxi-book-flow .confirm-cab-btn {
+  width: 100%;
+  height: 54px;
+  border-radius: 12px;
+  background: #075B28;
+  color: #FFFFFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(7, 91, 40, 0.25);
+}
+
+.cab-taxi-book-flow .confirm-cab-btn:hover:not(:disabled) {
+  background: #054022;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(7, 91, 40, 0.35);
+}
+
+.cab-taxi-book-flow .confirm-cab-btn:disabled {
+  background: #A1AB9E;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cab-taxi-book-flow .due-summary-footer-note {
+  text-align: center;
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  margin: 2px 0 0 0;
+}
+
+/* Footer Back Link */
+.cab-taxi-book-flow .review-page-footer {
+  width: 100%;
+  max-width: 1336px;
+  margin: 0 auto;
+  padding: 8px clamp(16px, 3.6vw, 52px) 40px clamp(16px, 3.6vw, 52px);
+  box-sizing: border-box;
+}
+
+.cab-taxi-book-flow .back-to-vehicles-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.cab-taxi-book-flow .back-to-vehicles-btn:hover {
+  color: #075B28;
+}
+
+/* ================= STEP 4: CONFIRMED SECTION ================= */
+.cab-taxi-book-flow .cab-confirmed-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto 60px auto;
+  padding: 40px clamp(16px, 3.6vw, 40px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 16px;
+  background: #FFFEFC;
+  border: 1px solid #EAE2D7;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.cab-taxi-book-flow .confirmed-badge-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cab-taxi-book-flow .cab-ref-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: #F0F5E9;
+  border: 1px solid #C2DCB6;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  color: #075B28;
+  margin: 16px 0 24px 0;
+}
+
+.cab-taxi-book-flow .ref-dot {
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .confirmed-details-card {
+  width: 100%;
+  border-radius: 12px;
+  background: #FAF7F1;
+  border: 1px solid #EAE2D7;
+  padding: 18px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.cab-taxi-book-flow .confirmed-detail-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+}
+
+.cab-taxi-book-flow .confirmed-detail-label {
+  color: #6C5F56;
+}
+
+.cab-taxi-book-flow .confirmed-detail-val {
+  color: #292824;
+  font-weight: 600;
+}
+
+.cab-taxi-book-flow .confirmed-actions-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.cab-taxi-book-flow .return-home-btn {
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 10px;
+  background: #075B28;
+  color: #FFFFFF;
+  border: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cab-taxi-book-flow .return-home-btn:hover {
+  background: #054022;
+}
+
+.cab-taxi-book-flow .view-stay-btn {
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 10px;
+  background: transparent;
+  color: #075B28;
+  border: 1.5px solid #075B28;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cab-taxi-book-flow .view-stay-btn:hover {
+  background: #F0F5E9;
+}
+
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 @media (max-width: 1024px) {
   .cab-taxi-book-flow .pickup-options-grid {
@@ -1621,6 +2387,12 @@
   }
   .cab-taxi-book-flow .about-divider-v {
     display: none;
+  }
+  .cab-taxi-book-flow .review-columns {
+    grid-template-columns: 1fr;
+  }
+  .cab-taxi-book-flow .payment-options-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1666,5 +2438,13 @@
   }
   .cab-taxi-book-flow .continue-review-cta {
     justify-content: center;
+  }
+  .cab-taxi-book-flow .confirmed-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cab-taxi-book-flow .return-home-btn,
+  .cab-taxi-book-flow .view-stay-btn {
+    width: 100%;
   }
 }

@@ -132,7 +132,7 @@ const VEHICLES = [
   },
 ];
 
-export function CabTaxiBookFlow() {
+export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -142,7 +142,7 @@ export function CabTaxiBookFlow() {
   const guestNameParam = searchParams.get("guest") || "Aarav Sharma";
 
   // State Management
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(initialStep);
   const [selectedPickup, setSelectedPickup] = useState("other");
   const [customAddress, setCustomAddress] = useState("Fraser Road, near Buddha Smriti Park");
   const [searchAddressQuery, setSearchAddressQuery] = useState("Fraser Road, near Buddha Smriti Park");
@@ -151,7 +151,11 @@ export function CabTaxiBookFlow() {
   const [pickupTime, setPickupTime] = useState("02:00 PM IST");
   const [passengers, setPassengers] = useState(2);
   const [largeBags, setLargeBags] = useState(2);
-  const [selectedVehicle, setSelectedVehicle] = useState(null);
+  const [selectedVehicle, setSelectedVehicle] = useState("innova");
+
+  // Step 3 (Review & Payment) State
+  const [paymentMethod, setPaymentMethod] = useState("hotel"); // "hotel" | "now"
+  const [agreedToTerms, setAgreedToTerms] = useState(true);
 
   // Contact info
   const [guestName, setGuestName] = useState(guestNameParam);
@@ -194,6 +198,18 @@ export function CabTaxiBookFlow() {
       : currentOption.locationName;
 
   const isContinueDisabled = selectedPickup === "other" && !customAddress.trim();
+
+  // Active Vehicle & Dynamic Fare Calculations
+  const activeCar =
+    VEHICLES.find((v) => v.id === selectedVehicle) ||
+    VEHICLES.find((v) => v.id === "innova") ||
+    VEHICLES[0];
+
+  const totalFareNumber = activeCar.priceNumber || 1200;
+  const taxesNumber = Math.round(totalFareNumber * 0.08333) || 100;
+  const transferFareNumber = totalFareNumber - taxesNumber;
+  const dueNowNumber = paymentMethod === "now" ? totalFareNumber : 0;
+  const payAtHotelNumber = paymentMethod === "hotel" ? totalFareNumber : 0;
 
   // Navigation handlers
   const handleBackToBooking = () => {
@@ -276,7 +292,10 @@ export function CabTaxiBookFlow() {
             <div
               className={`step-item ${currentStep === 1 ? "active" : "completed"}`}
               onClick={() => {
-                if (currentStep > 1) setCurrentStep(1);
+                if (currentStep > 1) {
+                  setCurrentStep(1);
+                  if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                }
               }}
               style={{ cursor: currentStep > 1 ? "pointer" : "default" }}
             >
@@ -287,7 +306,16 @@ export function CabTaxiBookFlow() {
             <div className="step-connector" />
 
             {/* Step 2: Vehicle & fare */}
-            <div className={`step-item ${currentStep === 2 ? "active" : currentStep > 2 ? "completed" : ""}`}>
+            <div
+              className={`step-item ${currentStep === 2 ? "active" : currentStep > 2 ? "completed" : ""}`}
+              onClick={() => {
+                if (currentStep > 2) {
+                  setCurrentStep(2);
+                  if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              style={{ cursor: currentStep > 2 ? "pointer" : "default" }}
+            >
               <div className="step-circle">{currentStep > 2 ? "✓" : "2"}</div>
               <span className="step-label">Vehicle &amp; fare</span>
             </div>
@@ -295,16 +323,25 @@ export function CabTaxiBookFlow() {
             <div className="step-connector" />
 
             {/* Step 3: Review & payment */}
-            <div className={`step-item ${currentStep === 3 ? "active" : currentStep > 3 ? "completed" : ""}`}>
-              <div className="step-circle">3</div>
+            <div
+              className={`step-item ${currentStep === 3 ? "active step-3-active" : currentStep > 3 ? "completed" : ""}`}
+              onClick={() => {
+                if (currentStep > 3) {
+                  setCurrentStep(3);
+                  if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              style={{ cursor: currentStep > 3 ? "pointer" : "default" }}
+            >
+              <div className="step-circle">{currentStep > 3 ? "✓" : "3"}</div>
               <span className="step-label">Review &amp; payment</span>
             </div>
 
             <div className="step-connector" />
 
             {/* Step 4: Confirmation */}
-            <div className={`step-item ${currentStep === 4 ? "active" : ""}`}>
-              <div className="step-circle">4</div>
+            <div className={`step-item ${currentStep === 4 ? "active completed" : ""}`}>
+              <div className="step-circle">{currentStep === 4 ? "✓" : "4"}</div>
               <span className="step-label">Confirmation</span>
             </div>
           </div>
@@ -1004,11 +1041,10 @@ export function CabTaxiBookFlow() {
                     className="continue-review-cta"
                     disabled={!selectedVehicle}
                     onClick={() => {
-                      const selectedCar = VEHICLES.find((v) => v.id === selectedVehicle);
-                      setShowSuccessToast(true);
-                      setTimeout(() => {
-                        setShowSuccessToast(false);
-                      }, 4000);
+                      setCurrentStep(3);
+                      if (typeof window !== "undefined") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
                     }}
                   >
                     <span>CONTINUE TO REVIEW</span>
@@ -1028,6 +1064,489 @@ export function CabTaxiBookFlow() {
                 </div>
               </div>
             </main>
+          </section>
+        )}
+
+        {/* ================= STEP 3: REVIEW & PAYMENT ================= */}
+        {currentStep === 3 && (
+          <section className="cab-review-payment-wrapper">
+            <div className="page-introduction">
+              <p className="your-arrival-eyebrow">YOUR ARRIVAL</p>
+              <h1 className="review-your-ride-heading">Review your ride.</h1>
+              <p className="review-your-ride-subtitle">
+                Check your pickup details, then complete your cab booking.
+              </p>
+            </div>
+
+            <main className="review-columns">
+              {/* Left Column: Transfer, Contact, and Payment Method */}
+              <div className="transfer-contact-and-payment">
+                {/* Your Transfer Card */}
+                <div className="your-transfer-card">
+                  <div className="card-top-heading-row">
+                    <h2 className="card-primary-title">Your transfer</h2>
+                    <button
+                      type="button"
+                      className="edit-trip-action-link"
+                      onClick={() => {
+                        setCurrentStep(1);
+                        if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      <span className="pencil-icon">✎</span>
+                      <span>Edit trip</span>
+                    </button>
+                  </div>
+
+                  <div className="pickup-dropoff-flow">
+                    <div className="flow-route-pins">
+                      <div className="pin-icon-wrap-sm">
+                        <Image
+                          src="/images/cab booking/Location pin.svg"
+                          alt="Pickup"
+                          width={24}
+                          height={24}
+                          unoptimized
+                        />
+                      </div>
+                      <div className="vertical-dashed-line" />
+                      <div className="pin-icon-wrap-sm">
+                        <Image
+                          src="/images/cab booking/Location pin.svg"
+                          alt="Drop-off"
+                          width={24}
+                          height={24}
+                          unoptimized
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flow-addresses">
+                      <div className="address-point">
+                        <p className="flow-label">PICKUP</p>
+                        <p className="flow-main-address">{displayLocation}</p>
+                        <p className="flow-sub-address">Patna, Bihar</p>
+                      </div>
+
+                      <div className="address-point" style={{ marginTop: "14px" }}>
+                        <p className="flow-label">DROP-OFF</p>
+                        <p className="flow-hotel-address">VALENCIA · Patna</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="card-divider-line" />
+
+                  {/* Ride Details (Date, Time, Passengers, Bags) */}
+                  <div className="ride-specs-row">
+                    <div className="ride-spec-item">
+                      <Image
+                        src="/images/cab booking/trip details/calendar icon.svg"
+                        alt="Date"
+                        width={20}
+                        height={20}
+                        unoptimized
+                      />
+                      <span>{pickupDate}</span>
+                    </div>
+                    <div className="ride-spec-item">
+                      <Image
+                        src="/images/cab booking/trip details/clock icon.svg"
+                        alt="Time"
+                        width={20}
+                        height={20}
+                        unoptimized
+                      />
+                      <span>{pickupTime}</span>
+                    </div>
+                    <div className="ride-spec-item">
+                      <Image
+                        src="/images/cab booking/trip details/user icon.svg"
+                        alt="Passengers"
+                        width={20}
+                        height={20}
+                        unoptimized
+                      />
+                      <span>{passengers} passengers</span>
+                    </div>
+                    <div className="ride-spec-item">
+                      <Image
+                        src="/images/cab booking/trip details/bag icon.svg"
+                        alt="Bags"
+                        width={20}
+                        height={20}
+                        unoptimized
+                      />
+                      <span>{largeBags} large bags</span>
+                    </div>
+                  </div>
+
+                  {/* Selected Vehicle Subcard */}
+                  <div className="selected-vehicle-subcard">
+                    <div className="vehicle-subcard-left">
+                      <div className="vehicle-subcard-img">
+                        <Image
+                          src={activeCar.imageSrc}
+                          alt={activeCar.name}
+                          width={118}
+                          height={54}
+                          style={{ objectFit: "contain", width: "auto", height: "48px" }}
+                          unoptimized
+                        />
+                      </div>
+                      <div className="vehicle-subcard-text">
+                        <h3 className="vehicle-subcard-name">{activeCar.name}</h3>
+                        <p className="vehicle-subcard-desc">
+                          {activeCar.ac} · {activeCar.type}
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      className="change-vehicle-btn"
+                      onClick={() => {
+                        setCurrentStep(2);
+                        if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Change vehicle
+                    </button>
+                  </div>
+                </div>
+
+                {/* Pickup Contact Card */}
+                <div className="pickup-contact-card">
+                  <div className="card-top-heading-row">
+                    <h2 className="card-primary-title">Pickup contact</h2>
+                    <button
+                      type="button"
+                      className="edit-trip-action-link"
+                      onClick={() => {
+                        setTempContact({ name: guestName, email: guestEmail, phone: guestPhone });
+                        setIsEditingContact(true);
+                      }}
+                    >
+                      <span className="pencil-icon">✎</span>
+                      <span>Edit</span>
+                    </button>
+                  </div>
+
+                  <div className="contact-details-row">
+                    <div className="contact-item">
+                      <Image
+                        src="/images/cab booking/trip details/user icon.svg"
+                        alt="Guest"
+                        width={20}
+                        height={20}
+                        unoptimized
+                      />
+                      <span>{guestName}</span>
+                    </div>
+                    <div className="contact-item">
+                      <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke="#075B28" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="1" y="1" width="18" height="14" rx="2" />
+                        <path d="M1 3l9 6 9-6" />
+                      </svg>
+                      <span>{guestEmail}</span>
+                    </div>
+                    <div className="contact-item">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                      <span>{guestPhone}</span>
+                    </div>
+                  </div>
+
+                  {/* Linked Hotel Booking Pill */}
+                  <div className="linked-hotel-booking-pill">
+                    <div className="bed-icon-wrap">
+                      <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="#292824" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v4" />
+                      </svg>
+                    </div>
+                    <span className="linked-label-text">Linked hotel booking:</span>
+                    <span className="linked-ref-code" onClick={handleBackToBooking}>
+                      {bookingRefParam}
+                    </span>
+                  </div>
+                </div>
+
+                {/* How Would You Like to Pay Card */}
+                <div className="how-to-pay-card">
+                  <h2 className="card-primary-title">How would you like to pay?</h2>
+
+                  <div className="payment-options-grid">
+                    {/* Pay Now */}
+                    <div
+                      className={`payment-choice-card ${paymentMethod === "now" ? "selected" : ""}`}
+                      onClick={() => setPaymentMethod("now")}
+                      role="radio"
+                      aria-checked={paymentMethod === "now"}
+                      tabIndex={0}
+                    >
+                      <div className="choice-left">
+                        <div className="choice-icon-wrap">
+                          <svg width="26" height="22" viewBox="0 0 24 20" fill="none" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="1" y="2" width="22" height="16" rx="3" />
+                            <path d="M1 7h22M5 13h4" />
+                          </svg>
+                        </div>
+                        <div className="choice-text">
+                          <p className="choice-title">Pay Now</p>
+                          <p className="choice-subtitle">Pay online to complete your booking</p>
+                        </div>
+                      </div>
+                      <div className="choice-radio">
+                        {paymentMethod === "now" ? (
+                          <span className="radio-dot-checked">●</span>
+                        ) : (
+                          <span className="radio-dot-unchecked">○</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Pay at Hotel */}
+                    <div
+                      className={`payment-choice-card ${paymentMethod === "hotel" ? "selected" : ""}`}
+                      onClick={() => setPaymentMethod("hotel")}
+                      role="radio"
+                      aria-checked={paymentMethod === "hotel"}
+                      tabIndex={0}
+                    >
+                      <div className="choice-left">
+                        <div className="choice-icon-wrap">
+                          <Image
+                            src="/images/cab booking/trip details/Hotel icon.svg"
+                            alt="Hotel"
+                            width={28}
+                            height={28}
+                            unoptimized
+                          />
+                        </div>
+                        <div className="choice-text">
+                          <p className="choice-title">Pay at Hotel</p>
+                          <p className="choice-subtitle">Settle your cab fare at the hotel</p>
+                        </div>
+                      </div>
+                      <div className="choice-radio">
+                        {paymentMethod === "hotel" ? (
+                          <span className="radio-dot-checked">●</span>
+                        ) : (
+                          <span className="radio-dot-unchecked">○</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Payment Guidance Info */}
+                  <div className="payment-guidance-info">
+                    <span className="guidance-info-icon">ⓘ</span>
+                    <p className="guidance-text">
+                      {paymentMethod === "hotel"
+                        ? "No online payment is required. Your cab fare is payable at the hotel."
+                        : "Secure online payment gateway will open upon confirming."}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Fare Summary and Before You Confirm */}
+              <div className="fare-and-confirmation">
+                {/* Fare Summary Card */}
+                <div className="fare-summary-card">
+                  <h2 className="fare-summary-title">Fare summary</h2>
+                  <p className="fare-summary-type">One-way transfer</p>
+
+                  <div className="fare-line-item">
+                    <span className="item-label">Transfer fare</span>
+                    <span className="item-val">₹{transferFareNumber.toLocaleString("en-IN")}</span>
+                  </div>
+
+                  <div className="fare-line-item">
+                    <span className="item-label">Taxes &amp; fees (demo)</span>
+                    <span className="item-val">₹{taxesNumber.toLocaleString("en-IN")}</span>
+                  </div>
+
+                  <div className="card-divider-line" />
+
+                  <div className="fare-total-row">
+                    <span className="total-label">Total cab fare</span>
+                    <span className="total-amount">₹{totalFareNumber.toLocaleString("en-IN")}</span>
+                  </div>
+
+                  <div className="card-divider-line" />
+
+                  <div className="fare-line-item">
+                    <span className="item-label">Due now</span>
+                    <span className="item-val">₹{dueNowNumber.toLocaleString("en-IN")}</span>
+                  </div>
+
+                  <div className="fare-line-item">
+                    <span className="item-label">Pay at hotel</span>
+                    <span className="item-val">₹{payAtHotelNumber.toLocaleString("en-IN")}</span>
+                  </div>
+
+                  <div className="card-divider-line" />
+
+                  <div className="separate-fare-notice">
+                    <span className="separate-icon">ⓘ</span>
+                    <span className="separate-text">Cab payment is separate from your hotel booking.</span>
+                  </div>
+                </div>
+
+                {/* Before You Confirm Card */}
+                <div className="before-you-confirm-card">
+                  <h3 className="before-confirm-title">Before you confirm</h3>
+                  <p className="before-confirm-bullet">
+                    • &nbsp;Extra waiting or route changes may cost more.
+                  </p>
+
+                  <button
+                    type="button"
+                    className="view-cancellation-terms-link"
+                    onClick={() =>
+                      alert(
+                        "Cab Terms & Cancellation:\n• Free cancellation up to 2 hours before scheduled pickup time.\n• Extra waiting beyond 15 minutes or route diversions may incur additional charges."
+                      )
+                    }
+                  >
+                    View fare &amp; cancellation terms
+                  </button>
+
+                  <div className="card-divider-line" />
+
+                  {/* Agreement Checkbox */}
+                  <div
+                    className="terms-agreement-row"
+                    onClick={() => setAgreedToTerms(!agreedToTerms)}
+                  >
+                    <div className={`custom-terms-checkbox ${agreedToTerms ? "checked" : ""}`}>
+                      {agreedToTerms && <span>✓</span>}
+                    </div>
+                    <label className="terms-label">
+                      I agree to the Cab Terms and Cancellation Policy.
+                    </label>
+                  </div>
+
+                  {/* Confirm Button */}
+                  <button
+                    type="button"
+                    className="confirm-cab-btn"
+                    disabled={!agreedToTerms}
+                    onClick={() => {
+                      setCurrentStep(4);
+                      if (typeof window !== "undefined") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
+                  >
+                    <span>CONFIRM CAB BOOKING</span>
+                    <Image
+                      src="/images/cab booking/trip details/arrow icon.svg"
+                      alt="Confirm"
+                      width={22}
+                      height={22}
+                      unoptimized
+                    />
+                  </button>
+
+                  {/* Under-button fare note */}
+                  <p className="due-summary-footer-note">
+                    ₹{dueNowNumber} due now · ₹{payAtHotelNumber.toLocaleString("en-IN")} payable at hotel
+                  </p>
+                </div>
+              </div>
+            </main>
+
+            {/* Footer Back Link */}
+            <div className="review-page-footer">
+              <button
+                type="button"
+                className="back-to-vehicles-btn"
+                onClick={() => {
+                  setCurrentStep(2);
+                  if (typeof window !== "undefined") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+              >
+                ← &nbsp;Back to vehicles
+              </button>
+            </div>
+          </section>
+        )}
+
+        {/* ================= STEP 4: CONFIRMATION ================= */}
+        {currentStep === 4 && (
+          <section className="cab-confirmed-section">
+            <div className="confirmed-badge-circle">
+              <Image
+                src="/images/cab booking/trip details/Frame 2.svg"
+                alt="Confirmed"
+                width={56}
+                height={56}
+                unoptimized
+              />
+            </div>
+            <p className="your-arrival-eyebrow">YOUR STAY &amp; TRANSFER CONFIRMED</p>
+            <h1 className="review-your-ride-heading">Cab booking confirmed!</h1>
+            <p className="review-your-ride-subtitle">
+              Thank you, {guestName.split(" ")[0]}. Your ride is scheduled and linked to your hotel stay.
+            </p>
+
+            <div className="cab-ref-box">
+              <span>Cab Reference: <strong>CAB-VAL-8821</strong></span>
+              <span className="ref-dot">·</span>
+              <span>Hotel Booking: <strong>{bookingRefParam}</strong></span>
+            </div>
+
+            <div className="confirmed-details-card">
+              <div className="confirmed-detail-row">
+                <span className="confirmed-detail-label">Pickup Point:</span>
+                <span className="confirmed-detail-val">{displayLocation}</span>
+              </div>
+              <div className="confirmed-detail-row">
+                <span className="confirmed-detail-label">Drop-off:</span>
+                <span className="confirmed-detail-val">VALENCIA · Patna</span>
+              </div>
+              <div className="confirmed-detail-row">
+                <span className="confirmed-detail-label">Pickup Schedule:</span>
+                <span className="confirmed-detail-val">{pickupDate} at {pickupTime}</span>
+              </div>
+              <div className="confirmed-detail-row">
+                <span className="confirmed-detail-label">Vehicle:</span>
+                <span className="confirmed-detail-val">{activeCar.name} ({activeCar.type})</span>
+              </div>
+              <div className="confirmed-detail-row">
+                <span className="confirmed-detail-label">Guest Contact:</span>
+                <span className="confirmed-detail-val">{guestName} · {guestPhone}</span>
+              </div>
+              <div className="confirmed-detail-row">
+                <span className="confirmed-detail-label">Payment:</span>
+                <span className="confirmed-detail-val">
+                  {paymentMethod === "hotel"
+                    ? `Pay at hotel: ₹${payAtHotelNumber.toLocaleString("en-IN")}`
+                    : `Paid online: ₹${dueNowNumber.toLocaleString("en-IN")}`}
+                </span>
+              </div>
+            </div>
+
+            <div className="confirmed-actions-row">
+              <button
+                type="button"
+                className="return-home-btn"
+                onClick={() => router.push("/")}
+              >
+                Back to Home
+              </button>
+              <button
+                type="button"
+                className="view-stay-btn"
+                onClick={handleBackToBooking}
+              >
+                View Hotel Booking
+              </button>
+            </div>
           </section>
         )}
 
@@ -1122,7 +1641,11 @@ export function CabTaxiBookFlow() {
 }
 
 export function CabVehicleAndFareNoVehicleSelected() {
-  return <CabTaxiBookFlow />;
+  return <CabTaxiBookFlow initialStep={2} />;
+}
+
+export function CabReviewAndPaymentPayAtHotel(props) {
+  return <CabTaxiBookFlow initialStep={3} {...props} />;
 }
 
 export default CabTaxiBookFlow;
