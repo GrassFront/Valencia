@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PopupNeedARideToTheHotel } from "./PopupNeedARideToTheHotel";
 import "./css/booking-confirmation-hotel-contact.css";
 
@@ -59,6 +59,7 @@ export function BookingConfirmationHotelContactVersion({
   paymentMethod: propPaymentMethod,
   bookingReference: propReference,
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   const rawRoom = (searchParams?.get("room") || "deluxe").toLowerCase();
@@ -125,6 +126,15 @@ export function BookingConfirmationHotelContactVersion({
         onClose={() => setShowCabPopup(false)}
         checkInDate={checkInDate}
         destination="VALENCIA · Patna"
+        onBookCab={() => {
+          setShowCabPopup(false);
+          const params = new URLSearchParams();
+          if (roomKey) params.set("room", roomKey);
+          if (checkInDate) params.set("checkIn", checkInDate);
+          if (bookingRef) params.set("bookingRef", bookingRef);
+          if (guestFullName) params.set("guest", guestFullName);
+          router.push(`/booking/cab?${params.toString()}`);
+        }}
       />
 
       <div className="booking-confirmation-hotel-contact">

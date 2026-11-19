@@ -13,3 +13,4 @@ export {
   default as BookingConfirmationDefault,
 } from "./BookingConfirmationHotelContactVersion";
 export { PopupNeedARideToTheHotel, default as PopupNeedARideToTheHotelDefault } from "./PopupNeedARideToTheHotel";
+export { CabTaxiBookFlow, default as CabTaxiBookFlowDefault } from "./CabTaxiBookFlow";

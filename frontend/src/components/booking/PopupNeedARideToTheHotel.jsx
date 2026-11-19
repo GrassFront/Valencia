@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "./css/popup-need-a-ride-to-the-hotel.css";
 
 export function PopupNeedARideToTheHotel({
@@ -11,6 +12,8 @@ export function PopupNeedARideToTheHotel({
   destination = "VALENCIA · Patna",
   onBookCab,
 }) {
+  const router = useRouter();
+
   // Close on Escape key press
   useEffect(() => {
     if (!isOpen) return;
@@ -29,8 +32,7 @@ export function PopupNeedARideToTheHotel({
     if (onBookCab) {
       onBookCab();
     } else {
-      // Default: show informative feedback or alert
-      alert("Cab booking service requested. Our guest concierge will reach out to arrange your pickup.");
+      router.push("/booking/cab");
       onClose?.();
     }
   };

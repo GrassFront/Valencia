@@ -75,12 +75,14 @@ export default function EventsEnquiry({
   // Keep state updated if initial props change
   useEffect(() => {
     if (initialEventType) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData((prev) => ({ ...prev, eventType: initialEventType }));
     }
   }, [initialEventType]);
 
   useEffect(() => {
     if (initialSpace) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData((prev) => ({ ...prev, preferredSpace: initialSpace }));
     }
   }, [initialSpace]);
