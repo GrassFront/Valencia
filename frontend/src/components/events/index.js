@@ -1,0 +1,10 @@
+export { default as EventsHero } from "./EventsHero";
+export { default as EventsSpaces } from "./EventsSpaces";
+export { default as EventsOffer } from "./EventsOffer";
+export { default as EventsWeHost } from "./EventsWeHost";
+export { default as EventsStay } from "./EventsStay";
+export { default as EventsGallery } from "./EventsGallery";
+export { default as EventsEnquiry } from "./EventsEnquiry";
+export { default as EventsPlanning } from "./EventsPlanning";
+export { default as EventsFaq } from "./EventsFaq";
+export { default as EventsPage } from "./EventsPage";
