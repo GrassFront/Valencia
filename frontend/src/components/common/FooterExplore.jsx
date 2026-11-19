@@ -8,7 +8,7 @@ const EXPLORE_LINKS = [
   { label: "Dining", href: "/dining" },
   { label: "Weddings & Events", href: "/events" },
   { label: "Meetings", href: "/meetings" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function FooterExplore() {

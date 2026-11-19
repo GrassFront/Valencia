@@ -8,7 +8,8 @@ const PLANNING_STEPS = [
     title: "Enquire",
     desc: (
       <>
-        Share your event, preferred dates and<br className="hidden sm:inline" /> estimated guest count.
+        <span className="block">Share your event, preferred</span>
+        <span className="block">dates and estimated guest count.</span>
       </>
     ),
     icon: "/images/EventPage/Hello Big Day/Frame.svg",
@@ -18,7 +19,8 @@ const PLANNING_STEPS = [
     title: "Visit",
     desc: (
       <>
-        Explore the spaces with our team<br className="hidden sm:inline" /> and discuss your plans.
+        <span className="block">Explore the spaces with our team</span>
+        <span className="block">and discuss your plans.</span>
       </>
     ),
     icon: "/images/EventPage/Hello Big Day/Frame 2.svg",
@@ -28,7 +30,8 @@ const PLANNING_STEPS = [
     title: "Quote",
     desc: (
       <>
-        Review a tailored proposal with<br className="hidden sm:inline" /> inclusions and terms.
+        <span className="block">Review a tailored proposal</span>
+        <span className="block">with inclusions and terms.</span>
       </>
     ),
     icon: "/images/EventPage/Hello Big Day/Frame 3.svg",
@@ -38,7 +41,8 @@ const PLANNING_STEPS = [
     title: "Confirm",
     desc: (
       <>
-        Finalise the details and complete the<br className="hidden sm:inline" /> agreed booking formalities.
+        <span className="block">Finalise the details and complete</span>
+        <span className="block">the agreed booking formalities.</span>
       </>
     ),
     icon: "/images/EventPage/Hello Big Day/Frame 4.svg",
@@ -58,7 +62,7 @@ export default function EventsPlanning() {
             Your celebration, planned together.
           </h2>
           <p className="events-plan-desc">
-            Four simple steps to bring your occasion<br className="hidden sm:inline" /> to life at Umrao.
+            Four simple steps to bring your occasion to life at Umrao.
           </p>
         </div>
 

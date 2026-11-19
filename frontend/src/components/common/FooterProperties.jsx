@@ -85,7 +85,7 @@ export default function FooterProperties({ variant = "primary" }) {
       {/* Contact Us CTA link */}
       <div className="pt-2">
         <Link
-          href="/#contact"
+          href="/contact"
           className="inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#C9A96A] hover:text-[#FAF4EB] transition-colors uppercase group font-body"
         >
           <span>Contact Us</span>
