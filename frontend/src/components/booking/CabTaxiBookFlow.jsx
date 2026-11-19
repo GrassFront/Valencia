@@ -31,7 +31,7 @@ const PICKUP_OPTIONS = [
     subtitle: "Pick up from a different address in Patna",
     locationName: "Fraser Road, near Buddha Smriti Park",
     icon: "/images/cab booking/trip details/Pickup/reference outline 2.svg",
-    routeIcon: "/images/cab booking/trip details/Frame.svg",
+    routeIcon: "/images/cab booking/Location pin.svg",
     guidance: "Enter the exact address where you would like to be picked up.",
   },
 ];
@@ -81,6 +81,147 @@ const PATNA_SUGGESTIONS = [
   },
 ];
 
+// Vector SVG Car Profile Illustrations
+function DzireCarSvg() {
+  return (
+    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M14 38L8 32C6.5 30 7.5 27 10 26L25 24L41 12C45 9 50 8 55 8L82 8C88 8 93 11 96 17L106 24L117 27C121 28 123 31 122 35L120 39C119 42 116 44 113 44L108 44M87 44L38 44M21 44L16 44C13 44 11 41 11 38Z"
+        stroke="#075B28"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="29" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="29" cy="44" r="3.5" fill="#075B28" />
+      <circle cx="97" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="97" cy="44" r="3.5" fill="#075B28" />
+      <path d="M43 14L55 13L55 24L28 24Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M60 13L80 13C85 13 89 16 92 20L95 24L60 24Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M53 28L59 28M75 28L81 28" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function InnovaCarSvg() {
+  return (
+    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10 39L7 34C6 31 7 27 10 25L24 22L44 8C47 6 52 5 57 5L104 5C109 5 113 9 115 14L119 33C120 37 118 41 114 43L109 44M89 44L41 44M23 44L14 44C11 44 9 42 9 39Z"
+        stroke="#075B28"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="32" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="32" cy="44" r="3.5" fill="#075B28" />
+      <circle cx="99" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="99" cy="44" r="3.5" fill="#075B28" />
+      <path d="M28 22L44 11L57 11L57 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M62 11L82 11L82 22L62 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M87 11L104 11C107 11 110 13 111 17L112 22L87 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M60 27L66 27M84 27L90 27" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
+      <path d="M62 2L98 2" stroke="#075B28" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function ErtigaCarSvg() {
+  return (
+    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M11 40L7 35C6 32 7 28 10 26L25 23L44 10C47 8 51 7 56 7L102 7C107 7 111 11 113 16L116 35C117 38 115 42 111 44L107 44M87 44L39 44M21 44L14 44C11 44 10 42 10 40Z"
+        stroke="#075B28"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="30" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="30" cy="44" r="3.5" fill="#075B28" />
+      <circle cx="97" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="97" cy="44" r="3.5" fill="#075B28" />
+      <path d="M29 23L45 12L56 12L56 23Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M61 12L79 12L79 23L61 23Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M84 12L103 12C106 12 108 14 109 18L110 23L84 23Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M57 28L63 28M81 28L87 28" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CarnivalCarSvg() {
+  return (
+    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8 40L5 35C4 31 5 27 8 25L26 22L47 9C50 7 55 6 60 6L112 6C117 6 120 9 122 14L124 33C125 37 123 41 119 43L113 44M93 44L43 44M23 44L12 44C9 44 7 42 7 40Z"
+        stroke="#075B28"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="33" cy="44" r="9" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="33" cy="44" r="3.5" fill="#075B28" />
+      <circle cx="103" cy="44" r="9" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
+      <circle cx="103" cy="44" r="3.5" fill="#075B28" />
+      <path d="M30 22L47 11L60 11L60 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M65 11L87 11L87 22L65 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M92 11L114 11C117 11 119 13 120 17L121 22L92 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M63 27L69 27M88 27L94 27" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
+      <path d="M66 2L108 2" stroke="#075B28" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+const VEHICLES = [
+  {
+    id: "dzire",
+    name: "Maruti Suzuki Dzire",
+    type: "Sedan",
+    price: "₹750",
+    priceNumber: 750,
+    passengers: "Up to 3 passengers",
+    bags: "2 large bags",
+    ac: "Air conditioning",
+    buttonLabel: "Select Dzire",
+    CarSvg: DzireCarSvg,
+  },
+  {
+    id: "innova",
+    name: "Toyota Innova",
+    type: "Spacious MPV",
+    price: "₹1,200",
+    priceNumber: 1200,
+    passengers: "Up to 5 passengers",
+    bags: "3 large bags",
+    ac: "Air conditioning",
+    buttonLabel: "Select Innova",
+    CarSvg: InnovaCarSvg,
+  },
+  {
+    id: "ertiga",
+    name: "Maruti Suzuki Ertiga",
+    type: "Family MPV",
+    price: "₹1,000",
+    priceNumber: 1000,
+    passengers: "Up to 5 passengers",
+    bags: "2 large bags",
+    ac: "Air conditioning",
+    buttonLabel: "Select Ertiga",
+    CarSvg: ErtigaCarSvg,
+  },
+  {
+    id: "carnival",
+    name: "Kia Carnival",
+    type: "Premium luxury MPV",
+    price: "₹2,000",
+    priceNumber: 2000,
+    passengers: "Up to 6 passengers",
+    bags: "3 large bags",
+    ac: "Air conditioning",
+    buttonLabel: "Select Carnival",
+    CarSvg: CarnivalCarSvg,
+  },
+];
+
 export function CabTaxiBookFlow() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -92,14 +233,15 @@ export function CabTaxiBookFlow() {
 
   // State Management
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedPickup, setSelectedPickup] = useState("airport");
-  const [customAddress, setCustomAddress] = useState("");
-  const [searchAddressQuery, setSearchAddressQuery] = useState("");
+  const [selectedPickup, setSelectedPickup] = useState("other");
+  const [customAddress, setCustomAddress] = useState("Fraser Road, near Buddha Smriti Park");
+  const [searchAddressQuery, setSearchAddressQuery] = useState("Fraser Road, near Buddha Smriti Park");
   const [showAddressSuggestions, setShowAddressSuggestions] = useState(false);
   const [pickupDate, setPickupDate] = useState(checkInParam);
   const [pickupTime, setPickupTime] = useState("02:00 PM IST");
   const [passengers, setPassengers] = useState(2);
   const [largeBags, setLargeBags] = useState(2);
+  const [selectedVehicle, setSelectedVehicle] = useState(null);
 
   // Contact info
   const [guestName, setGuestName] = useState(guestNameParam);
@@ -138,7 +280,7 @@ export function CabTaxiBookFlow() {
 
   const displayLocation =
     selectedPickup === "other"
-      ? customAddress || "Select a pickup address"
+      ? customAddress || "Fraser Road, near Buddha Smriti Park"
       : currentOption.locationName;
 
   const isContinueDisabled = selectedPickup === "other" && !customAddress.trim();
@@ -150,10 +292,10 @@ export function CabTaxiBookFlow() {
 
   const handleChooseVehicle = () => {
     if (isContinueDisabled) return;
-    setShowSuccessToast(true);
-    setTimeout(() => {
-      setShowSuccessToast(false);
-    }, 4000);
+    setCurrentStep(2);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const handleSaveContact = () => {
@@ -220,9 +362,15 @@ export function CabTaxiBookFlow() {
         {/* ================= 4-STEP PROGRESS BAR ================= */}
         <div className="booking-progress-container">
           <div className="booking-progress">
-            {/* Step 1: Trip details (Active) */}
-            <div className={`step-item ${currentStep === 1 ? "active" : currentStep > 1 ? "completed" : ""}`}>
-              <div className="step-circle">1</div>
+            {/* Step 1: Trip details */}
+            <div
+              className={`step-item ${currentStep === 1 ? "active" : "completed"}`}
+              onClick={() => {
+                if (currentStep > 1) setCurrentStep(1);
+              }}
+              style={{ cursor: currentStep > 1 ? "pointer" : "default" }}
+            >
+              <div className="step-circle">{currentStep > 1 ? "✓" : "1"}</div>
               <span className="step-label">Trip details</span>
             </div>
 
@@ -230,7 +378,7 @@ export function CabTaxiBookFlow() {
 
             {/* Step 2: Vehicle & fare */}
             <div className={`step-item ${currentStep === 2 ? "active" : currentStep > 2 ? "completed" : ""}`}>
-              <div className="step-circle">2</div>
+              <div className="step-circle">{currentStep > 2 ? "✓" : "2"}</div>
               <span className="step-label">Vehicle &amp; fare</span>
             </div>
 
@@ -252,521 +400,720 @@ export function CabTaxiBookFlow() {
           </div>
         </div>
 
-        {/* ================= PAGE INTRODUCTION ================= */}
-        <section className="page-introduction">
-          <p className="your-arrival-eyebrow">YOUR ARRIVAL</p>
-          <h1 className="a-smooth-arrival-starts-here">A smooth arrival starts here.</h1>
-          <p className="choose-your-pickup-subtitle">
-            Choose your pickup. We’ll help you plan the ride.
-          </p>
-        </section>
+        {/* ================= STEP 1: TRIP DETAILS ================= */}
+        {currentStep === 1 && (
+          <>
+            <section className="page-introduction">
+              <p className="your-arrival-eyebrow">YOUR ARRIVAL</p>
+              <h1 className="a-smooth-arrival-starts-here">A smooth arrival starts here.</h1>
+              <p className="choose-your-pickup-subtitle">
+                Choose your pickup. We’ll help you plan the ride.
+              </p>
+            </section>
 
-        {/* ================= MAIN CONTENT ================= */}
-        <main className="trip-details-content">
-          {/* Pickup Options Cards */}
-          <div className="pickup-options-grid" role="radiogroup" aria-label="Pickup options">
-            {PICKUP_OPTIONS.map((opt) => {
-              const isSelected = selectedPickup === opt.id;
-              return (
-                <div
-                  key={opt.id}
-                  className={`pickup-card ${isSelected ? "selected" : ""}`}
-                  onClick={() => {
-                    setSelectedPickup(opt.id);
-                  }}
-                  role="radio"
-                  aria-checked={isSelected}
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      setSelectedPickup(opt.id);
-                    }
-                  }}
-                >
-                  <div className="pickup-card-left">
-                    <div className="pickup-card-icon">
-                      <Image
-                        src={opt.icon}
-                        alt={opt.title}
-                        width={44}
-                        height={44}
-                        unoptimized
-                      />
-                    </div>
-                    <div className="pickup-card-info">
-                      <p className="pickup-card-title">{opt.title}</p>
-                      <p className="pickup-card-subtitle">{opt.subtitle}</p>
-                    </div>
-                  </div>
-
-                  <div className="pickup-card-radio">
-                    {isSelected ? (
-                      <Image
-                        src="/images/cab booking/trip details/Selection.svg"
-                        alt="Selected"
-                        width={24}
-                        height={24}
-                        unoptimized
-                      />
-                    ) : (
-                      <div className="radio-unselected" />
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* YOUR ROUTE Card */}
-          <div className="your-route-card">
-            {/* Header: Title + Tag */}
-            <div className="route-card-header">
-              <span className="route-eyebrow">YOUR ROUTE</span>
-              <span className="one-way-badge">One-way transfer</span>
-            </div>
-
-            {/* Visual Route */}
-            <div className="route-visual-row">
-              {/* Pickup Point */}
-              {selectedPickup === "other" ? (
-                <div className="pickup-location-block other-location-mode" ref={addressSuggestionsRef}>
-                  <div className="pin-icon-wrap">
-                    <Image
-                      src="/images/cab booking/Location pin.svg"
-                      alt="Pickup Address"
-                      width={38}
-                      height={38}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="pickup-search-box-wrap">
-                    <p className="pickup-address-heading">Pickup address</p>
-                    <div className="address-input-relative">
-                      <svg
-                        className="address-search-svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#6C5F56"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                      </svg>
-                      <input
-                        type="text"
-                        className="address-search-field"
-                        placeholder="Search an address in Patna"
-                        value={searchAddressQuery}
-                        onChange={(e) => {
-                          setSearchAddressQuery(e.target.value);
-                          setCustomAddress(e.target.value);
-                          setShowAddressSuggestions(true);
-                        }}
-                        onFocus={() => setShowAddressSuggestions(true)}
-                      />
-                      {searchAddressQuery && (
-                        <button
-                          type="button"
-                          className="clear-search-btn"
-                          onClick={() => {
-                            setSearchAddressQuery("");
-                            setCustomAddress("");
-                          }}
-                          aria-label="Clear address"
-                        >
-                          ×
-                        </button>
-                      )}
-
-                      {showAddressSuggestions && (
-                        <div className="address-suggestions-popover">
-                          {(() => {
-                            const filtered = searchAddressQuery.trim()
-                              ? PATNA_SUGGESTIONS.filter(
-                                  (s) =>
-                                    s.title.toLowerCase().includes(searchAddressQuery.toLowerCase()) ||
-                                    s.subtitle.toLowerCase().includes(searchAddressQuery.toLowerCase())
-                                )
-                              : PATNA_SUGGESTIONS.slice(0, 3);
-                            const listToRender = filtered.length > 0 ? filtered : PATNA_SUGGESTIONS.slice(0, 3);
-
-                            return listToRender.map((item, idx) => {
-                              const isSelected =
-                                idx === 0 ||
-                                searchAddressQuery === item.title ||
-                                searchAddressQuery === item.fullAddress;
-                              return (
-                                <div
-                                  key={idx}
-                                  className={`suggestion-row ${isSelected ? "selected" : ""}`}
-                                  onClick={() => {
-                                    setSearchAddressQuery(item.title);
-                                    setCustomAddress(item.fullAddress);
-                                    setShowAddressSuggestions(false);
-                                  }}
-                                >
-                                  <div className="suggestion-pin-wrap">
-                                    <Image
-                                      src="/images/cab booking/Location pin.svg"
-                                      alt="Location"
-                                      width={26}
-                                      height={26}
-                                      unoptimized
-                                    />
-                                  </div>
-                                  <div className="suggestion-text-wrap">
-                                    <p className="suggestion-title">{item.title}</p>
-                                    <p className="suggestion-subtitle">{item.subtitle}</p>
-                                  </div>
-                                </div>
-                              );
-                            });
-                          })()}
-                          <div className="suggestions-footer-note">Sample location suggestions</div>
-                        </div>
-                      )}
-                    </div>
-                    <p className="pickup-address-guidance">Choose a result to confirm your pickup point.</p>
-                  </div>
-                </div>
-              ) : (
-                <div className="pickup-location-block">
-                  <div className="pin-icon-wrap">
-                    <Image
-                      src={currentOption.routeIcon || "/images/cab booking/trip details/Frame.svg"}
-                      alt={currentOption.title}
-                      width={40}
-                      height={40}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="pickup-location-text">
-                    <p className="pickup-location-name">{displayLocation}</p>
-                    <button
-                      type="button"
-                      className="change-pickup-link"
+            <main className="trip-details-content">
+              {/* Pickup Options Cards */}
+              <div className="pickup-options-grid" role="radiogroup" aria-label="Pickup options">
+                {PICKUP_OPTIONS.map((opt) => {
+                  const isSelected = selectedPickup === opt.id;
+                  return (
+                    <div
+                      key={opt.id}
+                      className={`pickup-card ${isSelected ? "selected" : ""}`}
                       onClick={() => {
-                        setSelectedPickup("other");
+                        setSelectedPickup(opt.id);
+                      }}
+                      role="radio"
+                      aria-checked={isSelected}
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          setSelectedPickup(opt.id);
+                        }
                       }}
                     >
-                      Change pickup
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Connector line with Car */}
-              <div className="route-connector-line">
-                <div className="line-segment" />
-                <div className="car-badge">
-                  <Image
-                    src="/images/cab booking/trip details/car icon.svg"
-                    alt="Cab Car"
-                    width={44}
-                    height={34}
-                    unoptimized
-                  />
-                </div>
-                <div className="line-segment" />
-              </div>
-
-              {/* Destination Hotel */}
-              <div className="destination-location-block">
-                <div className="hotel-badge-wrap">
-                  <Image
-                    src="/images/cab booking/trip details/Hotel icon.svg"
-                    alt="Valencia Hotel"
-                    width={52}
-                    height={52}
-                    unoptimized
-                  />
-                </div>
-                <div className="destination-location-text">
-                  <p className="destination-hotel-name">VALENCIA · Patna</p>
-                  <p className="destination-hotel-desc">Your booked hotel</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="route-divider" />
-
-            {/* Route Controls (Date / Time / Passengers / Bags) */}
-            <div className="route-controls-row">
-              {/* Pickup Date */}
-              <div
-                className="control-field-block"
-                ref={dateDropdownRef}
-                onClick={() => setShowDateDropdown(!showDateDropdown)}
-              >
-                <div className="field-icon-wrap">
-                  <Image
-                    src="/images/cab booking/trip details/calendar icon.svg"
-                    alt="Calendar"
-                    width={26}
-                    height={26}
-                    unoptimized
-                  />
-                </div>
-                <div className="field-content">
-                  <span className="field-label">Pickup date</span>
-                  <span className="field-value">{pickupDate}</span>
-                </div>
-                <div className="field-chevron">
-                  <Image
-                    src="/images/cab booking/trip details/chev icon 2.svg"
-                    alt="Chevron"
-                    width={14}
-                    height={14}
-                    unoptimized
-                  />
-                </div>
-                <div className="control-divider-v" />
-
-                {showDateDropdown && (
-                  <div className="dropdown-popover">
-                    {["12 Nov 2026", "13 Nov 2026", "14 Nov 2026", "15 Nov 2026"].map((d) => (
-                      <div
-                        key={d}
-                        className={`dropdown-item ${pickupDate === d ? "active" : ""}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setPickupDate(d);
-                          setShowDateDropdown(false);
-                        }}
-                      >
-                        {d}
+                      <div className="pickup-card-left">
+                        <div className="pickup-card-icon">
+                          <Image
+                            src={opt.icon}
+                            alt={opt.title}
+                            width={44}
+                            height={44}
+                            unoptimized
+                          />
+                        </div>
+                        <div className="pickup-card-info">
+                          <p className="pickup-card-title">{opt.title}</p>
+                          <p className="pickup-card-subtitle">{opt.subtitle}</p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
 
-              {/* Pickup Time */}
-              <div
-                className="control-field-block"
-                ref={timeDropdownRef}
-                onClick={() => setShowTimeDropdown(!showTimeDropdown)}
-              >
-                <div className="field-icon-wrap">
-                  <Image
-                    src="/images/cab booking/trip details/clock icon.svg"
-                    alt="Clock"
-                    width={26}
-                    height={26}
-                    unoptimized
-                  />
-                </div>
-                <div className="field-content">
-                  <span className="field-label">Pickup time</span>
-                  <span className="field-value">{pickupTime}</span>
-                </div>
-                <div className="field-chevron">
-                  <Image
-                    src="/images/cab booking/trip details/chev icon 3.svg"
-                    alt="Chevron"
-                    width={14}
-                    height={14}
-                    unoptimized
-                  />
-                </div>
-                <div className="control-divider-v" />
-
-                {showTimeDropdown && (
-                  <div className="dropdown-popover">
-                    {TIME_OPTIONS.map((t) => (
-                      <div
-                        key={t}
-                        className={`dropdown-item ${pickupTime === t ? "active" : ""}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setPickupTime(t);
-                          setShowTimeDropdown(false);
-                        }}
-                      >
-                        {t}
+                      <div className="pickup-card-radio">
+                        {isSelected ? (
+                          <Image
+                            src="/images/cab booking/trip details/Selection.svg"
+                            alt="Selected"
+                            width={24}
+                            height={24}
+                            unoptimized
+                          />
+                        ) : (
+                          <div className="radio-unselected" />
+                        )}
                       </div>
-                    ))}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* YOUR ROUTE Card */}
+              <div className="your-route-card">
+                <div className="route-card-header">
+                  <span className="route-eyebrow">YOUR ROUTE</span>
+                  <span className="one-way-badge">One-way transfer</span>
+                </div>
+
+                <div className="route-visual-row">
+                  {selectedPickup === "other" ? (
+                    <div className="pickup-location-block other-location-mode" ref={addressSuggestionsRef}>
+                      <div className="pin-icon-wrap">
+                        <Image
+                          src="/images/cab booking/Location pin.svg"
+                          alt="Pickup Address"
+                          width={38}
+                          height={38}
+                          unoptimized
+                        />
+                      </div>
+                      <div className="pickup-search-box-wrap">
+                        <p className="pickup-address-heading">Pickup address</p>
+                        <div className="address-input-relative">
+                          <svg
+                            className="address-search-svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#6C5F56"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                          </svg>
+                          <input
+                            type="text"
+                            className="address-search-field"
+                            placeholder="Search an address in Patna"
+                            value={searchAddressQuery}
+                            onChange={(e) => {
+                              setSearchAddressQuery(e.target.value);
+                              setCustomAddress(e.target.value);
+                              setShowAddressSuggestions(true);
+                            }}
+                            onFocus={() => setShowAddressSuggestions(true)}
+                          />
+                          {searchAddressQuery && (
+                            <button
+                              type="button"
+                              className="clear-search-btn"
+                              onClick={() => {
+                                setSearchAddressQuery("");
+                                setCustomAddress("");
+                              }}
+                              aria-label="Clear address"
+                            >
+                              ×
+                            </button>
+                          )}
+
+                          {showAddressSuggestions && (
+                            <div className="address-suggestions-popover">
+                              {(() => {
+                                const filtered = searchAddressQuery.trim()
+                                  ? PATNA_SUGGESTIONS.filter(
+                                      (s) =>
+                                        s.title.toLowerCase().includes(searchAddressQuery.toLowerCase()) ||
+                                        s.subtitle.toLowerCase().includes(searchAddressQuery.toLowerCase())
+                                    )
+                                  : PATNA_SUGGESTIONS.slice(0, 3);
+                                const listToRender = filtered.length > 0 ? filtered : PATNA_SUGGESTIONS.slice(0, 3);
+
+                                return listToRender.map((item, idx) => {
+                                  const isSelected =
+                                    idx === 0 ||
+                                    searchAddressQuery === item.title ||
+                                    searchAddressQuery === item.fullAddress;
+                                  return (
+                                    <div
+                                      key={idx}
+                                      className={`suggestion-row ${isSelected ? "selected" : ""}`}
+                                      onClick={() => {
+                                        setSearchAddressQuery(item.title);
+                                        setCustomAddress(item.fullAddress);
+                                        setShowAddressSuggestions(false);
+                                      }}
+                                    >
+                                      <div className="suggestion-pin-wrap">
+                                        <Image
+                                          src="/images/cab booking/Location pin.svg"
+                                          alt="Location"
+                                          width={26}
+                                          height={26}
+                                          unoptimized
+                                        />
+                                      </div>
+                                      <div className="suggestion-text-wrap">
+                                        <p className="suggestion-title">{item.title}</p>
+                                        <p className="suggestion-subtitle">{item.subtitle}</p>
+                                      </div>
+                                    </div>
+                                  );
+                                });
+                              })()}
+                              <div className="suggestions-footer-note">Sample location suggestions</div>
+                            </div>
+                          )}
+                        </div>
+                        <p className="pickup-address-guidance">Choose a result to confirm your pickup point.</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="pickup-location-block">
+                      <div className="pin-icon-wrap">
+                        <Image
+                          src={currentOption.routeIcon || "/images/cab booking/trip details/Frame.svg"}
+                          alt={currentOption.title}
+                          width={40}
+                          height={40}
+                          unoptimized
+                        />
+                      </div>
+                      <div className="pickup-location-text">
+                        <p className="pickup-location-name">{displayLocation}</p>
+                        <button
+                          type="button"
+                          className="change-pickup-link"
+                          onClick={() => {
+                            setSelectedPickup("other");
+                          }}
+                        >
+                          Change pickup
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="route-connector-line">
+                    <div className="line-segment" />
+                    <div className="car-badge">
+                      <Image
+                        src="/images/cab booking/trip details/car icon.svg"
+                        alt="Cab Car"
+                        width={44}
+                        height={34}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="line-segment" />
                   </div>
-                )}
+
+                  <div className="destination-location-block">
+                    <div className="hotel-badge-wrap">
+                      <Image
+                        src="/images/cab booking/trip details/Hotel icon.svg"
+                        alt="Valencia Hotel"
+                        width={52}
+                        height={52}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="destination-location-text">
+                      <p className="destination-hotel-name">VALENCIA · Patna</p>
+                      <p className="destination-hotel-desc">Your booked hotel</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="route-divider" />
+
+                <div className="route-controls-row">
+                  {/* Pickup Date */}
+                  <div
+                    className="control-field-block"
+                    ref={dateDropdownRef}
+                    onClick={() => setShowDateDropdown(!showDateDropdown)}
+                  >
+                    <div className="field-icon-wrap">
+                      <Image
+                        src="/images/cab booking/trip details/calendar icon.svg"
+                        alt="Calendar"
+                        width={26}
+                        height={26}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="field-content">
+                      <span className="field-label">Pickup date</span>
+                      <span className="field-value">{pickupDate}</span>
+                    </div>
+                    <div className="field-chevron">
+                      <Image
+                        src="/images/cab booking/trip details/chev icon 2.svg"
+                        alt="Chevron"
+                        width={14}
+                        height={14}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="control-divider-v" />
+
+                    {showDateDropdown && (
+                      <div className="dropdown-popover">
+                        {["12 Nov 2026", "13 Nov 2026", "14 Nov 2026", "15 Nov 2026"].map((d) => (
+                          <div
+                            key={d}
+                            className={`dropdown-item ${pickupDate === d ? "active" : ""}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setPickupDate(d);
+                              setShowDateDropdown(false);
+                            }}
+                          >
+                            {d}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Pickup Time */}
+                  <div
+                    className="control-field-block"
+                    ref={timeDropdownRef}
+                    onClick={() => setShowTimeDropdown(!showTimeDropdown)}
+                  >
+                    <div className="field-icon-wrap">
+                      <Image
+                        src="/images/cab booking/trip details/clock icon.svg"
+                        alt="Clock"
+                        width={26}
+                        height={26}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="field-content">
+                      <span className="field-label">Pickup time</span>
+                      <span className="field-value">{pickupTime}</span>
+                    </div>
+                    <div className="field-chevron">
+                      <Image
+                        src="/images/cab booking/trip details/chev icon 3.svg"
+                        alt="Chevron"
+                        width={14}
+                        height={14}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="control-divider-v" />
+
+                    {showTimeDropdown && (
+                      <div className="dropdown-popover">
+                        {TIME_OPTIONS.map((t) => (
+                          <div
+                            key={t}
+                            className={`dropdown-item ${pickupTime === t ? "active" : ""}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setPickupTime(t);
+                              setShowTimeDropdown(false);
+                            }}
+                          >
+                            {t}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Passengers Counter */}
+                  <div className="control-counter-block">
+                    <div className="field-icon-wrap">
+                      <Image
+                        src="/images/cab booking/trip details/user icon.svg"
+                        alt="Passengers"
+                        width={26}
+                        height={26}
+                        unoptimized
+                      />
+                    </div>
+                    <span className="counter-label-wrap">Passengers</span>
+                    <div className="counter-actions">
+                      <button
+                        type="button"
+                        className="counter-btn"
+                        onClick={() => setPassengers(Math.max(1, passengers - 1))}
+                        disabled={passengers <= 1}
+                        aria-label="Decrease passengers"
+                      >
+                        −
+                      </button>
+                      <span className="counter-value-num">{passengers}</span>
+                      <button
+                        type="button"
+                        className="counter-btn"
+                        onClick={() => setPassengers(Math.min(8, passengers + 1))}
+                        disabled={passengers >= 8}
+                        aria-label="Increase passengers"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div className="control-divider-v" />
+                  </div>
+
+                  {/* Large Bags Counter */}
+                  <div className="control-counter-block">
+                    <div className="field-icon-wrap">
+                      <Image
+                        src="/images/cab booking/trip details/bag icon.svg"
+                        alt="Bags"
+                        width={26}
+                        height={26}
+                        unoptimized
+                      />
+                    </div>
+                    <span className="counter-label-wrap">Large bags</span>
+                    <div className="counter-actions">
+                      <button
+                        type="button"
+                        className="counter-btn"
+                        onClick={() => setLargeBags(Math.max(0, largeBags - 1))}
+                        disabled={largeBags <= 0}
+                        aria-label="Decrease large bags"
+                      >
+                        −
+                      </button>
+                      <span className="counter-value-num">{largeBags}</span>
+                      <button
+                        type="button"
+                        className="counter-btn"
+                        onClick={() => setLargeBags(Math.min(6, largeBags + 1))}
+                        disabled={largeBags >= 6}
+                        aria-label="Increase large bags"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="route-guidance-note">
+                  <span className="guidance-icon">ⓘ</span>
+                  <span>{currentOption.guidance}</span>
+                </div>
               </div>
 
-              {/* Passengers Counter */}
-              <div className="control-counter-block">
-                <div className="field-icon-wrap">
+              {/* Pickup Contact Bar */}
+              <div className="pickup-contact-bar">
+                <div className="contact-left">
+                  <div className="contact-avatar-circle">
+                    <span>{guestName.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase()}</span>
+                  </div>
+                  <div className="contact-info-text">
+                    <span className="contact-label">Pickup contact</span>
+                    <span className="contact-string">
+                      {guestName} &nbsp;·&nbsp; {guestEmail} &nbsp;·&nbsp; {guestPhone}
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  className="edit-contact-btn"
+                  onClick={() => {
+                    setTempContact({ name: guestName, email: guestEmail, phone: guestPhone });
+                    setIsEditingContact(true);
+                  }}
+                >
                   <Image
-                    src="/images/cab booking/trip details/user icon.svg"
-                    alt="Passengers"
-                    width={26}
-                    height={26}
+                    src="/images/cab booking/trip details/Edit pencil.svg"
+                    alt="Edit"
+                    width={18}
+                    height={18}
+                    unoptimized
+                  />
+                  <span>Edit details</span>
+                </button>
+              </div>
+
+              {/* Linked Hotel Reservation */}
+              <div className="linked-stay-notice">
+                <div className="linked-icon">
+                  <Image
+                    src="/images/cab booking/trip details/Frame 2.svg"
+                    alt="Linked Stay"
+                    width={22}
+                    height={22}
                     unoptimized
                   />
                 </div>
-                <span className="counter-label-wrap">Passengers</span>
-                <div className="counter-actions">
-                  <button
-                    type="button"
-                    className="counter-btn"
-                    onClick={() => setPassengers(Math.max(1, passengers - 1))}
-                    disabled={passengers <= 1}
-                    aria-label="Decrease passengers"
-                  >
-                    −
-                  </button>
-                  <span className="counter-value-num">{passengers}</span>
-                  <button
-                    type="button"
-                    className="counter-btn"
-                    onClick={() => setPassengers(Math.min(8, passengers + 1))}
-                    disabled={passengers >= 8}
-                    aria-label="Increase passengers"
-                  >
-                    +
-                  </button>
-                </div>
-                <div className="control-divider-v" />
-              </div>
-
-              {/* Large Bags Counter */}
-              <div className="control-counter-block">
-                <div className="field-icon-wrap">
-                  <Image
-                    src="/images/cab booking/trip details/bag icon.svg"
-                    alt="Bags"
-                    width={26}
-                    height={26}
-                    unoptimized
-                  />
-                </div>
-                <span className="counter-label-wrap">Large bags</span>
-                <div className="counter-actions">
-                  <button
-                    type="button"
-                    className="counter-btn"
-                    onClick={() => setLargeBags(Math.max(0, largeBags - 1))}
-                    disabled={largeBags <= 0}
-                    aria-label="Decrease large bags"
-                  >
-                    −
-                  </button>
-                  <span className="counter-value-num">{largeBags}</span>
-                  <button
-                    type="button"
-                    className="counter-btn"
-                    onClick={() => setLargeBags(Math.min(6, largeBags + 1))}
-                    disabled={largeBags >= 6}
-                    aria-label="Increase large bags"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Guidance note */}
-            <div className="route-guidance-note">
-              <span className="guidance-icon">ⓘ</span>
-              <span>{currentOption.guidance}</span>
-            </div>
-          </div>
-
-          {/* Pickup Contact Bar */}
-          <div className="pickup-contact-bar">
-            <div className="contact-left">
-              <div className="contact-avatar-circle">
-                <span>{guestName.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase()}</span>
-              </div>
-              <div className="contact-info-text">
-                <span className="contact-label">Pickup contact</span>
-                <span className="contact-string">
-                  {guestName} &nbsp;·&nbsp; {guestEmail} &nbsp;·&nbsp; {guestPhone}
+                <span className="linked-text-main" onClick={handleBackToBooking}>
+                  Linked to your confirmed stay
+                </span>
+                <span className="linked-sep">|</span>
+                <span className="linked-ref-details">
+                  {bookingRefParam} · Check-in {checkInParam}
                 </span>
               </div>
-            </div>
 
-            <button
-              type="button"
-              className="edit-contact-btn"
-              onClick={() => {
-                setTempContact({ name: guestName, email: guestEmail, phone: guestPhone });
-                setIsEditingContact(true);
-              }}
-            >
-              <Image
-                src="/images/cab booking/trip details/Edit pencil.svg"
-                alt="Edit"
-                width={18}
-                height={18}
-                unoptimized
-              />
-              <span>Edit details</span>
-            </button>
-          </div>
+              {/* Page Actions Footer */}
+              <div className="page-actions-row">
+                <button
+                  type="button"
+                  className="back-action-btn"
+                  onClick={handleBackToBooking}
+                >
+                  <Image
+                    src="/images/cab booking/trip details/back icon 2.svg"
+                    alt="Back"
+                    width={20}
+                    height={20}
+                    unoptimized
+                  />
+                  <span>Back to booking</span>
+                </button>
 
-          {/* Linked Hotel Reservation */}
-          <div className="linked-stay-notice">
-            <div className="linked-icon">
-              <Image
-                src="/images/cab booking/trip details/Frame 2.svg"
-                alt="Linked Stay"
-                width={22}
-                height={22}
-                unoptimized
-              />
-            </div>
-            <span className="linked-text-main" onClick={handleBackToBooking}>
-              Linked to your confirmed stay
-            </span>
-            <span className="linked-sep">|</span>
-            <span className="linked-ref-details">
-              {bookingRefParam} · Check-in {checkInParam}
-            </span>
-          </div>
+                <div className="continue-action-wrap">
+                  <button
+                    type="button"
+                    className="choose-vehicle-cta"
+                    disabled={isContinueDisabled}
+                    onClick={handleChooseVehicle}
+                  >
+                    <span>CHOOSE A VEHICLE</span>
+                    <Image
+                      src="/images/cab booking/trip details/arrow icon.svg"
+                      alt="Arrow right"
+                      width={22}
+                      height={22}
+                      unoptimized
+                    />
+                  </button>
+                  <p className="cta-helper-note">
+                    {isContinueDisabled
+                      ? "Select a pickup address to continue."
+                      : "View available cabs and fares next. No payment at this step."}
+                  </p>
+                </div>
+              </div>
+            </main>
+          </>
+        )}
 
-          {/* Page Actions Footer */}
-          <div className="page-actions-row">
-            <button
-              type="button"
-              className="back-action-btn"
-              onClick={handleBackToBooking}
-            >
-              <Image
-                src="/images/cab booking/trip details/back icon 2.svg"
-                alt="Back"
-                width={20}
-                height={20}
-                unoptimized
-              />
-              <span>Back to booking</span>
-            </button>
-
-            <div className="continue-action-wrap">
-              <button
-                type="button"
-                className="choose-vehicle-cta"
-                disabled={isContinueDisabled}
-                onClick={handleChooseVehicle}
-              >
-                <span>CHOOSE A VEHICLE</span>
-                <Image
-                  src="/images/cab booking/trip details/arrow icon.svg"
-                  alt="Arrow right"
-                  width={22}
-                  height={22}
-                  unoptimized
-                />
-              </button>
-              <p className="cta-helper-note">
-                {isContinueDisabled
-                  ? "Select a pickup address to continue."
-                  : "View available cabs and fares next. No payment at this step."}
+        {/* ================= STEP 2: VEHICLE & FARE ================= */}
+        {currentStep === 2 && (
+          <section className="vehicle-selection-wrapper">
+            <div className="page-introduction">
+              <p className="your-arrival-eyebrow">YOUR ARRIVAL</p>
+              <h1 className="choose-your-ride-heading">Choose your ride.</h1>
+              <p className="choose-your-ride-subtitle">
+                Compare space, comfort and fares for your transfer.
               </p>
             </div>
-          </div>
-        </main>
+
+            <main className="vehicle-selection-content">
+              {/* Trip summary banner */}
+              <div className="trip-summary-banner">
+                <div className="trip-summary-left">
+                  <div className="summary-pin-wrap">
+                    <Image
+                      src="/images/cab booking/Location pin.svg"
+                      alt="Pickup"
+                      width={28}
+                      height={28}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="summary-text-wrap">
+                    <div className="summary-route-line">
+                      <span className="summary-pickup-name">{displayLocation}</span>
+                      <span className="summary-arrow">→</span>
+                      <span className="summary-hotel-name">VALENCIA · Patna</span>
+                    </div>
+                    <p className="summary-specs-line">
+                      {pickupDate} &nbsp;·&nbsp; {pickupTime} &nbsp;·&nbsp; {passengers} passengers &nbsp;·&nbsp; {largeBags} large bags
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  className="edit-trip-btn"
+                  onClick={() => setCurrentStep(1)}
+                >
+                  <span style={{ fontSize: "16px" }}>✎</span>
+                  <span>Edit trip</span>
+                </button>
+              </div>
+
+              {/* 2x2 Vehicles Grid */}
+              <div className="vehicles-grid">
+                {VEHICLES.map((vehicle) => {
+                  const isSelected = selectedVehicle === vehicle.id;
+                  const CarComponent = vehicle.CarSvg;
+                  return (
+                    <div
+                      key={vehicle.id}
+                      className={`vehicle-card ${isSelected ? "selected" : ""}`}
+                      onClick={() => setSelectedVehicle(vehicle.id)}
+                    >
+                      {/* Top row */}
+                      <div className="vehicle-card-top">
+                        <div className="vehicle-car-and-info">
+                          <div className="vehicle-car-illustration">
+                            <CarComponent />
+                          </div>
+                          <div className="vehicle-info-block">
+                            <h3 className="vehicle-title">{vehicle.name}</h3>
+                            <p className="vehicle-type">{vehicle.type}</p>
+                          </div>
+                        </div>
+
+                        <div className="vehicle-price-and-radio">
+                          <div className="vehicle-pricing">
+                            <span className="price-amount">{vehicle.price}</span>
+                            <span className="price-note">One-way total</span>
+                          </div>
+                          <div className="vehicle-radio-wrap">
+                            {isSelected ? (
+                              <Image
+                                src="/images/cab booking/trip details/Selection.svg"
+                                alt="Selected"
+                                width={24}
+                                height={24}
+                                unoptimized
+                              />
+                            ) : (
+                              <div className="radio-unselected" />
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Specs row */}
+                      <div className="vehicle-card-specs">
+                        <div className="spec-line">
+                          <Image
+                            src="/images/cab booking/trip details/Frame 3.svg"
+                            alt="Passengers"
+                            width={18}
+                            height={18}
+                            unoptimized
+                          />
+                          <span>{vehicle.passengers} &nbsp;·&nbsp; {vehicle.bags}</span>
+                        </div>
+                        <div className="spec-line">
+                          <Image
+                            src="/images/cab booking/trip details/Frame 4.svg"
+                            alt="Air conditioning"
+                            width={18}
+                            height={18}
+                            unoptimized
+                          />
+                          <span>{vehicle.ac}</span>
+                        </div>
+                      </div>
+
+                      {/* Action button */}
+                      <button
+                        type="button"
+                        className={`vehicle-select-btn ${isSelected ? "selected" : ""}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedVehicle(vehicle.id);
+                        }}
+                      >
+                        {isSelected ? "Selected ✓" : vehicle.buttonLabel}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Sample fares note */}
+              <p className="sample-fares-note">
+                Sample fares and passenger/luggage limits; final details depend on the assigned vehicle.
+              </p>
+
+              {/* About these fares banner */}
+              <div className="about-these-fares-banner">
+                <div className="about-left">
+                  <span className="about-info-icon">ⓘ</span>
+                  <span className="about-title">About these fares</span>
+                </div>
+
+                <div className="about-divider-v" />
+
+                <div className="about-inclusions">
+                  <p>• Included: vehicle, driver and applicable taxes.</p>
+                  <p>• Extra waiting or route changes may cost more.</p>
+                </div>
+
+                <div className="about-divider-v" />
+
+                <button
+                  type="button"
+                  className="cancellation-terms-link"
+                  onClick={() => alert("Cancellation terms: Free cancellation up to 2 hours before scheduled pickup time. No cancellation charges if cancelled with prior notice.")}
+                >
+                  View fare &amp; cancellation terms
+                </button>
+              </div>
+
+              {/* Footer actions */}
+              <div className="vehicle-page-actions">
+                <button
+                  type="button"
+                  className="back-to-trip-btn"
+                  onClick={() => setCurrentStep(1)}
+                >
+                  ← &nbsp;Back to trip details
+                </button>
+
+                <div className="continue-review-wrap">
+                  <button
+                    type="button"
+                    className="continue-review-cta"
+                    disabled={!selectedVehicle}
+                    onClick={() => {
+                      const selectedCar = VEHICLES.find((v) => v.id === selectedVehicle);
+                      setShowSuccessToast(true);
+                      setTimeout(() => {
+                        setShowSuccessToast(false);
+                      }, 4000);
+                    }}
+                  >
+                    <span>CONTINUE TO REVIEW</span>
+                    <Image
+                      src="/images/cab booking/trip details/arrow icon.svg"
+                      alt="Arrow"
+                      width={22}
+                      height={22}
+                      unoptimized
+                    />
+                  </button>
+                  <p className="continue-helper-note">
+                    {!selectedVehicle
+                      ? "Select a vehicle to continue."
+                      : "Review your transfer details and payment method."}
+                  </p>
+                </div>
+              </div>
+            </main>
+          </section>
+        )}
 
         {/* Edit Contact Modal */}
         {isEditingContact && (
@@ -842,9 +1189,13 @@ export function CabTaxiBookFlow() {
           >
             <span style={{ fontSize: "20px" }}>🚕</span>
             <div>
-              <p style={{ margin: 0, fontWeight: 700, fontSize: "15px" }}>Available Cabs Confirmed!</p>
+              <p style={{ margin: 0, fontWeight: 700, fontSize: "15px" }}>
+                {selectedVehicle
+                  ? `${VEHICLES.find((v) => v.id === selectedVehicle)?.name} Selected!`
+                  : "Trip Details Confirmed!"}
+              </p>
               <p style={{ margin: 0, fontSize: "13px", opacity: 0.9 }}>
-                Toyota Innova (₹1,200) reserved for {displayLocation} on {pickupDate} at {pickupTime}.
+                Pickup at {displayLocation} on {pickupDate} at {pickupTime}.
               </p>
             </div>
           </div>
@@ -853,4 +1204,9 @@ export function CabTaxiBookFlow() {
     </div>
   );
 }
+
+export function CabVehicleAndFareNoVehicleSelected() {
+  return <CabTaxiBookFlow />;
+}
+
 export default CabTaxiBookFlow;

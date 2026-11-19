@@ -1160,6 +1160,438 @@
   cursor: pointer;
 }
 
+/* ================= STEP 2: VEHICLE & FARE STYLES ================= */
+.cab-taxi-book-flow .vehicle-selection-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cab-taxi-book-flow .choose-your-ride-heading {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 3.4vw, 45px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 4px 0 0 0;
+}
+
+.cab-taxi-book-flow .choose-your-ride-subtitle {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 400;
+  margin: 4px 0 0 0;
+}
+
+.cab-taxi-book-flow .vehicle-selection-content {
+  width: 100%;
+  max-width: 1336px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3.6vw, 52px) 60px clamp(16px, 3.6vw, 52px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Trip Summary Banner */
+.cab-taxi-book-flow .trip-summary-banner {
+  width: 100%;
+  min-height: 72px;
+  border-radius: 13px;
+  background: #F7F0E5;
+  padding: 14px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cab-taxi-book-flow .trip-summary-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.cab-taxi-book-flow .summary-pin-wrap {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cab-taxi-book-flow .summary-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cab-taxi-book-flow .summary-route-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.cab-taxi-book-flow .summary-pickup-name {
+  color: #292824;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .summary-arrow {
+  color: #292824;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cab-taxi-book-flow .summary-hotel-name {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .summary-specs-line {
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .edit-trip-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 6px 8px;
+  transition: opacity 0.2s ease;
+}
+
+.cab-taxi-book-flow .edit-trip-btn:hover {
+  opacity: 0.75;
+}
+
+/* 2x2 Vehicles Grid */
+.cab-taxi-book-flow .vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.cab-taxi-book-flow .vehicle-card {
+  background: #FFFFFF;
+  border: 1px solid var(--colour-border-light);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.cab-taxi-book-flow .vehicle-card:hover {
+  border-color: #B99343;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cab-taxi-book-flow .vehicle-card.selected {
+  border: 2px solid #075B28;
+  box-shadow: 0 6px 22px rgba(7, 91, 40, 0.12);
+}
+
+.cab-taxi-book-flow .vehicle-card-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cab-taxi-book-flow .vehicle-car-and-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.cab-taxi-book-flow .vehicle-car-illustration {
+  width: 128px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cab-taxi-book-flow .vehicle-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cab-taxi-book-flow .vehicle-title {
+  color: #075B28;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .vehicle-type {
+  color: #6C5F56;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.cab-taxi-book-flow .vehicle-price-and-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.cab-taxi-book-flow .vehicle-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.cab-taxi-book-flow .price-amount {
+  color: #BC913B;
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.cab-taxi-book-flow .price-note {
+  color: #6C5F56;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.cab-taxi-book-flow .vehicle-radio-wrap {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cab-taxi-book-flow .vehicle-card-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.cab-taxi-book-flow .spec-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: #292824;
+}
+
+.cab-taxi-book-flow .vehicle-select-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  border: 1.5px solid #075B28;
+  background: transparent;
+  color: #075B28;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cab-taxi-book-flow .vehicle-select-btn:hover {
+  background: #FAF6EE;
+}
+
+.cab-taxi-book-flow .vehicle-select-btn.selected {
+  background: #075B28;
+  color: #FFFFFF;
+  border-color: #075B28;
+}
+
+/* Sample Fares Note */
+.cab-taxi-book-flow .sample-fares-note {
+  text-align: center;
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+/* About These Fares Banner */
+.cab-taxi-book-flow .about-these-fares-banner {
+  width: 100%;
+  min-height: 60px;
+  border-radius: 12px;
+  background: #F7F0E5;
+  padding: 12px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cab-taxi-book-flow .about-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.cab-taxi-book-flow .about-info-icon {
+  color: #BC913B;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .about-title {
+  color: #292824;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cab-taxi-book-flow .about-divider-v {
+  width: 1px;
+  height: 36px;
+  background: #EAE2D7;
+}
+
+.cab-taxi-book-flow .about-inclusions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14.5px;
+  color: #292824;
+}
+
+.cab-taxi-book-flow .cancellation-terms-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #075B28;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* Vehicle Page Actions Footer */
+.cab-taxi-book-flow .vehicle-page-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.cab-taxi-book-flow .back-to-trip-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #292824;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.cab-taxi-book-flow .back-to-trip-btn:hover {
+  color: #075B28;
+}
+
+.cab-taxi-book-flow .continue-review-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.cab-taxi-book-flow .continue-review-cta {
+  height: 50px;
+  padding: 0 36px;
+  border-radius: 12px;
+  background: #075B28;
+  color: #FFFFFF;
+  border: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(7, 91, 40, 0.25);
+}
+
+.cab-taxi-book-flow .continue-review-cta:hover:not(:disabled) {
+  background: #054022;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(7, 91, 40, 0.35);
+}
+
+.cab-taxi-book-flow .continue-review-cta:disabled {
+  background: #A1AB9E;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cab-taxi-book-flow .continue-helper-note {
+  font-size: 13.5px;
+  color: #292824;
+  font-weight: 600;
+  margin: 0;
+}
+
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 @media (max-width: 1024px) {
   .cab-taxi-book-flow .pickup-options-grid {
@@ -1171,6 +1603,16 @@
     gap: 16px;
   }
   .cab-taxi-book-flow .control-divider-v {
+    display: none;
+  }
+  .cab-taxi-book-flow .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+  .cab-taxi-book-flow .about-these-fares-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cab-taxi-book-flow .about-divider-v {
     display: none;
   }
 }
@@ -1206,5 +1648,16 @@
   .cab-taxi-book-flow .pickup-contact-bar {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .cab-taxi-book-flow .vehicle-page-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .cab-taxi-book-flow .continue-review-wrap {
+    align-items: stretch;
+  }
+  .cab-taxi-book-flow .continue-review-cta {
+    justify-content: center;
   }
 }
