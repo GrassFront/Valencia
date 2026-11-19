@@ -13,14 +13,16 @@ const PICKUP_OPTIONS = [
     subtitle: "Pick up from Patna Airport (PAT)",
     locationName: "Patna Airport (PAT)",
     icon: "/images/cab booking/trip details/Frame 80.svg",
+    routeIcon: "/images/cab booking/trip details/Frame.svg",
     guidance: "Allow time for baggage collection when choosing your pickup time.",
   },
   {
     id: "railway",
     title: "Railway station",
     subtitle: "Pick up from Patna railway station",
-    locationName: "Patna Junction Railway Station",
+    locationName: "Patna Junction (PNBE)",
     icon: "/images/cab booking/trip details/Pickup/reference outline.svg",
+    routeIcon: "/images/cab booking/trip details/train icon.svg",
     guidance: "Allow time for train arrival and platform exit when choosing your pickup time.",
   },
   {
@@ -29,6 +31,7 @@ const PICKUP_OPTIONS = [
     subtitle: "Pick up from a different address in Patna",
     locationName: "Fraser Road, near Buddha Smriti Park",
     icon: "/images/cab booking/trip details/Pickup/reference outline 2.svg",
+    routeIcon: "/images/cab booking/trip details/Frame.svg",
     guidance: "Enter the exact address where you would like to be picked up.",
   },
 ];
@@ -311,10 +314,10 @@ export function CabTaxiBookFlow() {
               <div className="pickup-location-block">
                 <div className="pin-icon-wrap">
                   <Image
-                    src="/images/cab booking/trip details/Frame.svg"
-                    alt="Pickup Pin"
-                    width={36}
-                    height={36}
+                    src={currentOption.routeIcon || "/images/cab booking/trip details/Frame.svg"}
+                    alt={currentOption.title}
+                    width={40}
+                    height={40}
                     unoptimized
                   />
                 </div>
