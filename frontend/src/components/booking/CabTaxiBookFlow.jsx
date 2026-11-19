@@ -48,6 +48,39 @@ const TIME_OPTIONS = [
   "09:30 PM IST",
 ];
 
+const PATNA_SUGGESTIONS = [
+  {
+    title: "Fraser Road",
+    subtitle: "Fraser Road Area, Patna, Bihar",
+    fullAddress: "Fraser Road, Fraser Road Area, Patna, Bihar",
+  },
+  {
+    title: "Fraser Road, near Dak Bungalow Chowk",
+    subtitle: "Patna, Bihar",
+    fullAddress: "Fraser Road, near Dak Bungalow Chowk, Patna, Bihar",
+  },
+  {
+    title: "Fraser Road, near Buddha Smriti Park",
+    subtitle: "Patna, Bihar",
+    fullAddress: "Fraser Road, near Buddha Smriti Park, Patna, Bihar",
+  },
+  {
+    title: "Bailey Road, near Patna High Court",
+    subtitle: "Patna, Bihar",
+    fullAddress: "Bailey Road, near Patna High Court, Patna, Bihar",
+  },
+  {
+    title: "Boring Road Crossing",
+    subtitle: "Patna, Bihar",
+    fullAddress: "Boring Road Crossing, Patna, Bihar",
+  },
+  {
+    title: "Exhibition Road, near Gandhi Maidan",
+    subtitle: "Patna, Bihar",
+    fullAddress: "Exhibition Road, near Gandhi Maidan, Patna, Bihar",
+  },
+];
+
 export function CabTaxiBookFlow() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -60,8 +93,9 @@ export function CabTaxiBookFlow() {
   // State Management
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedPickup, setSelectedPickup] = useState("airport");
-  const [customAddress, setCustomAddress] = useState("Fraser Road, near Buddha Smriti Park");
-  const [isEditingAddress, setIsEditingAddress] = useState(false);
+  const [customAddress, setCustomAddress] = useState("");
+  const [searchAddressQuery, setSearchAddressQuery] = useState("");
+  const [showAddressSuggestions, setShowAddressSuggestions] = useState(false);
   const [pickupDate, setPickupDate] = useState(checkInParam);
   const [pickupTime, setPickupTime] = useState("02:00 PM IST");
   const [passengers, setPassengers] = useState(2);
@@ -81,6 +115,7 @@ export function CabTaxiBookFlow() {
 
   const timeDropdownRef = useRef(null);
   const dateDropdownRef = useRef(null);
+  const addressSuggestionsRef = useRef(null);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -90,6 +125,9 @@ export function CabTaxiBookFlow() {
       }
       if (dateDropdownRef.current && !dateDropdownRef.current.contains(e.target)) {
         setShowDateDropdown(false);
+      }
+      if (addressSuggestionsRef.current && !addressSuggestionsRef.current.contains(e.target)) {
+        setShowAddressSuggestions(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -235,9 +273,6 @@ export function CabTaxiBookFlow() {
                   className={`pickup-card ${isSelected ? "selected" : ""}`}
                   onClick={() => {
                     setSelectedPickup(opt.id);
-                    if (opt.id === "other") {
-                      setIsEditingAddress(true);
-                    }
                   }}
                   role="radio"
                   aria-checked={isSelected}
@@ -282,24 +317,6 @@ export function CabTaxiBookFlow() {
             })}
           </div>
 
-          {/* Editable address if "Other location" is selected */}
-          {selectedPickup === "other" && (
-            <div className="custom-address-row">
-              <label htmlFor="pickup-custom-address">Enter Pickup Address in Patna</label>
-              <div className="custom-address-input-wrap">
-                <input
-                  id="pickup-custom-address"
-                  type="text"
-                  className="custom-address-input"
-                  placeholder="e.g. Fraser Road, near Buddha Smriti Park, Patna"
-                  value={customAddress}
-                  onChange={(e) => setCustomAddress(e.target.value)}
-                  autoFocus={isEditingAddress}
-                />
-              </div>
-            </div>
-          )}
-
           {/* YOUR ROUTE Card */}
           <div className="your-route-card">
             {/* Header: Title + Tag */}
@@ -311,34 +328,136 @@ export function CabTaxiBookFlow() {
             {/* Visual Route */}
             <div className="route-visual-row">
               {/* Pickup Point */}
-              <div className="pickup-location-block">
-                <div className="pin-icon-wrap">
-                  <Image
-                    src={currentOption.routeIcon || "/images/cab booking/trip details/Frame.svg"}
-                    alt={currentOption.title}
-                    width={40}
-                    height={40}
-                    unoptimized
-                  />
+              {selectedPickup === "other" ? (
+                <div className="pickup-location-block other-location-mode" ref={addressSuggestionsRef}>
+                  <div className="pin-icon-wrap">
+                    <Image
+                      src="/images/cab booking/Location pin.svg"
+                      alt="Pickup Address"
+                      width={38}
+                      height={38}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="pickup-search-box-wrap">
+                    <p className="pickup-address-heading">Pickup address</p>
+                    <div className="address-input-relative">
+                      <svg
+                        className="address-search-svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#6C5F56"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      </svg>
+                      <input
+                        type="text"
+                        className="address-search-field"
+                        placeholder="Search an address in Patna"
+                        value={searchAddressQuery}
+                        onChange={(e) => {
+                          setSearchAddressQuery(e.target.value);
+                          setCustomAddress(e.target.value);
+                          setShowAddressSuggestions(true);
+                        }}
+                        onFocus={() => setShowAddressSuggestions(true)}
+                      />
+                      {searchAddressQuery && (
+                        <button
+                          type="button"
+                          className="clear-search-btn"
+                          onClick={() => {
+                            setSearchAddressQuery("");
+                            setCustomAddress("");
+                          }}
+                          aria-label="Clear address"
+                        >
+                          ×
+                        </button>
+                      )}
+
+                      {showAddressSuggestions && (
+                        <div className="address-suggestions-popover">
+                          {(() => {
+                            const filtered = searchAddressQuery.trim()
+                              ? PATNA_SUGGESTIONS.filter(
+                                  (s) =>
+                                    s.title.toLowerCase().includes(searchAddressQuery.toLowerCase()) ||
+                                    s.subtitle.toLowerCase().includes(searchAddressQuery.toLowerCase())
+                                )
+                              : PATNA_SUGGESTIONS.slice(0, 3);
+                            const listToRender = filtered.length > 0 ? filtered : PATNA_SUGGESTIONS.slice(0, 3);
+
+                            return listToRender.map((item, idx) => {
+                              const isSelected =
+                                idx === 0 ||
+                                searchAddressQuery === item.title ||
+                                searchAddressQuery === item.fullAddress;
+                              return (
+                                <div
+                                  key={idx}
+                                  className={`suggestion-row ${isSelected ? "selected" : ""}`}
+                                  onClick={() => {
+                                    setSearchAddressQuery(item.title);
+                                    setCustomAddress(item.fullAddress);
+                                    setShowAddressSuggestions(false);
+                                  }}
+                                >
+                                  <div className="suggestion-pin-wrap">
+                                    <Image
+                                      src="/images/cab booking/Location pin.svg"
+                                      alt="Location"
+                                      width={26}
+                                      height={26}
+                                      unoptimized
+                                    />
+                                  </div>
+                                  <div className="suggestion-text-wrap">
+                                    <p className="suggestion-title">{item.title}</p>
+                                    <p className="suggestion-subtitle">{item.subtitle}</p>
+                                  </div>
+                                </div>
+                              );
+                            });
+                          })()}
+                          <div className="suggestions-footer-note">Sample location suggestions</div>
+                        </div>
+                      )}
+                    </div>
+                    <p className="pickup-address-guidance">Choose a result to confirm your pickup point.</p>
+                  </div>
                 </div>
-                <div className="pickup-location-text">
-                  <p className="pickup-location-name">{displayLocation}</p>
-                  <button
-                    type="button"
-                    className="change-pickup-link"
-                    onClick={() => {
-                      if (selectedPickup === "other") {
-                        setIsEditingAddress(true);
-                      } else {
+              ) : (
+                <div className="pickup-location-block">
+                  <div className="pin-icon-wrap">
+                    <Image
+                      src={currentOption.routeIcon || "/images/cab booking/trip details/Frame.svg"}
+                      alt={currentOption.title}
+                      width={40}
+                      height={40}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="pickup-location-text">
+                    <p className="pickup-location-name">{displayLocation}</p>
+                    <button
+                      type="button"
+                      className="change-pickup-link"
+                      onClick={() => {
                         setSelectedPickup("other");
-                        setIsEditingAddress(true);
-                      }
-                    }}
-                  >
-                    Change pickup
-                  </button>
+                      }}
+                    >
+                      Change pickup
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Connector line with Car */}
               <div className="route-connector-line">
