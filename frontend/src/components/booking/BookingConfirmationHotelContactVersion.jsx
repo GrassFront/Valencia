@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import { PopupNeedARideToTheHotel } from "./PopupNeedARideToTheHotel";
 import "./css/booking-confirmation-hotel-contact.css";
 
 const ROOM_DATA = {
@@ -97,6 +98,9 @@ export function BookingConfirmationHotelContactVersion({
 
   const formatPrice = (val) => "₹" + val.toLocaleString("en-IN");
 
+  // Cab booking popup modal state (shown after room booking)
+  const [showCabPopup, setShowCabPopup] = useState(true);
+
   // Copy booking reference
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
@@ -115,6 +119,14 @@ export function BookingConfirmationHotelContactVersion({
 
   return (
     <div className="booking-confirmation-wrapper">
+      {/* Cab Booking Modal Popup shown after room book */}
+      <PopupNeedARideToTheHotel
+        isOpen={showCabPopup}
+        onClose={() => setShowCabPopup(false)}
+        checkInDate={checkInDate}
+        destination="VALENCIA · Patna"
+      />
+
       <div className="booking-confirmation-hotel-contact">
         {/* ================= HEADER ================= */}
         <header className="confirmation-header">

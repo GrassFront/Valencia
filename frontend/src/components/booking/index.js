@@ -12,3 +12,4 @@ export {
   BookingConfirmation,
   default as BookingConfirmationDefault,
 } from "./BookingConfirmationHotelContactVersion";
+export { PopupNeedARideToTheHotel, default as PopupNeedARideToTheHotelDefault } from "./PopupNeedARideToTheHotel";

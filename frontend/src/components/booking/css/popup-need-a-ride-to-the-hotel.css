@@ -1,0 +1,333 @@
+/* popup-need-a-ride-to-the-hotel.css */
+
+.popup-cab-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  animation: cabFadeIn 0.25s ease-out;
+}
+
+@keyframes cabFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cabScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.popup-need-a-ride-to-the-hotel {
+  position: relative;
+  width: 100%;
+  max-width: 696px;
+  max-height: 96vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 46px 34px 46px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 12px;
+  background: #FCF9F2;
+  box-shadow: 0px 18px 36px 0px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
+  animation: cabScaleUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.popup-need-a-ride-to-the-hotel .close-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+.popup-need-a-ride-to-the-hotel .close-button:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.popup-need-a-ride-to-the-hotel .close-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-need-a-ride-to-the-hotel .popup-content {
+  width: 100%;
+  max-width: 604px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.popup-need-a-ride-to-the-hotel .confirmation-status {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.popup-need-a-ride-to-the-hotel .confirmed-check {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .your-stay-is-confirmed {
+  color: #075D46;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+  text-align: center;
+  margin: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .cab-icon-badge {
+  width: 124px;
+  height: 124px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .popup-title {
+  width: 100%;
+  color: #075D46;
+  font-family: var(--font-playfair, "Playfair Display", Georgia, serif);
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.popup-need-a-ride-to-the-hotel .popup-description {
+  width: 100%;
+  color: #49382F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: clamp(16px, 1.8vw, 21px);
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+
+.popup-need-a-ride-to-the-hotel .hotel-and-check-in-details {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 32px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  background: #F7EFDF;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+}
+
+.popup-need-a-ride-to-the-hotel .hotel-destination {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.popup-need-a-ride-to-the-hotel .location-pin {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .destination {
+  color: #49382F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .vertical-divider {
+  width: 1px;
+  height: 32px;
+  background: #D7C6A9;
+}
+
+.popup-need-a-ride-to-the-hotel .check-in-date {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.popup-need-a-ride-to-the-hotel .calendar {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .check-in {
+  color: #49382F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .helper-text {
+  width: 100%;
+  color: #49382F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.popup-need-a-ride-to-the-hotel .book-a-cab {
+  width: 100%;
+  height: 59px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #075D46;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  margin-bottom: 16px;
+}
+
+.popup-need-a-ride-to-the-hotel .book-a-cab:hover {
+  background: #054836;
+  transform: translateY(-1px);
+}
+
+.popup-need-a-ride-to-the-hotel .button-label {
+  color: #FFFFFF;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+  text-align: center;
+  margin: 0;
+}
+
+.popup-need-a-ride-to-the-hotel .arrow-right {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-need-a-ride-to-the-hotel .maybe-later {
+  color: #075D46;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin: 0 0 24px 0;
+  transition: opacity 0.2s ease;
+}
+
+.popup-need-a-ride-to-the-hotel .maybe-later:hover {
+  opacity: 0.75;
+}
+
+.popup-need-a-ride-to-the-hotel .footer-divider {
+  width: 100%;
+  height: 1px;
+  background: #DCCEB8;
+  margin-bottom: 16px;
+}
+
+.popup-need-a-ride-to-the-hotel .cab-charge-note {
+  width: 100%;
+  color: #49382F;
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .popup-need-a-ride-to-the-hotel {
+    padding: 36px 20px 24px 20px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .hotel-and-check-in-details {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 14px 18px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .vertical-divider {
+    display: none;
+  }
+}
