@@ -1,0 +1,474 @@
+/* ================= YOUR CAB BOOKING CARD STYLES ================= */
+.your-cab-booking {
+  position: relative;
+  width: 100%;
+  max-width: 1336px;
+  margin: 28px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 14px;
+  border: 2px solid #075840;
+  background: #FFFEFC;
+  box-shadow: 0 4px 20px rgba(7, 88, 64, 0.05);
+}
+
+/* Header */
+.your-cab-booking .cab-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.your-cab-booking .your-cab-booking-2 {
+  color: #075840;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.your-cab-booking .attached-booking {
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 0 14px;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #D7B878;
+  background: #FAF6ED;
+}
+
+.your-cab-booking .attached-to-val-demo-1026 {
+  color: #075840;
+  font-family: "Manrope", sans-serif;
+  font-size: 15.5px;
+  font-weight: 500;
+}
+
+.your-cab-booking .header-spacer {
+  flex: 1;
+}
+
+.your-cab-booking .confirmed-badge {
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 0 16px;
+  align-items: center;
+  border-radius: 7px;
+  background: #E2F0DF;
+}
+
+.your-cab-booking .confirmed-2 {
+  color: #075840;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Reference & Copy Badge */
+.your-cab-booking .reference-and-copy {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  padding: 0 16px;
+  height: 44px;
+  align-items: center;
+  border-radius: 6px;
+  border: 2px solid #D7B878;
+  background: #FFFFFF;
+}
+
+.your-cab-booking .ticket-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.your-cab-booking .cab-demo-1026 {
+  color: #075840;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.your-cab-booking .divider-sep {
+  color: #CBB798;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+}
+
+.your-cab-booking .copy-action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  color: #075840;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.your-cab-booking .copy-action-btn:hover {
+  opacity: 0.8;
+}
+
+/* Main Journey & Payment Card */
+.your-cab-booking .cab-journey-and-payment {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 425px;
+  gap: 32px;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  align-items: start;
+  border-radius: 12px;
+  border: 1px solid #E5D9C9;
+  background: #FCFBF7;
+}
+
+/* Left: Journey */
+.your-cab-booking .cab-journey {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.your-cab-booking .vehicle-profile-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.your-cab-booking .vehicle-illustration-wrap {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.your-cab-booking .vehicle-row-sep {
+  color: #CBB798;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.your-cab-booking .toyota-innova-air-conditioned-mpv {
+  color: #49372B;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Pickup and Destination Flow */
+.your-cab-booking .pickup-and-destination {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.your-cab-booking .route-step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.your-cab-booking .route-pin-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.your-cab-booking .fraser-road-near-buddha-smriti-park {
+  color: #49372B;
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.your-cab-booking .city-step {
+  padding-left: 10px;
+  margin: 2px 0 2px 10px;
+  border-left: 2px dashed #075840;
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+.your-cab-booking .patna-bihar {
+  color: #6C5F56;
+  font-family: "Manrope", sans-serif;
+  font-size: 16.5px;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 14px;
+}
+
+.your-cab-booking .valencia-patna {
+  color: #075840;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.your-cab-booking .journey-divider {
+  width: 100%;
+  height: 1px;
+  background: #E5D9C9;
+  margin: 4px 0;
+}
+
+/* Specs Row */
+.your-cab-booking .pickup-time-passengers-and-luggage {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.your-cab-booking .spec-badge {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.your-cab-booking .spec-text {
+  color: #49372B;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Right: Cab Payment */
+.your-cab-booking .cab-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  border-left: 1px solid #E5D9C9;
+  padding-left: 28px;
+}
+
+.your-cab-booking .payment-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.your-cab-booking .cab-payment-2 {
+  color: #075840;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.your-cab-booking .pay-at-hotel-badge {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 6px 12px;
+  align-items: center;
+  border-radius: 6px;
+  background: #F3DFAD;
+}
+
+.your-cab-booking .pay-at-hotel-label {
+  color: #49372B;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.your-cab-booking .payment-line-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  color: #49372B;
+  padding: 2px 0;
+}
+
+.your-cab-booking .payment-inner-divider {
+  width: 100%;
+  height: 1px;
+  background: #E5D9C9;
+  margin: 4px 0;
+}
+
+.your-cab-booking .payable-at-hotel-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #49372B;
+  padding: 2px 0;
+}
+
+.your-cab-booking .i-separate-from-your-hotel-payment {
+  color: #776F68;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 4px 0 0 0;
+}
+
+/* Driver Assignment Pending */
+.your-cab-booking .driver-assignment {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 7px;
+  background: #F6ECDD;
+  flex-wrap: wrap;
+}
+
+.your-cab-booking .i-driver-assignment-pending {
+  color: #49372B;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.your-cab-booking .driver-banner-sep {
+  color: #CBB798;
+  font-size: 18px;
+}
+
+.your-cab-booking .driver-contact-and-vehicle-details-will {
+  color: #49372B;
+  font-family: "Manrope", sans-serif;
+  font-size: 16.5px;
+  font-weight: 400;
+}
+
+/* Actions Footer */
+.your-cab-booking .cab-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  align-items: center;
+  padding-top: 4px;
+  flex-wrap: wrap;
+}
+
+.your-cab-booking .download-cab-confirmation-btn {
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 1.5px solid #075840;
+  background: transparent;
+  color: #075840;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.your-cab-booking .download-cab-confirmation-btn:hover {
+  background: #FAF6ED;
+}
+
+.your-cab-booking .action-sep {
+  color: #CFC1AF;
+  font-size: 20px;
+}
+
+.your-cab-booking .contact-hotel-about-this-ride-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #075840;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.your-cab-booking .contact-hotel-about-this-ride-btn:hover {
+  opacity: 0.8;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 960px) {
+  .your-cab-booking .cab-journey-and-payment {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .your-cab-booking .cab-payment {
+    border-left: none;
+    border-top: 1px solid #E5D9C9;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .your-cab-booking {
+    padding: 18px 16px;
+  }
+  .your-cab-booking .cab-journey-and-payment {
+    padding: 18px 16px;
+  }
+  .your-cab-booking .cab-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .your-cab-booking .action-sep {
+    display: none;
+  }
+  .your-cab-booking .download-cab-confirmation-btn {
+    width: 100%;
+  }
+}

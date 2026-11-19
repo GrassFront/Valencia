@@ -213,7 +213,7 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
 
   // Navigation handlers
   const handleBackToBooking = () => {
-    router.push("/booking/confirmation");
+    router.push("/booking/confirmation?cab=confirmed");
   };
 
   const handleChooseVehicle = () => {
@@ -1434,10 +1434,17 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
                     className="confirm-cab-btn"
                     disabled={!agreedToTerms}
                     onClick={() => {
-                      setCurrentStep(4);
-                      if (typeof window !== "undefined") {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
+                      const query = new URLSearchParams();
+                      query.set("cab", "confirmed");
+                      if (bookingRefParam) query.set("ref", bookingRefParam);
+                      if (checkInParam) query.set("checkin", checkInParam);
+                      if (guestName) query.set("guest", guestName);
+                      if (displayLocation) query.set("pickup", displayLocation);
+                      if (activeCar?.name) query.set("vehicle", `${activeCar.name} · ${activeCar.ac} ${activeCar.type}`);
+                      if (activeCar?.imageSrc) query.set("vehicleImg", activeCar.imageSrc);
+                      if (totalFareNumber) query.set("fare", `₹${totalFareNumber.toLocaleString("en-IN")}`);
+                      if (paymentMethod) query.set("payMethod", paymentMethod === "hotel" ? "Pay at Hotel" : "Paid online");
+                      router.push(`/booking/confirmation?${query.toString()}`);
                     }}
                   >
                     <span>CONFIRM CAB BOOKING</span>
@@ -1471,80 +1478,6 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
                 }}
               >
                 ← &nbsp;Back to vehicles
-              </button>
-            </div>
-          </section>
-        )}
-
-        {/* ================= STEP 4: CONFIRMATION ================= */}
-        {currentStep === 4 && (
-          <section className="cab-confirmed-section">
-            <div className="confirmed-badge-circle">
-              <Image
-                src="/images/cab booking/trip details/Frame 2.svg"
-                alt="Confirmed"
-                width={56}
-                height={56}
-                unoptimized
-              />
-            </div>
-            <p className="your-arrival-eyebrow">YOUR STAY &amp; TRANSFER CONFIRMED</p>
-            <h1 className="review-your-ride-heading">Cab booking confirmed!</h1>
-            <p className="review-your-ride-subtitle">
-              Thank you, {guestName.split(" ")[0]}. Your ride is scheduled and linked to your hotel stay.
-            </p>
-
-            <div className="cab-ref-box">
-              <span>Cab Reference: <strong>CAB-VAL-8821</strong></span>
-              <span className="ref-dot">·</span>
-              <span>Hotel Booking: <strong>{bookingRefParam}</strong></span>
-            </div>
-
-            <div className="confirmed-details-card">
-              <div className="confirmed-detail-row">
-                <span className="confirmed-detail-label">Pickup Point:</span>
-                <span className="confirmed-detail-val">{displayLocation}</span>
-              </div>
-              <div className="confirmed-detail-row">
-                <span className="confirmed-detail-label">Drop-off:</span>
-                <span className="confirmed-detail-val">VALENCIA · Patna</span>
-              </div>
-              <div className="confirmed-detail-row">
-                <span className="confirmed-detail-label">Pickup Schedule:</span>
-                <span className="confirmed-detail-val">{pickupDate} at {pickupTime}</span>
-              </div>
-              <div className="confirmed-detail-row">
-                <span className="confirmed-detail-label">Vehicle:</span>
-                <span className="confirmed-detail-val">{activeCar.name} ({activeCar.type})</span>
-              </div>
-              <div className="confirmed-detail-row">
-                <span className="confirmed-detail-label">Guest Contact:</span>
-                <span className="confirmed-detail-val">{guestName} · {guestPhone}</span>
-              </div>
-              <div className="confirmed-detail-row">
-                <span className="confirmed-detail-label">Payment:</span>
-                <span className="confirmed-detail-val">
-                  {paymentMethod === "hotel"
-                    ? `Pay at hotel: ₹${payAtHotelNumber.toLocaleString("en-IN")}`
-                    : `Paid online: ₹${dueNowNumber.toLocaleString("en-IN")}`}
-                </span>
-              </div>
-            </div>
-
-            <div className="confirmed-actions-row">
-              <button
-                type="button"
-                className="return-home-btn"
-                onClick={() => router.push("/")}
-              >
-                Back to Home
-              </button>
-              <button
-                type="button"
-                className="view-stay-btn"
-                onClick={handleBackToBooking}
-              >
-                View Hotel Booking
               </button>
             </div>
           </section>

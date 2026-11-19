@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PopupNeedARideToTheHotel } from "./PopupNeedARideToTheHotel";
+import { YourCabBooking } from "./YourCabBooking";
 import "./css/booking-confirmation-hotel-contact.css";
 
 const ROOM_DATA = {
@@ -99,8 +100,14 @@ export function BookingConfirmationHotelContactVersion({
 
   const formatPrice = (val) => "₹" + val.toLocaleString("en-IN");
 
-  // Cab booking popup modal state (shown after room booking)
-  const [showCabPopup, setShowCabPopup] = useState(true);
+  // Cab booking popup modal state (shown after room booking unless cab already confirmed)
+  const isCabConfirmed = searchParams?.get("cab") === "confirmed";
+  const [showCabPopup, setShowCabPopup] = useState(!isCabConfirmed);
+  const cabVehicle = searchParams?.get("vehicle") || "Toyota Innova · Air-conditioned MPV";
+  const cabVehicleImg = searchParams?.get("vehicleImg") || "/images/cab booking/car-innova.png";
+  const cabPickup = searchParams?.get("pickup") || "Fraser Road, near Buddha Smriti Park";
+  const cabFare = searchParams?.get("fare") || "₹1,200";
+  const cabPayMethod = searchParams?.get("payMethod") || "Pay at Hotel";
 
   // Copy booking reference
   const [copied, setCopied] = useState(false);
@@ -482,6 +489,25 @@ export function BookingConfirmationHotelContactVersion({
             </div>
           </aside>
         </main>
+
+        {/* ================= YOUR CAB BOOKING ================= */}
+        <YourCabBooking
+          hotelBookingRef={bookingRef}
+          cabBookingRef="CAB-DEMO-1026"
+          pickupDate={checkInDate}
+          pickupTime="02:00 PM IST"
+          pickupAddress={cabPickup}
+          pickupCity="Patna, Bihar"
+          destination="VALENCIA · Patna"
+          vehicleName={cabVehicle}
+          vehicleImage={cabVehicleImg}
+          passengers="2 passengers"
+          bags="2 large bags"
+          totalFare={cabFare}
+          paidOnline={cabPayMethod === "Pay at Hotel" ? "₹0" : cabFare}
+          payableAtHotel={cabPayMethod === "Pay at Hotel" ? cabFare : "₹0"}
+          paymentMethod={cabPayMethod}
+        />
 
         {/* ================= BEFORE YOU ARRIVE ================= */}
         <section className="before-you-arrive">
