@@ -81,96 +81,6 @@ const PATNA_SUGGESTIONS = [
   },
 ];
 
-// Vector SVG Car Profile Illustrations
-function DzireCarSvg() {
-  return (
-    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M14 38L8 32C6.5 30 7.5 27 10 26L25 24L41 12C45 9 50 8 55 8L82 8C88 8 93 11 96 17L106 24L117 27C121 28 123 31 122 35L120 39C119 42 116 44 113 44L108 44M87 44L38 44M21 44L16 44C13 44 11 41 11 38Z"
-        stroke="#075B28"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="29" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="29" cy="44" r="3.5" fill="#075B28" />
-      <circle cx="97" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="97" cy="44" r="3.5" fill="#075B28" />
-      <path d="M43 14L55 13L55 24L28 24Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M60 13L80 13C85 13 89 16 92 20L95 24L60 24Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M53 28L59 28M75 28L81 28" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function InnovaCarSvg() {
-  return (
-    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M10 39L7 34C6 31 7 27 10 25L24 22L44 8C47 6 52 5 57 5L104 5C109 5 113 9 115 14L119 33C120 37 118 41 114 43L109 44M89 44L41 44M23 44L14 44C11 44 9 42 9 39Z"
-        stroke="#075B28"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="32" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="32" cy="44" r="3.5" fill="#075B28" />
-      <circle cx="99" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="99" cy="44" r="3.5" fill="#075B28" />
-      <path d="M28 22L44 11L57 11L57 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M62 11L82 11L82 22L62 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M87 11L104 11C107 11 110 13 111 17L112 22L87 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M60 27L66 27M84 27L90 27" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
-      <path d="M62 2L98 2" stroke="#075B28" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ErtigaCarSvg() {
-  return (
-    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M11 40L7 35C6 32 7 28 10 26L25 23L44 10C47 8 51 7 56 7L102 7C107 7 111 11 113 16L116 35C117 38 115 42 111 44L107 44M87 44L39 44M21 44L14 44C11 44 10 42 10 40Z"
-        stroke="#075B28"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="30" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="30" cy="44" r="3.5" fill="#075B28" />
-      <circle cx="97" cy="44" r="8.5" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="97" cy="44" r="3.5" fill="#075B28" />
-      <path d="M29 23L45 12L56 12L56 23Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M61 12L79 12L79 23L61 23Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M84 12L103 12C106 12 108 14 109 18L110 23L84 23Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M57 28L63 28M81 28L87 28" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function CarnivalCarSvg() {
-  return (
-    <svg width="128" height="56" viewBox="0 0 128 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M8 40L5 35C4 31 5 27 8 25L26 22L47 9C50 7 55 6 60 6L112 6C117 6 120 9 122 14L124 33C125 37 123 41 119 43L113 44M93 44L43 44M23 44L12 44C9 44 7 42 7 40Z"
-        stroke="#075B28"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="33" cy="44" r="9" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="33" cy="44" r="3.5" fill="#075B28" />
-      <circle cx="103" cy="44" r="9" stroke="#075B28" strokeWidth="2.4" fill="#FFFFFF" />
-      <circle cx="103" cy="44" r="3.5" fill="#075B28" />
-      <path d="M30 22L47 11L60 11L60 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M65 11L87 11L87 22L65 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M92 11L114 11C117 11 119 13 120 17L121 22L92 22Z" stroke="#075B28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M63 27L69 27M88 27L94 27" stroke="#075B28" strokeWidth="2" strokeLinecap="round" />
-      <path d="M66 2L108 2" stroke="#075B28" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 const VEHICLES = [
   {
     id: "dzire",
@@ -182,7 +92,7 @@ const VEHICLES = [
     bags: "2 large bags",
     ac: "Air conditioning",
     buttonLabel: "Select Dzire",
-    CarSvg: DzireCarSvg,
+    imageSrc: "/images/cab booking/car-dzire.png",
   },
   {
     id: "innova",
@@ -194,7 +104,7 @@ const VEHICLES = [
     bags: "3 large bags",
     ac: "Air conditioning",
     buttonLabel: "Select Innova",
-    CarSvg: InnovaCarSvg,
+    imageSrc: "/images/cab booking/car-innova.png",
   },
   {
     id: "ertiga",
@@ -206,7 +116,7 @@ const VEHICLES = [
     bags: "2 large bags",
     ac: "Air conditioning",
     buttonLabel: "Select Ertiga",
-    CarSvg: ErtigaCarSvg,
+    imageSrc: "/images/cab booking/car-ertiga.png",
   },
   {
     id: "carnival",
@@ -218,7 +128,7 @@ const VEHICLES = [
     bags: "3 large bags",
     ac: "Air conditioning",
     buttonLabel: "Select Carnival",
-    CarSvg: CarnivalCarSvg,
+    imageSrc: "/images/cab booking/car-carnival.png",
   },
 ];
 
@@ -962,7 +872,6 @@ export function CabTaxiBookFlow() {
               <div className="vehicles-grid">
                 {VEHICLES.map((vehicle) => {
                   const isSelected = selectedVehicle === vehicle.id;
-                  const CarComponent = vehicle.CarSvg;
                   return (
                     <div
                       key={vehicle.id}
@@ -973,7 +882,14 @@ export function CabTaxiBookFlow() {
                       <div className="vehicle-card-top">
                         <div className="vehicle-car-and-info">
                           <div className="vehicle-car-illustration">
-                            <CarComponent />
+                            <Image
+                              src={vehicle.imageSrc}
+                              alt={vehicle.name}
+                              width={128}
+                              height={56}
+                              style={{ objectFit: "contain", width: "auto", height: "48px" }}
+                              unoptimized
+                            />
                           </div>
                           <div className="vehicle-info-block">
                             <h3 className="vehicle-title">{vehicle.name}</h3>
