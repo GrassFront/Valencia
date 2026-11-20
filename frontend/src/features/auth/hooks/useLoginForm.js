@@ -35,7 +35,7 @@ export function useLoginForm() {
 
     try {
       await authService.login({ identifier, password, rememberMe });
-      router.push(AUTH_ROUTES.HOME);
+      router.push(AUTH_ROUTES.ACCOUNT);
       return true;
     } catch (err) {
       setGeneralError(err.message || "Invalid credentials.");

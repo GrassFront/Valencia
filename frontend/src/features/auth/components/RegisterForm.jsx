@@ -19,9 +19,11 @@ import {
   validatePhone,
 } from "../validations/authValidation";
 import { AUTH_ROUTES, COUNTRY_CODES } from "../constants/authConstants";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function RegisterForm() {
   const router = useRouter();
+  const { login, updateProfile } = useAuth();
 
   const [fullName, setFullName] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
@@ -71,8 +73,18 @@ export default function RegisterForm() {
         password,
         consentMarketing: agreeMarketing,
       });
-      // Redirect to home or sign in
-      router.push(AUTH_ROUTES.LOGIN);
+      const names = fullName.trim().split(" ");
+      const firstName = names[0] || "Aarav";
+      const lastName = names.slice(1).join(" ") || "Sharma";
+      await login({ identifier: email, password });
+      updateProfile({
+        firstName,
+        lastName,
+        email,
+        mobile: `${countryCode} ${mobileNumber}`,
+        displayMobile: `${countryCode} • • • • • • ${mobileNumber.slice(-4) || "3210"}`,
+      });
+      router.push(AUTH_ROUTES.ACCOUNT);
     } catch (err) {
       setGeneralError(err.message || "Registration failed. Please check your information.");
     } finally {

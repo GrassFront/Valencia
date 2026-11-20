@@ -13,9 +13,11 @@ import {
 import { authService } from "../services/authService";
 import { validateEmailOrPhone, validatePassword } from "../validations/authValidation";
 import { AUTH_ROUTES } from "../constants/authConstants";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function LoginForm() {
   const router = useRouter();
+  const { login } = useAuth();
 
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
@@ -45,8 +47,8 @@ export default function LoginForm() {
 
     try {
       await authService.login({ identifier, password, rememberMe });
-      // Redirect to home or previous booking flow
-      router.push(AUTH_ROUTES.HOME);
+      await login({ identifier, password, rememberMe });
+      router.push(AUTH_ROUTES.ACCOUNT);
     } catch (err) {
       setGeneralError(err.message || "Invalid credentials. Please try again.");
     } finally {
