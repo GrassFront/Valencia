@@ -89,15 +89,15 @@ export default function ValenciaGather() {
 
               {/* Action Button */}
               <div className="pt-6 lg:pt-[26px]">
-                <a
-                  href="#contact"
+                <Link
+                  href="/events"
                   className="w-full h-[52px] sm:h-[57px] border-2 border-[#F7EDDA] hover:bg-[#F7EDDA]/10 transition-all duration-300 rounded-[2px] flex items-center justify-center text-center group/btn"
                 >
                   <span className="font-body font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-[23px] tracking-[2px] text-[#F7EDDA] uppercase flex items-center gap-2">
                     <span>EXPLORE WEDDINGS &amp; EVENTS</span>
                     <span className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </article>
@@ -158,15 +158,15 @@ export default function ValenciaGather() {
 
               {/* Action Button */}
               <div className="pt-6 lg:pt-[26px]">
-                <a
-                  href="#contact"
+                <Link
+                  href="/meetings"
                   className="w-full h-[52px] sm:h-[57px] border-2 border-[#F7EDDA] hover:bg-[#F7EDDA]/10 transition-all duration-300 rounded-[2px] flex items-center justify-center text-center group/btn"
                 >
                   <span className="font-body font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-[23px] tracking-[2px] text-[#F7EDDA] uppercase flex items-center gap-2">
                     <span>EXPLORE MEETINGS</span>
                     <span className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </article>

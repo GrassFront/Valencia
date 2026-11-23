@@ -63,16 +63,15 @@ export default function ValenciaHero({ onOpenGallery }) {
 
             {/* Right Booking CTA Button */}
             <div className="flex flex-col items-start lg:items-end shrink-0 pt-2 lg:pt-0">
-              <a
-                href="#booking"
-                onClick={scrollToBooking}
+              <Link
+                href="/rooms"
                 className="w-full sm:w-[320px] lg:w-[352px] h-[52px] sm:h-[57px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[10px] flex items-center justify-center shadow-md hover:shadow-lg group"
               >
                 <span className="font-body font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-[23px] tracking-[2px] text-white uppercase flex items-center gap-3">
                   <span>BOOK YOUR STAY</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

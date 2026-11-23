@@ -75,6 +75,23 @@
 }
 
 /* ======================================================== */
+/* CTA Button Gold Variant (Figma match above brown footer) */
+/* ======================================================== */
+
+.your-next-stay-booking .hero-booking-search-btn {
+  background-color: #C49A58 !important;
+  color: #3A2A1A !important;
+}
+
+.your-next-stay-booking .hero-booking-search-btn:hover {
+  background-color: #b88f4c !important;
+}
+
+.your-next-stay-booking .hero-booking-search-btn svg {
+  stroke: #3A2A1A !important;
+}
+
+/* ======================================================== */
 /* Responsive Tweaks                                        */
 /* ======================================================== */
 

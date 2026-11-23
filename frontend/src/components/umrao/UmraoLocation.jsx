@@ -8,6 +8,14 @@ import {
 } from "./UmraoIcons";
 
 export default function UmraoLocation() {
+  const scrollToEnquiry = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("enquiry");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       aria-label="Find Umrao"
@@ -70,9 +78,10 @@ export default function UmraoLocation() {
             <div className="h-5 sm:h-6 lg:h-[32px]" aria-hidden="true" />
 
             {/* Button: REQUEST A VENUE VISIT → */}
-            <Link
+            <a
               href="#enquiry"
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-[380px] h-[52px] sm:h-[56px] bg-[#194E35] hover:bg-[#123d2a] active:bg-[#0c2b1e] rounded-[9px] text-[#FAF6EC] transition-all shadow-md group"
+              onClick={scrollToEnquiry}
+              className="inline-flex items-center justify-center gap-3 w-full sm:w-[380px] h-[52px] sm:h-[56px] bg-[#194E35] hover:bg-[#123d2a] active:bg-[#0c2b1e] rounded-[9px] text-[#FAF6EC] transition-all shadow-md group cursor-pointer"
             >
               <span className="font-body font-bold text-[17px] sm:text-[19px] lg:text-[21px] leading-[26px] tracking-wide uppercase">
                 REQUEST A VENUE VISIT
@@ -82,7 +91,7 @@ export default function UmraoLocation() {
                 color="#FAF6EC"
                 className="group-hover:translate-x-1 transition-transform"
               />
-            </Link>
+            </a>
 
             {/* Spacing: 25px */}
             <div className="h-4 sm:h-5 lg:h-[25px]" aria-hidden="true" />

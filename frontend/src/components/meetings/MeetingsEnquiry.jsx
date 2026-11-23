@@ -134,9 +134,9 @@ export default function MeetingsEnquiry() {
               />
             </div>
             <div className="meetings-enquiry-contact-copy">
-              <a href="tel:+910000000000" className="meetings-enquiry-contact-link">
+              <Link href="/contact" className="meetings-enquiry-contact-link">
                 Contact our team →
-              </a>
+              </Link>
               <a href="tel:+910000000000" className="meetings-enquiry-contact-phone">
                 +91 00000 00000
               </a>

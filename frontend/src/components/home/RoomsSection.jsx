@@ -11,7 +11,7 @@ const ROOMS = [
     titleSizeClass: "text-[27px]",
     description: "A welcoming retreat for restful stays.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms/deluxe",
     image: "/images/homepage/homepage_deluxe.png",
     alt: "Valencia Deluxe Room - Luxury King Bed with neoclassical decor",
   },
@@ -21,7 +21,7 @@ const ROOMS = [
     titleSizeClass: "text-[27px]",
     description: "Shared stays, with space for individual comfort.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms/twin",
     image: "/images/homepage/homepage_twin.png",
     alt: "Valencia Twin Room - Two plush beds with warm bespoke styling",
   },
@@ -31,7 +31,7 @@ const ROOMS = [
     titleSizeClass: "text-[27px]",
     description: "Room to unwind, with a separate sense of retreat.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms/suite",
     image: "/images/homepage/homepage_suite.png",
     alt: "Valencia Executive Suite - Expansive seating and opulent parlor",
   },
@@ -42,7 +42,7 @@ const ROOMS = [
     titleSizeClass: "text-[22px] sm:text-[24px] xl:text-[25px] 2xl:text-[27px] tracking-tight whitespace-nowrap",
     description: "An expansive setting for an exceptional stay.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms/presidential-suite",
     image: "/images/homepage/homepage_presidental.png",
     alt: "Valencia Presidential Suite - Master bedroom and grand Italian neoclassical finishes",
   },
@@ -120,7 +120,7 @@ export default function RoomsSection() {
 
           {/* Button / View rooms (Figma: 220px x 51px, #1B4D32 background, 18px gap) */}
           <Link
-            href="/valencia#rooms"
+            href="/rooms"
             className="group inline-flex h-[51px] w-full sm:w-[220px] items-center justify-center gap-[18px] bg-[#1B4D32] text-[#F8F5EA] transition-colors duration-200 hover:bg-[#153e28] active:bg-[#0f2c1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B4D32] shrink-0 self-start md:self-end"
           >
             <span className="font-body font-semibold text-[13px] leading-[24px] tracking-[0.2em] uppercase whitespace-nowrap">
@@ -233,11 +233,10 @@ export default function RoomsSection() {
                 aria-selected={isActive}
                 aria-label={`Go to ${room.name}`}
                 onClick={() => scrollToCard(idx)}
-                className={`transition-all duration-200 cursor-pointer ${
-                  isActive
-                    ? "w-[10px] h-[10px] rounded-full bg-[#1B4D32] scale-110"
-                    : "w-[10px] h-[10px] rounded-full border-[1.5px] border-[#C9A96A] bg-transparent hover:border-[#1B4D32]"
-                }`}
+                className={`transition-all duration-200 cursor-pointer ${isActive
+                  ? "w-[10px] h-[10px] rounded-full bg-[#1B4D32] scale-110"
+                  : "w-[10px] h-[10px] rounded-full border-[1.5px] border-[#C9A96A] bg-transparent hover:border-[#1B4D32]"
+                  }`}
               />
             );
           })}

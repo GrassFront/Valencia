@@ -8,44 +8,28 @@ const HOST_EVENTS_DATA = [
     title: "Weddings",
     eventTypeOption: "Wedding",
     image: "/images/EventPage/Event we host/Weddings/Native crop.png",
-    desc: (
-      <>
-        A beautiful setting for your ceremony<br className="hidden sm:inline" /> and new beginnings.
-      </>
-    ),
+    desc: "A beautiful setting for your ceremony and new beginnings.",
   },
   {
     id: "receptions",
     title: "Receptions",
     eventTypeOption: "Reception",
     image: "/images/EventPage/Event we host/Receptions/Native crop.png",
-    desc: (
-      <>
-        Bring loved ones together to celebrate<br className="hidden sm:inline" /> your next chapter.
-      </>
-    ),
+    desc: "Bring loved ones together to celebrate your next chapter.",
   },
   {
     id: "social-gatherings",
     title: "Social Gatherings",
     eventTypeOption: "Social Gathering (Birthday / Anniversary)",
     image: "/images/EventPage/Event we host/Social Gatherings/Native crop.png",
-    desc: (
-      <>
-        Birthdays, anniversaries and<br className="hidden sm:inline" /> moments worth sharing.
-      </>
-    ),
+    desc: "Birthdays, anniversaries and moments worth sharing.",
   },
   {
     id: "corporate-events",
     title: "Corporate Events",
     eventTypeOption: "Corporate Event",
     image: "/images/EventPage/Event we host/Corporate Events/Native crop.png",
-    desc: (
-      <>
-        Professional gatherings, team occasions<br className="hidden sm:inline" /> and business milestones.
-      </>
-    ),
+    desc: "Professional gatherings, team occasions and business milestones.",
   },
 ];
 

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ExperienceSection({
   onDiscoverStory,
-  storyHref = "#our-story",
+  storyHref = "/our-story",
 }) {
   return (
     <section
@@ -81,7 +82,7 @@ export default function ExperienceSection({
                 </svg>
               </button>
             ) : (
-              <a
+              <Link
                 href={storyHref}
                 className="group inline-flex h-[53px] w-full sm:w-[302px] items-center justify-center gap-5 bg-[#1B4D32] text-[#F8F5EA] transition-colors duration-200 hover:bg-[#153e28] active:bg-[#0f2c1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B4D32]"
               >
@@ -105,7 +106,7 @@ export default function ExperienceSection({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             )}
           </div>
 

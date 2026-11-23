@@ -11,7 +11,7 @@ export const AUTH_ROUTES = Object.freeze({
   ACCOUNT_PROFILE: "/account/profile",
   TERMS: "#terms",
   PRIVACY: "#privacy",
-  CONTACT: "#contact",
+  CONTACT: "/contact",
 });
 
 export const AUTH_LOBBY_CAPTIONS = Object.freeze({

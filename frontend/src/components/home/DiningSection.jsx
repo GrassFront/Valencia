@@ -216,7 +216,7 @@ export default function DiningSection() {
 
             {/* Secondary Button: RESERVE A TABLE */}
             <Link
-              href="#reservations"
+              href="/dining"
               className="inline-flex h-[46px] xl:h-[49px] w-full sm:w-[210px] xl:w-[228px] items-center justify-center gap-2.5 sm:gap-3 border border-[#B18B51] text-[#AD824C] rounded-[2px] transition-colors duration-200 hover:bg-[#B18B51] hover:text-[#FAF7F0] active:bg-[#96733c] cursor-pointer"
             >
               <span className="font-body font-semibold text-[10.5px] xl:text-[11px] leading-[24px] tracking-[0.18em] xl:tracking-[0.2em] uppercase whitespace-nowrap">

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { HeroBookingBar } from "../booking";
 import "./css/your-next-stay-booking.css";
 
@@ -39,13 +40,14 @@ export default function YourNextStayBooking({
       <HeroBookingBar
         onSearch={onSearch}
         buttonText={isValencia ? "Book Your Stay" : "Search Rooms"}
+        buttonVariant="gold"
       />
 
       {isValencia && (
-        <a href="#contact" className="valencia-contact-link">
+        <Link href="/contact" className="valencia-contact-link">
           <span>Need help with your booking? Contact us</span>
           <span>→</span>
-        </a>
+        </Link>
       )}
     </section>
   );

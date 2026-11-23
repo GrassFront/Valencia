@@ -166,23 +166,23 @@ export default function ValenciaDining() {
 
           {/* Dining Actions */}
           <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-[32px]">
-            <a
-              href="#booking"
+            <Link
+              href="/dining"
               className="w-full sm:w-[260px] xl:w-[290px] h-[48px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[2px] flex items-center justify-center shadow-sm hover:shadow-md group"
             >
               <span className="font-body font-bold text-[15px] sm:text-[17px] xl:text-[19px] leading-[23px] tracking-[2px] text-white uppercase flex items-center gap-2.5">
                 <span>EXPLORE DINING</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
-            </a>
+            </Link>
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="font-body font-normal text-[15px] sm:text-[18px] xl:text-[19px] leading-[23px] text-[#543E30] hover:text-[#BD9749] transition-colors flex items-center justify-center sm:justify-start gap-1.5 py-1"
             >
               <span>Dining enquiries</span>
               <span>→</span>
-            </a>
+            </Link>
           </div>
 
           <div className="h-[9px]" aria-hidden="true" />
