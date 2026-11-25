@@ -6,9 +6,12 @@ export const AUTH_ROUTES = Object.freeze({
   CHECK_EMAIL: "/check-email",
   VERIFY_EMAIL: "/verify-email",
   RESET_PASSWORD: "/reset-password",
+  ACCOUNT: "/account",
+  ACCOUNT_BOOKINGS: "/account",
+  ACCOUNT_PROFILE: "/account/profile",
   TERMS: "#terms",
   PRIVACY: "#privacy",
-  CONTACT: "#contact",
+  CONTACT: "/contact",
 });
 
 export const AUTH_LOBBY_CAPTIONS = Object.freeze({

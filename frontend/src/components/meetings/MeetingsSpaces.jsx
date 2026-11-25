@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { CapacityIcon, LayoutsIcon } from "./MeetingsIcons";
 
@@ -25,6 +27,14 @@ const SPACES = [
 ];
 
 export default function MeetingsSpaces() {
+  const scrollToEnquiry = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("meeting-enquiry");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="spaces-to-connect" className="meetings-spaces" aria-label="Spaces to Connect">
       {/* Header */}
@@ -74,7 +84,11 @@ export default function MeetingsSpaces() {
                   </div>
                 </div>
 
-                <a href="#meeting-enquiry" className="meetings-space-btn">
+                <a
+                  href="#meeting-enquiry"
+                  onClick={scrollToEnquiry}
+                  className="meetings-space-btn"
+                >
                   <span>ENQUIRE ABOUT THIS SPACE</span>
                   <span className="text-[20px] leading-none mb-0.5">→</span>
                 </a>

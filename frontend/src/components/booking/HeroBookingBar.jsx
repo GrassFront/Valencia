@@ -35,6 +35,7 @@ export default function HeroBookingBar({
   buttonText = "Search Rooms",
   className = "",
   initialStayMode = "hourly",
+  buttonVariant = "default",
 }) {
   const router = useRouter();
   const [stayMode, setStayMode] = useState(initialStayMode); // 'night' | 'hourly'
@@ -64,9 +65,8 @@ export default function HeroBookingBar({
   // Derived display strings
   const checkInText = formatSelectedDate(checkIn);
   const checkOutText = formatSelectedDate(checkOut);
-  const guestsSummary = `${adults} ${adults === 1 ? "adult" : "adults"}${
-    childrenCount > 0 ? `, ${childrenCount} child` : ""
-  } · ${rooms} ${rooms === 1 ? "room" : "rooms"}`;
+  const guestsSummary = `${adults} ${adults === 1 ? "adult" : "adults"}${childrenCount > 0 ? `, ${childrenCount} child` : ""
+    } · ${rooms} ${rooms === 1 ? "room" : "rooms"}`;
 
   // Dismiss popover on outside click or Escape
   useEffect(() => {
@@ -691,7 +691,12 @@ export default function HeroBookingBar({
           <button
             type="button"
             onClick={handleSearch}
-            className="flex h-[48px] sm:h-[58px] lg:h-[54px] xl:h-[58px] w-full lg:w-auto lg:min-w-[160px] xl:min-w-[185px] whitespace-nowrap shrink-0 items-center justify-center gap-2.5 rounded-[8px] bg-[#1B4D32] px-5 sm:px-6 text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f] transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer"
+            className={classNames(
+              "hero-booking-search-btn flex h-[48px] sm:h-[58px] lg:h-[54px] xl:h-[58px] w-full lg:w-auto lg:min-w-[160px] xl:min-w-[185px] whitespace-nowrap shrink-0 items-center justify-center gap-2.5 rounded-[8px] px-5 sm:px-6 transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer",
+              buttonVariant === "gold"
+                ? "bg-[#C49A58] text-[#3A2A1A] hover:bg-[#b88f4c] active:bg-[#a67d3c]"
+                : "bg-[#1B4D32] text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f]"
+            )}
           >
             <span>{buttonText}</span>
             <ArrowRight size={20} className="stroke-[2]" />

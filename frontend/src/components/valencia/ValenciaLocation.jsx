@@ -128,15 +128,15 @@ export default function ValenciaLocation() {
 
             {/* GET DIRECTIONS Button */}
             <div className="pt-6 sm:pt-8">
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="w-full h-[62px] sm:h-[72px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[9px] flex items-center justify-center shadow-md hover:shadow-lg group"
               >
                 <span className="font-display font-bold text-[19px] sm:text-[21px] lg:text-[23px] leading-[29px] text-[#FAF6EB] flex items-center gap-3">
                   <span>GET DIRECTIONS</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 

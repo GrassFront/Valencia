@@ -158,7 +158,7 @@ export default function PatnaLocationsMap() {
             {/* Link: CONTACT OUR TEAM → */}
             <div className="pt-2 sm:pt-3">
               <Link
-                href="#contact"
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 font-body font-semibold text-[12px] sm:text-[13px] leading-[20px] tracking-[0.2em] text-[#745B48] hover:text-[#174B34] transition-colors uppercase relative pb-1"
               >
                 <span>CONTACT OUR TEAM</span>

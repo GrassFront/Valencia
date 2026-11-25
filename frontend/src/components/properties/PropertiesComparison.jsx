@@ -158,7 +158,7 @@ export default function PropertiesComparison() {
               {/* Valencia Action */}
               <div className="bg-[#F8F0DF] border-[0.5px] border-[#E3D9C8] flex items-center justify-center px-6">
                 <Link
-                  href="#valencia"
+                  href="/valencia"
                   className="w-full max-w-[328px] h-[42px] bg-[#204B36] hover:bg-[#173828] text-[#F8F5EA] rounded-[5px] flex items-center justify-center gap-2 font-body font-bold text-[14px] lg:text-[15px] leading-[20px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
                 >
                   <span>VIEW STAY</span>
@@ -282,7 +282,7 @@ export default function PropertiesComparison() {
               <Link
                 href={
                   selectedMobileTab === "valencia"
-                    ? "#valencia"
+                    ? "/valencia"
                     : selectedMobileTab === "umrao"
                       ? "/umrao"
                       : "/hotel-jia"

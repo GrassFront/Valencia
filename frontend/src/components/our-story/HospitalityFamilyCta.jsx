@@ -62,7 +62,7 @@ export default function HospitalityFamilyCta() {
 
           {/* Right Button Column */}
           <Link
-            href="/#properties"
+            href="/properties"
             className="cta-button group inline-flex items-center justify-center gap-[15px] w-full sm:w-[376px] h-[62px] sm:h-[67px] bg-[#D5B766] hover:bg-[#C7A959] transition-colors shrink-0 shadow-md cursor-pointer"
           >
             <span className="cta-button-text font-body font-semibold text-[16px] sm:text-[18px] leading-[28px] text-[#174B34] uppercase tracking-normal whitespace-nowrap">

@@ -3,13 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, User, Menu, X } from "lucide-react";
+import { ChevronDown, ArrowRight, User, Menu, X, Calendar, LogOut } from "lucide-react";
 import { NAV_ITEMS } from "../../lib/navigation";
 import { classNames } from "../../lib/classNames";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Navbar({ activeItem = "Home", onLoginClick }) {
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const toggleDropdown = (label) => {
     setOpenDropdown((prev) => (prev === label ? null : label));
@@ -119,39 +122,117 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
         </div>
 
         {/* Right Section: Account & Log In Button (Desktop) */}
-        <div className="hidden xl:flex items-center gap-5 shrink-0">
-          {/* Account Icon with divider */}
-          <div className="flex h-[50px] w-[46px] items-center justify-center border-l border-[#E8DCC9]">
+        {isAuthenticated && user ? (
+          <div className="hidden xl:flex items-center gap-3 shrink-0 relative">
+            <button
+              type="button"
+              onClick={() => setUserMenuOpen((prev) => !prev)}
+              className="flex items-center gap-2.5 h-[50px] px-2 rounded-full hover:opacity-95 transition-all cursor-pointer focus:outline-none"
+              aria-expanded={userMenuOpen}
+              aria-label="User account menu"
+            >
+              <div className="w-[38px] h-[38px] rounded-full bg-[#134D39] text-[#FFFFFF] flex items-center justify-center font-display font-semibold text-[15px] shadow-xs">
+                {user.initials || "AS"}
+              </div>
+              <span className="font-body font-medium text-[15px] text-[#292722]">
+                Hi, {user.firstName || "Aarav"}
+              </span>
+              <ChevronDown
+                size={16}
+                className={classNames(
+                  "text-[#565653] transition-transform duration-200 stroke-[2]",
+                  userMenuOpen ? "rotate-180" : ""
+                )}
+              />
+            </button>
+
+            {/* Dropdown Menu (Figma Image 1) */}
+            {userMenuOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setUserMenuOpen(false)}
+                />
+                <div className="absolute right-0 top-[100%] mt-1 w-[204px] rounded-[14px] bg-[#FAF7F0] border border-[#E8DCC9] shadow-[0_12px_32px_rgba(27,45,35,0.12)] p-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <Link
+                    href="/account/profile"
+                    onClick={() => setUserMenuOpen(false)}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-[8px] hover:bg-[#F2ECE0] text-[#292722] hover:text-[#134D39] transition-colors"
+                  >
+                    <User size={18} className="text-[#134D39] stroke-[1.8]" />
+                    <span className="font-body font-medium text-[15px]">My Profile</span>
+                  </Link>
+                  <Link
+                    href="/account"
+                    onClick={() => setUserMenuOpen(false)}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-[8px] hover:bg-[#F2ECE0] text-[#292722] hover:text-[#134D39] transition-colors"
+                  >
+                    <Calendar size={18} className="text-[#134D39] stroke-[1.8]" />
+                    <span className="font-body font-medium text-[15px]">My Bookings</span>
+                  </Link>
+                  <div className="my-1.5 border-t border-[#E8DCC9]/70" />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setUserMenuOpen(false);
+                      logout();
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-[8px] hover:bg-[#F2ECE0] text-[#78716C] hover:text-[#C53030] transition-colors text-left cursor-pointer"
+                  >
+                    <LogOut size={16} className="stroke-[1.8]" />
+                    <span className="font-body font-medium text-[14px]">Sign Out</span>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        ) : (
+          <div className="hidden xl:flex items-center gap-5 shrink-0">
+            {/* Account Icon with divider */}
+            <div className="flex h-[50px] w-[46px] items-center justify-center border-l border-[#E8DCC9]">
+              <Link
+                href="/login"
+                aria-label="User Account"
+                className="flex items-center justify-center text-[#34413F] hover:text-[#1B4D32] transition-colors p-1 cursor-pointer"
+              >
+                <User size={22} className="stroke-[1.8]" />
+              </Link>
+            </div>
+
+            {/* Book Now / Log In Button */}
             <Link
               href="/login"
-              aria-label="User Account"
-              className="flex items-center justify-center text-[#34413F] hover:text-[#1B4D32] transition-colors p-1 cursor-pointer"
+              onClick={onLoginClick}
+              className="flex h-[48px] w-[140px] items-center justify-center gap-3 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[12px] font-semibold tracking-[0.05em] uppercase hover:bg-[#153e28] transition-colors shadow-sm shrink-0 cursor-pointer"
             >
-              <User size={22} className="stroke-[1.8]" />
+              <span className="whitespace-nowrap">LOG IN</span>
+              <ArrowRight size={16} className="stroke-[1.8] shrink-0" />
             </Link>
           </div>
-
-          {/* Book Now / Log In Button */}
-          <Link
-            href="/login"
-            onClick={onLoginClick}
-            className="flex h-[48px] w-[140px] items-center justify-center gap-3 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[12px] font-semibold tracking-[0.05em] uppercase hover:bg-[#153e28] transition-colors shadow-sm shrink-0 cursor-pointer"
-          >
-            <span className="whitespace-nowrap">LOG IN</span>
-            <ArrowRight size={16} className="stroke-[1.8] shrink-0" />
-          </Link>
-        </div>
+        )}
 
         {/* Mobile / Tablet Controls (Visible on screens < 1200px) */}
         <div className="flex xl:hidden items-center gap-3 shrink-0">
-          <Link
-            href="/login"
-            onClick={onLoginClick}
-            className="flex h-[38px] px-3.5 items-center justify-center gap-2 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[11px] font-semibold tracking-[0.05em] uppercase cursor-pointer"
-          >
-            <span>LOG IN</span>
-            <ArrowRight size={14} />
-          </Link>
+          {isAuthenticated && user ? (
+            <Link
+              href="/account"
+              className="flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[#134D39] text-[#FFFFFF] text-[13px] font-medium"
+            >
+              <div className="w-[26px] h-[26px] rounded-full bg-[#1B4D32] flex items-center justify-center font-display text-[12px] font-semibold">
+                {user.initials || "AS"}
+              </div>
+              <span className="font-display font-medium pr-1">Aarav</span>
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              onClick={onLoginClick}
+              className="flex h-[38px] px-3.5 items-center justify-center gap-2 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[11px] font-semibold tracking-[0.05em] uppercase cursor-pointer"
+            >
+              <span>LOG IN</span>
+              <ArrowRight size={14} />
+            </Link>
+          )}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -219,16 +300,63 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
               </div>
             );
             })}
-            <Link
-              href="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 pt-3 border-t border-[#E8DCC9] flex items-center justify-between text-[#34413F] hover:text-[#1B4D32] transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <User size={20} />
-                <span className="text-[14px] font-medium">My Account</span>
+            {isAuthenticated && user ? (
+              <div className="mt-4 pt-3 border-t border-[#E8DCC9] flex flex-col gap-2">
+                <div className="flex items-center gap-3 py-1">
+                  <div className="w-[38px] h-[38px] rounded-full bg-[#134D39] text-[#FFFFFF] flex items-center justify-center font-display font-semibold text-[15px]">
+                    {user.initials || "AS"}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display font-semibold text-[15px] text-[#201B15]">
+                      {user.fullName || "Aarav Sharma"}
+                    </span>
+                    <span className="font-body text-[12px] text-[#898984]">
+                      {user.email || "aarav@example.com"}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1 mt-1">
+                  <Link
+                    href="/account"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2.5 py-2 px-1 text-[14px] font-medium text-[#292722] hover:text-[#134D39]"
+                  >
+                    <Calendar size={18} className="text-[#134D39]" />
+                    <span>My Bookings</span>
+                  </Link>
+                  <Link
+                    href="/account/profile"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2.5 py-2 px-1 text-[14px] font-medium text-[#292722] hover:text-[#134D39]"
+                  >
+                    <User size={18} className="text-[#134D39]" />
+                    <span>My Profile</span>
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      logout();
+                    }}
+                    className="flex items-center gap-2.5 py-2 px-1 text-[14px] font-medium text-[#78716C] hover:text-[#C53030] text-left cursor-pointer"
+                  >
+                    <LogOut size={18} />
+                    <span>Sign Out</span>
+                  </button>
+                </div>
               </div>
-            </Link>
+            ) : (
+              <Link
+                href="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-4 pt-3 border-t border-[#E8DCC9] flex items-center justify-between text-[#34413F] hover:text-[#1B4D32] transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <User size={20} />
+                  <span className="text-[14px] font-medium">My Account</span>
+                </div>
+              </Link>
+            )}
           </div>
         </div>
       )}

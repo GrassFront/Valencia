@@ -178,19 +178,15 @@ export default function ValenciaFaq() {
 
           {/* CONTACT US Button */}
           <div className="w-full md:w-auto shrink-0">
-            <button
-              type="button"
-              onClick={() => {
-                setContactSubmitted(false);
-                setContactModalOpen(true);
-              }}
+            <Link
+              href="/contact"
               className="w-full sm:w-[240px] lg:w-[274px] h-[52px] sm:h-[59px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[9px] flex items-center justify-center shadow-md hover:shadow-lg cursor-pointer group"
             >
               <span className="font-display font-bold text-[19px] sm:text-[21px] lg:text-[23px] leading-[29px] text-[#FAF6EB] flex items-center gap-2.5">
                 <span>CONTACT US</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

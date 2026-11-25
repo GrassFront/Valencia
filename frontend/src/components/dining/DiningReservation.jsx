@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { BrandSelect } from "@/components/common";
 import { BookingCalendarPopover } from "@/components/booking";
 import {
@@ -102,12 +103,12 @@ export default function DiningReservation() {
             </div>
             <div className="dining-reservation-help-copy">
               <p className="dining-reservation-help-q">Need help with your request?</p>
-              <a
-                href="#plan-your-visit"
+              <Link
+                href="/contact"
                 className="dining-reservation-help-link"
               >
                 Contact our team →
-              </a>
+              </Link>
             </div>
           </div>
         </div>

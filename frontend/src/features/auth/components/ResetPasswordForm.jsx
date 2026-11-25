@@ -175,7 +175,7 @@ export default function ResetPasswordForm() {
         <div className="w-full max-w-[552px] flex items-center justify-center gap-[6px] py-2 font-body text-[16px] sm:text-[18px] leading-[24px]">
           <span className="text-[#655B51]">Need assistance?</span>
           <Link
-            href="#contact"
+            href="/contact"
             className="underline text-[#164C3B] hover:text-[#1B4D32] transition-colors"
           >
             Contact our team

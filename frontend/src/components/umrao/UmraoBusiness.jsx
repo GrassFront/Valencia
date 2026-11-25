@@ -103,7 +103,7 @@ export default function UmraoBusiness() {
 
           {/* Button: ENQUIRE ABOUT A MEETING → (width: 375px, height: 55px, border-radius: 7px) */}
           <Link
-            href="#enquiry"
+            href="/meetings#meeting-enquiry"
             className="inline-flex items-center justify-center gap-3 w-full sm:w-[375px] h-[50px] sm:h-[55px] bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all shadow-md group"
           >
             <span className="font-body font-bold text-[17px] sm:text-[18px] lg:text-[19px] leading-[24px] tracking-[1.5px] sm:tracking-[2px] uppercase">

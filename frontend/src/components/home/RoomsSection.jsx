@@ -237,11 +237,10 @@ export default function RoomsSection() {
                 aria-selected={isActive}
                 aria-label={`Go to ${room.name}`}
                 onClick={() => scrollToCard(idx)}
-                className={`transition-all duration-200 cursor-pointer ${
-                  isActive
-                    ? "w-[10px] h-[10px] rounded-full bg-[#1B4D32] scale-110"
-                    : "w-[10px] h-[10px] rounded-full border-[1.5px] border-[#C9A96A] bg-transparent hover:border-[#1B4D32]"
-                }`}
+                className={`transition-all duration-200 cursor-pointer ${isActive
+                  ? "w-[10px] h-[10px] rounded-full bg-[#1B4D32] scale-110"
+                  : "w-[10px] h-[10px] rounded-full border-[1.5px] border-[#C9A96A] bg-transparent hover:border-[#1B4D32]"
+                  }`}
               />
             );
           })}

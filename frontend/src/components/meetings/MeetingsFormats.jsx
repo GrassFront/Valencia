@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const FORMATS = [
@@ -31,6 +33,14 @@ const FORMATS = [
 ];
 
 export default function MeetingsFormats() {
+  const scrollToEnquiry = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("meeting-enquiry");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="meetings-formats" aria-label="Meeting Formats">
       {/* Header */}
@@ -72,7 +82,11 @@ export default function MeetingsFormats() {
                 <p className="meetings-format-note">{format.note}</p>
               </div>
 
-              <a href="#meeting-enquiry" className="meetings-format-btn">
+              <a
+                href="#meeting-enquiry"
+                onClick={scrollToEnquiry}
+                className="meetings-format-btn"
+              >
                 <span>ENQUIRE ABOUT THIS FORMAT</span>
                 <span className="text-[18px] leading-none mb-0.5 ml-1">→</span>
               </a>

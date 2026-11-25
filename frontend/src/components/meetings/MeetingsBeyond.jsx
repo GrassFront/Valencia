@@ -1,6 +1,16 @@
+"use client";
+
 import Image from "next/image";
 
 export default function MeetingsBeyond() {
+  const scrollToEnquiry = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("meeting-enquiry");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="meetings-beyond" aria-label="Beyond the Meeting Room">
       <div className="meetings-beyond-inner">
@@ -57,7 +67,11 @@ export default function MeetingsBeyond() {
             </div>
           </div>
 
-          <a href="#meeting-enquiry" className="meetings-beyond-btn">
+          <a
+            href="#meeting-enquiry"
+            onClick={scrollToEnquiry}
+            className="meetings-beyond-btn"
+          >
             <span>PLAN YOUR STAY &amp; MEETING</span>
             <span className="text-[20px] leading-none mb-0.5 ml-2">→</span>
           </a>
