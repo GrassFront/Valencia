@@ -15,8 +15,17 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Valencia Design System",
-  description: "Reusable Valencia design-system components.",
+  title: "Valencia | A Luxury Boutique Hotel",
+  description: "Experience luxury living at Valencia, a boutique hotel offering world-class rooms, dining, banquets, and unmatched hospitality in Patna.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
