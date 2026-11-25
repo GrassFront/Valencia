@@ -11,7 +11,7 @@ const ROOMS = [
     titleSizeClass: "text-[27px]",
     description: "A welcoming retreat for restful stays.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms",
     image: "/images/homepage/homepage_deluxe.png",
     alt: "Valencia Deluxe Room - Luxury King Bed with neoclassical decor",
   },
@@ -21,7 +21,7 @@ const ROOMS = [
     titleSizeClass: "text-[27px]",
     description: "Shared stays, with space for individual comfort.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms",
     image: "/images/homepage/homepage_twin.png",
     alt: "Valencia Twin Room - Two plush beds with warm bespoke styling",
   },
@@ -31,7 +31,7 @@ const ROOMS = [
     titleSizeClass: "text-[27px]",
     description: "Room to unwind, with a separate sense of retreat.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms",
     image: "/images/homepage/homepage_suite.png",
     alt: "Valencia Executive Suite - Expansive seating and opulent parlor",
   },
@@ -42,7 +42,7 @@ const ROOMS = [
     titleSizeClass: "text-[22px] sm:text-[24px] xl:text-[25px] 2xl:text-[27px] tracking-tight whitespace-nowrap",
     description: "An expansive setting for an exceptional stay.",
     linkLabel: "VIEW DETAILS",
-    href: "/valencia#rooms",
+    href: "/rooms",
     image: "/images/homepage/homepage_presidental.png",
     alt: "Valencia Presidential Suite - Master bedroom and grand Italian neoclassical finishes",
   },
@@ -120,7 +120,7 @@ export default function RoomsSection() {
 
           {/* Button / View rooms (Figma: 220px x 51px, #1B4D32 background, 18px gap) */}
           <Link
-            href="/valencia#rooms"
+            href="/rooms"
             className="group inline-flex h-[51px] w-full sm:w-[220px] items-center justify-center gap-[18px] bg-[#1B4D32] text-[#F8F5EA] transition-colors duration-200 hover:bg-[#153e28] active:bg-[#0f2c1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B4D32] shrink-0 self-start md:self-end"
           >
             <span className="font-body font-semibold text-[13px] leading-[24px] tracking-[0.2em] uppercase whitespace-nowrap">
@@ -157,7 +157,11 @@ export default function RoomsSection() {
               className="group relative flex flex-col items-start w-[285px] sm:w-full sm:max-w-[308.5px] h-[380px] bg-[#FFFDF7] border border-[#D9CCAF] rounded-[5px] shadow-[0px_5px_12px_rgba(77,59,31,0.07)] shrink-0 snap-center overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0px_10px_24px_rgba(77,59,31,0.12)]"
             >
               {/* Cropped Room Photo: 308.5px x 228px with smooth zoom on hover */}
-              <div className="relative w-full h-[228px] overflow-hidden shrink-0 bg-[#E8DCC9]/20">
+              <Link
+                href={room.href}
+                className="relative w-full h-[228px] overflow-hidden shrink-0 bg-[#E8DCC9]/20 block"
+                aria-label={room.name}
+              >
                 <Image
                   src={room.image}
                   alt={room.alt}
@@ -165,7 +169,7 @@ export default function RoomsSection() {
                   sizes="(max-width: 640px) 285px, (max-width: 1280px) 308px, 308px"
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
+              </Link>
 
               {/* Room details (Figma: padding 11px 18px 0px 23px, gap 4px, height 152px) */}
               <div className="w-full flex-1 h-[152px] flex flex-col justify-between pt-[11px] pr-[18px] pb-[16px] pl-[23px] box-border">

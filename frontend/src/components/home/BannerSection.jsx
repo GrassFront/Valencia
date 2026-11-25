@@ -42,7 +42,7 @@ export default function BannerSection() {
           </p>
 
           <Link
-            href="/valencia#rooms"
+            href="/rooms"
             className="button-explore-rooms-and-suites"
             aria-label="Explore Rooms & Suites"
           >

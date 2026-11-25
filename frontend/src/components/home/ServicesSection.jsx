@@ -10,7 +10,7 @@ const SERVICES = [
     titleSizeClass: "text-[26px] xl:text-[28px]",
     description: "Thoughtfully designed rooms for comfort and restful stays.",
     linkLabel: "EXPLORE ROOMS",
-    href: "/valencia#rooms",
+    href: "/rooms",
     image: "/images/homepage/homepage_sec3_stay.png",
     alt: "Valencia Luxury Stay - Elegantly appointed boutique hotel bedroom",
     iconSrc: "/icon/homepage/stay_icon.png",
@@ -22,7 +22,7 @@ const SERVICES = [
     titleSizeClass: "text-[26px] xl:text-[28px]",
     description: "Welcoming spaces for ideas and productive gatherings.",
     linkLabel: "EXPLORE MEETINGS",
-    href: "/valencia#events",
+    href: "/meetings",
     image: "/images/homepage/homepage_sec3_meetings.png",
     alt: "Valencia Meetings - Boardroom and conference space",
     iconSrc: "/icon/homepage/meetings_icon.png",
@@ -35,7 +35,7 @@ const SERVICES = [
     titleSizeClass: "text-[18px] sm:text-[19px] md:text-[20px] xl:text-[21px] 2xl:text-[22px]",
     description: "Beautiful settings for celebrations and moments shared together.",
     linkLabel: "EXPLORE EVENTS",
-    href: "/valencia#events",
+    href: "/events",
     image: "/images/homepage/homepage_sec3_weddings.png",
     alt: "Valencia Weddings - Grand neoclassical celebration hall",
     iconSrc: "/icon/homepage/wedding_icon.png",
@@ -93,7 +93,11 @@ export default function ServicesSection() {
               className="group relative flex flex-col items-center w-full max-w-[307.5px] min-h-[466px] h-full transition-transform duration-300 hover:-translate-y-1.5"
             >
               {/* Arched Photograph: 307.5px x 268px with 153.75px border-radius on top */}
-              <div className="relative w-full h-[268px] rounded-t-[154px] overflow-hidden shrink-0 z-0 bg-[#E8DCC9]/30">
+              <Link
+                href={service.href}
+                className="relative w-full h-[268px] rounded-t-[154px] overflow-hidden shrink-0 z-0 bg-[#E8DCC9]/30 block cursor-pointer"
+                aria-label={service.linkLabel}
+              >
                 <Image
                   src={service.image}
                   alt={service.alt}
@@ -101,7 +105,7 @@ export default function ServicesSection() {
                   sizes="(max-width: 640px) 308px, (max-width: 1280px) 280px, 308px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
+              </Link>
 
               {/* Icon Badge: 84px circle overlapping the photo & card boundary with PNG icon */}
               <div

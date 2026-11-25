@@ -52,7 +52,7 @@ export default function GlimpseOfValenciaSection() {
             </p>
           </div>
 
-          <Link href="/valencia#rooms" className="button-full-gallery">
+          <Link href="/rooms" className="button-full-gallery">
             <span className="label">VIEW ALL ROOMS</span>
             <div className="editable-vector-icon" aria-hidden="true">
               <Image

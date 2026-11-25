@@ -113,16 +113,15 @@ export default function ValenciaRooms() {
             </p>
           </div>
 
-          <a
-            href="#booking"
-            onClick={scrollToBooking}
+          <Link
+            href="/rooms"
             className="w-full sm:w-[240px] lg:w-[285px] h-[50px] sm:h-[54px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[2px] flex items-center justify-center shrink-0 shadow-sm hover:shadow-md group"
           >
             <span className="font-body font-bold text-[15px] sm:text-[17px] lg:text-[19px] leading-[23px] tracking-[2px] text-white uppercase flex items-center gap-2.5">
               <span>VIEW ALL ROOMS</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* 4 Room Cards Grid */}
@@ -133,7 +132,11 @@ export default function ValenciaRooms() {
               className="w-full min-h-[458px] rounded-[7px] border border-[#E1D2B3] bg-[#FAF6EB] flex flex-col overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(27,45,35,0.08)] transition-all duration-300 group"
             >
               {/* Photo Area: height 265px */}
-              <div className="relative w-full h-[240px] sm:h-[265px] overflow-hidden bg-[#E8DAC2]/30 shrink-0">
+              <Link
+                href="/rooms"
+                className="relative w-full h-[240px] sm:h-[265px] overflow-hidden bg-[#E8DAC2]/30 shrink-0 block cursor-pointer"
+                aria-label={room.title}
+              >
                 <Image
                   src={room.image}
                   alt={`${room.title} Room at Valencia`}
@@ -142,15 +145,17 @@ export default function ValenciaRooms() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 322px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
+              </Link>
 
               {/* Room Card Copy */}
               <div className="flex-1 flex flex-col justify-between p-5 lg:pt-[15px] lg:px-[26px] lg:pb-5">
                 <div className="flex flex-col">
                   {/* Room Name */}
-                  <h3 className="font-display font-bold text-[24px] sm:text-[26px] lg:text-[28px] leading-[34px] text-[#164C36]">
-                    {room.title}
-                  </h3>
+                  <Link href="/rooms">
+                    <h3 className="font-display font-bold text-[24px] sm:text-[26px] lg:text-[28px] leading-[34px] text-[#164C36] hover:text-[#BD9749] transition-colors">
+                      {room.title}
+                    </h3>
+                  </Link>
 
                   {/* Spacing 9px */}
                   <div className="h-[9px]" aria-hidden="true" />
@@ -169,16 +174,15 @@ export default function ValenciaRooms() {
                   <div className="h-[14px] sm:h-[16px]" aria-hidden="true" />
 
                   {/* VIEW DETAILS Link / Button */}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRoom(room)}
+                  <Link
+                    href="/rooms"
                     className="inline-flex items-center gap-2 font-body font-bold text-[16px] sm:text-[17px] lg:text-[18px] leading-[22px] text-[#164C36] hover:text-[#BD9749] transition-colors cursor-pointer text-left group/btn"
                   >
                     <span>VIEW DETAILS</span>
                     <span className="transition-transform duration-200 group-hover/btn:translate-x-1">
                       →
                     </span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </article>
