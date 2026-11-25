@@ -30,7 +30,7 @@ export default function HeroSection({ onSearch }) {
       </div>
 
       {/* Hero Content Container */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1080px] lg:max-w-[1140px] xl:max-w-[1180px] flex-col items-center gap-7 sm:gap-9 lg:gap-10 px-4 sm:px-6">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1140px] xl:max-w-[1240px] 2xl:max-w-[1360px] flex-col items-center gap-7 sm:gap-9 lg:gap-10 px-4 sm:px-6">
         {/* Headline Group */}
         <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
           {/* Eyebrow with Gold Rules */}

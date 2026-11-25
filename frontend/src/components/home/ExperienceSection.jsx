@@ -13,11 +13,11 @@ export default function ExperienceSection({
       aria-labelledby="valencia-experience-heading"
       className="w-full bg-[#F8F5EA] border-b border-black/[0.06] overflow-hidden"
     >
-      {/* Inner Container: 1440px Figma Frame */}
-      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 md:px-12 lg:px-14 xl:px-16 2xl:px-[92px] py-12 sm:py-14 md:py-16 xl:py-[72px]">
-        <div className="flex flex-col xl:flex-row items-center justify-between gap-10 md:gap-12 xl:gap-10 2xl:gap-[65px]">
-          {/* Experience / Copy (Figma 480px width, 51px top padding on desktop) */}
-          <div className="w-full max-w-[620px] xl:max-w-none xl:w-[460px] 2xl:w-[480px] xl:shrink-0 flex flex-col items-start pt-0 xl:pt-[51px]">
+      {/* Inner Container: Fluid responsive */}
+      <div className="mx-auto w-full max-w-[min(94vw,1600px)] px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-12 sm:py-14 md:py-16 xl:py-[72px]">
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-10 md:gap-12 xl:gap-12 2xl:gap-16 w-full">
+          {/* Experience / Copy */}
+          <div className="w-full max-w-[620px] xl:max-w-none xl:w-[45%] xl:shrink-0 flex flex-col items-start pt-0 xl:pt-[40px]">
             {/* Experience / Eyebrow */}
             <span className="font-body font-semibold text-[12px] sm:text-[13px] leading-[18px] tracking-[0.32em] sm:tracking-[0.36em] text-[#C9A96A] uppercase">
               THE VALENCIA EXPERIENCE
@@ -110,9 +110,9 @@ export default function ExperienceSection({
             )}
           </div>
 
-          {/* Experience / Photography (Figma 711px x 462px) */}
-          <div className="w-full xl:flex-1 max-w-[711px] min-w-0 flex items-center justify-center">
-            <div className="relative w-full aspect-[711/462] overflow-hidden">
+          {/* Experience / Photography */}
+          <div className="w-full xl:w-[50%] min-w-0 flex items-center justify-center">
+            <div className="relative w-full aspect-[711/462] overflow-hidden rounded-[4px]">
               <Image
                 src="/images/homepage/homepage_section2.png"
                 alt="The Valencia Experience - Neoclassical Italian lounge with luxurious sofas, elegant chandelier and warm lighting"

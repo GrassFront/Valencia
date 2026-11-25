@@ -93,8 +93,8 @@ export default function RoomsSection() {
       aria-labelledby="rooms-section-heading"
       className="w-full bg-[#FAF7EE] border-b border-black/10 overflow-hidden"
     >
-      {/* 1440px Container (Figma: padding 0 66px 0 80px, gap 32px) */}
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-14 xl:pl-[80px] xl:pr-[66px] py-14 sm:py-16 xl:py-[52px] flex flex-col gap-8 xl:gap-[32px]">
+      {/* Fluid Responsive Container */}
+      <div className="mx-auto w-full max-w-[min(94vw,1600px)] px-5 sm:px-8 md:px-12 lg:px-14 xl:px-16 2xl:px-20 py-14 sm:py-16 xl:py-[52px] flex flex-col gap-8 xl:gap-[32px]">
         {/* Section Header: 1294px wide in Figma, flex between */}
         <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
           {/* Heading and introduction (Figma: gap 4px, width 990px) */}
@@ -146,15 +146,15 @@ export default function RoomsSection() {
           </Link>
         </div>
 
-        {/* Room Cards: 1294px wide, 4 cards of 308.5px with 20px gap */}
+        {/* Room Cards: Fluid grid on wide/zoom-out screens */}
         <div
           ref={scrollContainerRef}
-          className="w-full flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-6 xl:gap-[20px] sm:overflow-visible sm:pb-0 justify-items-center"
+          className="w-full flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-6 xl:gap-6 2xl:gap-8 sm:overflow-visible sm:pb-0 justify-items-stretch"
         >
           {ROOMS.map((room) => (
             <article
               key={room.id}
-              className="group relative flex flex-col items-start w-[285px] sm:w-full sm:max-w-[308.5px] h-[380px] bg-[#FFFDF7] border border-[#D9CCAF] rounded-[5px] shadow-[0px_5px_12px_rgba(77,59,31,0.07)] shrink-0 snap-center overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0px_10px_24px_rgba(77,59,31,0.12)]"
+              className="group relative flex flex-col items-start w-[285px] sm:w-full min-h-[380px] h-full bg-[#FFFDF7] border border-[#D9CCAF] rounded-[5px] shadow-[0px_5px_12px_rgba(77,59,31,0.07)] shrink-0 snap-center overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0px_10px_24px_rgba(77,59,31,0.12)]"
             >
               {/* Cropped Room Photo: 308.5px x 228px with smooth zoom on hover */}
               <Link

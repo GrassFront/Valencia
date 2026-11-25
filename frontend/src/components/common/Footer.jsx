@@ -34,7 +34,7 @@ export default function Footer({ variant = "primary", className = "", style = {}
       <div className={`w-full h-[1px] ${borderTopClass}`} />
 
       {/* Main Content Container */}
-      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16 pt-5 sm:pt-6 lg:pt-6 pb-2.5">
+      <div className="mx-auto w-full max-w-[min(94vw,2400px)] px-6 sm:px-10 lg:px-16 2xl:px-20 pt-5 sm:pt-6 lg:pt-6 pb-2.5">
         {/* 3 Columns with Vertical Dividers on Desktop */}
         <div className="flex flex-col lg:flex-row items-stretch justify-between gap-6 sm:gap-8 lg:gap-0">
           {/* Left Column: Brand, Tagline, Socials (~40% on desktop) */}

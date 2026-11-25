@@ -23,27 +23,27 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
       aria-label="Main Navigation"
       className="relative w-full bg-[#F8F5EA] border-b border-[#E8DCC9]/50 z-40"
     >
-      <div className="mx-auto flex h-[90px] w-full max-w-[1440px] items-center justify-between px-4 sm:px-6 md:px-8 lg:pl-[58px] lg:pr-[44px]">
+      <div className="mx-auto flex h-[90px] w-full max-w-[min(94vw,2400px)] items-center justify-between px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-12">
         {/* Brand / Valencia logo */}
         <Link
           href="/"
           className="flex items-center shrink-0 transition-opacity hover:opacity-95"
           aria-label="Valencia - A Luxury Boutique Hotel"
         >
-          <div className="relative h-[48px] sm:h-[58px] w-[200px] sm:w-[240px] lg:w-[275px]">
+          <div className="relative h-[44px] sm:h-[52px] xl:h-[56px] w-[170px] sm:w-[200px] lg:w-[220px] xl:w-[225px] 2xl:w-[260px]">
             <Image
               src="/images/logo/valencia-logo.png"
               alt="Valencia - A Luxury Boutique Hotel"
               fill
               priority
-              sizes="(max-width: 640px) 200px, (max-width: 1024px) 240px, 275px"
+              sizes="(max-width: 640px) 170px, (max-width: 1024px) 220px, 260px"
               className="object-contain object-left"
             />
           </div>
         </Link>
 
         {/* Desktop Navigation Links (Visible on xl screens 1200px+) */}
-        <div className="hidden xl:flex items-center gap-3.5 2xl:gap-5 h-[50px] shrink-0">
+        <div className="hidden xl:flex items-center gap-2 xl:gap-2.5 2xl:gap-4.5 h-[50px] shrink-1 min-w-0">
           {NAV_ITEMS.map((item) => {
             const isActive = activeItem ? item.label === activeItem : item.active;
             const hasChildren = item.hasDropdown && item.children;
@@ -58,7 +58,7 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
                 <Link
                   href={item.href}
                   className={classNames(
-                    "inline-flex items-center gap-1.5 text-[13.5px] 2xl:text-[14px] leading-[18px] transition-colors whitespace-nowrap shrink-0 py-2",
+                    "inline-flex items-center gap-1 xl:gap-1.5 text-[12.5px] xl:text-[13px] 2xl:text-[14px] leading-[18px] transition-colors whitespace-nowrap shrink-0 py-2",
                     isActive
                       ? "font-semibold text-[#BC9756]"
                       : "font-medium text-[#34413F] hover:text-[#BC9756]"
@@ -187,15 +187,15 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
             )}
           </div>
         ) : (
-          <div className="hidden xl:flex items-center gap-5 shrink-0">
+          <div className="hidden xl:flex items-center gap-2.5 xl:gap-3 2xl:gap-5 shrink-0">
             {/* Account Icon with divider */}
-            <div className="flex h-[50px] w-[46px] items-center justify-center border-l border-[#E8DCC9]">
+            <div className="flex h-[46px] w-[38px] xl:w-[42px] items-center justify-center border-l border-[#E8DCC9]">
               <Link
                 href="/login"
                 aria-label="User Account"
                 className="flex items-center justify-center text-[#34413F] hover:text-[#1B4D32] transition-colors p-1 cursor-pointer"
               >
-                <User size={22} className="stroke-[1.8]" />
+                <User size={20} className="stroke-[1.8]" />
               </Link>
             </div>
 
@@ -203,10 +203,10 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
             <Link
               href="/login"
               onClick={onLoginClick}
-              className="flex h-[48px] w-[140px] items-center justify-center gap-3 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[12px] font-semibold tracking-[0.05em] uppercase hover:bg-[#153e28] transition-colors shadow-sm shrink-0 cursor-pointer"
+              className="flex h-[42px] xl:h-[44px] 2xl:h-[48px] w-[105px] xl:w-[115px] 2xl:w-[136px] items-center justify-center gap-2 2xl:gap-2.5 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[11px] xl:text-[11.5px] 2xl:text-[12px] font-semibold tracking-[0.05em] uppercase hover:bg-[#153e28] transition-colors shadow-sm shrink-0 cursor-pointer"
             >
               <span className="whitespace-nowrap">LOG IN</span>
-              <ArrowRight size={16} className="stroke-[1.8] shrink-0" />
+              <ArrowRight size={15} className="stroke-[1.8] shrink-0" />
             </Link>
           </div>
         )}

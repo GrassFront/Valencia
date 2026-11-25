@@ -129,8 +129,8 @@ export default function PropertiesSection() {
       aria-labelledby="collection-heading"
       className="relative w-full bg-[#F7F3EA] border-b border-black/[0.06] overflow-hidden"
     >
-      {/* Main Container: 1440px Figma Frame */}
-      <div className="relative mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-8 xl:px-8 2xl:px-[58px] py-10 sm:py-12 xl:py-[44px] flex flex-col items-center gap-6 sm:gap-7 xl:gap-[24px]">
+      {/* Main Container: Fluid responsive */}
+      <div className="relative mx-auto w-full max-w-[min(94vw,1600px)] px-4 sm:px-6 md:px-8 xl:px-8 2xl:px-[58px] py-10 sm:py-12 xl:py-[44px] flex flex-col items-center gap-6 sm:gap-7 xl:gap-[24px]">
         {/* Decorative architectural crop - Left watermark */}
         <div className="absolute left-0 top-0 w-[120px] sm:w-[160px] xl:w-[190px] h-[150px] sm:h-[190px] xl:h-[217px] pointer-events-none select-none z-0">
           <Image
@@ -189,12 +189,12 @@ export default function PropertiesSection() {
           </p>
         </div>
 
-        {/* Property Collection Cards Row: Fluid and responsive on desktop (1280px-1440px+) */}
-        <div className="relative z-10 w-full max-w-[1334px] flex flex-col xl:flex-row items-center xl:items-stretch justify-center xl:justify-between gap-6 xl:gap-[10px] xl:h-[521px]">
+        {/* Property Collection Cards Row: Fluid and responsive on desktop & wide viewports */}
+        <div className="relative z-10 w-full flex flex-col xl:flex-row items-center xl:items-stretch justify-center xl:justify-between gap-6 xl:gap-[16px] xl:h-[521px]">
           {/* ============================================================== */}
-          {/* Flagship Card: Valencia (Fluid: flex-[1.433] max-w-[774px]) */}
+          {/* Flagship Card: Valencia (Fluid: flex-[1.4]) */}
           {/* ============================================================== */}
-          <article className="group w-full max-w-[774px] xl:flex-[1.433] xl:max-w-[774px] xl:h-[521px] min-w-0 bg-[#FAF7F0] border border-black/10 rounded-[5px] flex flex-col overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+          <article className="group w-full xl:flex-[1.4] xl:h-[521px] min-w-0 bg-[#FAF7F0] border border-black/10 rounded-[5px] flex flex-col overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             {/* Exterior Photograph: exactly 315px on desktop */}
             <div className="relative w-full h-[220px] sm:h-[280px] xl:h-[315px] xl:shrink-0 overflow-hidden bg-[#E8DCC9]/20">
               <Image
@@ -276,9 +276,9 @@ export default function PropertiesSection() {
           </article>
 
           {/* ============================================================== */}
-          {/* Other Properties Column: UMRAO & HOTEL JIA (Fluid: flex-1 max-w-[540px]) */}
+          {/* Other Properties Column: UMRAO & HOTEL JIA (Fluid: flex-1) */}
           {/* ============================================================== */}
-          <div className="w-full max-w-[774px] xl:flex-1 xl:max-w-[540px] xl:h-[521px] min-w-0 flex flex-col justify-between gap-4 sm:gap-5 xl:gap-[10px]">
+          <div className="w-full xl:flex-1 xl:h-[521px] min-w-0 flex flex-col justify-between gap-4 sm:gap-5 xl:gap-[10px]">
             {/* ------------------------------------------------------------ */}
             {/* Card 1: UMRAO THE BANQUET */}
             {/* ------------------------------------------------------------ */}

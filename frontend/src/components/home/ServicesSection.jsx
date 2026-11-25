@@ -62,10 +62,10 @@ export default function ServicesSection() {
       aria-labelledby="services-section-title"
       className="w-full bg-[#FAF7EE] border-b border-black/[0.06] overflow-hidden"
     >
-      {/* 1440px Outer Container */}
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 xl:pl-[84px] xl:pr-[72px] py-14 sm:py-16 xl:py-[55px] flex flex-col items-center gap-9 sm:gap-11 xl:gap-[26px]">
+      {/* Fluid Outer Container */}
+      <div className="mx-auto w-full max-w-[min(94vw,1600px)] px-5 sm:px-8 md:px-12 xl:px-16 2xl:px-20 py-14 sm:py-16 xl:py-[55px] flex flex-col items-center gap-9 sm:gap-11 xl:gap-[26px]">
         {/* Section Heading Group */}
-        <div className="flex flex-col items-center text-center gap-2.5 sm:gap-3 max-w-[1284px] w-full">
+        <div className="flex flex-col items-center text-center gap-2.5 sm:gap-3 w-full">
           {/* Eyebrow */}
           <span className="font-body font-semibold text-[13px] sm:text-[14px] xl:text-[15px] leading-[24px] tracking-[0.24em] sm:tracking-[0.28em] text-[#C9A96A] uppercase">
             ONE DESTINATION. EVERY OCCASION.
@@ -85,17 +85,17 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Service Cards Grid (Figma: 1284px width, 466px height, 18px gap) */}
-        <div className="w-full max-w-[1284px] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 sm:gap-6 xl:gap-[18px] justify-items-center items-stretch">
+        {/* Service Cards Grid: Fluid responsive on wide / zoom-out screens */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-6 xl:gap-6 2xl:gap-8 justify-items-stretch items-stretch">
           {SERVICES.map((service) => (
             <article
               key={service.id}
-              className="group relative flex flex-col items-center w-full max-w-[307.5px] min-h-[466px] h-full transition-transform duration-300 hover:-translate-y-1.5"
+              className="group relative flex flex-col items-center w-full min-h-[466px] h-full transition-transform duration-300 hover:-translate-y-1.5"
             >
-              {/* Arched Photograph: 307.5px x 268px with 153.75px border-radius on top */}
+              {/* Arched Photograph: fluid width with rounded-t-full */}
               <Link
                 href={service.href}
-                className="relative w-full h-[268px] rounded-t-[154px] overflow-hidden shrink-0 z-0 bg-[#E8DCC9]/30 block cursor-pointer"
+                className="relative w-full h-[268px] xl:h-[280px] 2xl:h-[300px] rounded-t-full overflow-hidden shrink-0 z-0 bg-[#E8DCC9]/30 block cursor-pointer"
                 aria-label={service.linkLabel}
               >
                 <Image

@@ -83,7 +83,7 @@
 /* Six Proposed Amenities Grid / Row */
 .six-proposed-amenities {
   width: 100%;
-  max-width: 1296px;
+  max-width: min(94vw, 1600px);
   display: flex;
   flex-direction: row;
   justify-content: center;

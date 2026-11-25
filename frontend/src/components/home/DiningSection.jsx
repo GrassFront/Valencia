@@ -42,11 +42,11 @@ export default function DiningSection() {
       className="relative w-full bg-[#F5F0E5] border-b border-black/[0.06] overflow-hidden"
     >
       {/* Outer Container: Stacked cleanly on Mobile & Tablet, 2-column side-by-side on Desktop */}
-      <div className="mx-auto w-full max-w-[1440px] flex flex-col xl:flex-row items-stretch justify-between min-h-auto xl:h-[806px]">
+      <div className="mx-auto w-full max-w-[min(94vw,1600px)] flex flex-col xl:flex-row items-stretch justify-between min-h-auto xl:h-[806px]">
         {/* ============================================================== */}
         {/* Left Column: The Town House Restaurant Photograph */}
         {/* ============================================================== */}
-        <div className="relative w-full xl:w-[51.4%] xl:max-w-[740px] h-[320px] sm:h-[400px] md:h-[460px] xl:h-full shrink-0 overflow-hidden bg-[#E8DCC9]/30">
+        <div className="relative w-full xl:w-[50%] xl:max-w-none h-[320px] sm:h-[400px] md:h-[460px] xl:h-full shrink-0 overflow-hidden bg-[#E8DCC9]/30">
           <Image
             src="/images/homepage/homepage_diningSection.png"
             alt="The Town House - Neoclassical boutique luxury restaurant with refined candlelit tables and marble finishes"
@@ -60,11 +60,11 @@ export default function DiningSection() {
         {/* ============================================================== */}
         {/* Right Column: Dining Content */}
         {/* ============================================================== */}
-        <div className="w-full xl:w-[48.6%] xl:max-w-[700px] flex flex-col justify-between py-10 sm:py-12 md:py-14 xl:py-[42px] px-5 sm:px-8 md:px-10 lg:px-12 xl:px-[30px] 2xl:px-[36px] gap-8 sm:gap-9 md:gap-9 xl:gap-[23px] box-border min-w-0 max-w-[760px] xl:max-w-[700px] mx-auto xl:mx-0">
+        <div className="w-full xl:w-[50%] xl:max-w-none flex flex-col justify-between py-10 sm:py-12 md:py-14 xl:py-[42px] px-5 sm:px-8 md:px-10 lg:px-12 xl:px-[40px] 2xl:px-[48px] gap-8 sm:gap-9 md:gap-9 xl:gap-[23px] box-border min-w-0 mx-auto xl:mx-0">
           {/* ------------------------------------------------------------ */}
           {/* 1. Dining Introduction */}
           {/* ------------------------------------------------------------ */}
-          <div className="flex flex-col items-start gap-3 sm:gap-3.5 xl:gap-[12px] w-full max-w-[640px]">
+          <div className="flex flex-col items-start gap-3 sm:gap-3.5 xl:gap-[12px] w-full max-w-full">
             {/* Eyebrow with gold divider rule */}
             <div className="flex items-center gap-3 sm:gap-4 xl:gap-[18px] w-full">
               <span className="font-body font-semibold text-[12px] sm:text-[13px] leading-[24px] tracking-[0.26em] sm:tracking-[0.3em] text-[#AD824C] uppercase whitespace-nowrap">

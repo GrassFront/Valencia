@@ -122,7 +122,7 @@ export default function HeroBookingBar({
     <div
       ref={containerRef}
       className={classNames(
-        "relative z-30 w-full max-w-[1080px] lg:max-w-[1140px] xl:max-w-[1180px] rounded-[22px] bg-[#FBF5EA] p-3 sm:p-4 lg:px-4 xl:px-5 lg:py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.16)] border border-[#E8DCC9]/80",
+        "relative z-30 w-full max-w-[1140px] xl:max-w-[1240px] 2xl:max-w-[1360px] rounded-[22px] bg-[#FBF5EA] p-3 sm:p-4 lg:px-4 xl:px-5 lg:py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.16)] border border-[#E8DCC9]/80",
         className
       )}
       aria-label="Hotel booking search bar"
@@ -692,7 +692,7 @@ export default function HeroBookingBar({
             type="button"
             onClick={handleSearch}
             className={classNames(
-              "hero-booking-search-btn flex h-[48px] sm:h-[58px] lg:h-[54px] xl:h-[58px] w-full lg:w-auto lg:min-w-[160px] xl:min-w-[185px] whitespace-nowrap shrink-0 items-center justify-center gap-2.5 rounded-[8px] px-5 sm:px-6 transition-all shadow-md font-bold text-[15px] leading-[21px] font-body self-center cursor-pointer",
+              "hero-booking-search-btn flex h-[48px] sm:h-[58px] lg:h-[52px] xl:h-[58px] w-full lg:w-auto lg:min-w-[145px] xl:min-w-[170px] whitespace-nowrap shrink-0 items-center justify-center gap-2 xl:gap-2.5 rounded-[8px] px-4 xl:px-6 transition-all shadow-md font-bold text-[14px] xl:text-[15px] leading-[21px] font-body self-center cursor-pointer",
               buttonVariant === "gold"
                 ? "bg-[#C49A58] text-[#3A2A1A] hover:bg-[#b88f4c] active:bg-[#a67d3c]"
                 : "bg-[#1B4D32] text-[#FBF5EA] hover:bg-[#153e28] active:bg-[#10301f]"

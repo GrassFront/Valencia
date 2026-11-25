@@ -14,7 +14,7 @@
 /* Master Centered Grid Container matching 1380px full site grid */
 .room-categories-container {
   width: 100%;
-  max-width: 1380px;
+  max-width: min(94vw, 1600px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
