@@ -11,9 +11,9 @@ export default function FamilySection() {
       className="family-section relative w-full bg-[#FAF7EF] border-b border-black/[0.06] overflow-hidden"
     >
       <div className="family-container relative w-full max-w-[1440px] mx-auto flex flex-col xl:flex-row items-center xl:items-stretch justify-between py-[44px] md:py-[50px] xl:py-[60px] px-6 sm:px-10 lg:px-12 xl:pl-[45px] xl:pr-[70px] gap-8 xl:gap-[51px]">
-        {/* Architectural decoration watermark crop (bottom right, desktop only) */}
+        {/* Architectural decoration watermark crop (mobile bottom-right + desktop bottom-right) */}
         <div
-          className="family-bg-watermark hidden xl:block absolute right-0 bottom-0 pointer-events-none z-0"
+          className="family-bg-watermark block md:hidden xl:block absolute right-0 bottom-0 pointer-events-none z-0"
           aria-hidden="true"
         >
           <Image
@@ -38,41 +38,45 @@ export default function FamilySection() {
 
         {/* Right Column: Hospitality Family Copy & List */}
         <div className="family-content relative w-full max-w-[680px] xl:max-w-[710px] flex flex-col justify-between pt-2 xl:pt-[15px] z-10">
-          <div className="flex flex-col gap-[18px] xl:gap-[20px]">
-            {/* Eyebrow with gold divider rules */}
-            <div className="family-eyebrow-row flex items-center gap-[18px]">
-              <div className="family-eyebrow-divider w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
-              <span className="family-eyebrow-text font-body font-semibold text-[14px] sm:text-[15px] leading-[25px] tracking-[0.3em] text-[#BE9555] uppercase whitespace-nowrap">
-                THE FAMILY BEHIND VALENCIA
-              </span>
-              <div className="family-eyebrow-divider w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
+          <div className="family-copy-top flex flex-col gap-[18px] xl:gap-[20px]">
+            <div className="family-header-group flex flex-col gap-[18px] xl:gap-[20px]">
+              {/* Eyebrow with gold divider rules */}
+              <div className="family-eyebrow-row flex items-center gap-[18px]">
+                <div className="family-eyebrow-divider w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
+                <span className="family-eyebrow-text font-body font-semibold text-[14px] sm:text-[15px] leading-[25px] tracking-[0.3em] text-[#BE9555] uppercase sm:whitespace-nowrap">
+                  THE FAMILY BEHIND VALENCIA
+                </span>
+                <div className="family-eyebrow-divider family-eyebrow-divider-right w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
+              </div>
+
+              {/* Heading - exactly 2 lines */}
+              <h2
+                id="family-heading"
+                className="family-heading font-display font-normal text-[34px] sm:text-[44px] md:text-[50px] lg:text-[54px] xl:text-[58px] 2xl:text-[64px] leading-[1.08] text-[#1B4D32]"
+              >
+                <span className="block">Three destinations.</span>
+                <span className="block whitespace-normal xl:whitespace-nowrap">One spirit of hospitality.</span>
+              </h2>
             </div>
 
-            {/* Heading - exactly 2 lines */}
-            <h2
-              id="family-heading"
-              className="family-heading font-display font-normal text-[34px] sm:text-[44px] md:text-[50px] lg:text-[54px] xl:text-[58px] 2xl:text-[64px] leading-[1.08] text-[#1B4D32]"
-            >
-              <span className="block">Three destinations.</span>
-              <span className="block whitespace-normal xl:whitespace-nowrap">One spirit of hospitality.</span>
-            </h2>
+            <div className="family-paragraphs-group flex flex-col gap-[18px] xl:gap-[20px]">
+              {/* Introductory paragraphs - 3 lines each on desktop matching reference */}
+              <p className="family-body-text font-body font-normal text-[16px] sm:text-[18px] xl:text-[19px] leading-[27px] text-[#6E5A4A] max-w-[640px]">
+                VALENCIA is the flagship luxury boutique hotel of Yash Events
+                <br className="hidden xl:inline" />
+                {" "}Corporation, bringing Italian-inspired elegance and warm
+                <br className="hidden xl:inline" />
+                {" "}hospitality to Patna.
+              </p>
 
-            {/* Introductory paragraphs - 3 lines each on desktop matching reference */}
-            <p className="family-body-text font-body font-normal text-[16px] sm:text-[18px] xl:text-[19px] leading-[27px] text-[#6E5A4A] max-w-[640px]">
-              VALENCIA is the flagship luxury boutique hotel of Yash Events
-              <br className="hidden xl:inline" />
-              {" "}Corporation, bringing Italian-inspired elegance and warm
-              <br className="hidden xl:inline" />
-              {" "}hospitality to Patna.
-            </p>
-
-            <p className="family-body-text font-body font-normal text-[16px] sm:text-[18px] xl:text-[19px] leading-[27px] text-[#6E5A4A] max-w-[640px]">
-              Together with Umrao The Banquet and Hotel Jia International,
-              <br className="hidden xl:inline" />
-              {" "}it connects distinctive stays, meaningful celebrations and
-              <br className="hidden xl:inline" />
-              {" "}everyday travel through one hospitality family.
-            </p>
+              <p className="family-body-text font-body font-normal text-[16px] sm:text-[18px] xl:text-[19px] leading-[27px] text-[#6E5A4A] max-w-[640px]">
+                Together with Umrao The Banquet and Hotel Jia International,
+                <br className="hidden xl:inline" />
+                {" "}it connects distinctive stays, meaningful celebrations and
+                <br className="hidden xl:inline" />
+                {" "}everyday travel through one hospitality family.
+              </p>
+            </div>
           </div>
 
           {/* Hospitality Family List */}

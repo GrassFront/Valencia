@@ -207,7 +207,7 @@ export default function PropertiesComparison() {
             <button
               type="button"
               onClick={() => setSelectedMobileTab("valencia")}
-              className={`py-2 px-1 text-center rounded-md font-body text-[12.5px] font-bold transition-all ${selectedMobileTab === "valencia"
+              className={`py-2 px-1 text-center rounded-md font-body text-[11px] sm:text-[12.5px] leading-tight font-bold transition-all ${selectedMobileTab === "valencia"
                 ? "bg-[#204B36] text-[#F8F5EA] shadow-sm"
                 : "text-[#604A3B] hover:text-[#204B36]"
                 }`}
@@ -217,7 +217,7 @@ export default function PropertiesComparison() {
             <button
               type="button"
               onClick={() => setSelectedMobileTab("umrao")}
-              className={`py-2 px-1 text-center rounded-md font-body text-[12.5px] font-bold transition-all ${selectedMobileTab === "umrao"
+              className={`py-2 px-1 text-center rounded-md font-body text-[11px] sm:text-[12.5px] leading-tight font-bold transition-all ${selectedMobileTab === "umrao"
                 ? "bg-[#204B36] text-[#F8F5EA] shadow-sm"
                 : "text-[#604A3B] hover:text-[#204B36]"
                 }`}
@@ -227,7 +227,7 @@ export default function PropertiesComparison() {
             <button
               type="button"
               onClick={() => setSelectedMobileTab("jia")}
-              className={`py-2 px-1 text-center rounded-md font-body text-[12.5px] font-bold transition-all ${selectedMobileTab === "jia"
+              className={`py-2 px-1 text-center rounded-md font-body text-[11px] sm:text-[12.5px] leading-tight font-bold transition-all ${selectedMobileTab === "jia"
                 ? "bg-[#204B36] text-[#F8F5EA] shadow-sm"
                 : "text-[#604A3B] hover:text-[#204B36]"
                 }`}

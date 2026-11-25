@@ -94,7 +94,7 @@ export default function PatnaLocationsMap() {
                     />
                   )}
 
-                  <div className="flex items-center gap-5 sm:gap-6 py-4 sm:py-5 pl-7 sm:pl-9 pr-5">
+                  <div className="flex items-center gap-3.5 sm:gap-6 py-4 sm:py-5 pl-5 sm:pl-9 pr-4 sm:pr-5">
                     {/* Map Pin Icon in Gold */}
                     <div className="flex items-center justify-center shrink-0">
                       <div
@@ -233,7 +233,7 @@ export default function PatnaLocationsMap() {
                 </p>
 
                 {/* Currently selected location pill */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFAF5] border border-[#DECFB3] shadow-xs">
+                <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-[#FCFAF5] border border-[#DECFB3] shadow-xs max-w-full">
                   <div className="w-2 h-2 rounded-full bg-[#B99B62] animate-pulse" />
                   <span className="font-body font-bold text-[12px] text-[#174B34]">
                     Selected: {currentLoc.name}

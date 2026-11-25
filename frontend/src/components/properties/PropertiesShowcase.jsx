@@ -14,18 +14,19 @@ export default function PropertiesShowcase() {
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px] flex flex-col gap-6 sm:gap-7 md:gap-8">
         {/* Eyebrow & Section Heading */}
         <div className="flex flex-col items-start gap-2 sm:gap-3">
-          <div className="flex items-center gap-3">
-            <span className="font-body font-semibold text-[13px] sm:text-[14px] leading-[20px] tracking-[0.16em] text-[#C09B59] uppercase">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+            <span className="order-2 sm:order-1 font-body font-semibold text-[11.5px] sm:text-[14px] leading-[18px] sm:leading-[20px] tracking-[0.18em] sm:tracking-[0.16em] text-[#C09B59] uppercase">
               FIND YOUR DESTINATION
             </span>
-            <div className="w-[36px] sm:w-[40px] h-[1px] bg-[#C9A366]" aria-hidden="true" />
+            <div className="order-1 sm:order-2 w-[32px] sm:w-[40px] h-[1px] bg-[#C9A366]" aria-hidden="true" />
           </div>
 
           <h2
             id="showcase-heading"
-            className="font-display font-bold text-[34px] sm:text-[42px] md:text-[48px] lg:text-[51px] leading-[1.18] sm:leading-[1.22] text-[#174B34]"
+            className="font-display font-bold text-[clamp(30px,9vw,38px)] sm:text-[42px] md:text-[48px] lg:text-[51px] leading-[1.12] sm:leading-[1.22] text-[#174B34]"
           >
-            A place for every occasion.
+            A place for <br className="sm:hidden" />
+            every occasion.
           </h2>
         </div>
 
@@ -35,7 +36,7 @@ export default function PropertiesShowcase() {
           className="group relative w-full overflow-hidden rounded-[9px] border border-[#DECFB3] bg-[#FCFAF5] shadow-[0_4px_20px_rgba(27,45,35,0.04)] flex flex-col lg:flex-row items-stretch"
         >
           {/* Photo Column */}
-          <div className="relative w-full lg:w-[62%] min-h-[260px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[393px] overflow-hidden shrink-0">
+          <div className="relative w-full lg:w-[62%] min-h-[clamp(240px,70vw,320px)] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[393px] overflow-hidden shrink-0">
             <Image
               src="/images/Properties/properties_valencia.png"
               alt="Valencia Luxury Boutique Hotel Patna"

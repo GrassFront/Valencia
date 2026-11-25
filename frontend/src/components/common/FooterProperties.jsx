@@ -28,13 +28,17 @@ export default function FooterProperties({ variant = "primary" }) {
   const isSecondary = variant === "secondary" || variant === "green";
   const detailColor = isSecondary ? "text-[#F8F5EA]/90" : "text-[#CBBBA9]";
   const dividerColor = isSecondary ? "bg-[#C9A96A]/30" : "bg-[#C9A96A]/20";
+  const headingLineColor = isSecondary ? "bg-[#C9A96A]/35" : "bg-[#C9A96A]/30";
 
   return (
     <div className="flex flex-col">
       {/* Column Title */}
-      <h3 className="text-[11px] sm:text-[12px] font-semibold tracking-[0.25em] text-[#C9A96A] uppercase mb-1.5 sm:mb-2 font-body">
-        Our Properties
-      </h3>
+      <div className="flex items-center gap-4 mb-2.5 sm:mb-2">
+        <h3 className="text-[11px] sm:text-[12px] font-semibold tracking-[0.25em] text-[#C9A96A] uppercase font-body shrink-0">
+          Our Properties
+        </h3>
+        <div className={`sm:hidden flex-1 h-[1px] ${headingLineColor}`} aria-hidden="true" />
+      </div>
 
       {/* Properties List */}
       <div className="space-y-2 sm:space-y-2.5">

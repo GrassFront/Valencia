@@ -36,11 +36,17 @@ export default function Footer({ variant = "primary", className = "", style = {}
       {/* Main Content Container */}
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16 pt-5 sm:pt-6 lg:pt-6 pb-2.5">
         {/* 3 Columns with Vertical Dividers on Desktop */}
-        <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8 lg:gap-0">
+        <div className="flex flex-col lg:flex-row items-stretch justify-between gap-6 sm:gap-8 lg:gap-0">
           {/* Left Column: Brand, Tagline, Socials (~40% on desktop) */}
           <div className="w-full lg:w-[40%] lg:pr-10 xl:pr-14 flex flex-col items-center justify-start">
             <FooterBrand variant={variant} />
           </div>
+
+          {/* Mobile Horizontal Divider */}
+          <div
+            className={`sm:hidden w-full h-[1px] ${dividerClass}`}
+            aria-hidden="true"
+          />
 
           {/* Vertical Divider 1 */}
           <div
@@ -49,11 +55,17 @@ export default function Footer({ variant = "primary", className = "", style = {}
           />
 
           {/* Middle & Right Columns Container */}
-          <div className="w-full lg:w-[60%] flex flex-col sm:flex-row items-start justify-between gap-8 sm:gap-6 lg:gap-0">
+          <div className="w-full lg:w-[60%] flex flex-col sm:flex-row items-start justify-between gap-6 sm:gap-6 lg:gap-0">
             {/* Middle Column: Explore Navigation (~33% of remaining width) */}
             <div className="w-full sm:w-[35%] lg:w-[33%] lg:px-8 xl:px-12 flex flex-col justify-start">
-              <FooterExplore />
+              <FooterExplore variant={variant} />
             </div>
+
+            {/* Mobile Horizontal Divider */}
+            <div
+              className={`sm:hidden w-full h-[1px] ${dividerClass}`}
+              aria-hidden="true"
+            />
 
             {/* Vertical Divider 2 */}
             <div

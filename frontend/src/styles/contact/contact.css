@@ -1636,20 +1636,37 @@
 @media (max-width: 767px) {
   .contact-hero {
     min-height: 480px;
+    height: auto;
+  }
+
+  .contact-hero-bg {
+    height: 100%;
+  }
+
+  .contact-hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(33, 20, 13, 0.88) 0%,
+      rgba(33, 20, 13, 0.72) 60%,
+      rgba(33, 20, 13, 0.85) 100%
+    );
   }
 
   .contact-hero-inner {
-    padding: 30px 20px 0;
+    height: auto;
+    padding: 36px 20px 44px;
   }
 
   .contact-hero-heading {
-    font-size: 38px;
-    line-height: 46px;
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1.16;
   }
 
   .contact-hero-description {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 15.5px;
+    line-height: 23px;
   }
 
   .contact-hero-actions {
@@ -1662,10 +1679,11 @@
   .contact-hero-btn-secondary {
     width: 100%;
     height: 50px;
+    font-size: 13.5px;
   }
 
   .contact-properties {
-    padding: 24px 0 36px;
+    padding: 28px 0 36px;
   }
 
   .contact-properties-inner {
@@ -1673,26 +1691,63 @@
   }
 
   .contact-properties-title {
-    font-size: 38px;
-    line-height: 48px;
+    font-size: clamp(30px, 8.8vw, 38px);
+    line-height: 1.2;
   }
 
   .contact-properties-desc {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  .contact-prop-card {
+    width: 100%;
+    padding: 22px 18px 18px;
+  }
+
+  .contact-prop-title-row,
+  .contact-prop-sub-row,
+  .contact-prop-row.address-row,
+  .contact-prop-row.phone-row,
+  .contact-prop-row.mail-row,
+  .contact-prop-row.hours-row {
+    height: auto;
+    min-height: 36px;
+    gap: 12px;
+  }
+
+  .contact-prop-name,
+  .contact-prop-name.valencia-brand {
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: 1.2;
+  }
+
+  .contact-prop-details {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .contact-prop-text {
+    font-size: 15px;
+    line-height: 22px;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-prop-directions-spacer {
+    display: none;
   }
 
   .contact-find-way {
-    padding: 24px 16px;
+    padding: 28px 16px;
   }
 
   .contact-find-way-title {
-    font-size: 36px;
-    line-height: 48px;
+    font-size: clamp(30px, 8.8vw, 38px);
+    line-height: 1.2;
   }
 
   .contact-find-way-desc {
-    font-size: 16px;
+    font-size: 15.5px;
   }
 
   .contact-property-tabs {
@@ -1707,52 +1762,68 @@
   }
 
   .contact-location-details {
-    padding: 20px 16px;
+    padding: 22px 16px;
+    width: 100%;
+    height: auto;
   }
 
   .contact-location-name {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: 1.22;
   }
 
   .contact-location-address {
     width: 100%;
+    gap: 12px;
   }
 
   .contact-location-map {
-    height: 280px;
+    height: clamp(240px, 65vw, 320px);
   }
 
   .contact-enquiry {
-    padding: 24px 16px 36px;
+    padding: 28px 16px 36px;
+  }
+
+  .contact-enquiry-intro {
+    padding-top: 0;
+    margin-bottom: 24px;
   }
 
   .contact-enquiry-title {
-    font-size: 42px;
-    line-height: 48px;
+    font-size: clamp(34px, 9.5vw, 42px);
+    line-height: 1.15;
   }
 
   .contact-enquiry-desc {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 23px;
   }
 
   .contact-benefit-item {
     width: 100%;
-    gap: 16px;
+    height: auto;
+    min-height: 48px;
+    gap: 14px;
   }
 
   .contact-benefit-copy {
-    width: calc(100% - 64px);
+    width: calc(100% - 62px);
+  }
+
+  .contact-benefit-copy h4 {
+    font-size: clamp(18px, 5.2vw, 22px);
+    line-height: 1.3;
   }
 
   .contact-enquiry-form-card {
+    min-height: auto;
     padding: 24px 16px;
   }
 
   .contact-form-heading {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: clamp(28px, 8.5vw, 34px);
+    line-height: 1.2;
   }
 
   .contact-form-row-2 {
@@ -1769,6 +1840,16 @@
     width: 100%;
   }
 
+  .contact-form-phone-prefix {
+    padding-left: 12px;
+    font-size: 15px;
+  }
+
+  .contact-form-phone-input {
+    min-width: 0;
+    font-size: 15px;
+  }
+
   .contact-form-submit-btn {
     width: 100%;
     font-size: 13px;
@@ -1776,57 +1857,80 @@
   }
 
   .contact-social-section {
-    padding: 48px 16px;
+    min-height: auto;
+    padding: 44px 16px 64px;
+  }
+
+  .contact-social-bg-image {
+    height: 220px;
+    opacity: 0.3;
   }
 
   .contact-wa-heading {
-    font-size: 38px;
-    line-height: 48px;
+    font-size: clamp(30px, 8.8vw, 38px);
+    line-height: 1.2;
   }
 
   .contact-wa-desc {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16.5px;
+    line-height: 24px;
   }
 
   .contact-wa-btn {
     width: 100%;
-    height: 64px;
-    padding: 0 20px;
+    height: 56px;
+    padding: 0 18px;
     gap: 12px;
   }
 
+  .contact-wa-btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+
   .contact-wa-btn-text {
-    font-size: 16px;
+    font-size: clamp(13.5px, 4vw, 16px);
     letter-spacing: 1px;
   }
 
+  .contact-wa-btn-arrow {
+    font-size: 22px;
+  }
+
   .contact-social-heading {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.22;
   }
 
   .contact-social-desc {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15.5px;
+    line-height: 23px;
   }
 
   .contact-social-links {
     width: 100%;
-    gap: 12px;
+    height: auto;
+    gap: 10px;
   }
 
   .contact-social-link-item {
-    width: calc(33.333% - 8px);
+    width: calc(33.333% - 7px);
+    height: auto;
+    padding: 6px 0;
   }
 
   .contact-social-circle {
-    width: 64px;
-    height: 64px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .contact-social-label {
+    font-size: 10.5px;
+    letter-spacing: 1px;
   }
 
   .contact-reviews-link {
-    font-size: 16px;
-    letter-spacing: 2px;
+    font-size: clamp(14px, 4.2vw, 16px);
+    letter-spacing: 1.5px;
   }
 }

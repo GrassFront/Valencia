@@ -11,16 +11,22 @@ const EXPLORE_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function FooterExplore() {
+export default function FooterExplore({ variant = "primary" }) {
+  const isSecondary = variant === "secondary" || variant === "green";
+  const lineColor = isSecondary ? "bg-[#C9A96A]/35" : "bg-[#C9A96A]/30";
+
   return (
     <div className="flex flex-col">
       {/* Column Title */}
-      <h3 className="text-[11px] sm:text-[12px] font-semibold tracking-[0.25em] text-[#C9A96A] uppercase mb-1.5 sm:mb-2 font-body">
-        Explore
-      </h3>
+      <div className="flex items-center gap-4 mb-2.5 sm:mb-2">
+        <h3 className="text-[11px] sm:text-[12px] font-semibold tracking-[0.25em] text-[#C9A96A] uppercase font-body shrink-0">
+          Explore
+        </h3>
+        <div className={`sm:hidden flex-1 h-[1px] ${lineColor}`} aria-hidden="true" />
+      </div>
 
-      {/* Navigation Links */}
-      <ul className="space-y-0.5 sm:space-y-1">
+      {/* Navigation Links (2 columns on mobile, single column on sm+) */}
+      <ul className="grid grid-rows-4 grid-flow-col gap-x-6 gap-y-1.5 sm:block sm:space-y-1">
         {EXPLORE_LINKS.map((link) => (
           <li key={link.label}>
             <Link

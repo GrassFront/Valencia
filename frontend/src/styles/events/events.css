@@ -2196,27 +2196,45 @@
 @media (max-width: 768px) {
   .events-hero {
     height: auto;
-    min-height: 600px;
+    min-height: clamp(540px, 80svh, 660px);
+  }
+  .events-hero-gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(56, 37, 20, 0.92) 0%,
+      rgba(56, 37, 20, 0.72) 55%,
+      rgba(56, 37, 20, 0.88) 100%
+    );
   }
   .events-hero-content {
     position: relative;
     left: 0;
     top: 0;
     width: 100%;
+    max-width: 100%;
     height: auto;
-    padding: 40px 20px;
+    padding: 36px 20px 44px;
+    gap: 14px;
+  }
+  .events-hero-breadcrumb,
+  .events-hero-eyebrow,
+  .events-hero-subhead {
+    height: auto;
   }
   .events-hero-heading {
-    font-size: 38px;
-    line-height: 44px;
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1.15;
   }
   .events-hero-subhead {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 22px;
+    letter-spacing: 0.14em;
   }
   .events-hero-desc {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15.5px;
+    line-height: 23px;
   }
   .events-hero-actions {
     flex-direction: column;
@@ -2227,6 +2245,7 @@
   .events-hero-btn-primary,
   .events-hero-btn-secondary {
     width: 100%;
+    height: 50px;
   }
   .events-spaces-inner,
   .events-offer-inner,
@@ -2236,89 +2255,176 @@
   .events-enquiry-inner,
   .events-plan-inner,
   .events-faq-inner {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
   .events-section-title {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: clamp(28px, 8.5vw, 34px);
+    line-height: 1.22;
   }
   .events-section-subtitle {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 23px;
   }
-  .events-venue-card,
-  .events-host-card,
-  .events-plan-step-card {
+  .events-venue-card {
     width: 100%;
+    flex: none;
+    height: auto;
+    padding-bottom: 18px;
   }
   .events-venue-image-wrapper {
-    height: 220px;
+    width: 100%;
+    height: clamp(200px, 58vw, 250px);
+  }
+  .events-venue-info {
+    padding: 0 16px;
+  }
+  .events-venue-name,
+  .events-venue-area-row,
+  .events-venue-desc,
+  .events-venue-capacity,
+  .events-spaces-note {
+    height: auto;
   }
   .events-venue-btn {
     width: 100%;
   }
+  .events-offer-eyebrow-row {
+    height: auto;
+  }
   .events-offer-title {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.18;
   }
   .events-offer-subhead {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 21px;
+    line-height: 28px;
   }
   .events-offer-desc,
   .events-offer-list {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15.5px;
+    line-height: 23px;
   }
   .events-offer-btn {
     width: 100%;
+    height: 50px;
+    padding: 0 16px;
+  }
+  .events-offer-btn-text {
+    font-size: 13.5px;
+    letter-spacing: 0.1em;
+  }
+  .events-offer-image-wrapper {
+    height: clamp(240px, 68vw, 340px);
+  }
+
+  /* ---- Section 04: Events We Host ---- */
+  .events-host-section {
+    padding: 40px 0;
   }
   .events-host-header {
     flex-direction: column;
+    min-height: auto;
     gap: 16px;
   }
   .events-host-heading-box {
     max-width: 100%;
+    width: 100%;
   }
   .events-host-title {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: clamp(28px, 8.5vw, 34px);
+    line-height: 1.22;
   }
   .events-host-desc {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15.5px;
+    line-height: 23px;
   }
   .events-host-header-btn {
     width: 100%;
+    height: 50px;
   }
+  .events-host-grid {
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+    min-height: auto;
+  }
+  .events-host-card {
+    width: 100%;
+    flex: none;
+    height: auto;
+    min-height: auto;
+    padding: 0 0 20px 0;
+    gap: 14px;
+  }
+  .events-host-card-image {
+    width: 100%;
+    height: clamp(200px, 60vw, 260px);
+  }
+  .events-host-card-text {
+    padding: 0 18px;
+  }
+  .events-host-card-title {
+    font-size: clamp(24px, 7vw, 28px);
+    line-height: 1.25;
+  }
+  .events-host-card-desc {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  /* ---- Section 05: Stay for Celebration ---- */
   .events-stay-title {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.18;
   }
   .events-stay-desc {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15.5px;
+    line-height: 23px;
+  }
+  .events-stay-image-wrapper {
+    height: clamp(220px, 60vw, 300px);
+    min-height: auto;
   }
   .events-stay-card {
     padding: 20px 16px;
+    gap: 14px;
   }
   .events-stay-option {
     width: 100%;
+    gap: 14px;
+  }
+  .events-stay-copy {
+    max-width: calc(100% - 76px);
+  }
+  .events-stay-name {
+    font-size: clamp(22px, 6.2vw, 26px);
+    line-height: 1.25;
   }
   .events-stay-btn {
     width: 100%;
+    height: 50px;
   }
+  .events-stay-btn-text {
+    font-size: 14px;
+  }
+
+  /* ---- Section 06: Gallery ---- */
   .events-gallery-header {
     flex-direction: column;
+    min-height: auto;
     gap: 16px;
   }
   .events-gallery-title-box {
     max-width: 100%;
+    width: 100%;
   }
   .events-gallery-title {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.18;
+  }
+  .events-gallery-main-img {
+    height: clamp(220px, 62vw, 320px);
   }
   .events-gallery-side-imgs {
     flex-direction: column;
@@ -2326,14 +2432,33 @@
   .events-gallery-sub-img-1,
   .events-gallery-sub-img-2 {
     width: 100%;
-    height: 180px;
+    height: clamp(160px, 48vw, 200px);
+  }
+
+  /* ---- Section 07: Enquiry ---- */
+  .events-enquiry-section {
+    padding: 40px 0 48px;
   }
   .events-enquiry-heading {
-    font-size: 42px;
-    line-height: 48px;
+    font-size: clamp(32px, 9.5vw, 42px);
+    line-height: 1.15;
+  }
+  .events-enquiry-contact {
+    height: auto;
+    gap: 14px;
+  }
+  .events-contact-copy {
+    width: auto;
+    flex: 1;
+    min-width: 0;
   }
   .events-enquiry-card {
     padding: 24px 16px;
+    min-height: auto;
+  }
+  .events-form-title {
+    font-size: clamp(30px, 8.8vw, 38px);
+    line-height: 1.2;
   }
   .events-form-row {
     flex-direction: column;
@@ -2344,17 +2469,56 @@
   }
   .events-flexible-toggle {
     margin-top: 4px;
+    height: auto;
+  }
+  .events-form-submit-btn {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    padding: 0 16px;
+  }
+
+  /* ---- Section 08: Plan Together ---- */
+  .events-plan-section {
+    padding: 48px 0;
+  }
+  .events-plan-inner {
+    gap: 32px;
   }
   .events-plan-title {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.22;
+  }
+  .events-plan-step-card {
+    width: 100%;
+    min-height: auto;
+  }
+  .events-step-title {
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: 1.25;
+  }
+
+  /* ---- Section 09: FAQs ---- */
+  .events-faq-section {
+    padding: 48px 0;
   }
   .events-faq-title {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1.18;
+  }
+  .events-faq-item.open {
+    padding: 18px 14px;
+  }
+  .events-faq-item.closed {
+    padding: 16px 14px;
+    height: auto;
+    min-height: 64px;
   }
   .events-faq-question {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .events-faq-answer {
+    font-size: 15.5px;
+    line-height: 23px;
   }
 }

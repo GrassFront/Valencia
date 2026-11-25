@@ -1432,20 +1432,34 @@
 @media (max-width: 767px) {
   .meetings-hero {
     height: auto;
-    min-height: 520px;
+    min-height: clamp(500px, 75svh, 620px);
+  }
+  .meetings-hero-overlay {
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(33, 20, 13, 0.92) 0%,
+      rgba(33, 20, 13, 0.74) 55%,
+      rgba(33, 20, 13, 0.88) 100%
+    );
   }
   .meetings-hero-inner {
-    padding: 40px 16px 40px;
+    padding: 36px 18px 56px;
   }
   .meetings-hero-breadcrumb {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    font-size: 13.5px;
+  }
+  .meetings-hero-eyebrow {
+    font-size: 13px;
+    letter-spacing: 1.6px;
   }
   .meetings-hero-heading {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1.15;
   }
   .meetings-hero-desc {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 23px;
   }
   .meetings-hero-actions {
@@ -1457,15 +1471,47 @@
   .meetings-hero-btn-explore {
     width: 100%;
     height: 50px;
+    font-size: 13.5px;
+    letter-spacing: 1.5px;
+  }
+  .meetings-hero-badge {
+    right: 18px;
+    bottom: 14px;
+    font-size: 11px;
   }
 
+  .meetings-spaces {
+    padding: 40px 16px;
+  }
+  .meetings-spaces-eyebrow {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
   .meetings-spaces-title {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: clamp(28px, 8.5vw, 34px);
+    line-height: 1.22;
   }
   .meetings-spaces-subtitle {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 23px;
+  }
+  .meetings-spaces-row {
+    padding: 0;
+    gap: 24px;
+  }
+  .meetings-space-crop {
+    height: clamp(200px, 58vw, 260px);
+  }
+  .meetings-space-content {
+    padding: 18px 16px 20px;
+  }
+  .meetings-space-name {
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: 1.25;
+  }
+  .meetings-space-desc {
+    font-size: 15.5px;
+    line-height: 22px;
   }
   .meetings-space-details {
     flex-direction: column;
@@ -1475,54 +1521,161 @@
   .meetings-space-divider {
     display: none;
   }
+  .meetings-space-btn {
+    font-size: 13px;
+    letter-spacing: 1.4px;
+    gap: 10px;
+    padding: 0 14px;
+    height: 46px;
+  }
 
+  .meetings-facilities {
+    padding: 40px 16px;
+  }
+  .meetings-facilities-eyebrow {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
   .meetings-facilities-title {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: clamp(28px, 8.5vw, 34px);
+    line-height: 1.22;
   }
   .meetings-facilities-subtitle {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 23px;
   }
   .meetings-facility-col {
     width: 100%;
+    margin-bottom: 0;
+    padding: 0 8px;
+  }
+  .meetings-facility-name {
+    font-size: clamp(24px, 7vw, 28px);
+    line-height: 1.25;
   }
 
+  .meetings-formats {
+    padding: 40px 16px;
+  }
+  .meetings-formats-rule {
+    width: 32px;
+  }
+  .meetings-formats-eyebrow {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
   .meetings-formats-title {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: clamp(28px, 8.5vw, 34px);
+    line-height: 1.22;
   }
   .meetings-formats-subtitle {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 23px;
   }
+  .meetings-formats-row {
+    padding: 0;
+    gap: 24px;
+  }
+  .meetings-format-crop {
+    height: clamp(180px, 52vw, 210px);
+  }
+  .meetings-format-name {
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: 1.25;
+  }
+  .meetings-format-desc {
+    font-size: 15.5px;
+    line-height: 22px;
+  }
+  .meetings-format-btn {
+    font-size: 12.5px;
+    letter-spacing: 1.4px;
+    padding: 0 12px;
+    height: 46px;
+  }
 
+  .meetings-beyond {
+    padding: 40px 16px;
+  }
+  .meetings-beyond-eyebrow {
+    font-size: 12.5px;
+    letter-spacing: 3px;
+  }
   .meetings-beyond-heading {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.2;
   }
   .meetings-beyond-desc {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 23px;
   }
   .meetings-beyond-benefit {
     gap: 16px;
+    align-items: flex-start;
+  }
+  .meetings-beyond-benefit-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .meetings-beyond-benefit-title {
+    font-size: clamp(22px, 6.5vw, 26px);
+    line-height: 1.25;
+  }
+  .meetings-beyond-benefit-detail {
+    font-size: 15.5px;
+    line-height: 22px;
   }
   .meetings-beyond-btn {
     width: 100%;
+    height: 50px;
+    font-size: 13.5px;
+    letter-spacing: 1.5px;
+    padding: 0 16px;
+  }
+  .meetings-beyond-img-1,
+  .meetings-beyond-img-2 {
+    aspect-ratio: 16 / 10;
+    max-height: 260px;
   }
 
+  .meetings-enquiry {
+    padding: 40px 16px;
+  }
+  .meetings-enquiry-eyebrow {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
   .meetings-enquiry-heading {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.2;
+  }
+  .meetings-enquiry-desc {
+    font-size: 15.5px;
+    line-height: 23px;
+  }
+  .meetings-enquiry-contact {
+    gap: 16px;
+  }
+  .meetings-enquiry-contact-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .meetings-enquiry-contact-link,
+  .meetings-enquiry-contact-phone {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .meetings-enquiry-card {
+    min-height: auto;
+    padding: 24px 16px;
   }
   .meetings-form-title {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.2;
   }
   .meetings-form-subtitle {
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 15.5px;
+    line-height: 22px;
   }
   .meetings-form-row {
     flex-direction: column;
@@ -1530,5 +1683,10 @@
   }
   .meetings-setup-choices {
     gap: 14px 16px;
+  }
+  .meetings-submit-btn {
+    font-size: 13.5px;
+    letter-spacing: 1.8px;
+    height: 48px;
   }
 }

@@ -233,84 +233,146 @@
 @media (max-width: 767px) {
   /* Hero */
   .story-hero-container {
-    padding: 36px 20px 70px;
-    min-height: 480px;
+    padding: 36px 20px 44px;
+    min-height: clamp(580px, 82svh, 740px);
     height: auto;
+    justify-content: space-between;
+  }
+  .story-hero-bg img {
+    object-position: 62% center;
+  }
+  .story-hero-overlay {
+    max-width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(24, 15, 5, 0.88) 0%,
+      rgba(24, 15, 5, 0.65) 56%,
+      rgba(24, 15, 5, 0.14) 100%
+    );
+  }
+  .story-hero-content {
+    gap: 10px;
+    max-width: 100%;
+  }
+  .story-hero-breadcrumb {
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 4px;
   }
   .story-hero-eyebrow {
-    font-size: 14px;
-    letter-spacing: 0.2em;
-    line-height: 24px;
+    font-size: clamp(11px, 3.2vw, 13px);
+    letter-spacing: 0.22em;
+    line-height: 20px;
   }
   .story-hero-title {
-    font-size: 42px;
-    line-height: 50px;
+    font-size: clamp(42px, 13vw, 56px);
+    line-height: 1.06;
   }
   .story-hero-statement {
-    font-size: 26px;
-    line-height: 34px;
+    font-size: clamp(24px, 7.2vw, 31px);
+    line-height: 1.2;
   }
   .story-hero-description {
-    font-size: 15px;
-    line-height: 23px;
+    font-size: clamp(14px, 3.9vw, 16px);
+    line-height: 1.48;
+    max-width: min(245px, 68%);
+    margin-top: 4px;
   }
   .story-hero-scroll {
     position: static;
-    margin-top: 36px;
+    margin-top: 44px;
+    margin-bottom: 36px;
   }
 
   /* Family */
   .family-container {
     flex-direction: column;
-    padding: 36px 20px;
-    gap: 32px;
+    padding: 36px 20px 44px;
+    gap: 22px;
   }
-  .family-image-wrapper {
-    width: 100%;
-    height: 380px;
+  .family-content,
+  .family-copy-top {
+    display: contents;
   }
-  .family-eyebrow-row {
+  .family-header-group {
+    order: 1;
     width: 100%;
     gap: 12px;
   }
-  .family-eyebrow-divider {
-    width: 32px;
+  .family-image-wrapper {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(310px, 92vw, 420px);
+    border-radius: 4px;
   }
-  .family-eyebrow-text {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-  }
-  .family-heading {
-    font-size: 34px;
-    line-height: 42px;
-  }
-  .family-body-text {
-    font-size: 16px;
-    line-height: 24px;
+  .family-paragraphs-group {
+    order: 3;
+    width: 100%;
+    gap: 14px;
   }
   .family-cards-list {
+    order: 4;
     width: 100%;
+    max-width: 100%;
+    padding-top: 8px;
+    gap: 14px;
+  }
+  .family-eyebrow-row {
+    width: 100%;
+    height: auto;
+    gap: 12px;
+    align-items: center;
+  }
+  .family-eyebrow-divider {
+    width: 28px;
+  }
+  .family-eyebrow-divider-right {
+    display: none;
+  }
+  .family-eyebrow-text {
+    font-size: 11.5px;
+    line-height: 16px;
+    letter-spacing: 0.2em;
+    white-space: normal;
+    text-align: left;
+    max-width: 185px;
+  }
+  .family-heading {
+    font-size: clamp(30px, 9vw, 38px);
+    line-height: 1.12;
+  }
+  .family-body-text {
+    font-size: clamp(14.5px, 4vw, 16px);
+    line-height: 1.52;
   }
   .family-card-item {
     gap: 16px;
+    min-height: 56px;
   }
   .family-card-icon {
-    width: 58px;
-    height: 48px;
+    width: 54px;
+    height: 46px;
   }
   .family-card-title {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: clamp(21px, 6vw, 25px);
+    line-height: 1.25;
   }
   .family-card-desc {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 13.5px;
+    line-height: 19px;
   }
   .family-divider-line {
     width: 100%;
+    max-width: 100%;
   }
   .family-bg-watermark {
-    display: none;
+    display: block;
+    width: 165px;
+    height: 285px;
+    opacity: 0.32;
+    right: -10px;
+    bottom: -10px;
   }
 
   /* Philosophy */
@@ -318,17 +380,21 @@
     padding: 36px 20px 48px;
     gap: 30px;
   }
+  .philosophy-gold-accent {
+    width: 56px;
+  }
   .philosophy-eyebrow {
     font-size: 12px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.24em;
   }
   .philosophy-title {
-    font-size: 32px;
-    line-height: 38px;
+    font-size: clamp(28px, 8.6vw, 35px);
+    line-height: 1.15;
   }
   .philosophy-subtitle {
-    font-size: 15px;
-    line-height: 24px;
+    font-size: 14.5px;
+    line-height: 22px;
+    max-width: 300px;
   }
   .philosophy-item {
     max-width: 280px !important;
@@ -338,25 +404,31 @@
   }
   .philosophy-edge-left,
   .philosophy-edge-right {
-    display: none !important;
+    display: block !important;
+    width: 110px;
+    height: 210px;
+    opacity: 0.35;
   }
 
   /* Journey Timeline */
   .journey-container {
-    padding: 36px 20px 48px;
-    gap: 20px;
+    padding: 36px 20px 44px;
+    gap: 18px;
+  }
+  .journey-intro {
+    gap: 14px;
   }
   .journey-eyebrow {
-    font-size: 12px;
+    font-size: 11.5px;
     letter-spacing: 0.25em;
   }
   .journey-title {
-    font-size: 34px;
-    line-height: 42px;
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1.1;
   }
   .journey-subtitle {
-    font-size: 17px;
-    line-height: 25px;
+    font-size: 15.5px;
+    line-height: 22px;
   }
   .journey-disclaimer-box {
     align-items: flex-start;
@@ -368,73 +440,158 @@
   }
   .journey-timeline-row {
     flex-direction: column;
-    align-items: center;
-    gap: 36px;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 10px;
   }
   .journey-connector-line {
-    display: none !important;
+    display: block !important;
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    bottom: 0;
+    width: 1.5px;
+    height: auto;
+    background: #ECC378;
   }
   .journey-milestone {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 34px;
+    gap: 6px;
     max-width: 100%;
     height: auto;
   }
-  .journey-milestone-title {
-    font-size: 24px;
+  .journey-node {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 21px;
+    height: 21px;
+  }
+  .journey-year {
+    font-size: 20px;
     line-height: 32px;
+  }
+  .journey-milestone-title {
+    font-size: clamp(22px, 6.5vw, 26px);
+    line-height: 1.25;
+  }
+  .journey-property-label {
+    font-size: 11px;
+    line-height: 18px;
+    letter-spacing: 0.2em;
   }
   .journey-milestone-desc {
     font-size: 14px;
     line-height: 20px;
+    max-width: 100%;
+  }
+  .journey-illustration-wrap {
+    align-self: center;
+    margin: 12px auto 0;
+    max-width: 240px;
+    height: 145px;
+    padding-top: 0;
   }
 
   /* Chef */
   .chef-container {
     flex-direction: column;
-    padding: 32px 20px 42px;
-    gap: 28px;
+    padding: 36px 20px 44px;
+    gap: 20px;
+  }
+  .chef-content,
+  .chef-top-group {
+    display: contents;
+  }
+  .chef-header-group {
+    order: 1;
+    width: 100%;
+    gap: 8px;
   }
   .chef-portrait-wrap {
+    order: 2;
     width: 100%;
-    height: 360px;
+    max-width: 100%;
+    height: clamp(290px, 82vw, 370px);
+    border-radius: 10px;
+  }
+  .chef-portrait-wrap img {
+    object-position: top center;
+    border-radius: 10px;
+  }
+  .chef-bio-box {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 4px;
+    gap: 14px;
+  }
+  .chef-bottom-block {
+    order: 4;
+    width: 100%;
+    padding-top: 8px;
+    gap: 16px;
   }
   .chef-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.12em;
+    font-size: 11.5px;
+    line-height: 16px;
+    letter-spacing: 0.18em;
+    max-width: 185px;
   }
   .chef-title {
-    font-size: 38px;
-    line-height: 48px;
+    font-size: clamp(36px, 10.5vw, 44px);
+    line-height: 1.08;
   }
   .chef-role {
-    font-size: 14px;
-    letter-spacing: 0.12em;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.14em;
   }
   .chef-bio-p {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: clamp(14.5px, 4vw, 16px);
+    line-height: 1.52;
+  }
+  .chef-divider {
+    max-width: 100%;
   }
   .chef-stats-row {
     gap: 16px;
+    height: auto;
   }
   .chef-stat-number {
     font-size: 46px;
-    line-height: 56px;
+    line-height: 54px;
   }
   .chef-stat-desc {
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 14.5px;
+    line-height: 20px;
   }
   .chef-button {
     width: 100%;
-    max-width: 293px;
+    max-width: 100%;
+    justify-content: space-between;
+    padding: 0 22px;
+    height: 50px;
+    border-radius: 3px;
+  }
+  .chef-button-text {
+    font-size: 13px;
+    letter-spacing: 0.16em;
   }
   .chef-corner-bg {
-    display: none;
+    display: block;
+    width: 180px;
+    height: 155px;
+    opacity: 0.2;
+    right: -10px;
+    bottom: -10px;
   }
 
   /* CTA */
   .cta-container {
-    padding: 60px 20px 120px;
+    padding: 48px 20px 185px;
     min-height: auto;
     align-items: flex-start;
   }
@@ -443,28 +600,40 @@
     align-items: flex-start;
     gap: 24px;
   }
+  .cta-copy-box {
+    gap: 14px;
+  }
   .cta-eyebrow {
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 18px;
     letter-spacing: 0.25em;
+    max-width: 180px;
   }
   .cta-headline {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: clamp(36px, 10.5vw, 44px);
+    line-height: 1.12;
   }
   .cta-description {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: clamp(15px, 4.2vw, 16.5px);
+    line-height: 1.5;
   }
   .cta-button {
     width: 100%;
-    max-width: 376px;
-    height: 58px;
+    max-width: 100%;
+    height: 54px;
+    justify-content: space-between;
+    padding: 0 22px;
   }
   .cta-button-text {
-    font-size: 16px;
+    font-size: 13.5px;
+    letter-spacing: 0.08em;
   }
   .cta-bg-image {
-    height: 240px;
-    opacity: 0.30;
+    height: 175px;
+    opacity: 0.35;
+  }
+  .cta-bg-image img {
+    object-fit: cover;
+    object-position: left bottom;
   }
 }

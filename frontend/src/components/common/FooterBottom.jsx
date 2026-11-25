@@ -17,15 +17,15 @@ export default function FooterBottom({ variant = "primary" }) {
   };
 
   return (
-    <div className={`w-full pt-3 pb-1.5 border-t ${borderColor} mt-4 sm:mt-5 flex flex-col md:flex-row items-center justify-between gap-3`}>
+    <div className={`w-full pt-4 md:pt-3 pb-2 md:pb-1.5 border-t ${borderColor} mt-5 sm:mt-5 flex flex-col md:flex-row items-center justify-between gap-3`}>
       {/* Copyright */}
-      <p className={`text-[11.5px] sm:text-[12px] ${textColor} font-body text-center md:text-left`}>
+      <p className={`order-2 md:order-1 text-[11.5px] sm:text-[12px] ${textColor} font-body text-center md:text-left`}>
         © 2026 VALENCIA. All rights reserved.
       </p>
 
       {/* Legal Links and Back-to-Top */}
-      <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-5">
-        <div className={`flex items-center gap-2 sm:gap-2.5 text-[11.5px] sm:text-[12px] ${textColor} font-body`}>
+      <div className="order-1 md:order-2 flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-5 w-full md:w-auto">
+        <div className={`flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-[11.5px] sm:text-[12px] ${textColor} font-body`}>
           <Link
             href="/privacy-policy"
             className="hover:text-[#FAF4EB] transition-colors"
@@ -39,10 +39,10 @@ export default function FooterBottom({ variant = "primary" }) {
           >
             Terms &amp; Conditions
           </Link>
-          <span className="opacity-50">·</span>
+          <span className="hidden sm:inline opacity-50">·</span>
           <Link
             href="/booking-cancellation"
-            className="hover:text-[#FAF4EB] transition-colors"
+            className="basis-full sm:basis-auto text-center hover:text-[#FAF4EB] transition-colors"
           >
             Booking &amp; Cancellation
           </Link>
@@ -53,7 +53,7 @@ export default function FooterBottom({ variant = "primary" }) {
           type="button"
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#C9A96A]/60 flex items-center justify-center text-[#C9A96A] hover:text-[#FAF4EB] hover:border-[#FAF4EB] transition-all duration-300 hover:scale-105 ml-1 cursor-pointer"
+          className="hidden md:flex w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#C9A96A]/60 items-center justify-center text-[#C9A96A] hover:text-[#FAF4EB] hover:border-[#FAF4EB] transition-all duration-300 hover:scale-105 ml-1 cursor-pointer"
         >
           <span className="text-xs font-light select-none">↑</span>
         </button>

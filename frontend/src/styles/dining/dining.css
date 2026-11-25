@@ -92,6 +92,13 @@
   opacity: 0.8;
 }
 
+.dining-hero-mobile-rule,
+.dining-hero-scroll-indicator,
+.dining-taste-mobile-rule,
+.btn-plan-enquiry {
+  display: none;
+}
+
 .dining-hero-eyebrow {
   font-family: var(--font-manrope), "Manrope", sans-serif;
   font-weight: 400;
@@ -1935,195 +1942,650 @@
 
 /* Mobile Screens (<768px) */
 @media (max-width: 767px) {
+  /* ---- Section 01: Hero ---- */
   .dining-hero {
     height: auto;
-    min-height: 540px;
-    padding: 50px 0;
+    min-height: calc(100svh - 90px);
+    min-height: 680px;
+    padding: 48px 0 84px;
+    align-items: flex-start;
+  }
+
+  .dining-hero-bg img {
+    object-position: center bottom;
+  }
+
+  .dining-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(16, 10, 5, 0.72) 0%,
+      rgba(16, 10, 5, 0.56) 44%,
+      rgba(16, 10, 5, 0.14) 72%,
+      rgba(16, 10, 5, 0.65) 100%
+    );
   }
 
   .dining-hero-inner {
     padding: 0 20px;
+    align-items: flex-start;
+  }
+
+  .dining-hero-content {
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .dining-hero-breadcrumb {
+    font-size: 13px;
+    line-height: 18px;
+    color: rgba(248, 245, 234, 0.9);
+  }
+
+  .dining-hero-mobile-rule {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background-color: #C19A55;
+    margin: 2px 0 2px;
+  }
+
+  .dining-hero-eyebrow {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.18em;
   }
 
   .dining-hero-title {
-    font-size: 38px;
-    line-height: 44px;
+    font-size: clamp(32px, 10.2vw, 42px);
+    line-height: 1.1;
+    max-width: 340px;
   }
 
   .dining-hero-subtitle {
-    font-size: 17px;
-    line-height: 25px;
+    font-size: 16px;
+    line-height: 23px;
+    max-width: 265px;
   }
 
   .dining-hero-actions {
     flex-direction: column;
+    align-items: flex-start;
     width: 100%;
     gap: 12px;
+    margin-top: 8px;
   }
 
   .btn-hero-reserve,
   .btn-hero-explore {
-    width: 100%;
+    width: 222px;
+    max-width: 100%;
+    height: 48px;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.12em;
+    box-sizing: border-box;
   }
 
-  .dining-experience-section,
-  .dining-chef-section,
-  .dining-taste-section,
-  .dining-kitchen-section,
-  .dining-plan-section,
-  .dining-reservation-section,
-  .dining-private-section {
-    padding: 40px 18px;
+  .btn-hero-explore {
+    border: 1px solid rgba(248, 245, 234, 0.75);
+    background-color: rgba(16, 10, 5, 0.45);
+  }
+
+  .dining-hero-scroll-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .dining-hero-scroll-line {
+    width: 1px;
+    height: 20px;
+    background-color: rgba(248, 245, 234, 0.78);
+  }
+
+  .dining-hero-scroll-text {
+    font-family: var(--font-manrope), "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.2em;
+    color: #F8F5EA;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ---- Section 02: The Dining Experience ---- */
+  .dining-experience-section {
+    padding: 20px 18px 40px;
   }
 
   .dining-experience-container {
     flex-direction: column;
-    gap: 28px;
+    gap: 22px;
   }
 
   .dining-experience-image-wrap {
     width: 100%;
     max-width: 100%;
+    flex: none;
     aspect-ratio: 725 / 560;
     height: auto;
+    border-radius: 4px;
   }
 
   .dining-experience-content {
     width: 100%;
     max-width: 100%;
+    flex: none;
+    height: auto;
     padding-top: 0;
+    gap: 0;
+  }
+
+  .dining-experience-eyebrow {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.22em;
+    margin-bottom: 10px;
   }
 
   .dining-experience-title {
     font-size: 34px;
-    line-height: 42px;
+    line-height: 40px;
+    margin-bottom: 14px;
+  }
+
+  .dining-experience-desc {
+    font-size: 15px;
+    line-height: 22px;
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .dining-experience-divider {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .dining-qualities-row {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100%;
+    margin-bottom: 24px;
   }
 
   .dining-quality-item {
-    width: 100%;
+    flex: 1;
+    width: auto;
+    padding: 4px 10px;
+    gap: 8px;
   }
 
-  .btn-experience-highlights,
-  .btn-chef-highlights {
+  .dining-quality-item + .dining-quality-item {
+    border-left: 1px solid #C8A353;
+  }
+
+  .dining-quality-icon {
+    width: 44px;
+    height: 36px;
+  }
+
+  .dining-quality-label {
+    font-size: 18px;
+    line-height: 23px;
+    max-width: 135px;
+  }
+
+  .btn-experience-highlights {
     width: 100%;
+    height: 50px;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    border-radius: 4px;
+  }
+
+  /* ---- Section 03: Chef Michael ---- */
+  .dining-chef-section {
+    padding: 36px 18px 40px;
   }
 
   .dining-chef-container {
-    flex-direction: column-reverse;
-    gap: 28px;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .dining-chef-bio {
     width: 100%;
+    max-width: 100%;
+    flex: none;
+    height: auto;
     padding-top: 0;
+    gap: 20px;
+  }
+
+  .dining-chef-eyebrow {
+    font-size: 11.5px;
+    line-height: 16px;
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
   }
 
   .dining-chef-headline {
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 34px;
+    line-height: 40px;
+    margin-bottom: 18px;
   }
 
   .dining-chef-name {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .dining-chef-title {
+    font-size: 14.5px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .dining-chef-desc {
+    font-size: 15px;
+    line-height: 22px;
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .dining-chef-divider {
+    width: 100%;
+    margin: 0 0 14px 0;
+  }
+
+  .dining-chef-quote {
+    font-size: 14.5px;
+    line-height: 21px;
+  }
+
+  .btn-chef-highlights {
+    width: 100%;
+    height: 50px;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    border-radius: 5px;
   }
 
   .dining-chef-photo {
     width: 100%;
+    max-width: 100%;
+    flex: none;
     height: auto;
-    aspect-ratio: 503 / 589;
+    aspect-ratio: 503 / 540;
+    border-radius: 16px;
+  }
+
+  .dining-chef-photo img {
+    object-position: top center;
+  }
+
+  /* ---- Section 04: A Taste of Valencia ---- */
+  .dining-taste-section {
+    padding: 40px 18px;
+  }
+
+  .dining-taste-container {
+    gap: 22px;
   }
 
   .dining-taste-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+    display: contents;
+  }
+
+  .dining-taste-intro {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .dining-taste-eyebrow {
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0.22em;
+  }
+
+  .dining-taste-mobile-rule {
+    display: block;
+    width: 36px;
+    height: 1px;
+    background-color: #C5A361;
+    margin: 2px 0;
   }
 
   .dining-taste-title {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: 32px;
+    line-height: 36px;
   }
 
-  .btn-taste-reserve {
-    width: 100%;
+  .dining-taste-subtitle {
+    font-size: 14.5px;
+    line-height: 20px;
+    max-width: 290px;
   }
 
   .dining-taste-cards-grid {
+    order: 2;
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .dining-taste-card {
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .dining-taste-card-img {
+    height: 215px;
+  }
+
+  .dining-taste-card-body {
+    padding: 16px 18px 20px 18px;
+    gap: 6px;
+  }
+
+  .dining-taste-card-category {
+    font-size: 10.5px;
+    line-height: 14px;
+    letter-spacing: 0.2em;
+  }
+
+  .dining-taste-card-name {
+    font-size: 25px;
+    line-height: 32px;
+  }
+
+  .dining-taste-card-desc {
+    font-size: 14.5px;
+    line-height: 21px;
+  }
+
+  .btn-taste-reserve {
+    order: 3;
+    width: 100%;
+    height: 50px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    border-radius: 4px;
+  }
+
+  .dining-taste-notice {
+    order: 4;
+    margin-top: 0;
+  }
+
+  /* ---- Section 05: From our kitchen ---- */
+  .dining-kitchen-section {
+    padding: 36px 18px 40px;
+  }
+
+  .dining-kitchen-container {
+    gap: 20px;
   }
 
   .dining-kitchen-header {
-    flex-direction: column;
+    display: contents;
+  }
+
+  .dining-kitchen-intro {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
     align-items: flex-start;
-    gap: 18px;
+    gap: 6px;
+  }
+
+  .dining-kitchen-eyebrow {
+    font-size: 11.5px;
+    line-height: 16px;
+    letter-spacing: 0.22em;
   }
 
   .dining-kitchen-title {
     font-size: 36px;
-    line-height: 46px;
+    line-height: 40px;
+    max-width: 240px;
   }
 
-  .btn-kitchen-reserve {
-    width: 100%;
+  .dining-kitchen-subtitle {
+    font-size: 15.5px;
+    line-height: 22px;
   }
 
   .dining-kitchen-gallery {
+    order: 2;
     flex-direction: column;
     height: auto;
+    gap: 10px;
   }
 
   .dining-kitchen-card-large {
     width: 100%;
-    height: auto;
-    aspect-ratio: 619 / 525;
+    height: clamp(220px, 68vw, 290px);
+    aspect-ratio: auto;
+  }
+
+  .dining-kitchen-caption-large {
+    left: 16px;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    gap: 2px;
+  }
+
+  .dining-kitchen-dish-large {
+    font-size: 25px;
+    line-height: 31px;
+  }
+
+  .dining-kitchen-desc-large {
+    font-size: 13.5px;
+    line-height: 19px;
   }
 
   .dining-kitchen-right-col {
     width: 100%;
     height: auto;
+    gap: 10px;
   }
 
   .dining-kitchen-top-row {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: auto;
+    gap: 10px;
   }
 
   .dining-kitchen-card-small.card-comfort,
   .dining-kitchen-card-small.card-sweet {
     width: 100%;
-    height: auto;
-    aspect-ratio: 331 / 259;
+    height: clamp(148px, 44vw, 195px);
+    aspect-ratio: auto;
+  }
+
+  .dining-kitchen-top-row .dining-kitchen-caption-small {
+    left: 12px;
+    bottom: 12px;
+    width: calc(100% - 24px);
+    gap: 2px;
+  }
+
+  .dining-kitchen-top-row .dining-kitchen-num {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .dining-kitchen-top-row .dining-kitchen-dish-small {
+    font-size: clamp(16px, 4.8vw, 20px);
+    line-height: 1.2;
   }
 
   .dining-kitchen-card-bottom {
     width: 100%;
-    height: auto;
-    aspect-ratio: 675 / 252;
+    height: clamp(195px, 58vw, 250px);
+    aspect-ratio: auto;
+  }
+
+  .dining-kitchen-card-bottom .dining-kitchen-caption-small {
+    left: 16px;
+    bottom: 16px;
+    width: calc(100% - 32px);
+  }
+
+  .dining-kitchen-card-bottom .dining-kitchen-dish-small {
+    font-size: 23px;
+    line-height: 29px;
+  }
+
+  .btn-kitchen-reserve {
+    order: 3;
+    width: 100%;
+    height: 50px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    border-radius: 4px;
+  }
+
+  .dining-kitchen-footer-notice {
+    order: 4;
+  }
+
+  /* ---- Section 06: Plan your visit ---- */
+  .dining-plan-section {
+    padding: 40px 18px 44px;
+  }
+
+  .dining-plan-container {
+    gap: 14px;
+  }
+
+  .dining-plan-eyebrow {
+    font-size: 11.5px;
+    line-height: 16px;
+    letter-spacing: 0.22em;
+  }
+
+  .dining-plan-title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .dining-plan-subtitle {
+    font-size: 15.5px;
+    line-height: 22px;
+    margin-bottom: 4px;
   }
 
   .dining-plan-cards {
     grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 4px;
   }
 
   .dining-plan-card {
     height: auto;
     padding: 24px 20px;
+    gap: 8px;
   }
 
-  .dining-plan-title {
-    font-size: 34px;
-    line-height: 44px;
+  .dining-plan-card-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 2px;
   }
 
-  .dining-plan-subtitle {
-    font-size: 18px;
-    line-height: 26px;
+  .dining-plan-card-title {
+    font-size: 25px;
+    line-height: 32px;
+  }
+
+  .dining-plan-hours-row {
+    max-width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+
+  .dining-plan-hours-label {
+    font-size: 15.5px;
+    line-height: 22px;
+  }
+
+  .dining-plan-hours-time {
+    font-size: 14.5px;
+    line-height: 22px;
+  }
+
+  .dining-plan-hours-note {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .dining-plan-address {
+    font-size: 15.5px;
+    line-height: 23px;
+  }
+
+  .dining-plan-directions-link {
+    font-size: 15.5px;
+    line-height: 22px;
+  }
+
+  .dining-plan-contact-sub {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .dining-plan-contact-value {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .btn-plan-enquiry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 0 22px;
+    margin-top: 8px;
+    background-color: #174D37;
+    border-radius: 4px;
+    font-family: var(--font-manrope), "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.16em;
+    color: #F8F5EA;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-plan-enquiry:hover {
+    background-color: #103b29;
+  }
+
+  /* ---- Section 07: Reservation Request ---- */
+  .dining-reservation-section {
+    padding: 40px 18px;
   }
 
   .dining-reservation-container {
@@ -2133,7 +2595,10 @@
 
   .dining-reservation-left {
     width: 100%;
+    max-width: 100%;
+    flex: none;
     padding-top: 0;
+    gap: 16px;
   }
 
   .dining-reservation-title {
@@ -2141,9 +2606,21 @@
     line-height: 44px;
   }
 
+  .dining-reservation-desc {
+    font-size: 15.5px;
+    line-height: 23px;
+  }
+
+  .dining-reservation-rule {
+    width: 100%;
+    max-width: 240px;
+  }
+
   .dining-reservation-form-card {
     width: 100%;
-    padding: 24px 16px;
+    flex: none;
+    min-height: auto;
+    padding: 24px 18px;
   }
 
   .dining-form-title {
@@ -2151,19 +2628,39 @@
     line-height: 40px;
   }
 
+  .dining-form-subtitle {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
   .dining-form-row {
     flex-direction: column;
     gap: 14px;
   }
 
+  /* ---- Section 08: Private Dining ---- */
+  .dining-private-section {
+    padding: 40px 18px;
+  }
+
   .dining-private-container {
     flex-direction: column-reverse;
-    gap: 28px;
+    gap: 24px;
   }
 
   .dining-private-intro {
     width: 100%;
+    max-width: 100%;
+    flex: none;
+    height: auto;
     padding-top: 0;
+    gap: 20px;
+  }
+
+  .dining-private-eyebrow {
+    font-size: 11.5px;
+    letter-spacing: 0.22em;
+    margin-bottom: 12px;
   }
 
   .dining-private-title {
@@ -2171,14 +2668,22 @@
     line-height: 42px;
   }
 
+  .dining-private-desc {
+    font-size: 15.5px;
+    line-height: 23px;
+    margin-bottom: 14px;
+  }
+
   .dining-private-image-wrap {
     width: 100%;
     max-width: 100%;
+    flex: none;
     aspect-ratio: 708 / 419;
     height: auto;
   }
 
   .btn-private-event {
     width: 100%;
+    height: 50px;
   }
 }

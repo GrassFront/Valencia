@@ -12,9 +12,9 @@ export default function ChefSection() {
       className="chef-section relative w-full bg-[#FAF7EE] overflow-hidden"
     >
       <div className="chef-container relative w-full max-w-[1440px] mx-auto py-[33px] md:py-[40px] xl:py-[50px] px-6 sm:px-10 lg:px-12 xl:pl-[50px] xl:pr-[60px] flex flex-col xl:flex-row items-center xl:items-stretch justify-between gap-8 xl:gap-[66px] isolation-isolate">
-        {/* Architectural corner background watermark (desktop only, pinned to bottom right) */}
+        {/* Architectural corner background watermark (mobile + desktop bottom right) */}
         <div
-          className="chef-corner-bg hidden xl:block absolute right-0 bottom-0 pointer-events-none z-0"
+          className="chef-corner-bg block md:hidden xl:block absolute right-0 bottom-0 pointer-events-none z-0"
           aria-hidden="true"
         >
           <Image
@@ -40,24 +40,26 @@ export default function ChefSection() {
         {/* Right Column: Chef Profile Content */}
         <div className="chef-content relative z-10 w-full max-w-[704px] flex flex-col justify-between pt-2 xl:pt-[24px]">
           {/* Top Content Block */}
-          <div className="flex flex-col gap-[14px]">
-            {/* Eyebrow */}
-            <span className="chef-eyebrow font-body font-semibold text-[13px] sm:text-[14px] leading-[26px] tracking-[0.15em] text-[#B78B32] uppercase">
-              THE PEOPLE BEHIND THE EXPERIENCE
-            </span>
+          <div className="chef-top-group flex flex-col gap-[14px]">
+            <div className="chef-header-group flex flex-col gap-[10px] sm:gap-[14px]">
+              {/* Eyebrow */}
+              <span className="chef-eyebrow font-body font-semibold text-[13px] sm:text-[14px] leading-[26px] tracking-[0.15em] text-[#B78B32] uppercase">
+                THE PEOPLE BEHIND THE EXPERIENCE
+              </span>
 
-            {/* Heading */}
-            <h2
-              id="chef-heading"
-              className="chef-title font-display font-normal text-[38px] sm:text-[50px] md:text-[56px] xl:text-[68px] leading-[1.2] text-[#164633]"
-            >
-              Meet Chef Michael.
-            </h2>
+              {/* Heading */}
+              <h2
+                id="chef-heading"
+                className="chef-title font-display font-normal text-[38px] sm:text-[50px] md:text-[56px] xl:text-[68px] leading-[1.2] text-[#164633]"
+              >
+                Meet Chef Michael.
+              </h2>
 
-            {/* Role */}
-            <span className="chef-role font-body font-semibold text-[13px] sm:text-[15px] xl:text-[16px] leading-[30px] tracking-[0.18em] text-[#593B2A] uppercase">
-              CELEBRITY CHEF · CULINARY TRAINER
-            </span>
+              {/* Role */}
+              <span className="chef-role font-body font-semibold text-[13px] sm:text-[15px] xl:text-[16px] leading-[30px] tracking-[0.18em] text-[#593B2A] uppercase">
+                CELEBRITY CHEF · CULINARY TRAINER
+              </span>
+            </div>
 
             {/* Biography: Paragraph 1 takes 3 lines, Paragraph 2 takes 2 lines */}
             <div className="chef-bio-box flex flex-col gap-[14px] sm:gap-[16px] pt-1 max-w-[640px]">
@@ -77,7 +79,7 @@ export default function ChefSection() {
           </div>
 
           {/* Bottom Block: Divider, Stats and Button */}
-          <div className="flex flex-col gap-[14px] pt-6 xl:pt-4">
+          <div className="chef-bottom-block flex flex-col gap-[14px] pt-6 xl:pt-4">
             {/* Gold Divider */}
             <div className="chef-divider w-full max-w-[382px] h-[1px] bg-[#D7B777]" />
 

@@ -54,6 +54,7 @@ export default function DiningTaste() {
         <div className="dining-taste-header">
           <div className="dining-taste-intro">
             <p className="dining-taste-eyebrow">A TASTE OF VALENCIA</p>
+            <span className="dining-taste-mobile-rule" aria-hidden="true" />
             <h2 className="dining-taste-title">Discover your next favourite.</h2>
             <p className="dining-taste-subtitle">
               A glimpse of the flavours that could make your visit memorable.
@@ -67,7 +68,7 @@ export default function DiningTaste() {
             aria-label="Reserve a table for menu tasting"
           >
             <span>RESERVE A TABLE</span>
-            <ArrowRightIcon className="w-[16px] h-[16px] ml-2" strokeWidth={1.8} />
+            <ArrowRightIcon className="w-[16px] h-[16px] ml-2 hidden md:inline-block" strokeWidth={1.8} />
           </a>
         </div>
 

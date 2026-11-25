@@ -4,6 +4,14 @@ import Image from "next/image";
 import { ArrowRightIcon } from "./DiningIcons";
 
 export default function DiningPlanVisit() {
+  const scrollTo = (id) => (e) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       className="dining-plan-section"
@@ -119,6 +127,17 @@ export default function DiningPlanVisit() {
             </a>
           </article>
         </div>
+
+        {/* Mobile-only bottom Dining Enquiry CTA */}
+        <a
+          href="#reservation"
+          onClick={scrollTo("reservation")}
+          className="btn-plan-enquiry"
+          aria-label="Dining enquiry"
+        >
+          <span>DINING ENQUIRY</span>
+          <ArrowRightIcon className="w-[18px] h-[18px]" strokeWidth={1.8} />
+        </a>
       </div>
     </section>
   );

@@ -42,7 +42,7 @@ export default function PhilosophySection() {
     >
       {/* Architectural edge decoration - Left (Classical Roman Arches) */}
       <div
-        className="philosophy-edge-left hidden md:block absolute left-0 bottom-0 pointer-events-none z-0 opacity-80 lg:opacity-100"
+        className="philosophy-edge-left block absolute left-0 bottom-0 pointer-events-none z-0 opacity-80 lg:opacity-100"
         aria-hidden="true"
       >
         <Image
@@ -56,7 +56,7 @@ export default function PhilosophySection() {
 
       {/* Architectural edge decoration - Right (Classical Arch & Cypress) */}
       <div
-        className="philosophy-edge-right hidden md:block absolute right-0 bottom-0 pointer-events-none z-0 opacity-80 lg:opacity-100"
+        className="philosophy-edge-right block absolute right-0 bottom-0 pointer-events-none z-0 opacity-80 lg:opacity-100"
         aria-hidden="true"
       >
         <Image
@@ -168,32 +168,35 @@ export default function PhilosophySection() {
           ))}
         </div>
 
-        {/* --- 3. Mobile Layout (< 768px): 1 column stacked --- */}
-        <div className="flex md:hidden flex-col items-center gap-10 w-full max-w-[320px] relative z-[2]">
-          {PRINCIPLES.map((principle) => (
-            <div
-              key={principle.title}
-              className="flex flex-col items-center text-center gap-2.5 w-full"
-            >
-              <div className="relative w-[64px] h-[64px] shrink-0">
-                <Image
-                  src={principle.iconSrc}
-                  alt={principle.alt}
-                  fill
-                  sizes="64px"
-                  className="object-contain"
-                />
+        {/* --- 3. Mobile Layout (< 768px): 1 column stacked with horizontal dividers --- */}
+        <div className="flex md:hidden flex-col items-center gap-7 w-full max-w-[360px] relative z-[2]">
+          {PRINCIPLES.map((principle, index) => (
+            <div key={principle.title} className="w-full flex flex-col items-center gap-7">
+              <div className="flex flex-col items-center text-center gap-2.5 w-full">
+                <div className="relative w-[64px] h-[64px] shrink-0">
+                  <Image
+                    src={principle.iconSrc}
+                    alt={principle.alt}
+                    fill
+                    sizes="64px"
+                    className="object-contain"
+                  />
+                </div>
+
+                <h3 className="font-display font-normal text-[23px] leading-[30px] text-[#173E33]">
+                  {principle.title}
+                </h3>
+
+                <p className="font-body font-normal text-[14.5px] leading-[21px] text-[#795A46] max-w-[270px]">
+                  {principle.line1}
+                  <br />
+                  {principle.line2}
+                </p>
               </div>
 
-              <h3 className="font-display font-normal text-[22px] leading-[30px] text-[#173E33]">
-                {principle.title}
-              </h3>
-
-              <p className="font-body font-normal text-[14px] leading-[22px] text-[#795A46] max-w-[260px]">
-                {principle.line1}
-                <br />
-                {principle.line2}
-              </p>
+              {index < PRINCIPLES.length - 1 && (
+                <div className="w-full h-[1px] bg-[#DDCDB3]" aria-hidden="true" />
+              )}
             </div>
           ))}
         </div>

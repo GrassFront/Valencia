@@ -40,18 +40,21 @@ export default function DiningHero() {
             <span>Dining</span>
           </nav>
 
+          {/* Mobile-only decorative gold rule below breadcrumb */}
+          <span className="dining-hero-mobile-rule" aria-hidden="true" />
+
           {/* Eyebrow */}
           <p className="dining-hero-eyebrow">DINING AT VALENCIA</p>
 
-          {/* Title - exactly 2 lines */}
+          {/* Title - exactly 2 lines on desktop */}
           <h1 className="dining-hero-title">
             A table worth<br />
             coming together for.
           </h1>
 
-          {/* Subtitle - exactly 2 lines */}
+          {/* Subtitle - exactly 2 lines on desktop */}
           <p className="dining-hero-subtitle">
-            Thoughtfully crafted flavours, warm hospitality<br />
+            Thoughtfully crafted flavours, warm hospitality{" "}<br className="hidden md:inline" />
             and moments to savour.
           </p>
 
@@ -79,6 +82,17 @@ export default function DiningHero() {
           </div>
         </div>
       </div>
+
+      {/* Mobile-only Scroll to Explore Indicator */}
+      <a
+        href="#dining-experience"
+        onClick={scrollTo("dining-experience")}
+        className="dining-hero-scroll-indicator"
+        aria-label="Scroll to explore dining"
+      >
+        <span className="dining-hero-scroll-line" aria-hidden="true" />
+        <span className="dining-hero-scroll-text">SCROLL TO EXPLORE</span>
+      </a>
     </section>
   );
 }

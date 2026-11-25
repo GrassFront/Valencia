@@ -205,7 +205,7 @@ export default function DiningReservation() {
 
                     {/* Branding Calendar Popover */}
                     {calendarOpen && (
-                      <div className="absolute top-[calc(100%+6px)] left-0 z-50 shadow-2xl">
+                      <div className="absolute top-[calc(100%+6px)] left-0 z-50 shadow-2xl max-w-[calc(100vw-48px)]">
                         <BookingCalendarPopover
                           selectedDate={formData.preferredDate}
                           onSelectDate={(dateStr) => {
