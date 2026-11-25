@@ -1942,6 +1942,7 @@
 
 /* Mobile Screens (<768px) */
 @media (max-width: 767px) {
+
   /* ---- Section 01: Hero ---- */
   .dining-hero {
     height: auto;
@@ -1956,13 +1957,11 @@
   }
 
   .dining-hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(16, 10, 5, 0.72) 0%,
-      rgba(16, 10, 5, 0.56) 44%,
-      rgba(16, 10, 5, 0.14) 72%,
-      rgba(16, 10, 5, 0.65) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(16, 10, 5, 0.72) 0%,
+        rgba(16, 10, 5, 0.56) 44%,
+        rgba(16, 10, 5, 0.14) 72%,
+        rgba(16, 10, 5, 0.65) 100%);
   }
 
   .dining-hero-inner {
@@ -2131,7 +2130,7 @@
     gap: 8px;
   }
 
-  .dining-quality-item + .dining-quality-item {
+  .dining-quality-item+.dining-quality-item {
     border-left: 1px solid #C8A353;
   }
 
