@@ -50,7 +50,7 @@ export default function ChefSection() {
               {/* Heading */}
               <h2
                 id="chef-heading"
-                className="chef-title font-display font-normal text-[38px] sm:text-[50px] md:text-[56px] xl:text-[68px] leading-[1.2] text-[#164633]"
+                className="chef-title font-display font-normal text-[34px] sm:text-[44px] md:text-[50px] xl:text-[54px] 2xl:text-[58px] leading-[1.18] text-[#164633] whitespace-normal xl:whitespace-nowrap"
               >
                 Meet Chef Michael.
               </h2>
@@ -61,19 +61,16 @@ export default function ChefSection() {
               </span>
             </div>
 
-            {/* Biography: Paragraph 1 takes 3 lines, Paragraph 2 takes 2 lines */}
+            {/* Biography: Paragraph 1 in exactly 3 lines, Paragraph 2 in 2 lines */}
             <div className="chef-bio-box flex flex-col gap-[14px] sm:gap-[16px] pt-1 max-w-[640px]">
               <p className="chef-bio-p font-body font-normal text-[16px] sm:text-[18px] xl:text-[19px] leading-[28px] text-[#745240] max-w-[620px]">
-                With 15+ years across 4- and 5-star hotel kitchens, Chef
-                <br className="hidden xl:inline" />
-                {" "}Michael brings professional expertise and a thoughtful
-                <br className="hidden xl:inline" />
-                {" "}approach to food.
+                <span className="block">With 15+ years across 4- and 5-star hotel kitchens,</span>
+                <span className="block">Chef Michael brings professional expertise and a</span>
+                <span className="block">thoughtful approach to food.</span>
               </p>
               <p className="chef-bio-p font-body font-normal text-[16px] sm:text-[18px] xl:text-[19px] leading-[28px] text-[#745240] max-w-[620px]">
-                At VALENCIA, his culinary guidance shapes a dining
-                <br className="hidden xl:inline" />
-                {" "}experience rooted in flavour, care and warm hospitality.
+                <span className="block">At VALENCIA, his culinary guidance shapes a dining</span>
+                <span className="block">experience rooted in flavour, care and warm hospitality.</span>
               </p>
             </div>
           </div>

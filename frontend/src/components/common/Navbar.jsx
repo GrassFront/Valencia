@@ -23,7 +23,7 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
       aria-label="Main Navigation"
       className="relative w-full bg-[#F8F5EA] border-b border-[#E8DCC9]/50 z-40"
     >
-      <div className="mx-auto flex h-[90px] w-full max-w-[min(94vw,2400px)] items-center justify-between px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-12">
+      <div className="mx-auto flex h-[90px] w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-12 xl:px-14">
         {/* Brand / Valencia logo */}
         <Link
           href="/"

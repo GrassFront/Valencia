@@ -10,7 +10,7 @@ export default function FamilySection() {
       aria-labelledby="family-heading"
       className="family-section relative w-full bg-[#FAF7EF] border-b border-black/[0.06] overflow-hidden"
     >
-      <div className="family-container relative w-full max-w-[1440px] mx-auto flex flex-col xl:flex-row items-center xl:items-stretch justify-between py-[44px] md:py-[50px] xl:py-[60px] px-6 sm:px-10 lg:px-12 xl:pl-[45px] xl:pr-[70px] gap-8 xl:gap-[51px]">
+      <div className="family-container relative w-full max-w-[1440px] mx-auto flex flex-col xl:flex-row items-center xl:items-stretch justify-between py-[44px] md:py-[50px] xl:py-[60px] px-6 sm:px-10 lg:px-12 xl:px-14 gap-8 xl:gap-[51px]">
         {/* Architectural decoration watermark crop (mobile bottom-right + desktop bottom-right) */}
         <div
           className="family-bg-watermark block md:hidden xl:block absolute right-0 bottom-0 pointer-events-none z-0"
@@ -37,25 +37,26 @@ export default function FamilySection() {
         </div>
 
         {/* Right Column: Hospitality Family Copy & List */}
-        <div className="family-content relative w-full max-w-[680px] xl:max-w-[710px] flex flex-col justify-between pt-2 xl:pt-[15px] z-10">
+        <div className="family-content relative w-full max-w-[680px] xl:max-w-[700px] flex-1 min-w-0 flex flex-col justify-between pt-2 xl:pt-[15px] z-10">
           <div className="family-copy-top flex flex-col gap-[18px] xl:gap-[20px]">
             <div className="family-header-group flex flex-col gap-[18px] xl:gap-[20px]">
               {/* Eyebrow with gold divider rules */}
-              <div className="family-eyebrow-row flex items-center gap-[18px]">
-                <div className="family-eyebrow-divider w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
-                <span className="family-eyebrow-text font-body font-semibold text-[14px] sm:text-[15px] leading-[25px] tracking-[0.3em] text-[#BE9555] uppercase sm:whitespace-nowrap">
+              <div className="family-eyebrow-row flex items-center gap-[18px] max-w-full">
+                <div className="family-eyebrow-divider w-[60px] sm:w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
+                <span className="family-eyebrow-text font-body font-semibold text-[13px] sm:text-[15px] leading-[25px] tracking-[0.25em] sm:tracking-[0.3em] text-[#BE9555] uppercase whitespace-nowrap">
                   THE FAMILY BEHIND VALENCIA
                 </span>
-                <div className="family-eyebrow-divider family-eyebrow-divider-right w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
+                <div className="family-eyebrow-divider family-eyebrow-divider-right w-[60px] sm:w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
               </div>
 
-              {/* Heading - exactly 2 lines */}
+              {/* Heading - 3 lines matching SS3 layout without right-side overflow */}
               <h2
                 id="family-heading"
-                className="family-heading font-display font-normal text-[34px] sm:text-[44px] md:text-[50px] lg:text-[54px] xl:text-[58px] 2xl:text-[64px] leading-[1.08] text-[#1B4D32]"
+                className="family-heading font-display font-normal text-[32px] sm:text-[40px] md:text-[46px] xl:text-[52px] 2xl:text-[56px] leading-[1.15] text-[#1B4D32]"
               >
                 <span className="block">Three destinations.</span>
-                <span className="block whitespace-normal xl:whitespace-nowrap">One spirit of hospitality.</span>
+                <span className="block">One spirit of</span>
+                <span className="block">hospitality.</span>
               </h2>
             </div>
 

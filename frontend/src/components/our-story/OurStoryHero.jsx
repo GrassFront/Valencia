@@ -14,27 +14,27 @@ export default function OurStoryHero() {
   return (
     <section
       aria-label="Our Story Hero"
-      className="story-hero-section relative w-full bg-[#35220E] overflow-hidden"
+      className="story-hero-section relative w-full bg-[#35220E] overflow-hidden min-h-[598px]"
     >
-      <div className="story-hero-container relative w-full max-w-[1440px] mx-auto min-h-[598px] flex flex-col justify-between">
-        {/* Background Image */}
-        <div className="story-hero-bg absolute inset-0 z-0 pointer-events-none">
-          <Image
-            src="/images/OurStory/story_hero.png"
-            alt="Valencia grand lobby"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </div>
-
-        {/* Dark readability gradient overlay on the left */}
-        <div
-          className="story-hero-overlay absolute left-0 top-0 w-full max-w-[799px] h-full z-[1] pointer-events-none"
-          aria-hidden="true"
+      {/* Background Image - Full Viewport Width */}
+      <div className="story-hero-bg absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <Image
+          src="/images/OurStory/story_hero.png"
+          alt="Valencia grand lobby"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
+      </div>
 
+      {/* Dark readability gradient overlay on the left */}
+      <div
+        className="story-hero-overlay absolute inset-0 w-full h-full z-[1] pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <div className="story-hero-container relative z-[2] w-full max-w-[1440px] mx-auto min-h-[598px] flex flex-col justify-between">
         {/* Hero copy */}
         <div className="story-hero-content relative z-[2] max-w-[650px] flex flex-col gap-3">
           {/* Breadcrumb */}

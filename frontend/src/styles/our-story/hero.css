@@ -6,29 +6,9 @@
 .story-hero-section {
   position: relative;
   width: 100%;
+  min-height: 598px;
   background-color: #35220e;
   overflow: hidden;
-}
-
-.story-hero-container {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  min-height: 598px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 72px 24px 48px 32px;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-@media (min-width: 1280px) {
-  .story-hero-container {
-    height: 598px;
-    padding: 72px 48px 0 95px;
-  }
 }
 
 .story-hero-bg {
@@ -49,14 +29,34 @@
 
 .story-hero-overlay {
   position: absolute;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100%;
-  max-width: 799px;
   height: 100%;
-  background: linear-gradient(90deg, rgba(33, 21, 6, 0.94) 0%, rgba(33, 21, 6, 0.82) 55%, rgba(33, 21, 6, 0) 100%);
+  background: linear-gradient(90deg, rgba(33, 21, 6, 0.95) 0%, rgba(33, 21, 6, 0.85) 45%, rgba(33, 21, 6, 0.35) 75%, rgba(33, 21, 6, 0) 100%);
   z-index: 1;
   pointer-events: none;
+}
+
+.story-hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 598px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 72px 24px 48px 32px;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+@media (min-width: 1280px) {
+  .story-hero-container {
+    height: 598px;
+    padding: 72px 48px 48px 95px;
+  }
 }
 
 .story-hero-content {
