@@ -206,7 +206,7 @@ function RoomCardItem({ room }) {
 
   return (
     <article className="room-card" aria-label={room.title}>
-      {/* 1. Photo with Carousel & Concept Badge */}
+      {/* 1. Photo with Carousel */}
       <div className="room-photo-wrapper">
         <Image
           src={room.images[currentImgIndex]}
@@ -217,9 +217,6 @@ function RoomCardItem({ room }) {
           unoptimized
           priority={room.id === "deluxe-room"}
         />
-
-        {/* Concept Image Badge */}
-        <span className="concept-image-badge">CONCEPT IMAGE</span>
 
         {/* Carousel Prev/Next Buttons */}
         <button
@@ -239,18 +236,6 @@ function RoomCardItem({ room }) {
         >
           <ChevronRight size={16} strokeWidth={2.2} />
         </button>
-
-        {/* Carousel Indicator Dots */}
-        <div className="photo-dots-indicator" aria-hidden="true">
-          {room.images.map((_, idx) => (
-            <span
-              key={idx}
-              className={`photo-dot ${
-                idx === currentImgIndex ? "photo-dot-active" : ""
-              }`}
-            />
-          ))}
-        </div>
       </div>
 
       {/* 2. Room Content */}
