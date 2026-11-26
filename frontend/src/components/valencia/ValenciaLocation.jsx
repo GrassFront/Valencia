@@ -37,89 +37,89 @@ export default function ValenciaLocation() {
         <div className="h-[24px] sm:h-[49px]" aria-hidden="true" />
 
         {/* Location Content Row */}
-        <div className="w-full max-w-[1344px] flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-8 lg:gap-8 xl:gap-[36px] text-left">
+        <div className="w-full max-w-[1240px] flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-8 lg:gap-10 xl:gap-[48px] text-left">
           {/* Left Column: Arrival Guidance */}
-          <div className="w-full lg:w-[44%] xl:w-[458px] flex flex-col justify-between shrink-0">
+          <div className="w-full lg:w-[42%] xl:w-[440px] flex flex-col justify-between shrink-0">
             <div className="flex flex-col items-start">
               {/* Hotel Titles */}
-              <h4 className="font-display font-bold text-[42px] sm:text-[50px] lg:text-[58px] leading-[1] lg:leading-[58px] text-[#164C36]">
+              <h4 className="font-display font-bold text-[40px] sm:text-[48px] lg:text-[54px] leading-[1.05] text-[#164C36]">
                 VALENCIA
               </h4>
-              <p className="font-display italic font-bold text-[24px] sm:text-[28px] lg:text-[32px] leading-[38px] sm:leading-[49px] text-[#543E30]">
+              <p className="font-display italic text-[22px] sm:text-[26px] lg:text-[28px] leading-[36px] text-[#543E30] mt-1">
                 A Luxury Boutique Hotel
               </p>
 
-              <div className="h-[14px] sm:h-[22px]" aria-hidden="true" />
+              <div className="h-[18px] sm:h-[24px]" aria-hidden="true" />
 
               {/* Property Address Item */}
-              <div className="w-full flex items-center gap-4 sm:gap-[24px] min-h-[78px]">
-                <div className="w-[40px] h-[40px] shrink-0 relative flex items-center justify-center">
+              <div className="w-full flex items-center gap-4 sm:gap-[20px]">
+                <div className="w-[36px] h-[36px] shrink-0 relative flex items-center justify-center">
                   <Image
                     src="/images/ValenciaPage/MapIcon.png"
                     alt="Location Pin"
-                    width={40}
-                    height={40}
+                    width={36}
+                    height={36}
                     className="object-contain"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display font-bold text-[22px] sm:text-[26px] lg:text-[29px] leading-[36px] text-[#543E30]">
+                  <span className="font-display font-bold text-[20px] sm:text-[23px] lg:text-[25px] leading-[30px] text-[#543E30]">
                     Patna, Bihar, India
                   </span>
-                  <span className="font-body font-normal text-[16px] sm:text-[18px] lg:text-[20px] leading-[25px] text-[#543E30]">
+                  <span className="font-body font-normal text-[14px] sm:text-[16px] leading-[22px] text-[#6E5A4A]">
                     Full address to be confirmed.
                   </span>
                 </div>
               </div>
 
-              <div className="h-[14px] sm:h-[20px]" aria-hidden="true" />
+              <div className="h-[16px] sm:h-[22px]" aria-hidden="true" />
 
               {/* Divider */}
               <div className="w-full h-[1px] bg-[#BD9749]" aria-hidden="true" />
 
-              <div className="h-[16px] sm:h-[28px]" aria-hidden="true" />
+              <div className="h-[18px] sm:h-[24px]" aria-hidden="true" />
 
               {/* Arriving by Air */}
-              <div className="w-full flex items-center gap-4 sm:gap-[24px] min-h-[96px]">
-                <div className="w-[66px] sm:w-[76px] h-[66px] sm:h-[76px] shrink-0 relative flex items-center justify-center">
+              <div className="w-full flex items-center gap-4 sm:gap-[18px]">
+                <div className="w-[52px] sm:w-[58px] h-[52px] sm:h-[58px] shrink-0 relative flex items-center justify-center">
                   <Image
                     src="/images/ValenciaPage/PlaneIcon.png"
                     alt="Arriving by air"
-                    width={76}
-                    height={76}
+                    width={58}
+                    height={58}
                     className="object-contain"
                   />
                 </div>
-                <div className="w-[1px] h-[70px] sm:h-[78px] bg-[#BD9749] shrink-0" aria-hidden="true" />
+                <div className="w-[1px] h-[52px] sm:h-[58px] bg-[#BD9749] shrink-0" aria-hidden="true" />
                 <div className="flex flex-col">
-                  <span className="font-display font-bold text-[22px] sm:text-[25px] lg:text-[28px] leading-[35px] text-[#543E30]">
+                  <span className="font-display font-bold text-[20px] sm:text-[22px] leading-[28px] text-[#543E30]">
                     Arriving by air
                   </span>
-                  <span className="font-body font-normal text-[15px] sm:text-[17px] lg:text-[20px] leading-[25px] text-[#543E30]">
+                  <span className="font-body font-normal text-[14px] sm:text-[15px] leading-[22px] text-[#6E5A4A]">
                     Contact our team for guidance from Patna Airport.
                   </span>
                 </div>
               </div>
 
-              <div className="h-[14px] sm:h-[22px]" aria-hidden="true" />
+              <div className="h-[16px] sm:h-[22px]" aria-hidden="true" />
 
               {/* Arriving by Rail */}
-              <div className="w-full flex items-center gap-4 sm:gap-[24px] min-h-[96px]">
-                <div className="w-[66px] sm:w-[76px] h-[66px] sm:h-[76px] shrink-0 relative flex items-center justify-center">
+              <div className="w-full flex items-center gap-4 sm:gap-[18px]">
+                <div className="w-[52px] sm:w-[58px] h-[52px] sm:h-[58px] shrink-0 relative flex items-center justify-center">
                   <Image
                     src="/images/ValenciaPage/TrainIcon.png"
                     alt="Arriving by rail"
-                    width={76}
-                    height={76}
+                    width={58}
+                    height={58}
                     className="object-contain"
                   />
                 </div>
-                <div className="w-[1px] h-[70px] sm:h-[78px] bg-[#BD9749] shrink-0" aria-hidden="true" />
+                <div className="w-[1px] h-[52px] sm:h-[58px] bg-[#BD9749] shrink-0" aria-hidden="true" />
                 <div className="flex flex-col">
-                  <span className="font-display font-bold text-[22px] sm:text-[25px] lg:text-[28px] leading-[35px] text-[#543E30]">
+                  <span className="font-display font-bold text-[20px] sm:text-[22px] leading-[28px] text-[#543E30]">
                     Arriving by rail
                   </span>
-                  <span className="font-body font-normal text-[15px] sm:text-[17px] lg:text-[20px] leading-[25px] text-[#543E30]">
+                  <span className="font-body font-normal text-[14px] sm:text-[15px] leading-[22px] text-[#6E5A4A]">
                     Ask our team for the best route from your arrival station.
                   </span>
                 </div>
@@ -127,12 +127,12 @@ export default function ValenciaLocation() {
             </div>
 
             {/* GET DIRECTIONS Button */}
-            <div className="pt-6 sm:pt-8">
+            <div className="pt-6 sm:pt-8 mt-auto">
               <Link
                 href="/contact"
-                className="w-full h-[62px] sm:h-[72px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[9px] flex items-center justify-center shadow-md hover:shadow-lg group"
+                className="w-full h-[52px] sm:h-[56px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[6px] flex items-center justify-center shadow-sm hover:shadow-md group"
               >
-                <span className="font-display font-bold text-[19px] sm:text-[21px] lg:text-[23px] leading-[29px] text-[#FAF6EB] flex items-center gap-3">
+                <span className="font-body font-semibold text-[15px] sm:text-[16px] tracking-[0.1em] text-[#FAF6EB] flex items-center gap-3 uppercase">
                   <span>GET DIRECTIONS</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
@@ -141,7 +141,7 @@ export default function ValenciaLocation() {
           </div>
 
           {/* Right Column: Illustrative Location Map Preview */}
-          <div className="w-full lg:w-[54%] xl:w-[834px] h-[360px] sm:h-[480px] md:h-[540px] lg:h-[580px] xl:h-[632px] rounded-[24px] border-2 border-[#D7C294] bg-[#EFE4D0] relative overflow-hidden flex flex-col items-center justify-between p-4 sm:p-6 shadow-inner shrink-0">
+          <div className="w-full lg:w-[56%] xl:flex-1 h-[360px] sm:h-[460px] md:h-[500px] lg:h-[520px] xl:h-[540px] rounded-[20px] border border-[#D7C294] bg-[#EFE4D0] relative overflow-hidden flex flex-col items-center justify-between p-5 sm:p-6 shadow-sm shrink-0">
             {/* SVG Roads & Parks Background */}
             <svg
               className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-85"
@@ -183,7 +183,6 @@ export default function ValenciaLocation() {
               />
 
               {/* Major Roads Grid (Cream / White strokes) */}
-              {/* Main diagonal highways */}
               <path
                 d="M-20 120 C180 180 380 240 850 360"
                 stroke="#FAF6EB"
@@ -227,26 +226,26 @@ export default function ValenciaLocation() {
               />
             </svg>
 
-            {/* Pill: LOCATION PREVIEW */}
-            <div className="relative z-10 px-6 sm:px-8 py-2 rounded-full bg-[#FAF6EB] border border-[#BD9749] shadow-sm">
-              <span className="font-body font-bold text-[14px] sm:text-[17px] leading-[21px] tracking-[2px] sm:tracking-[3px] text-[#543E30] uppercase">
+            {/* Pill: LOCATION PREVIEW at top right */}
+            <div className="relative z-10 self-end px-5 py-1.5 rounded-full bg-[#FAF6EB] border border-[#BD9749] shadow-sm">
+              <span className="font-body font-semibold text-[13px] sm:text-[14px] leading-[20px] tracking-[2px] text-[#543E30] uppercase">
                 LOCATION PREVIEW
               </span>
             </div>
 
             {/* Center Map Marker */}
-            <div className="relative z-10 flex flex-col items-center my-auto">
+            <div className="relative z-10 flex flex-col items-center my-auto -mt-2">
               {/* Hotel Marker Badge */}
-              <div className="px-6 sm:px-8 py-3 rounded-[17px] bg-[#FAF6EB] border border-[#C8B386] shadow-lg mb-2">
-                <span className="font-display font-bold text-[24px] sm:text-[32px] leading-[40px] text-[#164C36] whitespace-nowrap">
+              <div className="px-6 sm:px-8 py-2.5 rounded-[14px] bg-[#FAF6EB] border border-[#C8B386] shadow-md mb-2">
+                <span className="font-display font-bold text-[24px] sm:text-[28px] leading-[36px] text-[#164C36] whitespace-nowrap">
                   VALENCIA · Patna
                 </span>
               </div>
 
-              {/* Pin Icon */}
-              <div className="relative w-12 sm:w-14 h-12 sm:h-14 flex items-center justify-center animate-bounce duration-1000">
+              {/* Pin Icon (clean static with drop-shadow) */}
+              <div className="relative w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center">
                 <svg
-                  className="w-12 sm:w-14 h-12 sm:h-14 drop-shadow-md"
+                  className="w-10 sm:w-12 h-10 sm:h-12 drop-shadow-md"
                   viewBox="0 0 48 48"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -261,24 +260,24 @@ export default function ValenciaLocation() {
             </div>
 
             {/* Bottom Notice: Exact location coming soon */}
-            <div className="relative z-10 w-full max-w-[648px] min-h-[90px] sm:min-h-[106px] rounded-[16px] bg-[#FAF6EB] border border-[#D7C294] p-4 sm:pl-[34px] sm:pr-6 flex items-center gap-4 sm:gap-[22px] shadow-md">
-              <div className="w-[38px] sm:w-[44px] h-[38px] sm:h-[44px] shrink-0 relative flex items-center justify-center">
+            <div className="relative z-10 w-full max-w-[560px] rounded-[14px] bg-[#FAF6EB] border border-[#D7C294] p-3.5 sm:px-6 flex items-center gap-4 sm:gap-[18px] shadow-sm self-start ml-0 sm:ml-2">
+              <div className="w-[32px] sm:w-[36px] h-[32px] sm:h-[36px] shrink-0 relative flex items-center justify-center">
                 <Image
                   src="/images/ValenciaPage/MapIcon.png"
                   alt="Location"
-                  width={40}
-                  height={40}
+                  width={34}
+                  height={34}
                   className="object-contain"
                 />
               </div>
 
-              <div className="w-[1px] h-[50px] sm:h-[62px] bg-[#BD9749] shrink-0" aria-hidden="true" />
+              <div className="w-[1px] h-[40px] sm:h-[46px] bg-[#BD9749] shrink-0" aria-hidden="true" />
 
               <div className="flex flex-col">
-                <span className="font-display font-bold text-[20px] sm:text-[24px] lg:text-[28px] leading-[28px] sm:leading-[35px] text-[#543E30]">
+                <span className="font-display font-bold text-[18px] sm:text-[22px] leading-[26px] sm:leading-[30px] text-[#543E30]">
                   Exact location coming soon
                 </span>
-                <span className="font-body font-normal text-[14px] sm:text-[17px] lg:text-[19px] leading-[20px] sm:leading-[24px] text-[#543E30]">
+                <span className="font-body font-normal text-[13px] sm:text-[15px] leading-[18px] sm:leading-[22px] text-[#6E5A4A]">
                   Map and directions will be updated once confirmed.
                 </span>
               </div>

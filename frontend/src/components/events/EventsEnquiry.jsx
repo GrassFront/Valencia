@@ -270,17 +270,16 @@ export default function EventsEnquiry({
                       type="button"
                       disabled={formData.flexibleDates}
                       onClick={() => setCalendarOpen((prev) => !prev)}
-                      className={`events-input flex items-center justify-start gap-2.5 text-left cursor-pointer ${
-                        formData.flexibleDates ? "opacity-50 cursor-not-allowed bg-gray-50" : ""
-                      }`}
+                      className={`events-input flex items-center justify-start gap-2.5 text-left cursor-pointer ${formData.flexibleDates ? "opacity-50 cursor-not-allowed bg-gray-50" : ""
+                        }`}
                     >
                       <CalendarDays size={16} className="text-[#8A8885] shrink-0" />
                       <span className={formData.eventDate ? "text-[#233028]" : "text-[#8A8885]"}>
                         {formData.flexibleDates
                           ? "Dates are flexible"
                           : formData.eventDate
-                          ? formatDisplayDate(formData.eventDate)
-                          : "Select date"}
+                            ? formatDisplayDate(formData.eventDate)
+                            : "Select date"}
                       </span>
                     </button>
 

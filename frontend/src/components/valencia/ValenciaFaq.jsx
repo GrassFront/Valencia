@@ -91,8 +91,8 @@ export default function ValenciaFaq() {
                 key={item.id}
                 className={`transition-all duration-200 ${
                   isOpen
-                    ? "bg-[#F1E8D7] border-l-[4px] border-[#164C36] px-5 sm:px-8 lg:pl-[44px] lg:pr-[37px] pt-[19px] pb-[20px]"
-                    : "border-b border-[#E1D2B3] px-5 sm:px-8 lg:px-[34px] py-4 lg:h-[77px] flex flex-col justify-center"
+                    ? "bg-[#F1E8D7] border-l-[4px] border-[#164C36] px-5 sm:px-7 py-5"
+                    : "border-b border-[#E1D2B3] px-2 sm:px-4 py-4 sm:py-[18px] flex flex-col justify-center"
                 }`}
               >
                 {/* Question Header */}
@@ -103,15 +103,13 @@ export default function ValenciaFaq() {
                   className="w-full flex items-center justify-between text-left gap-4 cursor-pointer"
                 >
                   <span
-                    className={`font-body font-bold text-[18px] sm:text-[22px] lg:text-[25px] leading-[31px] text-[#543E30] ${
-                      isOpen ? "lg:text-[26px] lg:leading-[33px]" : ""
-                    }`}
+                    className="font-body font-semibold text-[17px] sm:text-[19px] leading-[26px] text-[#3D2817]"
                   >
                     {item.question}
                   </span>
 
                   <span
-                    className="font-body font-normal text-[32px] sm:text-[40px] lg:text-[42px] leading-[1] text-[#164C36] shrink-0 select-none w-8 text-center"
+                    className="font-body font-medium text-[24px] leading-none text-[#164C36] shrink-0 select-none w-6 text-center"
                     aria-hidden="true"
                   >
                     {isOpen ? "−" : "+"}
@@ -120,16 +118,16 @@ export default function ValenciaFaq() {
 
                 {/* Expanded Answer Content */}
                 {isOpen && (
-                  <div className="mt-3.5 flex flex-col items-start animate-in fade-in duration-200">
-                    <p className="font-body font-normal text-[16px] sm:text-[19px] lg:text-[21px] leading-[24px] sm:leading-[26px] text-[#543E30] max-w-[1110px]">
+                  <div className="mt-3 flex flex-col items-start animate-in fade-in duration-200">
+                    <p className="font-body font-normal text-[14px] sm:text-[15px] leading-[22px] text-[#543E30] max-w-[1050px]">
                       {item.answer}
                     </p>
 
                     {item.linkText && (
-                      <div className="mt-3.5">
+                      <div className="mt-2.5">
                         <a
                           href={item.linkHref}
-                          className="font-body font-bold text-[16px] sm:text-[19px] lg:text-[21px] leading-[26px] text-[#164C36] underline hover:text-[#BD9749] transition-colors inline-block"
+                          className="font-body font-semibold text-[14px] sm:text-[15px] leading-[22px] text-[#164C36] underline hover:text-[#BD9749] transition-colors inline-block"
                         >
                           {item.linkText}
                         </a>
@@ -145,44 +143,44 @@ export default function ValenciaFaq() {
         {/* Spacing 39px */}
         <div className="h-[24px] sm:h-[39px]" aria-hidden="true" />
 
-        {/* Still Have a Question Banner (width 1240px, height 97px) */}
+        {/* Still Have a Question Banner (width 1240px) */}
         <div
           id="contact"
-          className="w-full max-w-[1240px] min-h-[97px] rounded-[6px] bg-[#F1E8D7] p-5 sm:px-8 lg:pl-[40px] lg:pr-[30px] flex flex-col md:flex-row items-center justify-between gap-5 md:gap-[30px] text-left shadow-sm"
+          className="w-full max-w-[1240px] rounded-[6px] bg-[#F1E8D7] px-5 py-4 sm:px-8 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 text-left shadow-sm"
         >
-          <div className="flex items-center gap-5 sm:gap-[30px] w-full md:w-auto">
+          <div className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto">
             {/* Chat Icon */}
-            <div className="w-[48px] sm:w-[54px] h-[48px] sm:h-[54px] shrink-0 relative flex items-center justify-center">
+            <div className="w-[44px] sm:w-[48px] h-[44px] sm:h-[48px] shrink-0 relative flex items-center justify-center">
               <Image
                 src="/images/ValenciaPage/chatIcon.png"
                 alt="Chat assistance"
-                width={54}
-                height={54}
+                width={48}
+                height={48}
                 className="object-contain"
               />
             </div>
 
             {/* Vertical Divider */}
-            <div className="hidden sm:block w-[1px] h-[58px] bg-[#BD9749] shrink-0" aria-hidden="true" />
+            <div className="w-[1px] h-[44px] sm:h-[48px] bg-[#C8A96E] shrink-0" aria-hidden="true" />
 
             {/* Copy */}
             <div className="flex flex-col">
-              <span className="font-display font-bold text-[22px] sm:text-[27px] lg:text-[31px] leading-[39px] text-[#543E30]">
+              <span className="font-display font-bold text-[20px] sm:text-[24px] leading-[30px] text-[#3D2817]">
                 Still have a question?
               </span>
-              <span className="font-body font-normal text-[16px] sm:text-[19px] lg:text-[21px] leading-[26px] text-[#543E30]">
+              <span className="font-body font-normal text-[13px] sm:text-[14px] leading-[20px] text-[#543E30]">
                 Our team can help you plan your stay.
               </span>
             </div>
           </div>
 
           {/* CONTACT US Button */}
-          <div className="w-full md:w-auto shrink-0">
+          <div className="w-full sm:w-auto shrink-0">
             <Link
               href="/contact"
-              className="w-full sm:w-[240px] lg:w-[274px] h-[52px] sm:h-[59px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[9px] flex items-center justify-center shadow-md hover:shadow-lg cursor-pointer group"
+              className="w-full sm:w-[190px] h-[46px] sm:h-[48px] bg-[#164C36] hover:bg-[#113d2b] transition-all duration-300 rounded-[6px] flex items-center justify-center shadow-sm hover:shadow-md cursor-pointer group"
             >
-              <span className="font-display font-bold text-[19px] sm:text-[21px] lg:text-[23px] leading-[29px] text-[#FAF6EB] flex items-center gap-2.5">
+              <span className="font-body font-semibold text-[14px] tracking-wider text-[#FAF6EB] flex items-center gap-2 uppercase">
                 <span>CONTACT US</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
