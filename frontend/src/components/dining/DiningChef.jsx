@@ -25,17 +25,19 @@ export default function DiningChef() {
             <p className="dining-chef-eyebrow">THE CHEF BEHIND THE EXPERIENCE</p>
 
             <h2 className="dining-chef-headline">
-              Guided by passion.<br />
-              Crafted with care.
+              <span className="block">Guided by passion.</span>
+              <span className="block">Crafted with care.</span>
             </h2>
 
-            <div className="mb-4">
+            <div className="dining-chef-name-group">
               <h3 className="dining-chef-name">Chef Michael</h3>
               <p className="dining-chef-title">Celebrity Chef &amp; Culinary Trainer</p>
             </div>
 
             <p className="dining-chef-desc">
-              Under Chef Michael’s culinary direction, the kitchen at VALENCIA brings thoughtful preparation, balanced flavours and care to every plate.
+              <span className="block">Under Chef Michael’s culinary direction, the kitchen at</span>
+              <span className="block">VALENCIA brings thoughtful preparation, balanced</span>
+              <span className="block">flavours and care to every plate.</span>
             </p>
 
             <hr className="dining-chef-divider" />
