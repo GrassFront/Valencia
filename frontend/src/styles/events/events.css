@@ -223,20 +223,19 @@
    -------------------------------------------------------------------------- */
 .events-spaces-section {
   width: 100%;
-  background: #F8F5EA;
-  padding: 19px 0 32px;
+  background: #FAF8F2;
+  padding: 32px 0 44px;
   box-sizing: border-box;
 }
 
 .events-spaces-inner {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1370px;
   margin: 0 auto;
-  padding: 0 35px;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   box-sizing: border-box;
 }
 
@@ -282,22 +281,20 @@
 .events-section-subtitle {
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 29px;
+  font-size: 20px;
+  line-height: 28px;
   text-align: center;
   color: #675442;
   margin: 0;
 }
 
 .events-spaces-grid {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100%;
-  max-width: 1370px;
-  height: 546px;
-  margin-top: 10px;
+  max-width: 1320px;
+  margin-top: 24px;
   box-sizing: border-box;
 }
 
@@ -305,15 +302,12 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 4px 4px 16px 4px;
-  gap: 16px;
-  width: 447px;
-  height: 546px;
-  background: #F8F5EA;
+  align-items: stretch;
+  padding: 5px 5px 18px 5px;
+  background: #FAF7F0;
   border: 1px solid #D8C69D;
   border-radius: 6px;
-  flex: 1 1 0;
+  width: 100%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -323,10 +317,9 @@
 
 .events-venue-image-wrapper {
   position: relative;
-  width: 438px;
-  max-width: 100%;
-  height: 291px;
-  border-radius: 3px;
+  width: 100%;
+  aspect-ratio: 438 / 291;
+  border-radius: 4px;
   overflow: hidden;
   background: #ECE5DA;
   flex-shrink: 0;
@@ -336,27 +329,39 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.events-venue-concept-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  font-family: 'Manrope', var(--font-manrope), sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .events-venue-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0 0 0 20px;
-  gap: 7px;
+  align-items: stretch;
+  padding: 16px 18px 0 18px;
+  gap: 8px;
   width: 100%;
   box-sizing: border-box;
+  flex: 1;
 }
 
 .events-venue-name {
-  width: 400px;
-  max-width: 100%;
-  height: 39px;
   font-family: 'Playfair Display', var(--font-playfair-display), serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 29px;
-  line-height: 39px;
+  font-size: 28px;
+  line-height: 36px;
   color: #174B33;
   margin: 0;
 }
@@ -365,49 +370,46 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
-  width: 400px;
-  max-width: 100%;
-  height: 31px;
+  gap: 12px;
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .events-venue-area-text {
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
-  font-size: 17px;
-  line-height: 23px;
+  font-size: 16px;
+  line-height: 22px;
   color: #B68F49;
 }
 
 .events-venue-desc {
-  width: 400px;
-  max-width: 100%;
-  height: 45px;
+  width: 100%;
+  min-height: 44px;
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 22px;
   color: #675442;
   margin: 0;
 }
 
 .events-venue-divider {
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
   height: 1px;
   background: #DED1B5;
-  margin: 2px 0;
+  margin: 8px 0 6px 0;
 }
 
 .events-venue-capacity {
-  width: 400px;
-  max-width: 100%;
-  height: 23px;
+  width: 100%;
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 19px;
+  line-height: 20px;
   color: #8B7B6C;
+  margin-bottom: 8px;
 }
 
 .events-venue-btn {
@@ -418,15 +420,15 @@
   align-items: center;
   padding: 0;
   gap: 10px;
-  width: 400px;
-  max-width: 100%;
-  height: 42px;
+  width: 100%;
+  height: 44px;
   background: #174F38;
-  border-radius: 3px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s ease;
+  margin-top: auto;
 }
 
 .events-venue-btn:hover {
@@ -447,22 +449,21 @@
 .events-venue-btn-arrow {
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
-  font-size: 19px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 24px;
   color: #F8F5EA;
 }
 
 .events-spaces-note {
   width: 100%;
   max-width: 1370px;
-  height: 23px;
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
   text-align: center;
   color: #8B7B6C;
-  margin-top: 14px;
+  margin-top: 20px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1492,13 +1493,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 25px 38px 24px;
-  gap: 11px;
+  align-items: stretch;
+  padding: 30px 38px 28px;
+  gap: 16px;
   width: 854px;
   max-width: 62%;
-  min-height: 786px;
   background: #FFFEFB;
   border: 1px solid #E4D9C4;
   border-radius: 7px;
@@ -1509,25 +1508,23 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1px;
+  gap: 4px;
   width: 100%;
 }
 
 .events-form-title {
-  width: 760px;
-  max-width: 100%;
+  width: 100%;
   font-family: 'Playfair Display', var(--font-playfair-display), serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 64px;
+  font-size: 46px;
+  line-height: 58px;
   color: #174B33;
   margin: 0;
 }
 
 .events-form-subtitle {
-  width: 760px;
-  max-width: 100%;
+  width: 100%;
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -1540,7 +1537,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;
+  gap: 18px;
   width: 100%;
 }
 
@@ -1567,7 +1564,7 @@
   align-items: center;
   padding: 0 14px;
   width: 100%;
-  height: 43px;
+  height: 44px;
   background: #FFFEFB;
   border: 1px solid #D4CEC5;
   border-radius: 4px;
@@ -1591,7 +1588,7 @@
 .events-input-textarea {
   box-sizing: border-box;
   width: 100%;
-  height: 73px;
+  height: 78px;
   padding: 10px 14px;
   background: #FFFEFB;
   border: 1px solid #D4CEC5;
@@ -1616,7 +1613,7 @@
 
 /* Event field select trigger styling to match Figma */
 .event-field-select-trigger {
-  height: 43px !important;
+  height: 44px !important;
   background: #FFFEFB !important;
   border: 1px solid #D4CEC5 !important;
   border-radius: 4px !important;
@@ -1637,29 +1634,19 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  height: 43px;
-  margin-top: 23px;
+  height: 44px;
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 
-.events-custom-checkbox {
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid #BFB9AE;
+.events-checkbox-input {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #BFB9AE;
   border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #FFFEFB;
-  transition: all 0.15s ease;
-  flex-shrink: 0;
-}
-
-.events-custom-checkbox.checked {
-  background: #174F38;
-  border-color: #174F38;
-  color: #FFFFFF;
+  cursor: pointer;
+  accent-color: #174F38;
 }
 
 .events-flexible-text {
@@ -1677,7 +1664,7 @@
   font-size: 12px;
   line-height: 16px;
   color: #827A71;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .events-form-submit-btn {
@@ -1694,12 +1681,14 @@
   border: none;
   cursor: pointer;
   font-family: 'Manrope', var(--font-manrope), sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 19px;
-  letter-spacing: 0.16em;
-  color: #F8F5EA;
+  letter-spacing: 0.15em;
+  color: #FFFFFF;
+  text-transform: uppercase;
   transition: background 0.2s ease;
+  margin-top: 4px;
 }
 
 .events-form-submit-btn:hover {
@@ -1707,22 +1696,8 @@
 }
 
 .events-form-submit-arrow {
-  font-family: 'Manrope', var(--font-manrope), sans-serif;
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 31px;
-  color: #F8F5EA;
-}
-
-.events-form-privacy {
-  width: 100%;
-  font-family: 'Manrope', var(--font-manrope), sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #8C8178;
-  margin: 0;
+  font-size: 18px;
+  line-height: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -2097,13 +2072,11 @@
 
 @media (max-width: 1024px) {
   .events-spaces-grid {
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .events-venue-card {
-    width: calc(50% - 10px);
-    flex: unset;
+    width: 100%;
   }
 
   .events-offer-inner {

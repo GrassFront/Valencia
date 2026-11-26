@@ -10,11 +10,7 @@ const SPACES_DATA = [
     image: "/images/EventPage/Spaces at Umrao/The Main Hall/Native image crop.png",
     icon: "/images/EventPage/Spaces at Umrao/Frame.svg",
     area: "Approx. 8,000 sq. ft.",
-    desc: (
-      <>
-        A pillarless setting for weddings, receptions and<br className="hidden sm:inline" /> larger gatherings.
-      </>
-    ),
+    desc: "A pillarless setting for weddings, receptions and larger gatherings.",
     capacity: "Guest capacity: to be confirmed",
   },
   {
@@ -24,11 +20,7 @@ const SPACES_DATA = [
     image: "/images/EventPage/Spaces at Umrao/The Lawn/Native image crop.png",
     icon: "/images/EventPage/Spaces at Umrao/Frame 2.svg",
     area: "17,000 sq. ft.",
-    desc: (
-      <>
-        An open-air setting for celebrations<br className="hidden sm:inline" /> under the evening sky.
-      </>
-    ),
+    desc: "An open-air setting for celebrations under the evening sky.",
     capacity: "Guest capacity: to be confirmed",
   },
   {
@@ -38,11 +30,7 @@ const SPACES_DATA = [
     image: "/images/EventPage/Spaces at Umrao/The Small Hall/Native image crop.png",
     icon: "/images/EventPage/Spaces at Umrao/Frame 3.svg",
     area: "2,500 sq. ft.",
-    desc: (
-      <>
-        A welcoming space for pre-wedding functions and<br className="hidden sm:inline" /> intimate gatherings.
-      </>
-    ),
+    desc: "A welcoming space for pre-wedding functions and intimate gatherings.",
     capacity: "Guest capacity: to be confirmed",
   },
 ];
@@ -85,6 +73,7 @@ export default function EventsSpaces({ onSelectSpace }) {
                   height={291}
                   className="w-full h-full object-cover"
                 />
+                <span className="events-venue-concept-badge">Concept image</span>
               </div>
 
               {/* Venue Information */}
@@ -93,13 +82,13 @@ export default function EventsSpaces({ onSelectSpace }) {
 
                 {/* Floor Area */}
                 <div className="events-venue-area-row">
-                  <div className="relative w-8 h-8 shrink-0">
+                  <div className="relative w-[28px] h-[28px] shrink-0">
                     <Image
                       src={space.icon}
                       alt="Floor area icon"
-                      width={32}
-                      height={32}
-                      className="w-8 h-8"
+                      width={28}
+                      height={28}
+                      className="w-[28px] h-[28px]"
                     />
                   </div>
                   <span className="events-venue-area-text">{space.area}</span>

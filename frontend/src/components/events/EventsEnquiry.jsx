@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { BrandSelect } from "@/components/common";
 import { BookingCalendarPopover } from "@/components/booking";
-import { Calendar, Check } from "lucide-react";
+import { CalendarDays, Check } from "lucide-react";
 
 const EVENT_TYPE_OPTIONS = [
   "Wedding",
@@ -109,7 +109,11 @@ export default function EventsEnquiry({
   }, [calendarOpen]);
 
   const handleInputChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    const val =
+      value && typeof value === "object" && "target" in value
+        ? value.target.value
+        : value;
+    setFormData((prev) => ({ ...prev, [field]: val }));
     if (errorMsg) setErrorMsg("");
   };
 
@@ -230,7 +234,7 @@ export default function EventsEnquiry({
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="w-full flex flex-col gap-3">
+            <form onSubmit={handleSubmit} noValidate className="w-full flex flex-col gap-4">
               {errorMsg && (
                 <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded">
                   {errorMsg}
@@ -238,9 +242,9 @@ export default function EventsEnquiry({
               )}
 
               {/* Row 1: Event type, Event date, Flexible date toggle */}
-              <div className="events-form-row">
-                {/* Event type * (width: 332px) */}
-                <div className="events-form-col w-[332px]">
+              <div className="events-form-row items-end">
+                {/* Event type * */}
+                <div className="events-form-col flex-[1.3] min-w-0">
                   <label htmlFor="eventType" className="events-form-label">
                     Event type *
                   </label>
@@ -255,8 +259,8 @@ export default function EventsEnquiry({
                   />
                 </div>
 
-                {/* Event date * (width: 253px) */}
-                <div className="events-form-col w-[253px]" ref={calendarRef}>
+                {/* Event date * */}
+                <div className="events-form-col flex-1 min-w-0" ref={calendarRef}>
                   <label htmlFor="eventDate" className="events-form-label">
                     Event date *
                   </label>
@@ -270,7 +274,7 @@ export default function EventsEnquiry({
                         formData.flexibleDates ? "opacity-50 cursor-not-allowed bg-gray-50" : ""
                       }`}
                     >
-                      <Calendar size={16} className="text-[#8A8885] shrink-0" />
+                      <CalendarDays size={16} className="text-[#8A8885] shrink-0" />
                       <span className={formData.eventDate ? "text-[#233028]" : "text-[#8A8885]"}>
                         {formData.flexibleDates
                           ? "Dates are flexible"
@@ -295,28 +299,26 @@ export default function EventsEnquiry({
                   </div>
                 </div>
 
-                {/* Flexible date toggle (width: 173px) */}
-                <div
-                  className="events-flexible-toggle w-[173px]"
-                  onClick={() =>
-                    handleInputChange("flexibleDates", !formData.flexibleDates)
-                  }
-                >
-                  <div
-                    className={`events-custom-checkbox ${
-                      formData.flexibleDates ? "checked" : ""
-                    }`}
-                  >
-                    {formData.flexibleDates && <Check size={13} className="stroke-[3]" />}
-                  </div>
-                  <span className="events-flexible-text">My dates are flexible</span>
+                {/* Flexible date toggle */}
+                <div className="flex-shrink-0 self-center pb-0.5 sm:pb-0">
+                  <label className="events-flexible-toggle">
+                    <input
+                      type="checkbox"
+                      checked={formData.flexibleDates}
+                      onChange={(e) =>
+                        handleInputChange("flexibleDates", e.target.checked)
+                      }
+                      className="events-checkbox-input"
+                    />
+                    <span className="events-flexible-text">My dates are flexible</span>
+                  </label>
                 </div>
               </div>
 
               {/* Row 2: Estimated guests, Preferred space */}
               <div className="events-form-row">
-                {/* Estimated guests * (width: 380px) */}
-                <div className="events-form-col w-[380px]">
+                {/* Estimated guests * */}
+                <div className="events-form-col flex-1 min-w-0">
                   <label htmlFor="guests" className="events-form-label">
                     Estimated guests *
                   </label>
@@ -331,8 +333,8 @@ export default function EventsEnquiry({
                   />
                 </div>
 
-                {/* Preferred space * (width: 378px) */}
-                <div className="events-form-col w-[378px]">
+                {/* Preferred space * */}
+                <div className="events-form-col flex-1 min-w-0">
                   <label htmlFor="preferredSpace" className="events-form-label">
                     Preferred space *
                   </label>
@@ -350,8 +352,8 @@ export default function EventsEnquiry({
 
               {/* Row 3: Rooms needed, Name, Mobile */}
               <div className="events-form-row">
-                {/* Rooms needed for guests (optional) (width: 247px) */}
-                <div className="events-form-col w-[247px]" ref={roomsInputRef}>
+                {/* Rooms needed for guests (optional) */}
+                <div className="events-form-col flex-1 min-w-0" ref={roomsInputRef}>
                   <label htmlFor="roomsNeeded" className="events-form-label">
                     Rooms needed for guests (optional)
                   </label>
@@ -366,8 +368,8 @@ export default function EventsEnquiry({
                   />
                 </div>
 
-                {/* Name * (width: 247px) */}
-                <div className="events-form-col w-[247px]">
+                {/* Name * */}
+                <div className="events-form-col flex-1 min-w-0">
                   <label htmlFor="name" className="events-form-label">
                     Name *
                   </label>
@@ -382,8 +384,8 @@ export default function EventsEnquiry({
                   />
                 </div>
 
-                {/* Mobile * (width: 244px) */}
-                <div className="events-form-col w-[244px]">
+                {/* Mobile * */}
+                <div className="events-form-col flex-1 min-w-0">
                   <label htmlFor="mobile" className="events-form-label">
                     Mobile *
                   </label>
@@ -424,7 +426,7 @@ export default function EventsEnquiry({
                   </label>
                   <textarea
                     id="specialRequests"
-                    rows={2}
+                    rows={3}
                     placeholder="Tell us about your plans, setup needs or questions"
                     value={formData.specialRequests}
                     onChange={(e) => handleInputChange("specialRequests", e.target.value)}
@@ -448,11 +450,6 @@ export default function EventsEnquiry({
                   →
                 </span>
               </button>
-
-              {/* Privacy text */}
-              <p className="events-form-privacy">
-                Your information will be handled according to our Privacy Policy.
-              </p>
             </form>
           )}
         </div>
