@@ -12,3 +12,4 @@ export { default as SectionHeading } from "./SectionHeading";
 export { default as Typography } from "./Typography";
 export { default as WhatsAppButton } from "./WhatsAppButton";
 export { default as BrandSelect } from "./BrandSelect";
+export { default as ENQUIRE, ENQUIRE as EnquireButton } from "./EnquireButton";

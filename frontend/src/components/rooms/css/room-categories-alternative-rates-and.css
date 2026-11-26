@@ -355,24 +355,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
-  border-radius: 4px;
-  background: #184E3E;
-  border: 1px solid #245C4B;
+  gap: 8px;
+  border-radius: 6px;
+  background: #1B4D32;
+  border: none;
   color: #FFFFFF;
   font-family: var(--font-manrope), "Manrope", sans-serif;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
 .room-btn-enquire:hover {
-  background: #133E31;
-  box-shadow: 0 4px 12px rgba(24, 78, 62, 0.25);
+  background: #153e28;
+  box-shadow: 0 4px 14px rgba(27, 77, 50, 0.25);
 }
 
 /* ==========================================================================

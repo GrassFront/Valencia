@@ -337,8 +337,7 @@ function RoomCardItem({ room }) {
             href="#booking-bar"
             className="room-btn-enquire"
           >
-            <span>ENQUIRE</span>
-            <span aria-hidden="true">→</span>
+            ENQUIRE &nbsp;→
           </Link>
         </div>
       </div>
