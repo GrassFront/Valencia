@@ -12,7 +12,7 @@
   background: #F8F5EA;
   font-family: 'Manrope', var(--font-manrope), sans-serif;
   color: #675442;
-  overflow-x: hidden;
+  overflow-x: clip;
   box-sizing: border-box;
 }
 

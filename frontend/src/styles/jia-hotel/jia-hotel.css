@@ -6,7 +6,7 @@
   background-color: #FAF6EC;
   color: #4F3523;
   font-family: var(--valencia-font-body, 'Manrope', Arial, sans-serif);
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 

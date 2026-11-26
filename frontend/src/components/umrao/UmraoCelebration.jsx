@@ -59,13 +59,13 @@ export default function UmraoCelebration() {
         {/* Guest Room Photographs Row (gap: 16px, width: 1366px on desktop) */}
         <div className="w-full max-w-[1366px] flex flex-col lg:flex-row items-center gap-4 lg:gap-[16px]">
           {/* Photo 1: Guest accommodation (width: 872px, height: 453px desktop) */}
-          <div className="relative w-full lg:w-[872px] h-[300px] sm:h-[400px] lg:h-[453px] overflow-hidden group shrink-0 shadow-xs">
+          <div className="relative w-full lg:flex-[872] lg:max-w-[872px] min-w-0 h-[300px] sm:h-[400px] lg:h-[453px] overflow-hidden group shadow-xs">
             <Image
               src="/images/Umrao/celebration/guest accomodation.png"
               alt="Comfortable guest accommodation bedroom with king bed, traditional arched window, and warm wooden accents"
               fill
               sizes="(max-width: 1024px) 100vw, 872px"
-              className="object-cover umrao-gallery-img"
+              className="object-fill umrao-gallery-img"
             />
 
             {/* Bottom-left caption badge flush with bottom edge: width 275px, height 48px, bg #164C36, pl 18px */}
@@ -77,13 +77,13 @@ export default function UmraoCelebration() {
           </div>
 
           {/* Photo 2: Bridal preparation (width: 478px, height: 453px desktop) */}
-          <div className="relative w-full lg:w-[478px] h-[300px] sm:h-[400px] lg:h-[453px] overflow-hidden group shrink-0 shadow-xs">
+          <div className="relative w-full lg:flex-[478] lg:max-w-[478px] min-w-0 h-[300px] sm:h-[400px] lg:h-[453px] overflow-hidden group shadow-xs">
             <Image
               src="/images/Umrao/celebration/bridal room.png"
               alt="Bridal preparation suite with arched ornate vanity mirror, makeup dresser, and designer red bridal lehenga"
               fill
               sizes="(max-width: 1024px) 100vw, 478px"
-              className="object-cover umrao-gallery-img"
+              className="object-fill umrao-gallery-img"
             />
 
             {/* Bottom-left caption badge flush with bottom edge: width 232px, height 48px, bg #164C36, pl 18px */}

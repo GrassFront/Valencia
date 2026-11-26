@@ -21,7 +21,7 @@ export default function JiaPage() {
   };
 
   return (
-    <div className="w-full bg-[#FAF6EC] overflow-x-hidden">
+    <div className="w-full bg-[#FAF6EC] overflow-x-clip">
       {/* Section 01: Hero (1440x806px) */}
       <JiaHero />
 

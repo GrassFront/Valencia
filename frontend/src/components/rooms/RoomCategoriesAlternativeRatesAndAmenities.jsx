@@ -319,10 +319,10 @@ function RoomCardItem({ room }) {
             VIEW DETAILS
           </Link>
           <Link
-            href="#booking-bar"
+            href={`/rooms/${room.id}`}
             className="room-btn-enquire"
           >
-            ENQUIRE &nbsp;→
+            BOOK STAY &nbsp;→
           </Link>
         </div>
       </div>

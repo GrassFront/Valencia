@@ -11,7 +11,7 @@
   background: #FCFAF4;
   font-family: 'Manrope', sans-serif;
   color: #5C473D;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* --------------------------------------------------------------------------

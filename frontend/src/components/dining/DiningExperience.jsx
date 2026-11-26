@@ -27,7 +27,7 @@ export default function DiningExperience() {
             width={725}
             height={560}
             sizes="(max-width: 1024px) 100vw, 725px"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
           />
         </div>
 

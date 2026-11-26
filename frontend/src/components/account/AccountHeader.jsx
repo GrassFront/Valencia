@@ -11,7 +11,7 @@ export default function AccountHeader() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#FBF8F0] border-b border-[#E1D8C6] sticky top-0 z-40">
+    <header className="w-full bg-[#FBF8F0] border-b border-[#E1D8C6] sticky top-0 z-50">
       <div className="mx-auto flex h-[87px] w-full max-w-[1440px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-[50px]">
         {/* Brand / Valencia logo */}
         <Link
@@ -59,9 +59,8 @@ export default function AccountHeader() {
             </div>
             <ChevronDown
               size={18}
-              className={`text-[#565653] transition-transform duration-200 ${
-                dropdownOpen ? "rotate-180" : ""
-              }`}
+              className={`text-[#565653] transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""
+                }`}
             />
           </button>
 

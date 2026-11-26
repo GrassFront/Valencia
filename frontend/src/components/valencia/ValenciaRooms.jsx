@@ -9,7 +9,7 @@ const ROOMS_DATA = [
     title: "Deluxe",
     desc: "A welcoming retreat for restful stays.",
     image: "/images/ValenciaPage/Rooms and Suites/Deluxe.png",
-    href: "/rooms",
+    href: "/rooms/deluxe-room",
     details: {
       size: "380 sq ft",
       occupancy: "2 Adults",
@@ -28,7 +28,7 @@ const ROOMS_DATA = [
     title: "Twin",
     desc: "Shared stays, with space for individual comfort.",
     image: "/images/ValenciaPage/Rooms and Suites/twin.png",
-    href: "/rooms",
+    href: "/rooms/twin-room",
     details: {
       size: "410 sq ft",
       occupancy: "2 Adults",
@@ -47,7 +47,7 @@ const ROOMS_DATA = [
     title: "Suite",
     desc: "Room to unwind, with a separate sense of retreat.",
     image: "/images/ValenciaPage/Rooms and Suites/suite.png",
-    href: "/rooms",
+    href: "/rooms/suite",
     details: {
       size: "620 sq ft",
       occupancy: "2-3 Adults",
@@ -66,7 +66,7 @@ const ROOMS_DATA = [
     title: "Presidential Suite",
     desc: "An expansive setting for an exceptional stay.",
     image: "/images/ValenciaPage/Rooms and Suites/presidential.png",
-    href: "/rooms",
+    href: "/rooms/presidential-suite",
     details: {
       size: "1,200 sq ft",
       occupancy: "Up to 4 Guests",

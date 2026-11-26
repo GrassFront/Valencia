@@ -15,7 +15,7 @@
   flex-direction: column;
   background-color: #FBF9F4;
   color: #233028;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ========================================================
