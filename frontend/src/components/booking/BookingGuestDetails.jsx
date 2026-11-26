@@ -76,6 +76,8 @@ export function BookingGuestDetails() {
   const checkInDate = searchParams?.get("checkin") || "12 Nov 2026";
   const checkOutDate = searchParams?.get("checkout") || "14 Nov 2026";
   const nightsCount = parseInt(searchParams?.get("nights") || "2", 10);
+  const roomsCount = Math.max(1, parseInt(searchParams?.get("rooms") || "1", 10));
+  const urlAdults = searchParams?.get("adults");
 
   // Flow State
   const [currentStep, setCurrentStep] = useState(initialStep >= 2 && initialStep <= 4 ? initialStep : 2);
@@ -88,7 +90,7 @@ export function BookingGuestDetails() {
     email: "aarav@example.com",
     countryCode: "+91",
     phone: "9876543210",
-    adults: "2",
+    adults: urlAdults || "2",
     children: "0",
     estimatedArrival: "3:00 PM",
     specialRequests: "A quiet room, if available.",
@@ -102,7 +104,7 @@ export function BookingGuestDetails() {
 
   // Pricing calculations
   const pricePerNight = selectedRatePlan === "breakfast-included" ? currentRoom.breakfastRate : currentRoom.defaultRate;
-  const staySubtotal = pricePerNight * nightsCount;
+  const staySubtotal = pricePerNight * nightsCount * roomsCount;
   const taxesAndFees = Math.round(staySubtotal * 0.1);
   const totalPayable = staySubtotal + taxesAndFees;
 
@@ -614,7 +616,7 @@ export function BookingGuestDetails() {
                     </div>
                     <div className="date-col">
                       <p className="date-col-label">Nights</p>
-                      <p className="date-col-val">{nightsCount} nights</p>
+                      <p className="date-col-val">{nightsCount} {nightsCount === 1 ? "night" : "nights"}{roomsCount > 1 ? ` · ${roomsCount} rooms` : ""}</p>
                     </div>
                   </div>
 
@@ -637,7 +639,7 @@ export function BookingGuestDetails() {
 
                   <div className="price-line-row">
                     <p className="price-line-label">
-                      {formatPrice(pricePerNight)} × {nightsCount} nights
+                      {formatPrice(pricePerNight)} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}{roomsCount > 1 ? ` × ${roomsCount} rooms` : ""}
                     </p>
                     <p className="price-line-val">{formatPrice(staySubtotal)}</p>
                   </div>
@@ -719,7 +721,7 @@ export function BookingGuestDetails() {
                       </div>
 
                       <p className="your-stay-meta">
-                        {nightsCount} nights · {formData.adults} adults · 1 room
+                        {nightsCount} {nightsCount === 1 ? "night" : "nights"} · {formData.adults} {formData.adults === "1" ? "adult" : "adults"} · {roomsCount} {roomsCount === 1 ? "room" : "rooms"}
                       </p>
 
                       <div className="your-stay-badges">
@@ -872,13 +874,13 @@ export function BookingGuestDetails() {
                 <div className="price-summary-content">
                   <h3 className="price-summary-2">Price summary</h3>
                   <p className="deluxe-room-2">{currentRoom.name}</p>
-                  <p className="layer-2-nights-1-room">{nightsCount} nights · 1 room</p>
+                  <p className="layer-2-nights-1-room">{nightsCount} {nightsCount === 1 ? "night" : "nights"} · {roomsCount} {roomsCount === 1 ? "room" : "rooms"}</p>
 
                   <div className="card-divider" />
 
                   <div className="price-line-row">
                     <p className="price-line-label">
-                      {formatPrice(pricePerNight)} × {nightsCount} nights
+                      {formatPrice(pricePerNight)} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}{roomsCount > 1 ? ` × ${roomsCount} rooms` : ""}
                     </p>
                     <p className="price-line-val">{formatPrice(staySubtotal)}</p>
                   </div>

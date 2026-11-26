@@ -72,6 +72,8 @@ export function BookingPayment({ onBack, onComplete }) {
   const checkInDate = searchParams?.get("checkin") || "12 Nov 2026";
   const checkOutDate = searchParams?.get("checkout") || "14 Nov 2026";
   const nightsCount = parseInt(searchParams?.get("nights") || "2", 10);
+  const roomsCount = Math.max(1, parseInt(searchParams?.get("rooms") || "1", 10));
+  const adultsCount = searchParams?.get("adults") || "2";
 
   // Payment states
   const [paymentMethod, setPaymentMethod] = useState("upi"); // 'upi' | 'card' | 'netbanking'
@@ -80,7 +82,7 @@ export function BookingPayment({ onBack, onComplete }) {
 
   // Pricing
   const pricePerNight = selectedRatePlan === "breakfast-included" ? currentRoom.breakfastRate : currentRoom.defaultRate;
-  const staySubtotal = pricePerNight * nightsCount;
+  const staySubtotal = pricePerNight * nightsCount * roomsCount;
   const taxesAndFees = Math.round(staySubtotal * 0.1);
   const totalPayable = staySubtotal + taxesAndFees;
 
@@ -90,7 +92,7 @@ export function BookingPayment({ onBack, onComplete }) {
     if (onBack) {
       onBack();
     } else {
-      router.push(`/booking/review?room=${roomKey}&rate=${selectedRatePlan}`);
+      router.push(`/booking/review?room=${roomKey}&rate=${selectedRatePlan}&checkin=${encodeURIComponent(checkInDate)}&checkout=${encodeURIComponent(checkOutDate)}&nights=${nightsCount}&rooms=${roomsCount}`);
     }
   };
 
@@ -399,7 +401,7 @@ export function BookingPayment({ onBack, onComplete }) {
               </div>
 
               <p className="layer-2-nights-2-adults-1-room">
-                {nightsCount} nights &nbsp;·&nbsp; 2 adults &nbsp;·&nbsp; 1 room
+                {nightsCount} {nightsCount === 1 ? "night" : "nights"} &nbsp;·&nbsp; {adultsCount} {adultsCount === "1" ? "adult" : "adults"} &nbsp;·&nbsp; {roomsCount} {roomsCount === 1 ? "room" : "rooms"}
               </p>
 
               <div className="rate-plan">
@@ -415,7 +417,7 @@ export function BookingPayment({ onBack, onComplete }) {
 
               <div className="rs6-000-x-2-nights">
                 <p className="rs6-000-x-2-nights-2">
-                  {formatPrice(pricePerNight)} × {nightsCount} nights
+                  {formatPrice(pricePerNight)} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}{roomsCount > 1 ? ` × ${roomsCount} rooms` : ""}
                 </p>
                 <p className="rs12-000">{formatPrice(staySubtotal)}</p>
               </div>

@@ -77,6 +77,7 @@ export function BookingConfirmationHotelContactVersion({
   const checkInDate = searchParams?.get("checkin") || "12 Nov 2026";
   const checkOutDate = searchParams?.get("checkout") || "14 Nov 2026";
   const nightsCount = parseInt(searchParams?.get("nights") || "2", 10);
+  const roomsCount = Math.max(1, parseInt(searchParams?.get("rooms") || "1", 10));
   const bookingRef = propReference || searchParams?.get("ref") || "VAL-DEMO-1026";
   const paymentMethodDisplay = propPaymentMethod || searchParams?.get("method") || "UPI";
 
@@ -94,7 +95,7 @@ export function BookingConfirmationHotelContactVersion({
 
   // Financials
   const pricePerNight = selectedRatePlan === "breakfast-included" ? currentRoom.breakfastRate : currentRoom.defaultRate;
-  const roomCharges = pricePerNight * nightsCount;
+  const roomCharges = pricePerNight * nightsCount * roomsCount;
   const taxesAndFees = Math.round(roomCharges * 0.1);
   const totalPaid = roomCharges + taxesAndFees;
 
@@ -292,7 +293,7 @@ export function BookingConfirmationHotelContactVersion({
                   </svg>
                 </div>
                 <div className="stay-text-col">
-                  <p className="stay-primary-text">{nightsCount} nights</p>
+                  <p className="stay-primary-text">{nightsCount} {nightsCount === 1 ? "night" : "nights"}{roomsCount > 1 ? ` · ${roomsCount} rooms` : ""}</p>
                   <p className="stay-secondary-text">{currentRoom.occupancy}</p>
                 </div>
               </div>

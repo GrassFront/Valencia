@@ -77,6 +77,7 @@ export function BookingReviewReservation({
   const checkInDate = searchParams?.get("checkin") || "12 Nov 2026";
   const checkOutDate = searchParams?.get("checkout") || "14 Nov 2026";
   const nightsCount = parseInt(searchParams?.get("nights") || "2", 10);
+  const roomsCount = Math.max(1, parseInt(searchParams?.get("rooms") || "1", 10));
 
   const [agreed, setAgreed] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -102,7 +103,7 @@ export function BookingReviewReservation({
 
   // Pricing
   const pricePerNight = selectedRatePlan === "breakfast-included" ? currentRoom.breakfastRate : currentRoom.defaultRate;
-  const staySubtotal = pricePerNight * nightsCount;
+  const staySubtotal = pricePerNight * nightsCount * roomsCount;
   const taxesAndFees = Math.round(staySubtotal * 0.1);
   const totalPayable = staySubtotal + taxesAndFees;
 
@@ -112,7 +113,7 @@ export function BookingReviewReservation({
     if (onBack) {
       onBack();
     } else {
-      router.push(`/booking?room=${roomKey}&rate=${selectedRatePlan}&step=2`);
+      router.push(`/booking?room=${roomKey}&rate=${selectedRatePlan}&step=2&checkin=${encodeURIComponent(checkInDate)}&checkout=${encodeURIComponent(checkOutDate)}&nights=${nightsCount}&rooms=${roomsCount}`);
     }
   };
 
@@ -129,7 +130,7 @@ export function BookingReviewReservation({
     if (onProceedPayment) {
       onProceedPayment();
     } else {
-      router.push(`/booking/payment?room=${roomKey}&rate=${selectedRatePlan}`);
+      router.push(`/booking/payment?room=${roomKey}&rate=${selectedRatePlan}&checkin=${encodeURIComponent(checkInDate)}&checkout=${encodeURIComponent(checkOutDate)}&nights=${nightsCount}&rooms=${roomsCount}`);
     }
   };
 
@@ -363,7 +364,7 @@ export function BookingReviewReservation({
                   </div>
 
                   <p className="layer-2-nights-2-adults-1-room">
-                    {nightsCount} nights · {guest.adults} adults · 1 room
+                    {nightsCount} {nightsCount === 1 ? "night" : "nights"} · {guest.adults} {guest.adults === "1" ? "adult" : "adults"} · {roomsCount} {roomsCount === 1 ? "room" : "rooms"}
                   </p>
 
                   <div className="rectangle-2" />
@@ -492,13 +493,13 @@ export function BookingReviewReservation({
             <div className="price-summary-content">
               <p className="price-summary-2">Price summary</p>
               <p className="deluxe-room-2">{currentRoom.name}</p>
-              <p className="layer-2-nights-1-room">{nightsCount} nights · 1 room</p>
+              <p className="layer-2-nights-1-room">{nightsCount} {nightsCount === 1 ? "night" : "nights"} · {roomsCount} {roomsCount === 1 ? "room" : "rooms"}</p>
 
               <div className="rectangle-6" />
 
               <div className="rs6-000-x-2-nights">
                 <p className="rs6-000-x-2-nights-2">
-                  {formatPrice(pricePerNight)} × {nightsCount} nights
+                  {formatPrice(pricePerNight)} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}{roomsCount > 1 ? ` × ${roomsCount} rooms` : ""}
                 </p>
                 <p className="rs12-000">{formatPrice(staySubtotal)}</p>
               </div>

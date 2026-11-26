@@ -128,10 +128,10 @@ export default function HeroBookingBar({
       aria-label="Hotel booking search bar"
     >
       <div className="flex flex-col gap-2.5">
-        {/* Row 1: Stay Mode Toggle (Figma: 360px x 36px, border 1px #1B4D32, rounded 22px) */}
+        {/* Row 1: Stay Mode Toggle */}
         <div className="flex items-center justify-center sm:justify-start">
           <div
-            className="relative flex h-[36px] w-[360px] max-w-full rounded-[22px] border border-[#1B4D32] bg-[#FBF5EA] p-[1px] overflow-hidden select-none"
+            className="relative flex h-[38px] w-[360px] max-w-full rounded-full border border-[#1B4D32] bg-[#FBF5EA] p-[3px] select-none"
             role="tablist"
             aria-label="Stay Type"
           >
@@ -145,7 +145,7 @@ export default function HeroBookingBar({
                 setActivePopover(null);
               }}
               className={classNames(
-                "relative z-10 flex h-[34px] w-1/2 items-center justify-center gap-3 rounded-[22px] text-[14px] font-bold font-body leading-[20px] transition-all duration-200 cursor-pointer",
+                "relative z-10 flex h-full flex-1 items-center justify-center gap-2.5 rounded-full text-[14px] font-bold font-body leading-none transition-all duration-200 cursor-pointer",
                 stayMode === "night"
                   ? "bg-[#1B4D32] text-[#FBF5EA] shadow-sm"
                   : "bg-transparent text-[#1B4D32] hover:text-[#1B4D32]/85"
@@ -165,7 +165,7 @@ export default function HeroBookingBar({
                 setActivePopover(null);
               }}
               className={classNames(
-                "relative z-10 flex h-[34px] w-1/2 items-center justify-center gap-3 rounded-[22px] text-[14px] font-bold font-body leading-[20px] transition-all duration-200 cursor-pointer",
+                "relative z-10 flex h-full flex-1 items-center justify-center gap-2.5 rounded-full text-[14px] font-bold font-body leading-none transition-all duration-200 cursor-pointer",
                 stayMode === "hourly"
                   ? "bg-[#1B4D32] text-[#FBF5EA] shadow-sm"
                   : "bg-transparent text-[#1B4D32] hover:text-[#1B4D32]/85"

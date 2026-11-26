@@ -77,7 +77,7 @@ export default function DeluxeRoomDetailsAndBooking({
 
   const isRoomOnly = selectedRate === "room-only";
   const currentRate = isRoomOnly ? roomOnlyRate : breakfastIncludedRate;
-  const stayTotalNum = currentRate * nightsCount;
+  const stayTotalNum = currentRate * nightsCount * rooms;
   const taxesFeesNum = Math.round(stayTotalNum * 0.1);
   const totalNum = stayTotalNum + taxesFeesNum;
 
@@ -807,7 +807,7 @@ export default function DeluxeRoomDetailsAndBooking({
 
             <div className="rs6-000-x-2-nights">
               <p className="rs6-000-x-2-nights-2">
-                {rateDetails.rateFormatted} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}
+                {rateDetails.rateFormatted} × {nightsCount} {nightsCount === 1 ? "night" : "nights"}{rooms > 1 ? ` × ${rooms} rooms` : ""}
               </p>
               <p className="rs12-000">{rateDetails.stayTotal}</p>
             </div>
@@ -822,7 +822,9 @@ export default function DeluxeRoomDetailsAndBooking({
             <div className="total-for-stay">
               <div className="total-label">
                 <p className="total">Total</p>
-                <p className="for-2-nights">For {nightsCount} {nightsCount === 1 ? "night" : "nights"}</p>
+                <p className="for-2-nights">
+                  For {nightsCount} {nightsCount === 1 ? "night" : "nights"}{rooms > 1 ? `, ${rooms} rooms` : ""}
+                </p>
               </div>
               <p className="rs13-200">{rateDetails.total}</p>
             </div>
