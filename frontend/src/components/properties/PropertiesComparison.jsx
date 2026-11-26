@@ -70,129 +70,114 @@ export default function PropertiesComparison() {
         </div>
 
         {/* --- DESKTOP / TABLET COMPARISON TABLE (md screens and up) --- */}
-        <div className="hidden md:block w-full max-w-[1320px] overflow-x-auto comparison-table-wrapper no-scrollbar rounded-[6px] border border-[#DCCBAE] shadow-[0_4px_24px_rgba(27,45,35,0.04)] bg-[#FAF7F0]">
-          <div className="min-w-[980px] w-full flex flex-col">
+        <div className="hidden md:block w-full max-w-[1240px] overflow-x-auto comparison-table-wrapper no-scrollbar rounded-[4px] border border-[#DCCBAE] shadow-[0_4px_24px_rgba(27,45,35,0.03)] bg-[#FAF7F0]">
+          <div className="min-w-[960px] w-full flex flex-col">
             {/* Header Row */}
-            <div className="grid grid-cols-[244px_384px_346px_346px] w-full h-[72px]">
-              {/* Cell 0/0 (Empty / Label placeholder) */}
-              <div className="bg-[#204B36] border-[0.5px] border-[#E3D9C8]/40 flex items-center px-6" />
+            <div className="grid grid-cols-[190px_1.18fr_1fr_1fr] w-full h-[68px] border-b border-[#DCCBAE]">
+              {/* Cell 0/0 (Empty top-left header cell) */}
+              <div className="bg-[#1B4D32] border-r border-[#DCCBAE] flex items-center px-5" />
 
               {/* Cell 0/1 (Valencia) */}
-              <div className="bg-[#204B36] border-[0.5px] border-[#E3D9C8]/40 flex flex-col justify-center items-center px-4">
-                <span className="font-display font-normal text-[22px] lg:text-[25px] leading-[31px] tracking-[0.07em] text-[#F8F5EA] text-center">
+              <div className="bg-[#1B4D32] border-r border-[#DCCBAE] flex flex-col justify-center items-center px-4">
+                <span className="font-display font-normal text-[21px] lg:text-[23px] leading-[30px] tracking-[0.08em] text-[#FFFFFF] text-center">
                   VALENCIA
                 </span>
               </div>
 
               {/* Cell 0/2 (Umrao) */}
-              <div className="bg-[#204B36] border-[0.5px] border-[#E3D9C8]/40 flex items-center justify-center px-4">
-                <span className="font-display font-normal text-[21px] lg:text-[24px] leading-[31px] text-[#F8F5EA] text-center">
+              <div className="bg-[#1B4D32] border-r border-[#DCCBAE] flex items-center justify-center px-4">
+                <span className="font-display font-normal text-[20px] lg:text-[22px] leading-[30px] text-[#FFFFFF] text-center">
                   Umrao The Banquet
                 </span>
               </div>
 
               {/* Cell 0/3 (Jia) */}
-              <div className="bg-[#204B36] border-[0.5px] border-[#E3D9C8]/40 flex items-center justify-center px-4">
-                <span className="font-display font-normal text-[21px] lg:text-[24px] leading-[31px] text-[#F8F5EA] text-center">
+              <div className="bg-[#1B4D32] flex items-center justify-center px-4">
+                <span className="font-display font-normal text-[20px] lg:text-[22px] leading-[30px] text-[#FFFFFF] text-center">
                   Hotel Jia International
                 </span>
               </div>
             </div>
 
             {/* Content Rows */}
-            {COMPARISON_ROWS.map((row, idx) => {
-              const isEven = idx % 2 === 0;
-              const labelBg = isEven ? "bg-[#FAF7F0]" : "bg-[#F5F1E8]";
-              const valenciaBg = isEven ? "bg-[#F8F0DF]" : "bg-[#F5EDDC]";
-              const othersBg = isEven ? "bg-[#FAF7F0]" : "bg-[#F5F1E8]";
-
-              return (
-                <div
-                  key={row.feature}
-                  className="grid grid-cols-[244px_384px_346px_346px] w-full min-h-[57px] transition-colors"
-                >
-                  {/* Row Feature Label */}
-                  <div
-                    className={`${labelBg} border-[0.5px] border-[#E3D9C8] flex items-center px-6 py-3.5`}
-                  >
-                    <span className="font-body font-bold text-[16px] lg:text-[17px] leading-[23px] text-[#604A3B]">
-                      {row.feature}
-                    </span>
-                  </div>
-
-                  {/* Valencia Data (Flagship tint) */}
-                  <div
-                    className={`${valenciaBg} border-[0.5px] border-[#E3D9C8] flex items-center px-6 py-3.5`}
-                  >
-                    <span className="font-body font-normal text-[15px] lg:text-[17px] leading-[23px] text-[#604A3B] whitespace-pre-line">
-                      {row.valencia}
-                    </span>
-                  </div>
-
-                  {/* Umrao Data */}
-                  <div
-                    className={`${othersBg} border-[0.5px] border-[#E3D9C8] flex items-center px-6 py-3.5`}
-                  >
-                    <span className="font-body font-normal text-[15px] lg:text-[17px] leading-[23px] text-[#604A3B]">
-                      {row.umrao}
-                    </span>
-                  </div>
-
-                  {/* Hotel Jia Data */}
-                  <div
-                    className={`${othersBg} border-[0.5px] border-[#E3D9C8] flex items-center px-6 py-3.5`}
-                  >
-                    <span className="font-body font-normal text-[15px] lg:text-[17px] leading-[23px] text-[#604A3B]">
-                      {row.jia}
-                    </span>
-                  </div>
+            {COMPARISON_ROWS.map((row) => (
+              <div
+                key={row.feature}
+                className="grid grid-cols-[190px_1.18fr_1fr_1fr] w-full min-h-[54px] border-b border-[#DCCBAE] transition-colors"
+              >
+                {/* Row Feature Label */}
+                <div className="bg-[#FAF7F0] border-r border-[#DCCBAE] flex items-center px-5 py-3.5">
+                  <span className="font-body font-bold text-[14px] lg:text-[15px] leading-[22px] text-[#543F30]">
+                    {row.feature}
+                  </span>
                 </div>
-              );
-            })}
+
+                {/* Valencia Data (Warm Champagne Tint) */}
+                <div className="bg-[#F8F0DF] border-r border-[#DCCBAE] flex items-center px-5 py-3.5">
+                  <span className="font-body font-normal text-[14px] lg:text-[15px] leading-[22px] text-[#543F30] whitespace-pre-line">
+                    {row.valencia}
+                  </span>
+                </div>
+
+                {/* Umrao Data */}
+                <div className="bg-[#FAF7F0] border-r border-[#DCCBAE] flex items-center px-5 py-3.5">
+                  <span className="font-body font-normal text-[14px] lg:text-[15px] leading-[22px] text-[#543F30]">
+                    {row.umrao}
+                  </span>
+                </div>
+
+                {/* Hotel Jia Data */}
+                <div className="bg-[#FAF7F0] flex items-center px-5 py-3.5">
+                  <span className="font-body font-normal text-[14px] lg:text-[15px] leading-[22px] text-[#543F30]">
+                    {row.jia}
+                  </span>
+                </div>
+              </div>
+            ))}
 
             {/* Action Row */}
-            <div className="grid grid-cols-[244px_384px_346px_346px] w-full h-[78px]">
+            <div className="grid grid-cols-[190px_1.18fr_1fr_1fr] w-full h-[74px]">
               {/* Empty Action cell */}
-              <div className="bg-[#FAF7F0] border-[0.5px] border-[#E3D9C8] flex items-center px-6" />
+              <div className="bg-[#FAF7F0] border-r border-[#DCCBAE] flex items-center px-5" />
 
               {/* Valencia Action */}
-              <div className="bg-[#F8F0DF] border-[0.5px] border-[#E3D9C8] flex items-center justify-center px-6">
+              <div className="bg-[#F8F0DF] border-r border-[#DCCBAE] flex items-center justify-center px-4">
                 <Link
                   href="/valencia"
-                  className="w-full max-w-[328px] h-[42px] bg-[#204B36] hover:bg-[#173828] text-[#F8F5EA] rounded-[5px] flex items-center justify-center gap-2 font-body font-bold text-[14px] lg:text-[15px] leading-[20px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
+                  className="w-full max-w-[264px] h-[40px] bg-[#1B4D32] hover:bg-[#143B27] text-[#FFFFFF] rounded-[4px] flex items-center justify-center gap-2 font-body font-semibold text-[13px] leading-[18px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
                 >
                   <span>VIEW STAY</span>
                   <ArrowRight
-                    size={15}
-                    className="stroke-[2.5] group-hover/btn:translate-x-1 transition-transform"
+                    size={14}
+                    className="stroke-[2.2] group-hover/btn:translate-x-1 transition-transform"
                   />
                 </Link>
               </div>
 
               {/* Umrao Action */}
-              <div className="bg-[#FAF7F0] border-[0.5px] border-[#E3D9C8] flex items-center justify-center px-6">
+              <div className="bg-[#FAF7F0] border-r border-[#DCCBAE] flex items-center justify-center px-4">
                 <Link
                   href="/umrao"
-                  className="w-full max-w-[290px] h-[42px] bg-[#204B36] hover:bg-[#173828] text-[#F8F5EA] rounded-[5px] flex items-center justify-center gap-2 font-body font-bold text-[14px] lg:text-[15px] leading-[20px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
+                  className="w-full max-w-[230px] h-[40px] bg-[#1B4D32] hover:bg-[#143B27] text-[#FFFFFF] rounded-[4px] flex items-center justify-center gap-2 font-body font-semibold text-[13px] leading-[18px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
                 >
                   <span>ENQUIRE</span>
                   <ArrowRight
-                    size={15}
-                    className="stroke-[2.5] group-hover/btn:translate-x-1 transition-transform"
+                    size={14}
+                    className="stroke-[2.2] group-hover/btn:translate-x-1 transition-transform"
                   />
                 </Link>
               </div>
 
               {/* Hotel Jia Action */}
-              <div className="bg-[#FAF7F0] border-[0.5px] border-[#E3D9C8] flex items-center justify-center px-6">
+              <div className="bg-[#FAF7F0] flex items-center justify-center px-4">
                 <Link
                   href="/hotel-jia"
-                  className="w-full max-w-[290px] h-[42px] bg-[#204B36] hover:bg-[#173828] text-[#F8F5EA] rounded-[5px] flex items-center justify-center gap-2 font-body font-bold text-[14px] lg:text-[15px] leading-[20px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
+                  className="w-full max-w-[230px] h-[40px] bg-[#1B4D32] hover:bg-[#143B27] text-[#FFFFFF] rounded-[4px] flex items-center justify-center gap-2 font-body font-semibold text-[13px] leading-[18px] tracking-[0.12em] uppercase transition-colors group/btn shadow-sm"
                 >
                   <span>VIEW HOTEL</span>
                   <ArrowRight
-                    size={15}
-                    className="stroke-[2.5] group-hover/btn:translate-x-1 transition-transform"
+                    size={14}
+                    className="stroke-[2.2] group-hover/btn:translate-x-1 transition-transform"
                   />
                 </Link>
               </div>

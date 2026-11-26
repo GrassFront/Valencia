@@ -11,102 +11,90 @@ import {
 export default function ValenciaWelcome() {
   return (
     <section className="relative w-full bg-[#FAF6EB] border-b border-black/[0.06] flex flex-col items-center">
-      <div className="w-full max-w-[1440px] xl:h-[729px] min-h-[729px] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-8 xl:gap-[50px] px-4 sm:px-6 md:px-8 py-10 lg:py-12 xl:pt-[44px] xl:pr-[52px] xl:pb-[44px] xl:pl-[56px] box-border">
+      <div className="w-full max-w-[1440px] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10 xl:gap-[60px] px-4 sm:px-6 md:px-8 py-10 lg:py-14 xl:py-[54px] xl:px-[60px] box-border">
         {/* Left Column: Welcome Copy */}
-        <div className="w-full lg:w-[50%] xl:w-[726px] flex flex-col items-start min-w-0">
+        <div className="w-full lg:w-[50%] xl:w-[680px] flex flex-col items-start min-w-0">
           {/* Eyebrow */}
-          <p className="font-body font-bold text-[15px] sm:text-[17px] xl:text-[19px] leading-[23px] tracking-[4px] sm:tracking-[5px] text-[#BD9749] uppercase">
+          <p className="font-body font-semibold text-[13px] sm:text-[14px] leading-[20px] tracking-[0.22em] text-[#BD9749] uppercase">
             WELCOME TO VALENCIA
           </p>
 
-          <div className="h-[14px] sm:h-[25px]" aria-hidden="true" />
-
           {/* Heading lines */}
-          <h2 className="font-display font-bold text-[34px] sm:text-[48px] md:text-[56px] xl:text-[65px] leading-[1.1] sm:leading-[1.15] xl:leading-[79px] text-[#164C36]">
-            A sense of grandeur.
-          </h2>
-          <h2 className="font-display italic font-bold text-[34px] sm:text-[48px] md:text-[56px] xl:text-[65px] leading-[1.1] sm:leading-[1.15] xl:leading-[79px] text-[#BD9749]">
-            A feeling of home.
+          <h2 className="font-display text-[34px] sm:text-[44px] md:text-[50px] xl:text-[56px] leading-[1.12] text-[#164C36] mt-3 sm:mt-4">
+            <span className="block font-normal">A sense of grandeur.</span>
+            <span className="block font-normal italic text-[#BD9749]">A feeling of home.</span>
           </h2>
 
-          <div className="h-[14px] sm:h-[25px]" aria-hidden="true" />
-
-          {/* Paragraph 1 */}
-          <p className="font-body font-normal text-[15px] sm:text-[18px] xl:text-[20px] leading-[24px] sm:leading-[28px] xl:leading-[24px] text-[#543E30] max-w-[726px]">
-            Planned as a luxury boutique hotel in Patna, VALENCIA brings Italian-inspired neoclassical design together with warm, thoughtful hospitality.
-          </p>
-
-          <div className="h-[12px] sm:h-[22px]" aria-hidden="true" />
-
-          {/* Paragraph 2 */}
-          <p className="font-body font-normal text-[15px] sm:text-[18px] xl:text-[20px] leading-[24px] sm:leading-[28px] xl:leading-[24px] text-[#543E30] max-w-[726px]">
-            Refined architectural details and generous spaces set the scene for restful stays, memorable dining and meaningful gatherings.
-          </p>
-
-          <div className="h-[20px] sm:h-[37px]" aria-hidden="true" />
+          {/* Paragraphs */}
+          <div className="flex flex-col gap-3 mt-4 sm:mt-5 max-w-[650px]">
+            <p className="font-body font-normal text-[15px] sm:text-[16.5px] leading-[24px] sm:leading-[26px] text-[#543E30]">
+              Planned as a luxury boutique hotel in Patna, VALENCIA brings Italian-inspired neoclassical design together with warm, thoughtful hospitality.
+            </p>
+            <p className="font-body font-normal text-[15px] sm:text-[16.5px] leading-[24px] sm:leading-[26px] text-[#543E30]">
+              Refined architectural details and generous spaces set the scene for restful stays, memorable dining and meaningful gatherings.
+            </p>
+          </div>
 
           {/* Gold Divider */}
-          <div className="w-full h-[1px] bg-[#BD9749]" aria-hidden="true" />
-
-          <div className="h-[16px] sm:h-[24px]" aria-hidden="true" />
+          <div className="w-full h-[1px] bg-[#E0CA9E] my-6 sm:my-7" aria-hidden="true" />
 
           {/* 4 Features Grid (2 rows x 2 cols) */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-5 sm:gap-y-5 gap-x-4 xl:gap-x-[30px]">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-y-6 gap-x-6 xl:gap-x-8">
             {/* Feature 1: Italian-inspired */}
-            <div className="flex items-center gap-4 sm:gap-[20px] xl:gap-[24px] min-h-[75px] sm:min-h-[90px]">
-              <div className="w-[52px] sm:w-[66px] h-[48px] sm:h-[59px] shrink-0 flex items-center justify-center">
-                <NeoclassicalIcon className="w-[52px] sm:w-[66px] h-[48px] sm:h-[59px]" />
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="w-[54px] sm:w-[60px] h-[50px] shrink-0 flex items-center justify-center">
+                <NeoclassicalIcon className="w-[50px] sm:w-[56px] h-[46px]" color="#BD9749" />
               </div>
               <div className="flex flex-col">
-                <h3 className="font-display font-bold text-[19px] sm:text-[23px] xl:text-[27px] leading-[1.2] xl:leading-[33px] text-[#164C36]">
+                <h3 className="font-display font-bold text-[18px] sm:text-[20px] leading-[1.25] text-[#164C36]">
                   Italian-inspired
                 </h3>
-                <p className="font-body font-normal text-[14px] sm:text-[16px] xl:text-[18px] leading-[22px] text-[#543E30]">
+                <p className="font-body font-normal text-[13.5px] sm:text-[14.5px] leading-[20px] text-[#543E30]">
                   Neoclassical architecture
                 </p>
               </div>
             </div>
 
             {/* Feature 2: 17-ft clear height */}
-            <div className="flex items-center gap-4 sm:gap-[20px] xl:gap-[24px] min-h-[75px] sm:min-h-[90px]">
-              <div className="w-[52px] sm:w-[66px] h-[64px] sm:h-[82px] shrink-0 flex items-center justify-center">
-                <HeightIcon className="w-[52px] sm:w-[66px] h-[64px] sm:h-[82px]" />
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="w-[54px] sm:w-[60px] h-[54px] shrink-0 flex items-center justify-center">
+                <HeightIcon className="w-[44px] sm:w-[48px] h-[52px]" color="#BD9749" />
               </div>
               <div className="flex flex-col">
-                <h3 className="font-display font-bold text-[19px] sm:text-[23px] xl:text-[27px] leading-[1.2] xl:leading-[33px] text-[#164C36]">
+                <h3 className="font-display font-bold text-[18px] sm:text-[20px] leading-[1.25] text-[#164C36]">
                   17-ft clear height
                 </h3>
-                <p className="font-body font-normal text-[14px] sm:text-[16px] xl:text-[18px] leading-[22px] text-[#543E30]">
+                <p className="font-body font-normal text-[13.5px] sm:text-[14.5px] leading-[20px] text-[#543E30]">
                   A generous sense of space
                 </p>
               </div>
             </div>
 
             {/* Feature 3: 4 room categories */}
-            <div className="flex items-center gap-4 sm:gap-[20px] xl:gap-[24px] min-h-[75px] sm:min-h-[90px]">
-              <div className="w-[52px] sm:w-[66px] h-[40px] sm:h-[48px] shrink-0 flex items-center justify-center">
-                <BedCategoryIcon className="w-[52px] sm:w-[66px] h-[40px] sm:h-[48px]" />
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="w-[54px] sm:w-[60px] h-[50px] shrink-0 flex items-center justify-center">
+                <BedCategoryIcon className="w-[50px] sm:w-[56px] h-[44px]" color="#BD9749" />
               </div>
               <div className="flex flex-col">
-                <h3 className="font-display font-bold text-[19px] sm:text-[23px] xl:text-[27px] leading-[1.2] xl:leading-[33px] text-[#164C36]">
+                <h3 className="font-display font-bold text-[18px] sm:text-[20px] leading-[1.25] text-[#164C36]">
                   4 room categories
                 </h3>
-                <p className="font-body font-normal text-[13.5px] sm:text-[15.5px] xl:text-[18px] leading-[22px] text-[#543E30]">
+                <p className="font-body font-normal text-[13.5px] sm:text-[14.5px] leading-[20px] text-[#543E30]">
                   Deluxe, Twin, Suite &amp; Presidential Suite
                 </p>
               </div>
             </div>
 
             {/* Feature 4: Patna, Bihar */}
-            <div className="flex items-center gap-4 sm:gap-[20px] xl:gap-[24px] min-h-[75px] sm:min-h-[90px]">
-              <div className="w-[52px] sm:w-[66px] h-[64px] sm:h-[81px] shrink-0 flex items-center justify-center">
-                <PinIcon className="w-[52px] sm:w-[66px] h-[64px] sm:h-[81px]" />
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="w-[54px] sm:w-[60px] h-[54px] shrink-0 flex items-center justify-center">
+                <PinIcon className="w-[46px] sm:w-[50px] h-[52px]" color="#BD9749" />
               </div>
               <div className="flex flex-col">
-                <h3 className="font-display font-bold text-[19px] sm:text-[23px] xl:text-[27px] leading-[1.2] xl:leading-[33px] text-[#164C36]">
+                <h3 className="font-display font-bold text-[18px] sm:text-[20px] leading-[1.25] text-[#164C36]">
                   Patna, Bihar
                 </h3>
-                <p className="font-body font-normal text-[13.5px] sm:text-[15.5px] xl:text-[18px] leading-[22px] text-[#543E30]">
+                <p className="font-body font-normal text-[13.5px] sm:text-[14.5px] leading-[20px] text-[#543E30]">
                   Full address to be confirmed
                 </p>
               </div>
@@ -115,7 +103,7 @@ export default function ValenciaWelcome() {
         </div>
 
         {/* Right Column: Architectural Lobby Image */}
-        <div className="relative w-full lg:w-[50%] xl:w-[556px] h-[360px] sm:h-[480px] md:h-[540px] lg:h-[580px] xl:h-[641px] rounded-[6px] overflow-hidden shadow-sm shrink-0 group">
+        <div className="relative w-full lg:w-[50%] xl:w-[556px] h-[360px] sm:h-[480px] md:h-[540px] lg:h-[580px] xl:h-[610px] rounded-[6px] overflow-hidden shadow-sm shrink-0 group">
           <Image
             src="/images/ValenciaPage/Welcome to Valencia/Welcome to Valencia.png"
             alt="Valencia grand sunlit lobby with neoclassical arches"

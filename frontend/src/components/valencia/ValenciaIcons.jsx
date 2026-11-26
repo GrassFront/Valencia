@@ -89,15 +89,10 @@ export function BedCategoryIcon({ className = "w-[66px] h-[48px]", color = "#BD9
       <rect x="12" y="14" width="18" height="9" rx="2" stroke={color} strokeWidth="2" />
       <rect x="36" y="14" width="18" height="9" rx="2" stroke={color} strokeWidth="2" />
       {/* Mattress / Duvet */}
-      <path
-        d="M4 26C4 24.8954 4.89543 24 6 24H60C61.1046 24 62 24.8954 62 26V36H4V26Z"
-        fill={color}
-        opacity="0.15"
-      />
       <rect x="4" y="26" width="58" height="10" rx="1.5" stroke={color} strokeWidth="2.5" />
       {/* Bed legs */}
-      <line x1="8" y1="36" x2="8" y2="44" stroke={color} strokeWidth="3" strokeLinecap="round" />
-      <line x1="58" y1="36" x2="58" y2="44" stroke={color} strokeWidth="3" strokeLinecap="round" />
+      <line x1="8" y1="36" x2="8" y2="44" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="58" y1="36" x2="58" y2="44" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -112,14 +107,25 @@ export function PinIcon({ className = "w-[66px] h-[81px]", color = "#BD9749" }) 
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <path
-        d="M33 5C20.85 5 11 14.85 11 27C11 41.5 30.5 68.2 31.8 69.9C32.4 70.7 33.6 70.7 34.2 69.9C35.5 68.2 55 41.5 55 27C55 14.85 45.15 5 33 5Z"
+      {/* Base ellipse shadow */}
+      <ellipse
+        cx="33"
+        cy="72"
+        rx="15"
+        ry="5.5"
         stroke={color}
-        strokeWidth="3"
+        strokeWidth="2.5"
+      />
+      {/* Location pin teardrop */}
+      <path
+        d="M33 7C22 7 13 16 13 27.5C13 41.5 31.5 65.5 32.4 66.8C32.7 67.2 33.3 67.2 33.6 66.8C34.5 65.5 53 41.5 53 27.5C53 16 44 7 33 7Z"
+        stroke={color}
+        strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="33" cy="27" r="8" fill={color} />
+      {/* Inner hollow circle */}
+      <circle cx="33" cy="27" r="7" stroke={color} strokeWidth="2.5" />
     </svg>
   );
 }
