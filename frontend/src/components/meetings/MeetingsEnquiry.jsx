@@ -17,8 +17,15 @@ const MEETING_TYPES = [
   "Team Offsite",
 ];
 
-const SETUP_CHOICES_ROW_1 = ["Theatre", "Classroom", "U-shape", "Boardroom"];
-const SETUP_CHOICES_ROW_2 = ["AV", "Catering", "Rooms"];
+const ALL_SETUP_CHOICES = [
+  "Theatre",
+  "Classroom",
+  "U-shape",
+  "Boardroom",
+  "AV",
+  "Catering",
+  "Rooms",
+];
 
 function formatDisplayDate(dateStr) {
   if (!dateStr) return "";
@@ -268,7 +275,7 @@ export default function MeetingsEnquiry() {
                     id="attendees"
                     type="text"
                     required
-                    placeholder="e.g. 25"
+                    placeholder="Estimated number of attendees"
                     value={formData.attendees}
                     onChange={(e) => handleInputChange("attendees", e.target.value)}
                     className="meetings-input"
@@ -293,24 +300,8 @@ export default function MeetingsEnquiry() {
               <div className="meetings-setup-grid">
                 <span className="meetings-setup-label">Setup needs (optional)</span>
 
-                {/* Choices Row 1 */}
-                <div className="meetings-setup-choices">
-                  {SETUP_CHOICES_ROW_1.map((choice) => (
-                    <label key={choice} className="meetings-checkbox-row">
-                      <input
-                        type="checkbox"
-                        checked={formData.setupNeeds.includes(choice)}
-                        onChange={() => handleSetupToggle(choice)}
-                        className="meetings-checkbox-input"
-                      />
-                      <span className="meetings-checkbox-label">{choice}</span>
-                    </label>
-                  ))}
-                </div>
-
-                {/* Choices Row 2 */}
-                <div className="meetings-setup-choices">
-                  {SETUP_CHOICES_ROW_2.map((choice) => (
+                <div className="meetings-setup-choices-grid">
+                  {ALL_SETUP_CHOICES.map((choice) => (
                     <label key={choice} className="meetings-checkbox-row">
                       <input
                         type="checkbox"
@@ -349,7 +340,7 @@ export default function MeetingsEnquiry() {
                     id="mobileNumber"
                     type="tel"
                     required
-                    placeholder="+91 00000 00000"
+                    placeholder="+91 Enter mobile number"
                     value={formData.mobileNumber}
                     onChange={(e) => handleInputChange("mobileNumber", e.target.value)}
                     className="meetings-input"
@@ -383,7 +374,7 @@ export default function MeetingsEnquiry() {
                 <textarea
                   id="message"
                   maxLength={500}
-                  placeholder="Share any specific requirements or questions..."
+                  placeholder="Share your agenda, timing or any special requirements"
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
                   className="meetings-textarea"

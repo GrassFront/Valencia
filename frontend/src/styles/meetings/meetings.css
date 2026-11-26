@@ -1205,6 +1205,20 @@
   margin-bottom: 16px;
 }
 
+.meetings-setup-choices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 12px;
+  column-gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .meetings-setup-choices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .meetings-setup-choices {
   display: flex;
   flex-direction: row;

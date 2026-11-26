@@ -106,22 +106,17 @@ export function ArrowDownIcon({ className = "w-5 h-5", stroke = "currentColor" }
   );
 }
 
-export function CalendarIcon({ className = "w-5 h-5", stroke = "#776B61" }) {
+export function CalendarIcon({ className = "w-4 h-4", stroke = "#776B61" }) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 16 16"
       fill="none"
-      stroke={stroke}
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-      <line x1="16" y1="2" x2="16" y2="6" />
-      <line x1="8" y1="2" x2="8" y2="6" />
-      <line x1="3" y1="10" x2="21" y2="10" />
+      <rect x="1.5" y="1.5" width="13" height="13" rx="1.5" stroke={stroke} strokeWidth="1.2" />
+      <rect x="5" y="5" width="6" height="6" fill={stroke} />
     </svg>
   );
 }
