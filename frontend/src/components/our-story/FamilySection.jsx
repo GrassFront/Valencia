@@ -49,14 +49,13 @@ export default function FamilySection() {
                 <div className="family-eyebrow-divider family-eyebrow-divider-right w-[60px] sm:w-[90px] h-[1px] bg-[#C9A96A] shrink-0" />
               </div>
 
-              {/* Heading - 3 lines matching SS3 layout without right-side overflow */}
+              {/* Heading */}
               <h2
                 id="family-heading"
                 className="family-heading font-display font-normal text-[32px] sm:text-[40px] md:text-[46px] xl:text-[52px] 2xl:text-[56px] leading-[1.15] text-[#1B4D32]"
               >
                 <span className="block">Three destinations.</span>
-                <span className="block">One spirit of</span>
-                <span className="block">hospitality.</span>
+                <span className="block md:whitespace-nowrap">One spirit of hospitality.</span>
               </h2>
             </div>
 
