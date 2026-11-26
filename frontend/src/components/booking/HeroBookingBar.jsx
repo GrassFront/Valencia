@@ -131,7 +131,7 @@ export default function HeroBookingBar({
         {/* Row 1: Stay Mode Toggle */}
         <div className="flex items-center justify-center sm:justify-start">
           <div
-            className="relative flex h-[38px] w-[360px] max-w-full rounded-full border border-[#1B4D32] bg-[#FBF5EA] p-[3px] select-none"
+            className="relative flex h-[38px] w-[360px] max-w-full rounded-full border border-[#1B4D32] bg-[#FBF5EA] overflow-hidden select-none"
             role="tablist"
             aria-label="Stay Type"
           >
@@ -145,9 +145,9 @@ export default function HeroBookingBar({
                 setActivePopover(null);
               }}
               className={classNames(
-                "relative z-10 flex h-full flex-1 items-center justify-center gap-2.5 rounded-full text-[14px] font-bold font-body leading-none transition-all duration-200 cursor-pointer",
+                "relative z-10 flex h-full w-1/2 items-center justify-center gap-2.5 rounded-full text-[14px] font-bold font-body leading-none transition-all duration-200 cursor-pointer",
                 stayMode === "night"
-                  ? "bg-[#1B4D32] text-[#FBF5EA] shadow-sm"
+                  ? "bg-[#1B4D32] text-[#FBF5EA]"
                   : "bg-transparent text-[#1B4D32] hover:text-[#1B4D32]/85"
               )}
             >
@@ -165,9 +165,9 @@ export default function HeroBookingBar({
                 setActivePopover(null);
               }}
               className={classNames(
-                "relative z-10 flex h-full flex-1 items-center justify-center gap-2.5 rounded-full text-[14px] font-bold font-body leading-none transition-all duration-200 cursor-pointer",
+                "relative z-10 flex h-full w-1/2 items-center justify-center gap-2.5 rounded-full text-[14px] font-bold font-body leading-none transition-all duration-200 cursor-pointer",
                 stayMode === "hourly"
-                  ? "bg-[#1B4D32] text-[#FBF5EA] shadow-sm"
+                  ? "bg-[#1B4D32] text-[#FBF5EA]"
                   : "bg-transparent text-[#1B4D32] hover:text-[#1B4D32]/85"
               )}
             >
