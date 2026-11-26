@@ -81,7 +81,7 @@ export default function DiningTaste() {
                   src={dish.image}
                   alt={dish.alt}
                   width={322}
-                  height={262}
+                  height={255}
                   className="w-full h-full object-cover"
                 />
               </div>

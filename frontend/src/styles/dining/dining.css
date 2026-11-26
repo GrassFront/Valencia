@@ -389,9 +389,9 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: 22px;
+  gap: 20px;
   box-sizing: border-box;
 }
 
@@ -621,24 +621,26 @@
 }
 
 .dining-taste-card {
-  height: 430px;
-  background: #FBF8F0;
+  background: #FAF7EE;
   border: 1px solid #E1D0B2;
   border-radius: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: auto;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .dining-taste-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(27, 45, 35, 0.08);
+  border-color: #C39E61;
 }
 
 .dining-taste-card-img {
   width: 100%;
-  height: 262px;
+  aspect-ratio: 322 / 255;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -652,17 +654,18 @@
 }
 
 .dining-taste-card-body {
-  padding: 18px 20px 0 29px;
+  padding: 16px 20px 22px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
   flex: 1;
+  box-sizing: border-box;
 }
 
 .dining-taste-card-category {
   font-family: var(--font-manrope), "Manrope", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 11px;
   line-height: 15px;
   letter-spacing: 0.22em;
@@ -674,8 +677,8 @@
 .dining-taste-card-name {
   font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
   font-weight: 400;
-  font-size: 29px;
-  line-height: 39px;
+  font-size: 26px;
+  line-height: 33px;
   color: #1B4D32;
   margin: 0;
 }
@@ -683,8 +686,8 @@
 .dining-taste-card-desc {
   font-family: var(--font-manrope), "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
+  font-size: 14px;
+  line-height: 21px;
   color: #6B5846;
   margin: 0;
 }
@@ -722,13 +725,14 @@
   background-color: #FAF7EE;
   display: flex;
   justify-content: center;
-  padding: 44px 71px;
+  padding: 44px clamp(20px, 4.5vw, 71px);
   box-sizing: border-box;
 }
 
 .dining-kitchen-container {
   width: 100%;
   max-width: 1308px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -808,21 +812,22 @@
 
 .dining-kitchen-gallery {
   width: 100%;
-  height: 525px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 14px;
 }
 
 /* Left big card */
 .dining-kitchen-card-large {
   position: relative;
-  width: 619px;
-  height: 525px;
+  flex: 48 1 0;
+  max-width: 619px;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 619 / 525;
   overflow: hidden;
-  flex-shrink: 0;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .dining-kitchen-card-large img {
@@ -866,8 +871,8 @@
 .dining-kitchen-dish-large {
   font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
   font-weight: 400;
-  font-size: 31px;
-  line-height: 41px;
+  font-size: clamp(24px, 2.4vw, 31px);
+  line-height: 1.25;
   color: #FFFFFF;
   margin: 0;
 }
@@ -875,25 +880,27 @@
 .dining-kitchen-desc-large {
   font-family: var(--font-manrope), "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.35;
   color: #F8F5EA;
   margin: 0;
 }
 
 /* Right column */
 .dining-kitchen-right-col {
-  width: 675px;
-  height: 525px;
+  flex: 52 1 0;
+  max-width: 675px;
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  flex-shrink: 0;
 }
 
 .dining-kitchen-top-row {
   width: 100%;
-  height: 259px;
+  flex: 259 1 0;
+  min-height: 0;
   display: flex;
   flex-direction: row;
   gap: 14px;
@@ -901,17 +908,18 @@
 
 .dining-kitchen-card-small {
   position: relative;
-  height: 259px;
+  flex: 1 1 50%;
+  width: 50%;
+  min-width: 0;
+  aspect-ratio: 330 / 259;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
-.dining-kitchen-card-small.card-comfort {
-  width: 331px;
-}
-
+.dining-kitchen-card-small.card-comfort,
 .dining-kitchen-card-small.card-sweet {
-  width: 330px;
+  flex: 1 1 50%;
+  width: 50%;
 }
 
 .dining-kitchen-card-small img {
@@ -933,9 +941,9 @@
 
 .dining-kitchen-caption-small {
   position: absolute;
-  left: 24px;
-  bottom: 20px;
-  width: calc(100% - 48px);
+  left: 20px;
+  bottom: 18px;
+  width: calc(100% - 40px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -946,18 +954,20 @@
 .dining-kitchen-dish-small {
   font-family: var(--font-playfair-display), "Playfair Display", Georgia, serif;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.25;
   color: #FFFFFF;
   margin: 0;
 }
 
 .dining-kitchen-card-bottom {
   position: relative;
-  width: 675px;
-  height: 252px;
+  width: 100%;
+  flex: 252 1 0;
+  min-height: 0;
+  aspect-ratio: 675 / 252;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .dining-kitchen-card-bottom img {
@@ -1689,22 +1699,24 @@
 
   .dining-chef-container {
     gap: 40px;
-    align-items: stretch;
+    align-items: center;
   }
 
   .dining-chef-bio {
     width: auto;
     flex: 1 1 54%;
-    height: 560px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 20px;
   }
 
   .dining-chef-photo {
     width: auto;
     flex: 1 1 44%;
-    height: 560px;
+    height: auto;
+    max-height: 560px;
   }
 
   .dining-private-container {
