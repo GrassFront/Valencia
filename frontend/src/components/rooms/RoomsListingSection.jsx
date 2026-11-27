@@ -8,7 +8,7 @@ export default function RoomsListingSection() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   return (
-    <div className="rooms-listing-wrapper flex flex-col w-full">
+    <div id="choose-your-stay-section" className="rooms-listing-wrapper flex flex-col w-full scroll-mt-[100px]">
       {/* 1. Category Tabs & Filters */}
       <ChooseYourStayFilters
         activeCategory={activeCategory}

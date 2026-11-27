@@ -49,6 +49,25 @@ export default function ChooseYourStayFilters({
     };
   }, []);
 
+  // Smooth scroll into view when arriving via Search Rooms
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const shouldScroll =
+        window.location.hash === "#choose-your-stay" ||
+        window.location.search.includes("search=1");
+      if (shouldScroll) {
+        const timer = setTimeout(() => {
+          const el = document.getElementById("choose-your-stay");
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+            window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+          }
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
   const handleCategoryClick = (catId) => {
     setInternalCategory(catId);
     if (onCategoryChange) onCategoryChange(catId);
@@ -70,9 +89,10 @@ export default function ChooseYourStayFilters({
 
   return (
     <section
+      id="choose-your-stay"
       ref={containerRef}
       aria-label="Choose your stay and filter rooms"
-      className="choose-your-stay-filters"
+      className="choose-your-stay-filters scroll-mt-[100px]"
     >
       <div className="choose-your-stay-container">
         {/* Section Heading Row */}

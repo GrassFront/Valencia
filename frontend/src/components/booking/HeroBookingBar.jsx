@@ -115,17 +115,35 @@ export default function HeroBookingBar({
         children: childrenCount,
         rooms,
       });
-    } else {
-      if (typeof window !== "undefined" && window.location.pathname.startsWith("/rooms")) {
+    }
+
+    if (typeof window !== "undefined") {
+      const isRoomsPage = window.location.pathname.startsWith("/rooms");
+      if (isRoomsPage) {
         const el =
+          document.getElementById("choose-your-stay") ||
+          document.getElementById("choose-your-stay-section") ||
           document.querySelector(".choose-your-stay-filters") ||
           document.querySelector(".rooms-listing-wrapper");
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
           return;
         }
       }
-      router.push("/rooms");
+
+      const queryParams = new URLSearchParams();
+      queryParams.set("search", "1");
+      if (stayMode) queryParams.set("mode", stayMode);
+      if (checkInText) queryParams.set("checkin", checkInText);
+      if (checkOutText) queryParams.set("checkout", checkOutText);
+      if (stayMode === "hourly" && duration) queryParams.set("duration", formatHoursText(duration));
+      if (adults) queryParams.set("adults", String(adults));
+      if (rooms) queryParams.set("rooms", String(rooms));
+
+      router.push(`/rooms?${queryParams.toString()}#choose-your-stay`);
+    } else {
+      router.push("/rooms#choose-your-stay");
     }
   };
 
