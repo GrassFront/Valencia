@@ -120,8 +120,10 @@ export function BookingReviewReservation({
   const handleEditRoomDates = () => {
     if (onEditRoom) {
       onEditRoom();
+    } else if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
     } else {
-      router.push(currentRoom.roomPage);
+      router.push("/rooms#choose-your-stay");
     }
   };
 

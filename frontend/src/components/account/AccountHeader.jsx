@@ -12,7 +12,7 @@ export default function AccountHeader() {
 
   return (
     <header className="w-full bg-[#FBF8F0] border-b border-[#E1D8C6] sticky top-0 z-50">
-      <div className="mx-auto flex h-[87px] w-full max-w-[1440px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-[50px]">
+      <div className="w-full flex h-[87px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         {/* Brand / Valencia logo */}
         <Link
           href="/"

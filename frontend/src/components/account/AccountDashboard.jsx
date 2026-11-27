@@ -127,7 +127,7 @@ export default function AccountDashboard({ initialTab = "upcoming" }) {
       <AccountBreadcrumb isProfile={isProfile} />
 
       {/* Main Container */}
-      <main className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-[50px] flex-1">
+      <main className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 flex-1">
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-[44px] w-full">
           {/* Account Sidebar (Left Column) */}
           <AccountSidebar
@@ -135,10 +135,10 @@ export default function AccountDashboard({ initialTab = "upcoming" }) {
             onSelectTab={handleSelectTab}
           />
 
-          {/* Account Content (Right Column - 1024px) */}
+          {/* Account Content (Right Column) */}
           <section
             aria-label={isProfile ? "My Profile" : "My Bookings"}
-            className="w-full lg:w-[1024px] flex flex-col items-start flex-1 min-w-0"
+            className="w-full flex-1 flex flex-col items-start min-w-0"
           >
             {/* Page Introduction */}
             <div className="w-full flex flex-col items-start mb-6">

@@ -11,7 +11,7 @@ export default function AuthCard({
 }) {
   return (
     <div
-      className={`w-full h-full flex flex-col justify-between items-center px-5 sm:px-10 lg:pl-[91px] lg:pr-[84px] ${topPaddingClass} pb-6 ${className}`}
+      className={`w-full h-full flex flex-col justify-between items-center px-5 sm:px-10 lg:px-8 xl:px-12 ${topPaddingClass} pb-6 ${className}`}
     >
       <div className="w-full max-w-[552px] flex flex-col items-start flex-1">
         {/* Recovery Icon */}

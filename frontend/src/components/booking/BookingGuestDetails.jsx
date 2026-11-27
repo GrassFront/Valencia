@@ -160,6 +160,14 @@ export function BookingGuestDetails() {
     }
   };
 
+  const handleEditRoomAndDates = () => {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/rooms#choose-your-stay");
+    }
+  };
+
   const handleProceedToPayment = () => {
     if (!agreedToTerms) return;
     setCurrentStep(4);
@@ -180,7 +188,7 @@ export function BookingGuestDetails() {
         guestData={formData}
         onBack={handleBackToStep2}
         onEditDetails={handleBackToStep2}
-        onEditRoom={() => router.push(currentRoom.roomPage)}
+        onEditRoom={handleEditRoomAndDates}
         onProceedPayment={() => {
           setCurrentStep(4);
           if (typeof window !== "undefined") {
@@ -668,9 +676,13 @@ export function BookingGuestDetails() {
                   </div>
 
                   <div className="change-dates">
-                    <Link href={currentRoom.roomPage} className="edit-dates">
+                    <button
+                      type="button"
+                      onClick={handleEditRoomAndDates}
+                      className="edit-dates"
+                    >
                       Edit dates
-                    </Link>
+                    </button>
                   </div>
 
                   <div className="card-divider" />
@@ -737,9 +749,13 @@ export function BookingGuestDetails() {
                 <div className="review-card">
                   <div className="review-card-header">
                     <h2 className="review-card-title">Your stay</h2>
-                    <Link href={currentRoom.roomPage} className="btn-edit-link">
+                    <button
+                      type="button"
+                      onClick={handleEditRoomAndDates}
+                      className="btn-edit-link"
+                    >
                       Edit room &amp; dates
-                    </Link>
+                    </button>
                   </div>
 
                   <div className="your-stay-content">

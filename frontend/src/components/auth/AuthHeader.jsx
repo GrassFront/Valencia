@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AuthHeader() {
   return (
-    <header className="w-full h-[87px] flex items-center justify-between px-6 sm:px-10 lg:pl-[40px] lg:pr-[45px] bg-[#F9F6ED] shrink-0 border-b border-[#DFDDD5]/30">
+    <header className="w-full h-[87px] flex items-center justify-between px-6 sm:px-10 lg:px-12 xl:px-16 bg-[#F9F6ED] shrink-0 border-b border-[#DFDDD5]/30">
       <Link
         href="/"
         className="flex items-center gap-[14px] transition-opacity hover:opacity-90"

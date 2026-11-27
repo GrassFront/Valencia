@@ -7,17 +7,17 @@ export default function AuthLayout({
 }) {
   return (
     <div className="min-h-screen w-full bg-[#F9F6ED] flex flex-col selection:bg-[#164C3B] selection:text-white">
-      {/* 1440px Master Container */}
-      <div className="w-full max-w-[1440px] mx-auto min-h-screen flex flex-col">
+      {/* Full-bleed split layout container */}
+      <div className="w-full min-h-screen flex flex-col">
         {/* Navigation Header (87px) */}
         <AuthHeader />
 
-        {/* Main Content: Split Row (Photo on Left, Account Panel on Right) */}
+        {/* Main Content: Split Row (Photo on Left edge-to-edge, Account Panel on Right) */}
         <main className="flex-1 flex flex-col lg:flex-row w-full relative">
-          {/* Left Column: Lobby photograph and message */}
+          {/* Left Column: Lobby photograph and message - spans full 50% without gutter gap */}
           <section
             aria-label="Hotel ambiance and welcome"
-            className="w-full lg:w-[713px] h-[300px] sm:h-[380px] lg:h-auto lg:min-h-[913px] relative shrink-0 overflow-hidden"
+            className="w-full lg:w-1/2 h-[300px] sm:h-[380px] lg:h-auto lg:min-h-[calc(100vh-87px)] relative shrink-0 overflow-hidden"
           >
             <div className="absolute inset-0">
               <Image
@@ -25,7 +25,7 @@ export default function AuthLayout({
                 alt="Valencia Luxury Boutique Hotel Lobby"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 713px"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />
             </div>
@@ -53,7 +53,7 @@ export default function AuthLayout({
           {/* Right Column: Account Panel Form */}
           <section
             aria-label="Account form and options"
-            className="flex-1 w-full bg-[#F9F6ED] flex flex-col relative"
+            className="w-full lg:w-1/2 flex-1 bg-[#F9F6ED] flex flex-col justify-center relative"
           >
             {children}
           </section>
