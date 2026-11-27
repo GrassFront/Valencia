@@ -24,6 +24,21 @@ const DURATION_OPTIONS = [
   "24 Hours",
 ];
 
+const formatHoursText = (val) => {
+  if (!val) return "12 Hours";
+  const str = String(val).trim();
+  if (/^\d+\s*(hours?|hrs?)$/i.test(str)) {
+    const num = parseInt(str.replace(/\D/g, ""), 10);
+    return `${num} ${num === 1 ? "Hour" : "Hours"}`;
+  }
+  const match = str.match(/^(\d+)/);
+  if (match) {
+    const num = parseInt(match[1], 10);
+    return `${num} ${num === 1 ? "Hour" : "Hours"}`;
+  }
+  return str;
+};
+
 const MONTH_DATA = [
   { name: "October 2026", year: 2026, monthIndex: 9, startDayOffset: 4, days: 31 },
   { name: "November 2026", year: 2026, monthIndex: 10, startDayOffset: 0, days: 30 },
@@ -95,7 +110,7 @@ export default function HeroBookingBar({
         stayMode,
         checkInDate: checkInText || "Select date",
         checkOutDate: checkOutText || "Select date",
-        duration: stayMode === "hourly" ? duration : undefined,
+        duration: stayMode === "hourly" ? formatHoursText(duration) : undefined,
         adults,
         children: childrenCount,
         rooms,
@@ -440,7 +455,7 @@ export default function HeroBookingBar({
                     Duration
                   </span>
                   <span className="text-[13px] font-normal leading-[18px] text-[#8B8E87] truncate font-body whitespace-nowrap">
-                    {duration}
+                    {formatHoursText(duration)}
                   </span>
                 </div>
                 {activePopover === "duration" ? (
@@ -472,11 +487,25 @@ export default function HeroBookingBar({
                       type="text"
                       value={customDurationInput}
                       onChange={(e) => {
-                        setCustomDurationInput(e.target.value);
-                        setDuration(e.target.value);
+                        const val = e.target.value;
+                        setCustomDurationInput(val);
+                        const match = val.match(/^(\d+)/);
+                        if (match) {
+                          const n = parseInt(match[1], 10);
+                          setDuration(`${n} ${n === 1 ? "Hour" : "Hours"}`);
+                        } else if (val.trim()) {
+                          setDuration(val);
+                        }
+                      }}
+                      onBlur={() => {
+                        if (customDurationInput.trim()) {
+                          const formatted = formatHoursText(customDurationInput);
+                          setCustomDurationInput(formatted);
+                          setDuration(formatted);
+                        }
                       }}
                       className="w-full h-[46px] rounded-[10px] border border-[#1B4D32] bg-[#FBF5EA] px-4 text-[14px] font-semibold text-[#233028] outline-none font-body focus:ring-1 focus:ring-[#1B4D32]"
-                      placeholder="e.g. 12 Hours"
+                      placeholder="e.g. 8 Hours"
                     />
                   </div>
 
@@ -522,7 +551,14 @@ export default function HeroBookingBar({
                   {/* Apply Button */}
                   <button
                     type="button"
-                    onClick={() => setActivePopover(null)}
+                    onClick={() => {
+                      if (customDurationInput.trim()) {
+                        const formatted = formatHoursText(customDurationInput);
+                        setCustomDurationInput(formatted);
+                        setDuration(formatted);
+                      }
+                      setActivePopover(null);
+                    }}
                     className="w-full h-[44px] rounded-[8px] bg-[#1B4D32] text-[#FBF5EA] text-[14px] font-bold font-body hover:bg-[#153e28] transition-colors cursor-pointer"
                   >
                     Apply Duration
