@@ -43,7 +43,7 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
         </Link>
 
         {/* Desktop Navigation Links (Visible on xl screens 1200px+) */}
-        <div className="hidden xl:flex items-center gap-2 xl:gap-2.5 2xl:gap-4.5 h-[50px] shrink-1 min-w-0">
+        <div className="hidden xl:flex items-center gap-3 xl:gap-3.5 2xl:gap-5.5 h-[50px] shrink-1 min-w-0">
           {NAV_ITEMS.map((item) => {
             const isActive = activeItem ? item.label === activeItem : item.active;
             const hasChildren = item.hasDropdown && item.children;
@@ -249,54 +249,54 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
             {NAV_ITEMS.map((item) => {
               const isMobileActive = activeItem ? item.label === activeItem : item.active;
               return (
-              <div key={item.label} className="border-b border-[#E8DCC9]/40 last:border-b-0 pb-2">
-                <div
-                  className="flex items-center justify-between py-2 cursor-pointer"
-                  onClick={() => item.hasDropdown && toggleDropdown(item.label)}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={() => !item.hasDropdown && setMobileMenuOpen(false)}
-                    className={classNames(
-                      "text-[15px] font-medium transition-colors",
-                      isMobileActive ? "text-[#BC9756] font-semibold" : "text-[#34413F]"
-                    )}
+                <div key={item.label} className="border-b border-[#E8DCC9]/40 last:border-b-0 pb-2">
+                  <div
+                    className="flex items-center justify-between py-2 cursor-pointer"
+                    onClick={() => item.hasDropdown && toggleDropdown(item.label)}
                   >
-                    {item.label}
-                  </Link>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      size={18}
+                    <Link
+                      href={item.href}
+                      onClick={() => !item.hasDropdown && setMobileMenuOpen(false)}
                       className={classNames(
-                        "text-[#34413F] transition-transform",
-                        openDropdown === item.label ? "rotate-180 text-[#BC9756]" : ""
+                        "text-[15px] font-medium transition-colors",
+                        isMobileActive ? "text-[#BC9756] font-semibold" : "text-[#34413F]"
                       )}
-                    />
+                    >
+                      {item.label}
+                    </Link>
+                    {item.hasDropdown && (
+                      <ChevronDown
+                        size={18}
+                        className={classNames(
+                          "text-[#34413F] transition-transform",
+                          openDropdown === item.label ? "rotate-180 text-[#BC9756]" : ""
+                        )}
+                      />
+                    )}
+                  </div>
+                  {item.hasDropdown && openDropdown === item.label && item.children && (
+                    <div className="pl-3 pr-2 py-2 my-1 bg-[#F1E9DB]/60 rounded-[4px] border-l-2 border-[#BC9756] flex flex-col gap-1.5">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex flex-col py-1.5 px-2 rounded hover:bg-[#E8DCC9]/50 transition-colors"
+                        >
+                          <span className="text-[13.5px] font-medium text-[#242B25] hover:text-[#1B4D32]">
+                            {child.label}
+                          </span>
+                          {child.subtitle && (
+                            <span className="text-[11px] text-[#7A8A85]">
+                              {child.subtitle}
+                            </span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
                   )}
                 </div>
-                {item.hasDropdown && openDropdown === item.label && item.children && (
-                  <div className="pl-3 pr-2 py-2 my-1 bg-[#F1E9DB]/60 rounded-[4px] border-l-2 border-[#BC9756] flex flex-col gap-1.5">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex flex-col py-1.5 px-2 rounded hover:bg-[#E8DCC9]/50 transition-colors"
-                      >
-                        <span className="text-[13.5px] font-medium text-[#242B25] hover:text-[#1B4D32]">
-                          {child.label}
-                        </span>
-                        {child.subtitle && (
-                          <span className="text-[11px] text-[#7A8A85]">
-                            {child.subtitle}
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
+              );
             })}
             {isAuthenticated && user ? (
               <div className="mt-4 pt-3 border-t border-[#E8DCC9] flex flex-col gap-2">
