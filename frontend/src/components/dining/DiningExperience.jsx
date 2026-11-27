@@ -26,8 +26,8 @@ export default function DiningExperience() {
             alt="The Dining Experience at Valencia with thoughtfully prepared dishes and intimate ambiance"
             width={725}
             height={560}
-            sizes="(max-width: 1024px) 100vw, 725px"
-            className="w-full h-full object-fill"
+            sizes="(max-width: 1099px) 100vw, 55vw"
+            className="w-full h-full object-cover"
           />
         </div>
 
