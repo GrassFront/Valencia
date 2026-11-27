@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { AuthLayout } from "../../../components/auth";
 import { RegisterForm } from "../../../features/auth/components";
 import { AUTH_LOBBY_CAPTIONS } from "../../../features/auth/constants";
@@ -10,7 +11,9 @@ export const metadata = {
 export default function RegisterPage() {
   return (
     <AuthLayout lobbyCaption={AUTH_LOBBY_CAPTIONS.register}>
-      <RegisterForm />
+      <Suspense fallback={null}>
+        <RegisterForm />
+      </Suspense>
     </AuthLayout>
   );
 }

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
+import { useAuth } from "../../context/AuthContext";
 import { BookingReviewReservation } from "./BookingReviewReservation";
 import { BookingPayment } from "./BookingPayment";
 import { BookingConfirmationHotelContactVersion } from "./BookingConfirmationHotelContactVersion";
@@ -79,17 +80,21 @@ export function BookingGuestDetails() {
   const roomsCount = Math.max(1, parseInt(searchParams?.get("rooms") || "1", 10));
   const urlAdults = searchParams?.get("adults");
 
+  const { user, isAuthenticated, logout } = useAuth();
+  const currentBookingQuery = searchParams ? searchParams.toString() : "";
+  const currentBookingUrl = currentBookingQuery ? `/booking?${currentBookingQuery}` : "/booking";
+
   // Flow State
   const [currentStep, setCurrentStep] = useState(initialStep >= 2 && initialStep <= 4 ? initialStep : 2);
 
   // Form Fields State
   const [formData, setFormData] = useState({
     title: "Mr.",
-    firstName: "Aarav",
-    lastName: "Sharma",
-    email: "aarav@example.com",
+    firstName: user?.firstName || "Aarav",
+    lastName: user?.lastName || "Sharma",
+    email: user?.email || "aarav@example.com",
     countryCode: "+91",
-    phone: "9876543210",
+    phone: user?.mobile ? user.mobile.replace(/\D/g, "").slice(-10) : "9876543210",
     adults: urlAdults || "2",
     children: "0",
     estimatedArrival: "3:00 PM",
@@ -98,6 +103,18 @@ export function BookingGuestDetails() {
     gstCompanyName: "",
     gstNumber: "",
   });
+
+  useEffect(() => {
+    if (user && isAuthenticated) {
+      setFormData((prev) => ({
+        ...prev,
+        firstName: prev.firstName && prev.firstName !== "Aarav" ? prev.firstName : (user.firstName || prev.firstName),
+        lastName: prev.lastName && prev.lastName !== "Sharma" ? prev.lastName : (user.lastName || prev.lastName),
+        email: prev.email && prev.email !== "aarav@example.com" ? prev.email : (user.email || prev.email),
+        phone: prev.phone && prev.phone !== "9876543210" ? prev.phone : (user.mobile ? user.mobile.replace(/\D/g, "").slice(-10) : prev.phone),
+      }));
+    }
+  }, [user, isAuthenticated]);
 
   const [formErrors, setFormErrors] = useState({});
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -336,21 +353,51 @@ export function BookingGuestDetails() {
               <div className="guest-information">
                 <div className="account-or-guest">
                   <div className="account-prompt">
-                    <div className="account-benefits">
-                      <p className="already-have-an-account">Already have an account?</p>
-                      <p className="login-to-speed-up-your-booking-or">
-                        Login to speed up your booking or create a new account.
-                      </p>
-                    </div>
-                    <div className="login-or-register">
-                      <button type="button" className="login-link">
-                        Login
-                      </button>
-                      <span className="divider-text">|</span>
-                      <button type="button" className="register-link">
-                        Register
-                      </button>
-                    </div>
+                    {isAuthenticated && user ? (
+                      <>
+                        <div className="account-benefits">
+                          <p className="already-have-an-account">
+                            Signed in as {user.fullName || `${user.firstName || "Aarav"} ${user.lastName || ""}`.trim()}
+                          </p>
+                          <p className="login-to-speed-up-your-booking-or">
+                            {user.email} · Your reservation will be linked to your account.
+                          </p>
+                        </div>
+                        <div className="login-or-register">
+                          <button
+                            type="button"
+                            onClick={() => logout()}
+                            className="login-link"
+                          >
+                            Switch account
+                          </button>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="account-benefits">
+                          <p className="already-have-an-account">Already have an account?</p>
+                          <p className="login-to-speed-up-your-booking-or">
+                            Login to speed up your booking or create a new account.
+                          </p>
+                        </div>
+                        <div className="login-or-register">
+                          <Link
+                            href={`/login?redirect=${encodeURIComponent(currentBookingUrl)}`}
+                            className="login-link"
+                          >
+                            Login
+                          </Link>
+                          <span className="divider-text">|</span>
+                          <Link
+                            href={`/register?redirect=${encodeURIComponent(currentBookingUrl)}`}
+                            className="register-link"
+                          >
+                            Register
+                          </Link>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div className="continue-as-guest-selected">

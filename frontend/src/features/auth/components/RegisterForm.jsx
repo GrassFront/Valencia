@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   AuthCard,
   AuthInput,
@@ -23,6 +23,7 @@ import { useAuth } from "../../../context/AuthContext";
 
 export default function RegisterForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { login, updateProfile } = useAuth();
 
   const [fullName, setFullName] = useState("");
@@ -84,7 +85,8 @@ export default function RegisterForm() {
         mobile: `${countryCode} ${mobileNumber}`,
         displayMobile: `${countryCode} • • • • • • ${mobileNumber.slice(-4) || "3210"}`,
       });
-      router.push(AUTH_ROUTES.ACCOUNT);
+      const redirectUrl = searchParams?.get("redirect") || AUTH_ROUTES.ACCOUNT;
+      router.push(redirectUrl);
     } catch (err) {
       setGeneralError(err.message || "Registration failed. Please check your information.");
     } finally {

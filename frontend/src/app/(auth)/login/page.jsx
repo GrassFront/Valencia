@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { AuthLayout } from "../../../components/auth";
 import { LoginForm } from "../../../features/auth/components";
 import { AUTH_LOBBY_CAPTIONS } from "../../../features/auth/constants";
@@ -10,7 +11,9 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <AuthLayout lobbyCaption={AUTH_LOBBY_CAPTIONS.login}>
-      <LoginForm />
+      <Suspense fallback={null}>
+        <LoginForm />
+      </Suspense>
     </AuthLayout>
   );
 }

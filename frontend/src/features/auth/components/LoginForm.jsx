@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   AuthCard,
   AuthInput,
@@ -17,6 +17,7 @@ import { useAuth } from "../../../context/AuthContext";
 
 export default function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { login } = useAuth();
 
   const [identifier, setIdentifier] = useState("");
@@ -48,7 +49,8 @@ export default function LoginForm() {
     try {
       await authService.login({ identifier, password, rememberMe });
       await login({ identifier, password, rememberMe });
-      router.push(AUTH_ROUTES.ACCOUNT);
+      const redirectUrl = searchParams?.get("redirect") || AUTH_ROUTES.ACCOUNT;
+      router.push(redirectUrl);
     } catch (err) {
       setGeneralError(err.message || "Invalid credentials. Please try again.");
     } finally {
