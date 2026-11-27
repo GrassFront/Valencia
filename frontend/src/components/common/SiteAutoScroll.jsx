@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Pause, Play } from "lucide-react";
 
 const DISABLED_PREFIXES = [
   "/booking",
@@ -16,179 +15,215 @@ const DISABLED_PREFIXES = [
   "/sign-in",
 ];
 
-const SCROLL_SPEED_PX_PER_SEC = 28;
-const IDLE_START_DELAY_MS = 1400;
+// Gentle, continuous presentation pace in CSS px/sec
+const SCROLL_SPEED_PX_PER_SEC = 48;
+const AUTO_START_DELAY_MS = 450;
 
 export default function SiteAutoScroll() {
   const pathname = usePathname() || "/";
-  const isDisabledRoute = DISABLED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+  const isDisabledRoute = DISABLED_PREFIXES.some((prefix) =>
+    pathname.startsWith(prefix)
+  );
 
   const [isScrolling, setIsScrolling] = useState(false);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
   const rafRef = useRef(null);
   const lastTimeRef = useRef(0);
-  const carryRef = useRef(0);
+  const posRef = useRef(0);
   const activeRef = useRef(false);
 
-  // Detect reduced motion preference
+  // Smooth fade-up entrance animation for sections across all pages
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setIsReducedMotion(mq.matches);
-    const onChange = (e) => setIsReducedMotion(e.matches);
-    mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
-  }, []);
 
-  // Subtle section reveal animation while scrolling through any page
-  useEffect(() => {
-    if (typeof window === "undefined" || isReducedMotion) return;
+    const targets = Array.from(
+      document.querySelectorAll("main section, main > div > section")
+    );
+    if (targets.length === 0) return;
 
-    const sections = Array.from(document.querySelectorAll("main section"));
-    if (sections.length === 0) return;
+    const reveal = (el) => {
+      el.classList.add("site-section-visible");
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      targets.forEach(reveal);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("site-section-visible");
+            reveal(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.06, rootMargin: "0px 0px -32px 0px" }
+      { threshold: 0.01, rootMargin: "100px 0px 100px 0px" }
     );
 
-    sections.forEach((sec) => {
+    targets.forEach((sec) => {
       const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.95) {
-        sec.classList.add("site-section-visible");
+      if (rect.top < window.innerHeight + 60) {
+        reveal(sec);
       } else {
         sec.classList.add("site-section-animate");
         observer.observe(sec);
       }
     });
 
-    return () => observer.disconnect();
-  }, [pathname, isReducedMotion]);
+    const fallbackTimer = setTimeout(() => {
+      targets.forEach(reveal);
+    }, 8000);
 
-  // Manage smooth slow auto-scroll on showcase pages
+    return () => {
+      clearTimeout(fallbackTimer);
+      observer.disconnect();
+    };
+  }, [pathname]);
+
+  // Start gentle auto-scroll & stop immediately when the user takes control
   useEffect(() => {
-    if (typeof window === "undefined" || isDisabledRoute || isReducedMotion) {
+    if (typeof window === "undefined" || isDisabledRoute) {
       activeRef.current = false;
       setIsScrolling(false);
       return;
     }
 
+    let cancelledByUser = false;
+
     const startTimeout = setTimeout(() => {
-      if (window.scrollY < 10) {
+      if (cancelledByUser) return;
+      const maxY = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxY > 40 && window.scrollY < maxY - 12) {
+        posRef.current = window.scrollY;
         activeRef.current = true;
         setIsScrolling(true);
       }
-    }, IDLE_START_DELAY_MS);
+    }, AUTO_START_DELAY_MS);
 
-    const stopOnUserIntent = (e) => {
-      if (e.target && e.target.closest?.("[data-autoscroll-toggle]")) return;
+    const stopAutoScroll = () => {
+      cancelledByUser = true;
+      clearTimeout(startTimeout);
       if (activeRef.current) {
         activeRef.current = false;
         setIsScrolling(false);
       }
-      clearTimeout(startTimeout);
     };
 
-    const stopOnFocusInput = (e) => {
-      const tag = e.target?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") {
-        stopOnUserIntent(e);
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaY) >= 1 || Math.abs(e.deltaX) >= 1) {
+        stopAutoScroll();
       }
     };
 
-    window.addEventListener("wheel", stopOnUserIntent, { passive: true });
-    window.addEventListener("touchstart", stopOnUserIntent, { passive: true });
-    window.addEventListener("keydown", stopOnUserIntent);
-    window.addEventListener("focusin", stopOnFocusInput);
+    const onTouchMove = () => {
+      stopAutoScroll();
+    };
+
+    const onKeyDown = (e) => {
+      if (
+        [
+          "ArrowDown",
+          "ArrowUp",
+          "PageDown",
+          "PageUp",
+          "Home",
+          "End",
+          " ",
+        ].includes(e.key)
+      ) {
+        stopAutoScroll();
+      }
+    };
+
+    const onFocusIn = (e) => {
+      const tag = e.target?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") {
+        stopAutoScroll();
+      }
+    };
+
+    const onPointerDown = (e) => {
+      if (
+        e.target &&
+        (e.target.closest?.("a, button, input, textarea, select") ||
+          e.clientX >= window.innerWidth - 20)
+      ) {
+        stopAutoScroll();
+      }
+    };
+
+    window.addEventListener("wheel", onWheel, { capture: true, passive: true });
+    window.addEventListener("touchmove", onTouchMove, { capture: true, passive: true });
+    window.addEventListener("pointerdown", onPointerDown, { capture: true, passive: true });
+    window.addEventListener("keydown", onKeyDown, { capture: true });
+    window.addEventListener("focusin", onFocusIn, { capture: true });
 
     return () => {
       clearTimeout(startTimeout);
       activeRef.current = false;
-      window.removeEventListener("wheel", stopOnUserIntent);
-      window.removeEventListener("touchstart", stopOnUserIntent);
-      window.removeEventListener("keydown", stopOnUserIntent);
-      window.removeEventListener("focusin", stopOnFocusInput);
+      window.removeEventListener("wheel", onWheel, { capture: true });
+      window.removeEventListener("touchmove", onTouchMove, { capture: true });
+      window.removeEventListener("pointerdown", onPointerDown, { capture: true });
+      window.removeEventListener("keydown", onKeyDown, { capture: true });
+      window.removeEventListener("focusin", onFocusIn, { capture: true });
     };
-  }, [pathname, isDisabledRoute, isReducedMotion]);
+  }, [pathname, isDisabledRoute]);
 
+  // Sub-pixel requestAnimationFrame auto-scroll loop
   useEffect(() => {
-    if (!isScrolling || isDisabledRoute || isReducedMotion) {
+    const html = document.documentElement;
+    if (!isScrolling || isDisabledRoute) {
+      html.removeAttribute("data-autoscrolling");
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       return;
     }
 
+    html.setAttribute("data-autoscrolling", "true");
+    posRef.current = window.scrollY;
     lastTimeRef.current = performance.now();
-    carryRef.current = 0;
 
     const step = (now) => {
       if (!activeRef.current) return;
-      const dt = Math.min(0.05, (now - lastTimeRef.current) / 1000);
-      lastTimeRef.current = now;
 
-      const maxY = document.documentElement.scrollHeight - window.innerHeight;
-      if (maxY <= 0 || window.scrollY >= maxY - 2) {
+      // Detect any external scroll (trackpad momentum, scrollbar drag, etc.)
+      if (Math.abs(window.scrollY - posRef.current) > 4) {
         activeRef.current = false;
         setIsScrolling(false);
         return;
       }
 
-      carryRef.current += SCROLL_SPEED_PX_PER_SEC * dt;
-      if (carryRef.current >= 1) {
-        const px = Math.floor(carryRef.current);
-        carryRef.current -= px;
-        window.scrollBy({ top: px, left: 0, behavior: "auto" });
+      const dt = Math.min(0.05, Math.max(0, (now - lastTimeRef.current) / 1000));
+      lastTimeRef.current = now;
+
+      const maxY = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight
+      );
+
+      if (maxY <= 20 || posRef.current >= maxY - 1) {
+        activeRef.current = false;
+        setIsScrolling(false);
+        return;
       }
+
+      posRef.current = Math.min(maxY, posRef.current + SCROLL_SPEED_PX_PER_SEC * dt);
+
+      try {
+        window.scrollTo({ top: posRef.current, left: 0, behavior: "instant" });
+      } catch {
+        window.scrollTo(0, posRef.current);
+      }
+
       rafRef.current = requestAnimationFrame(step);
     };
 
     rafRef.current = requestAnimationFrame(step);
     return () => {
+      html.removeAttribute("data-autoscrolling");
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [isScrolling, isDisabledRoute, isReducedMotion]);
+  }, [isScrolling, isDisabledRoute]);
 
-  if (isDisabledRoute || isReducedMotion) return null;
-
-  const toggleScroll = () => {
-    if (isScrolling) {
-      activeRef.current = false;
-      setIsScrolling(false);
-    } else {
-      const maxY = document.documentElement.scrollHeight - window.innerHeight;
-      if (window.scrollY >= maxY - 4) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      activeRef.current = true;
-      setIsScrolling(true);
-    }
-  };
-
-  return (
-    <button
-      type="button"
-      data-autoscroll-toggle="true"
-      onClick={toggleScroll}
-      aria-label={isScrolling ? "Pause page auto-scroll" : "Start slow auto-scroll"}
-      className="fixed bottom-4 left-4 z-40 inline-flex items-center gap-2 rounded-full bg-[#FAF7F0]/95 backdrop-blur-xs border border-[#C8A153]/60 px-3.5 py-2 text-[12px] font-body font-semibold text-[#164C36] shadow-[0_6px_18px_rgba(22,76,54,0.14)] hover:bg-[#F3EADB] transition-all cursor-pointer"
-    >
-      {isScrolling ? (
-        <>
-          <Pause size={13} strokeWidth={2.3} />
-          <span>Auto-scrolling</span>
-        </>
-      ) : (
-        <>
-          <Play size={13} strokeWidth={2.3} />
-          <span>Auto-scroll</span>
-        </>
-      )}
-    </button>
-  );
+  return null;
 }
