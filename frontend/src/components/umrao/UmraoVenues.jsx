@@ -118,15 +118,15 @@ export default function UmraoVenues({ onSelectSpace }) {
                 <Link
                   href="#enquiry"
                   onClick={() => onSelectSpace && onSelectSpace(venue.name)}
-                  className="inline-flex items-center justify-center gap-3 w-full h-[48px] bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all group/btn shadow-xs"
+                  className="inline-flex items-center justify-center gap-2.5 w-full min-h-[46px] px-4 py-2.5 bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all group/btn shadow-xs"
                 >
-                  <span className="font-body font-bold text-[15px] sm:text-[17px] lg:text-[18px] leading-[23px] tracking-wide uppercase">
+                  <span className="font-body font-bold text-[12px] sm:text-[15px] lg:text-[16px] leading-tight tracking-[0.8px] sm:tracking-wide uppercase whitespace-nowrap">
                     ENQUIRE ABOUT THIS SPACE
                   </span>
                   <ArrowRightIcon
-                    size={20}
+                    size={18}
                     color="#FFF9EC"
-                    className="group-hover/btn:translate-x-1 transition-transform"
+                    className="shrink-0 group-hover/btn:translate-x-1 transition-transform"
                   />
                 </Link>
               </div>

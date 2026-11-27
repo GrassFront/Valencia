@@ -11,58 +11,52 @@ export default function AccountHeader() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#FBF8F0] border-b border-[#E1D8C6] sticky top-0 z-50">
-      <div className="w-full flex h-[87px] items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        {/* Brand / Valencia logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-3.5 transition-opacity hover:opacity-95"
-          aria-label="Valencia - Back to Home"
-        >
-          <div className="relative w-[70px] sm:w-[94px] h-[44px] sm:h-[58px] shrink-0">
-            <Image
-              src="/images/booking/Original emblem.png"
-              alt="Valencia Emblem"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="font-display font-medium text-[22px] sm:text-[28px] leading-[28px] sm:leading-[37px] tracking-[0.05em] text-[#1B4D32]">
-              VALENCIA
-            </span>
-            <span className="font-body text-[6px] sm:text-[7px] tracking-[0.18em] uppercase text-[#C9A96A] font-normal leading-[8px]">
-              A LUXURY BOUTIQUE HOTEL
-            </span>
-          </div>
-        </Link>
-
-        {/* Account navigation */}
-        <div className="flex items-center gap-4 sm:gap-6 relative">
+    <>
+      <header className="w-full bg-[#FBF8F0] border-b border-[#E1D8C6] sticky top-0 z-50">
+        <div className="w-full flex h-[76px] sm:h-[87px] items-center justify-between gap-2 px-3 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+          {/* Brand / Valencia logo */}
           <Link
             href="/"
-            className="font-body text-[14px] sm:text-[15px] leading-[20px] text-[#574A39] hover:text-[#1B4D32] transition-colors flex items-center gap-1.5"
+            className="flex items-center gap-2 sm:gap-3.5 min-w-0 transition-opacity hover:opacity-95"
+            aria-label="Valencia - Back to Home"
           >
-            <span aria-hidden="true">&larr;</span> Back to website
+            <div className="relative w-[46px] sm:w-[94px] h-[30px] sm:h-[58px] shrink-0">
+              <Image
+                src="/images/booking/Original emblem.png"
+                alt="Valencia Emblem"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-display font-medium text-[17px] sm:text-[28px] leading-[22px] sm:leading-[37px] tracking-[0.05em] text-[#1B4D32]">
+                VALENCIA
+              </span>
+              <span className="font-body text-[5px] sm:text-[7px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#C9A96A] font-normal leading-[7px] sm:leading-[8px] whitespace-nowrap">
+                A LUXURY BOUTIQUE HOTEL
+              </span>
+            </div>
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setDropdownOpen((prev) => !prev)}
-            className="flex items-center gap-2 cursor-pointer focus:outline-none"
-            aria-expanded={dropdownOpen}
-            aria-label="Account menu"
-          >
-            <div className="w-[42px] sm:w-[46px] h-[42px] sm:h-[46px] rounded-full bg-[#134D39] text-[#FFFFFF] flex items-center justify-center font-display font-semibold text-[17px] sm:text-[18px] leading-[24px] shadow-xs shrink-0">
-              {user?.initials || "AS"}
-            </div>
-            <ChevronDown
-              size={18}
-              className={`text-[#565653] transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""
-                }`}
-            />
-          </button>
+          {/* Account navigation */}
+          <div className="flex items-center gap-2.5 sm:gap-6 relative shrink-0">
+            <button
+              type="button"
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className="flex items-center gap-1 sm:gap-2 cursor-pointer focus:outline-none"
+              aria-expanded={dropdownOpen}
+              aria-label="Account menu"
+            >
+              <div className="w-[36px] sm:w-[46px] h-[36px] sm:h-[46px] rounded-full bg-[#134D39] text-[#FFFFFF] flex items-center justify-center font-display font-semibold text-[14px] sm:text-[18px] leading-[20px] sm:leading-[24px] shadow-xs shrink-0">
+                {user?.initials || "AS"}
+              </div>
+              <ChevronDown
+                size={18}
+                className={`text-[#565653] transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""
+                  }`}
+              />
+            </button>
 
           {/* User popup menu */}
           {dropdownOpen && (
@@ -114,5 +108,17 @@ export default function AccountHeader() {
         </div>
       </div>
     </header>
+
+    <div className="w-full bg-[#FBF8F0] px-3 sm:px-6 md:px-8 lg:px-10 xl:px-12 pt-3 pb-1 flex justify-end">
+      <Link
+        href="/"
+        className="font-body text-[13px] sm:text-[15px] leading-[20px] text-[#574A39] hover:text-[#1B4D32] transition-colors flex items-center gap-1.5 whitespace-nowrap"
+      >
+        <span aria-hidden="true">&larr;</span>
+        <span className="md:hidden">Back</span>
+        <span className="hidden md:inline">Back to website</span>
+      </Link>
+    </div>
+  </>
   );
 }

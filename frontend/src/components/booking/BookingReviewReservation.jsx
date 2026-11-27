@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
+import { BookingUserBadge } from "./BookingUserBadge";
 import "./css/booking-review-reservation.css";
 
 const ROOM_DATA = {
@@ -262,18 +263,25 @@ export function BookingReviewReservation({
           </Link>
 
           <div className="booking-navigation">
-            <button type="button" onClick={handleBackToDetails} className="back-to-room">
-              <div className="back">
-                <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
-              </div>
-              <p className="back-to-guest-details">Back to guest details</p>
-            </button>
-
             <div className="secure-lock">
               <Image src="/images/booking/Secure lock.svg" alt="Secure lock" width={20} height={20} />
             </div>
             <p className="secure-booking">Secure booking</p>
+            <BookingUserBadge />
           </div>
+        </div>
+
+        {/* Sub-navbar Right-Aligned Back Link */}
+        <div className="booking-subnav-back-row">
+          <button type="button" onClick={handleBackToDetails} className="back-to-room">
+            <div className="back">
+              <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
+            </div>
+            <p className="back-to-guest-details">
+              <span className="md:hidden">Back</span>
+              <span className="hidden md:inline">Back to guest details</span>
+            </p>
+          </button>
         </div>
 
         {/* ================= PROGRESS BAR ================= */}

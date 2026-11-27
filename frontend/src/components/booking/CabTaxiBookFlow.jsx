@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useAuth } from "../../context/AuthContext";
+import { BookingUserBadge } from "./BookingUserBadge";
 import "./css/cab-taxi-book-flow.css";
 
 const PICKUP_OPTIONS = [
@@ -135,11 +137,15 @@ const VEHICLES = [
 export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { user, isAuthenticated } = useAuth();
 
   // URL Query Parameters or Defaults
   const checkInParam = searchParams.get("checkIn") || "12 Nov 2026";
   const bookingRefParam = searchParams.get("bookingRef") || "VAL-DEMO-1026";
-  const guestNameParam = searchParams.get("guest") || "Aarav Sharma";
+  const guestNameParam =
+    searchParams.get("guest") ||
+    (isAuthenticated && user?.fullName) ||
+    "Aarav Sharma";
 
   // State Management
   const [currentStep, setCurrentStep] = useState(initialStep);
@@ -168,6 +174,32 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
   const [showTimeDropdown, setShowTimeDropdown] = useState(false);
   const [showDateDropdown, setShowDateDropdown] = useState(false);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+
+  // Sync guest info with authenticated user
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      if (!searchParams.get("guest") && user.fullName) {
+        setGuestName(user.fullName);
+      }
+      if (user.email) {
+        setGuestEmail(user.email);
+      }
+      if (user.displayMobile || user.mobile) {
+        setGuestPhone(user.displayMobile || user.mobile);
+      }
+    }
+  }, [isAuthenticated, user, searchParams]);
+
+  // Close Fare & Terms modal on Escape
+  useEffect(() => {
+    if (!showTermsModal) return;
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setShowTermsModal(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [showTermsModal]);
 
   const timeDropdownRef = useRef(null);
   const dateDropdownRef = useRef(null);
@@ -213,7 +245,25 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
 
   // Navigation handlers
   const handleBackToBooking = () => {
-    router.push("/booking/confirmation?cab=confirmed");
+    router.push("/booking/confirmation");
+  };
+
+  const stepBackLabel =
+    currentStep === 1
+      ? "Back to booking"
+      : currentStep === 2
+      ? "Back to trip details"
+      : "Back to vehicles";
+
+  const handleStepBack = () => {
+    if (currentStep > 1) {
+      setCurrentStep((prev) => Math.max(1, prev - 1));
+      if (typeof window !== "undefined") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+    handleBackToBooking();
   };
 
   const handleChooseVehicle = () => {
@@ -245,45 +295,35 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
           </Link>
 
           <div className="account-navigation">
-            <button
-              type="button"
-              className="back-to-booking-btn"
-              onClick={handleBackToBooking}
-              aria-label="Back to booking"
-            >
-              <div style={{ width: 18, height: 18, position: "relative", display: "flex", alignItems: "center" }}>
-                <Image
-                  src="/images/cab booking/trip details/back icon.svg"
-                  alt="Back"
-                  width={18}
-                  height={18}
-                  unoptimized
-                />
-              </div>
-              <span className="back-text">Back to booking</span>
-            </button>
-
-            <div className="nav-divider" />
-
-            <div className="user-profile-badge">
-              <div className="user-avatar">
-                <span>{guestName.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase()}</span>
-              </div>
-              <span className="user-name">Hi {guestName.split(" ")[0]}</span>
-              <div className="user-chevron">
-                <Image
-                  src="/images/cab booking/trip details/chev icon.svg"
-                  alt="Expand"
-                  width={14}
-                  height={14}
-                  unoptimized
-                />
-              </div>
-            </div>
+            <BookingUserBadge showGreetingOnDesktop={true} />
           </div>
         </header>
 
         <div className="header-bottom-line" />
+
+        {/* Back link bar right-aligned directly below navbar */}
+        <div className="cab-subnav-back-row">
+          <button
+            type="button"
+            className="back-to-booking-btn"
+            onClick={handleStepBack}
+            aria-label={stepBackLabel}
+          >
+            <div style={{ width: 18, height: 18, position: "relative", display: "flex", alignItems: "center" }}>
+              <Image
+                src="/images/cab booking/trip details/back icon.svg"
+                alt="Back"
+                width={18}
+                height={18}
+                unoptimized
+              />
+            </div>
+            <span className="back-text">
+              <span className="md:hidden">Back</span>
+              <span className="hidden md:inline">{stepBackLabel}</span>
+            </span>
+          </button>
+        </div>
 
         {/* ================= 4-STEP PROGRESS BAR ================= */}
         <div className="booking-progress-container">
@@ -299,11 +339,17 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
               }}
               style={{ cursor: currentStep > 1 ? "pointer" : "default" }}
             >
-              <div className="step-circle">{currentStep > 1 ? "✓" : "1"}</div>
+              <div className="step-circle">
+                {currentStep > 1 ? (
+                  <Image src="/images/booking/Step indicator.svg" alt="Completed" width={32} height={32} unoptimized />
+                ) : (
+                  "1"
+                )}
+              </div>
               <span className="step-label">Trip details</span>
             </div>
 
-            <div className="step-connector" />
+            <div className={`step-connector ${currentStep > 1 ? "completed" : ""}`} />
 
             {/* Step 2: Vehicle & fare */}
             <div
@@ -316,11 +362,17 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
               }}
               style={{ cursor: currentStep > 2 ? "pointer" : "default" }}
             >
-              <div className="step-circle">{currentStep > 2 ? "✓" : "2"}</div>
+              <div className="step-circle">
+                {currentStep > 2 ? (
+                  <Image src="/images/booking/Step indicator.svg" alt="Completed" width={32} height={32} unoptimized />
+                ) : (
+                  "2"
+                )}
+              </div>
               <span className="step-label">Vehicle &amp; fare</span>
             </div>
 
-            <div className="step-connector" />
+            <div className={`step-connector ${currentStep > 2 ? "completed" : ""}`} />
 
             {/* Step 3: Review & payment */}
             <div
@@ -333,15 +385,27 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
               }}
               style={{ cursor: currentStep > 3 ? "pointer" : "default" }}
             >
-              <div className="step-circle">{currentStep > 3 ? "✓" : "3"}</div>
+              <div className="step-circle">
+                {currentStep > 3 ? (
+                  <Image src="/images/booking/Step indicator.svg" alt="Completed" width={32} height={32} unoptimized />
+                ) : (
+                  "3"
+                )}
+              </div>
               <span className="step-label">Review &amp; payment</span>
             </div>
 
-            <div className="step-connector" />
+            <div className={`step-connector ${currentStep > 3 ? "completed" : ""}`} />
 
             {/* Step 4: Confirmation */}
             <div className={`step-item ${currentStep === 4 ? "active completed" : ""}`}>
-              <div className="step-circle">{currentStep === 4 ? "✓" : "4"}</div>
+              <div className="step-circle">
+                {currentStep === 4 ? (
+                  <Image src="/images/booking/Step indicator.svg" alt="Completed" width={32} height={32} unoptimized />
+                ) : (
+                  "4"
+                )}
+              </div>
               <span className="step-label">Confirmation</span>
             </div>
           </div>
@@ -817,21 +881,6 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
 
               {/* Page Actions Footer */}
               <div className="page-actions-row">
-                <button
-                  type="button"
-                  className="back-action-btn"
-                  onClick={handleBackToBooking}
-                >
-                  <Image
-                    src="/images/cab booking/trip details/back icon 2.svg"
-                    alt="Back"
-                    width={20}
-                    height={20}
-                    unoptimized
-                  />
-                  <span>Back to booking</span>
-                </button>
-
                 <div className="continue-action-wrap">
                   <button
                     type="button"
@@ -1019,7 +1068,7 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
                 <button
                   type="button"
                   className="cancellation-terms-link"
-                  onClick={() => alert("Cancellation terms: Free cancellation up to 2 hours before scheduled pickup time. No cancellation charges if cancelled with prior notice.")}
+                  onClick={() => setShowTermsModal(true)}
                 >
                   View fare &amp; cancellation terms
                 </button>
@@ -1027,14 +1076,6 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
 
               {/* Footer actions */}
               <div className="vehicle-page-actions">
-                <button
-                  type="button"
-                  className="back-to-trip-btn"
-                  onClick={() => setCurrentStep(1)}
-                >
-                  ← &nbsp;Back to trip details
-                </button>
-
                 <div className="continue-review-wrap">
                   <button
                     type="button"
@@ -1404,11 +1445,7 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
                   <button
                     type="button"
                     className="view-cancellation-terms-link"
-                    onClick={() =>
-                      alert(
-                        "Cab Terms & Cancellation:\n• Free cancellation up to 2 hours before scheduled pickup time.\n• Extra waiting beyond 15 minutes or route diversions may incur additional charges."
-                      )
-                    }
+                    onClick={() => setShowTermsModal(true)}
                   >
                     View fare &amp; cancellation terms
                   </button>
@@ -1464,22 +1501,6 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
                 </div>
               </div>
             </main>
-
-            {/* Footer Back Link */}
-            <div className="review-page-footer">
-              <button
-                type="button"
-                className="back-to-vehicles-btn"
-                onClick={() => {
-                  setCurrentStep(2);
-                  if (typeof window !== "undefined") {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
-                }}
-              >
-                ← &nbsp;Back to vehicles
-              </button>
-            </div>
           </section>
         )}
 
@@ -1536,16 +1557,89 @@ export function CabTaxiBookFlow({ initialStep = 1 } = {}) {
           </div>
         )}
 
+        {/* Fare & Cancellation Terms Modal */}
+        {showTermsModal && (
+          <div
+            className="terms-modal-overlay"
+            onClick={() => setShowTermsModal(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="terms-modal-title"
+          >
+            <div className="terms-modal-box" onClick={(e) => e.stopPropagation()}>
+              <div className="terms-modal-header">
+                <div>
+                  <p className="terms-modal-eyebrow">CAB TRANSFER POLICY</p>
+                  <h3 id="terms-modal-title" className="terms-modal-title">
+                    Fare &amp; Cancellation Terms
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  className="terms-modal-close"
+                  onClick={() => setShowTermsModal(false)}
+                  aria-label="Close dialog"
+                >
+                  ×
+                </button>
+              </div>
+
+              <div className="terms-modal-list">
+                <div className="terms-modal-item">
+                  <p className="terms-modal-item-title">What’s included in your fare</p>
+                  <p className="terms-modal-item-desc">
+                    Private one-way transfer with dedicated vehicle, driver allowance, fuel, and applicable local taxes.
+                  </p>
+                </div>
+
+                <div className="terms-modal-item">
+                  <p className="terms-modal-item-title">Free cancellation window</p>
+                  <p className="terms-modal-item-desc">
+                    Cancel or reschedule free of charge up to 2 hours before your scheduled pickup time.
+                  </p>
+                </div>
+
+                <div className="terms-modal-item">
+                  <p className="terms-modal-item-title">Waiting time &amp; route changes</p>
+                  <p className="terms-modal-item-desc">
+                    Includes a complimentary 15-minute pickup wait (45 minutes for airport arrivals). Extra waiting, tolls, or route diversions may incur additional charges.
+                  </p>
+                </div>
+
+                <div className="terms-modal-item">
+                  <p className="terms-modal-item-title">Separate from hotel stay bill</p>
+                  <p className="terms-modal-item-desc">
+                    Cab fares are settled separately — either online in advance or upon arrival at VALENCIA reception.
+                  </p>
+                </div>
+              </div>
+
+              <div className="terms-modal-footer">
+                <p className="terms-modal-note">Questions? Our concierge team is happy to assist.</p>
+                <button
+                  type="button"
+                  className="terms-modal-cta"
+                  onClick={() => setShowTermsModal(false)}
+                >
+                  Close terms
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Vehicle Selection Feedback Toast */}
         {showSuccessToast && (
           <div
+            className="cab-toast-banner"
             style={{
               position: "fixed",
-              bottom: 30,
-              right: 30,
+              bottom: 16,
+              right: 16,
+              maxWidth: "calc(100vw - 32px)",
               background: "#07552D",
               color: "#FFFFFF",
-              padding: "16px 24px",
+              padding: "14px 18px",
               borderRadius: "12px",
               boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
               display: "flex",

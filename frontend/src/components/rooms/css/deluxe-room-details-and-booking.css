@@ -745,7 +745,43 @@
 @media (max-width: 768px) {
   .deluxe-room-details-and-booking {
     padding: 24px 16px 48px 16px;
-    gap: 36px;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .room-details {
+    display: contents;
+  }
+
+  .room-at-a-glance {
+    order: 1;
+    padding-bottom: 4px;
+  }
+
+  .plan-your-stay-booking-card {
+    order: 2;
+  }
+
+  .room-details > .rectangle {
+    order: 3;
+    margin: 8px 0;
+  }
+
+  .room-introduction {
+    order: 4;
+  }
+
+  .room-details > .rectangle-2 {
+    order: 5;
+    margin: 8px 0;
+  }
+
+  .amenities {
+    order: 6;
+  }
+
+  .proposed-amenities-subject-to {
+    order: 7;
   }
 
   .room-at-a-glance-2 {
@@ -842,6 +878,7 @@
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

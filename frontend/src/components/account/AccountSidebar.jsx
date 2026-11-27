@@ -18,7 +18,7 @@ export default function AccountSidebar({ activeTab = "bookings", onSelectTab }) 
   return (
     <aside
       aria-label="Account Sidebar"
-      className="w-full lg:w-[268px] bg-[#F4F0E5] rounded-[5px] pt-[23px] pb-[32px] px-[20px] lg:pl-[25px] lg:pr-[12px] flex flex-col items-start shrink-0 min-h-[500px]"
+      className="hidden lg:flex w-full lg:w-[268px] bg-[#F4F0E5] rounded-[5px] pt-[23px] pb-[32px] px-[20px] lg:pl-[25px] lg:pr-[12px] flex-col items-start shrink-0 min-h-[500px]"
     >
       {/* User avatar */}
       <div className="w-[69px] h-[69px] rounded-full bg-[#134D39] text-[#FFFFFF] flex items-center justify-center font-display font-semibold text-[29px] leading-[39px] shadow-sm mb-1 shrink-0">

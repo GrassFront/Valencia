@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PopupNeedARideToTheHotel } from "./PopupNeedARideToTheHotel";
 import { YourCabBooking } from "./YourCabBooking";
+import { BookingUserBadge } from "./BookingUserBadge";
 import "./css/booking-confirmation-hotel-contact.css";
 
 const ROOM_DATA = {
@@ -155,18 +156,25 @@ export function BookingConfirmationHotelContactVersion({
               <p className="brand-descriptor">A LUXURY BOUTIQUE HOTEL</p>
             </div>
           </Link>
+          <BookingUserBadge />
+        </header>
 
+        <hr className="header-divider" />
+
+        {/* Sub-navbar Right-Aligned Back Link */}
+        <div className="confirmation-subnav-back-row">
           <Link href="/" className="back-to-home">
             <div className="icon-back">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B523B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             </div>
-            <p className="back-to-home-2">Back to home</p>
+            <p className="back-to-home-2">
+              <span className="md:hidden">Back</span>
+              <span className="hidden md:inline">Back to home</span>
+            </p>
           </Link>
-        </header>
-
-        <hr className="header-divider" />
+        </div>
 
         {/* ================= CONFIRMATION HERO ================= */}
         <section className="confirmation-and-booking-reference">
@@ -426,7 +434,7 @@ export function BookingConfirmationHotelContactVersion({
                 <p className="payment-row-value">{paymentMethodDisplay}</p>
               </div>
 
-              <Link href={currentRoom.roomPage} className="btn-view-booking">
+              <Link href="/account" className="btn-view-booking">
                 VIEW BOOKING
               </Link>
 

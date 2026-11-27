@@ -302,9 +302,8 @@ export default function UmraoEnquiry({ preselectedSpace = "" }) {
                       className="w-full h-[48px] rounded-[8px] px-4 sm:px-[21px] flex items-center justify-between umrao-input bg-[#FCFAF6] cursor-pointer group text-left focus:outline-none focus:ring-2 focus:ring-[#194E35]/20 focus:border-[#194E35] transition-all"
                     >
                       <span
-                        className={`font-body text-[16px] sm:text-[18px] lg:text-[19px] leading-[24px] select-none ${
-                          formData.eventDate ? "text-[#503522] font-medium" : "text-[#776B61]"
-                        }`}
+                        className={`font-body text-[16px] sm:text-[18px] lg:text-[19px] leading-[24px] select-none ${formData.eventDate ? "text-[#503522] font-medium" : "text-[#776B61]"
+                          }`}
                       >
                         {formData.eventDate
                           ? formatDisplayDate(formData.eventDate)
@@ -454,15 +453,15 @@ export default function UmraoEnquiry({ preselectedSpace = "" }) {
 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-3 w-full sm:w-[260px] h-[54px] bg-[#194E35] hover:bg-[#123d2a] active:bg-[#0c2b1e] rounded-[9px] text-[#FAF6EC] transition-all shadow-md group cursor-pointer shrink-0"
+                  className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[250px] min-h-[48px] sm:h-[52px] px-5 py-2.5 bg-[#194E35] hover:bg-[#123d2a] active:bg-[#0c2b1e] rounded-[9px] text-[#FAF6EC] transition-all shadow-md group cursor-pointer shrink-0"
                 >
-                  <span className="font-body font-bold text-[18px] sm:text-[20px] lg:text-[21px] leading-[26px] tracking-wide uppercase">
+                  <span className="font-body font-bold text-[14px] sm:text-[17px] lg:text-[18px] leading-tight tracking-wide uppercase whitespace-nowrap">
                     SEND ENQUIRY
                   </span>
                   <ArrowRightIcon
-                    size={22}
+                    size={18}
                     color="#FAF6EC"
-                    className="group-hover:translate-x-1 transition-transform"
+                    className="shrink-0 group-hover:translate-x-1 transition-transform"
                   />
                 </button>
               </div>

@@ -12,9 +12,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   border-radius: 14px;
-  border: 2px solid #075840;
+  border: 1.25px solid #DFD6C8;
   background: #FFFEFC;
-  box-shadow: 0 4px 20px rgba(7, 88, 64, 0.05);
+  box-shadow: 0 2px 12px rgba(40, 32, 22, 0.04);
 }
 
 /* Header */
@@ -134,7 +134,7 @@
 .your-cab-booking .cab-journey-and-payment {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 425px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 425px);
   gap: 32px;
   padding: 24px 28px;
   box-sizing: border-box;
@@ -445,6 +445,10 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .your-cab-booking .cab-journey,
+  .your-cab-booking .cab-payment {
+    min-width: 0;
+  }
   .your-cab-booking .cab-payment {
     border-left: none;
     border-top: 1px solid #E5D9C9;
@@ -455,10 +459,52 @@
 
 @media (max-width: 640px) {
   .your-cab-booking {
-    padding: 18px 16px;
+    padding: 18px 14px;
   }
   .your-cab-booking .cab-journey-and-payment {
-    padding: 18px 16px;
+    padding: 16px 14px;
+    gap: 20px;
+  }
+  .your-cab-booking .vehicle-profile-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .your-cab-booking .vehicle-row-sep {
+    display: none;
+  }
+  .your-cab-booking .toyota-innova-air-conditioned-mpv {
+    font-size: 16.5px;
+    line-height: 1.35;
+  }
+  .your-cab-booking .reference-and-copy {
+    width: 100%;
+    height: auto;
+    min-height: 44px;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+  .your-cab-booking .attached-booking {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+  }
+  .your-cab-booking .payment-heading {
+    font-size: 22px;
+  }
+  .your-cab-booking .payable-at-hotel-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .your-cab-booking .fraser-road-near-buddha-smriti-park {
+    word-break: break-word;
+  }
+  .your-cab-booking .driver-assignment {
+    flex-wrap: wrap;
+    gap: 10px;
   }
   .your-cab-booking .cab-actions {
     flex-direction: column;
@@ -470,5 +516,18 @@
   }
   .your-cab-booking .download-cab-confirmation-btn {
     width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .your-cab-booking {
+    padding: 14px 12px;
+  }
+  .your-cab-booking .cab-journey-and-payment {
+    padding: 14px 12px;
+  }
+  .your-cab-booking .payment-heading {
+    font-size: 20px;
   }
 }

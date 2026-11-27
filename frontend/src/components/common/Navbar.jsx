@@ -23,14 +23,14 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
       aria-label="Main Navigation"
       className="relative w-full bg-[#F8F5EA] border-b border-[#E8DCC9]/50 z-40"
     >
-      <div className="mx-auto flex h-[90px] w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-12 xl:px-14">
+      <div className="mx-auto flex h-[74px] sm:h-[90px] w-full max-w-[1440px] items-center justify-between gap-2 px-3.5 sm:px-10 lg:px-12 xl:px-14">
         {/* Brand / Valencia logo */}
         <Link
           href="/"
           className="flex items-center shrink-0 transition-opacity hover:opacity-95"
           aria-label="Valencia - A Luxury Boutique Hotel"
         >
-          <div className="relative h-[44px] sm:h-[52px] xl:h-[56px] w-[170px] sm:w-[200px] lg:w-[220px] xl:w-[225px] 2xl:w-[260px]">
+          <div className="relative h-[40px] sm:h-[52px] xl:h-[56px] w-[clamp(132px,42vw,175px)] sm:w-[200px] lg:w-[220px] xl:w-[225px] 2xl:w-[260px]">
             <Image
               src="/images/logo/valencia-logo.png"
               alt="Valencia - A Luxury Boutique Hotel"
@@ -212,34 +212,32 @@ export default function Navbar({ activeItem = "Home", onLoginClick }) {
         )}
 
         {/* Mobile / Tablet Controls (Visible on screens < 1200px) */}
-        <div className="flex xl:hidden items-center gap-3 shrink-0">
+        <div className="flex xl:hidden items-center gap-2 sm:gap-3 shrink-0">
           {isAuthenticated && user ? (
             <Link
               href="/account"
-              className="flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[#134D39] text-[#FFFFFF] text-[13px] font-medium"
+              aria-label="My Account"
+              className="flex h-[36px] w-[36px] sm:h-[38px] sm:w-[38px] items-center justify-center rounded-full bg-[#134D39] hover:bg-[#0e3c2c] text-[#FFFFFF] font-display text-[13px] sm:text-[14px] font-semibold transition-colors shadow-xs shrink-0"
             >
-              <div className="w-[26px] h-[26px] rounded-full bg-[#1B4D32] flex items-center justify-center font-display text-[12px] font-semibold">
-                {user.initials || "AS"}
-              </div>
-              <span className="font-display font-medium pr-1">Aarav</span>
+              {user.initials || "AS"}
             </Link>
           ) : (
             <Link
               href="/login"
               onClick={onLoginClick}
-              className="flex h-[38px] px-3.5 items-center justify-center gap-2 rounded-[3px] bg-[#1B4D32] text-[#F8F5EA] text-[11px] font-semibold tracking-[0.05em] uppercase cursor-pointer"
+              className="flex h-[32px] sm:h-[36px] px-2.5 sm:px-3.5 items-center justify-center gap-1.5 rounded-[3px] bg-[#1B4D32] hover:bg-[#153e28] text-[#F8F5EA] text-[10px] sm:text-[11px] font-semibold tracking-[0.06em] uppercase cursor-pointer whitespace-nowrap transition-colors shadow-xs shrink-0"
             >
               <span>LOG IN</span>
-              <ArrowRight size={14} />
+              <ArrowRight size={13} className="shrink-0" />
             </Link>
           )}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2 text-[#34413F] hover:text-[#1B4D32] focus:outline-none cursor-pointer"
+            className="p-1.5 sm:p-2 text-[#34413F] hover:text-[#1B4D32] focus:outline-none cursor-pointer"
           >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

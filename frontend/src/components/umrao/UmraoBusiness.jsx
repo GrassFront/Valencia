@@ -101,18 +101,18 @@ export default function UmraoBusiness() {
           {/* Spacing: 28px */}
           <div className="h-5 sm:h-6 lg:h-[28px]" aria-hidden="true" />
 
-          {/* Button: ENQUIRE ABOUT A MEETING → (width: 375px, height: 55px, border-radius: 7px) */}
+          {/* Button: ENQUIRE ABOUT A MEETING → */}
           <Link
             href="/meetings#meeting-enquiry"
-            className="inline-flex items-center justify-center gap-3 w-full sm:w-[375px] h-[50px] sm:h-[55px] bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all shadow-md group"
+            className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[375px] min-h-[48px] sm:min-h-[54px] px-4 py-2.5 bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all shadow-md group"
           >
-            <span className="font-body font-bold text-[17px] sm:text-[18px] lg:text-[19px] leading-[24px] tracking-[1.5px] sm:tracking-[2px] uppercase">
+            <span className="font-body font-bold text-[12.5px] sm:text-[16px] lg:text-[17.5px] leading-tight tracking-[1px] sm:tracking-[1.5px] uppercase whitespace-nowrap">
               ENQUIRE ABOUT A MEETING
             </span>
             <ArrowRightIcon
-              size={20}
+              size={18}
               color="#FFF9EC"
-              className="group-hover:translate-x-1 transition-transform"
+              className="shrink-0 group-hover:translate-x-1 transition-transform"
             />
           </Link>
         </div>

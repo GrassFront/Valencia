@@ -132,6 +132,16 @@
   margin: 0;
 }
 
+.booking-confirmation-hotel-contact .confirmation-subnav-back-row {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px clamp(20px, 5.5vw, 79px) 0 clamp(20px, 5.5vw, 79px);
+  box-sizing: border-box;
+}
+
 /* ================= CONFIRMATION HERO ================= */
 .booking-confirmation-hotel-contact .confirmation-and-booking-reference {
   width: 100%;
@@ -865,6 +875,7 @@
   .booking-confirmation-hotel-contact .stay-payment-and-hotel-contact {
     flex-direction: column;
   }
+
   .booking-confirmation-hotel-contact .your-stay-and-guest-details,
   .booking-confirmation-hotel-contact .payment-and-hotel-contact {
     width: 100%;
@@ -877,18 +888,22 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+
   .booking-confirmation-hotel-contact .guest-contact-and-requests {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .booking-confirmation-hotel-contact .before-you-arrive {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
+
   .booking-confirmation-hotel-contact .text-2 {
     display: none;
   }
+
   .booking-confirmation-hotel-contact .booking-reference-and-copy {
     flex-wrap: wrap;
     gap: 10px;
@@ -899,11 +914,46 @@
   .booking-confirmation-hotel-contact .stay-dates-and-occupancy {
     grid-template-columns: 1fr;
   }
+
   .booking-confirmation-hotel-contact .confirmation-room-reference-crop {
     height: 220px;
   }
+
   .booking-confirmation-hotel-contact .confirmed-title {
     flex-direction: column;
     gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-confirmation-hotel-contact .confirmation-header {
+    min-height: 64px;
+    padding: 14px 16px;
+    gap: 8px;
+  }
+
+  .booking-confirmation-hotel-contact .brand-valencia-logo {
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .booking-confirmation-hotel-contact .original-emblem {
+    width: 46px;
+    height: 32px;
+  }
+
+  .booking-confirmation-hotel-contact .valencia {
+    font-size: 18px;
+  }
+
+  .booking-confirmation-hotel-contact .brand-descriptor {
+    font-size: 6px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 420px) {
+  .booking-confirmation-hotel-contact .brand-descriptor {
+    display: none;
   }
 }

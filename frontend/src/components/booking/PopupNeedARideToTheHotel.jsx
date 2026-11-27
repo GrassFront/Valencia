@@ -100,8 +100,8 @@ export function PopupNeedARideToTheHotel({
           </h2>
 
           <p className="popup-description">
-            Arrange a cab from the airport, railway station or
-            <br />
+            Arrange a cab from the airport, railway station or{" "}
+            <br className="hidden sm:inline" />
             another pickup point to VALENCIA.
           </p>
 

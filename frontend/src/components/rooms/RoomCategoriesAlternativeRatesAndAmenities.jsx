@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -187,6 +187,18 @@ const ROOMS_DATA = [
 
 function RoomCardItem({ room }) {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-scroll room photos every 2 seconds unless user hovers/focuses
+  useEffect(() => {
+    if (isPaused || room.images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentImgIndex((prev) =>
+        prev === room.images.length - 1 ? 0 : prev + 1
+      );
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [isPaused, room.images.length]);
 
   const handlePrev = (e) => {
     e.preventDefault();
@@ -205,18 +217,52 @@ function RoomCardItem({ room }) {
   };
 
   return (
-    <article className="room-card" aria-label={room.title}>
-      {/* 1. Photo with Carousel */}
+    <article
+      className="room-card"
+      aria-label={room.title}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* 1. Photo with Auto-Scroll Carousel Track */}
       <div className="room-photo-wrapper">
-        <Image
-          src={room.images[currentImgIndex]}
-          alt={`${room.title} view`}
-          width={600}
-          height={260}
-          className="room-photo-image"
-          unoptimized
-          priority={room.id === "deluxe-room"}
-        />
+        <div
+          className="flex h-full w-full transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${currentImgIndex * 100}%)` }}
+          data-room-slide-index={currentImgIndex}
+        >
+          {room.images.map((imgSrc, idx) => (
+            <div key={imgSrc + idx} className="relative w-full h-full shrink-0">
+              <Image
+                src={imgSrc}
+                alt={`${room.title} view ${idx + 1}`}
+                width={600}
+                height={260}
+                className="room-photo-image"
+                unoptimized
+                priority={room.id === "deluxe-room" && idx === 0}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Dot Indicators */}
+        <div className="photo-dots-indicator" aria-label="Slide indicators">
+          {room.images.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setCurrentImgIndex(idx);
+              }}
+              aria-label={`View photo ${idx + 1}`}
+              className={`photo-dot border-0 p-0 cursor-pointer ${
+                idx === currentImgIndex ? "photo-dot-active" : ""
+              }`}
+            />
+          ))}
+        </div>
 
         {/* Carousel Prev/Next Buttons */}
         <button

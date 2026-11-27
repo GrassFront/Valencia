@@ -1,6 +1,7 @@
 import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "../context/AuthContext";
+import SiteAutoScroll from "../components/common/SiteAutoScroll";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -33,7 +34,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${manrope.variable} ${playfairDisplay.variable} h-full antialiased`}>
       <body className="min-h-full font-body">
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <SiteAutoScroll />
+        </AuthProvider>
       </body>
     </html>
   );

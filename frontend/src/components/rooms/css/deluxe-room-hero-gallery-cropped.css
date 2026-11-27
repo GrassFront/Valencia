@@ -22,16 +22,27 @@
   padding: 0 clamp(20px, 3.5vw, 36px);
 }
 
-/* 1. Breadcrumb */
+/* 1. Top Bar: Breadcrumb + Back Link */
+.deluxe-room-top-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 4px;
+}
+
 .deluxe-room-breadcrumb-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px 8px;
   font-family: var(--font-manrope), "Manrope", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #705B47;
-  padding-top: 4px;
+  min-width: 0;
 }
 
 .deluxe-breadcrumb-link {
@@ -110,17 +121,17 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #1B4D32;
   text-decoration: none;
   font-family: var(--font-manrope), "Manrope", sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 8px 12px;
+  padding: 4px 8px;
   border-radius: 4px;
   transition: all 0.2s ease;
-  margin-top: 8px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .deluxe-back-link:hover {

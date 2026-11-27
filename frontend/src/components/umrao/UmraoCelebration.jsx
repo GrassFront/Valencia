@@ -141,18 +141,18 @@ export default function UmraoCelebration() {
         {/* Spacing: 30px */}
         <div className="h-5 sm:h-6 lg:h-[30px]" aria-hidden="true" />
 
-        {/* Button: ENQUIRE ABOUT GUEST ROOMS → (width: 530px, height: 59px, border-radius: 7px) */}
+        {/* Button: ENQUIRE ABOUT GUEST ROOMS → */}
         <Link
           href="#enquiry"
-          className="inline-flex items-center justify-center gap-3 w-full sm:w-[530px] h-[54px] sm:h-[59px] bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all shadow-md group"
+          className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[460px] min-h-[48px] sm:min-h-[56px] px-4 py-2.5 bg-[#164C36] hover:bg-[#103727] active:bg-[#0c2b1e] rounded-[7px] text-[#FFF9EC] transition-all shadow-md group"
         >
-          <span className="font-body font-bold text-[18px] sm:text-[21px] lg:text-[23px] leading-[29px] tracking-[1.5px] sm:tracking-[2px] uppercase">
+          <span className="font-body font-bold text-[12.5px] sm:text-[16px] lg:text-[18px] leading-tight tracking-[1px] sm:tracking-[1.5px] uppercase whitespace-nowrap">
             ENQUIRE ABOUT GUEST ROOMS
           </span>
           <ArrowRightIcon
-            size={22}
+            size={18}
             color="#FFF9EC"
-            className="group-hover:translate-x-1 transition-transform"
+            className="shrink-0 group-hover:translate-x-1 transition-transform"
           />
         </Link>
       </div>

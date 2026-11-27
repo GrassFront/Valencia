@@ -38,7 +38,15 @@
   align-items: center;
   padding: 0 0 16px 0;
   border-bottom: 1px solid rgba(227, 220, 204, 0.6);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+
+.booking-payment .booking-subnav-back-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .booking-payment .brand-valencia-logo {
@@ -330,6 +338,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 
 .booking-payment .payment-method-left {
@@ -337,6 +346,7 @@
   flex-direction: row;
   gap: 16px;
   align-items: center;
+  min-width: 0;
 }
 
 .booking-payment .radio-outer {
@@ -389,8 +399,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #323230;
-  font-size: 18px;
+  color: #62482B;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
@@ -906,5 +916,95 @@
 
   .booking-payment .reservation-dates {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-payment .secure-booking-header {
+    min-height: 60px;
+    padding: 0 0 12px 0;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  .booking-payment .brand-valencia-logo {
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .booking-payment .original-emblem {
+    width: 46px;
+    height: 32px;
+  }
+
+  .booking-payment .valencia {
+    font-size: 18px;
+  }
+
+  .booking-payment .brand-descriptor {
+    font-size: 7.5px;
+    letter-spacing: 0.12em;
+  }
+
+  .booking-payment .booking-navigation {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .booking-payment .back-to-room {
+    padding: 6px;
+  }
+
+  .booking-payment .choose-how-to-pay {
+    padding: 18px 14px;
+  }
+
+  .booking-payment .choose-how-to-pay-2 {
+    font-size: 23px;
+  }
+
+  .booking-payment .upi,
+  .booking-payment .credit-debit-card,
+  .booking-payment .netbanking {
+    padding: 12px 14px;
+  }
+
+  .booking-payment .payment-method-left {
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .booking-payment .method-icon,
+  .booking-payment .method-icon-2,
+  .booking-payment .method-icon-3 {
+    width: 38px;
+    height: 38px;
+  }
+
+  .booking-payment .method-title {
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  .booking-payment .amount-to-pay {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .booking-payment .amount-to-pay-2 {
+    font-size: 16px;
+  }
+
+  .booking-payment .rs13-200 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .booking-payment .brand-descriptor,
+  .booking-payment .secure-payment {
+    display: none;
   }
 }

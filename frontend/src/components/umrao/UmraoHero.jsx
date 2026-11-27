@@ -104,30 +104,30 @@ export default function UmraoHero() {
           {/* Primary CTA: ENQUIRE FOR YOUR EVENT */}
           <Link
             href="#enquiry"
-            className="inline-flex items-center justify-center gap-3 w-full sm:w-[340px] h-[55px] sm:h-[59px] bg-[#CEA652] hover:bg-[#bd9543] active:bg-[#b08738] rounded-[7px] text-[#543522] transition-all shadow-md group"
+            className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[320px] min-h-[48px] sm:h-[56px] px-4 py-2.5 bg-[#CEA652] hover:bg-[#bd9543] active:bg-[#b08738] rounded-[7px] text-[#543522] transition-all shadow-md group"
           >
-            <span className="font-body font-bold text-[17px] sm:text-[19px] lg:text-[20px] leading-[25px] tracking-wide uppercase">
+            <span className="font-body font-bold text-[13px] sm:text-[16px] lg:text-[18px] leading-tight tracking-[1px] sm:tracking-wide uppercase whitespace-nowrap">
               ENQUIRE FOR YOUR EVENT
             </span>
             <ArrowRightIcon
-              size={22}
+              size={18}
               color="#543522"
-              className="group-hover:translate-x-1 transition-transform"
+              className="shrink-0 group-hover:translate-x-1 transition-transform"
             />
           </Link>
 
           {/* Secondary CTA: EXPLORE VENUES ↓ */}
           <Link
             href="#venues"
-            className="inline-flex items-center justify-center gap-3 w-full sm:w-[247px] h-[55px] sm:h-[59px] border-2 border-[#FFF9EC] hover:bg-[#FFF9EC]/15 active:bg-[#FFF9EC]/25 rounded-[7px] text-[#FFF9EC] transition-all group"
+            className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[240px] min-h-[48px] sm:h-[56px] px-4 py-2.5 border-2 border-[#FFF9EC] hover:bg-[#FFF9EC]/15 active:bg-[#FFF9EC]/25 rounded-[7px] text-[#FFF9EC] transition-all group"
           >
-            <span className="font-body font-bold text-[17px] sm:text-[19px] lg:text-[20px] leading-[25px] tracking-wide uppercase">
+            <span className="font-body font-bold text-[13px] sm:text-[16px] lg:text-[18px] leading-tight tracking-[1px] sm:tracking-wide uppercase whitespace-nowrap">
               EXPLORE VENUES
             </span>
             <ArrowDownIcon
-              size={22}
+              size={18}
               color="#FFF9EC"
-              className="group-hover:translate-y-1 transition-transform"
+              className="shrink-0 group-hover:translate-y-1 transition-transform"
             />
           </Link>
         </div>

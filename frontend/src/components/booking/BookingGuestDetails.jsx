@@ -8,6 +8,7 @@ import { useAuth } from "../../context/AuthContext";
 import { BookingReviewReservation } from "./BookingReviewReservation";
 import { BookingPayment } from "./BookingPayment";
 import { BookingConfirmationHotelContactVersion } from "./BookingConfirmationHotelContactVersion";
+import { BookingUserBadge } from "./BookingUserBadge";
 import "./css/booking-guest-details.css";
 
 const ROOM_DATA = {
@@ -241,41 +242,54 @@ export function BookingGuestDetails() {
           </Link>
 
           <div className="booking-navigation">
-            {currentStep === 2 && (
-              <Link href={currentRoom.roomPage} className="back-to-room">
-                <div className="back">
-                  <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
-                </div>
-                <p className="back-to-room-2">Back to room</p>
-              </Link>
-            )}
-
-            {currentStep === 3 && (
-              <button type="button" onClick={handleBackToStep2} className="back-to-room">
-                <div className="back">
-                  <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
-                </div>
-                <p className="back-to-room-2">Back to guest details</p>
-              </button>
-            )}
-
-            {currentStep === 4 && (
-              <Link href="/" className="back-to-room">
-                <div className="back">
-                  <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
-                </div>
-                <p className="back-to-room-2">Back to home</p>
-              </Link>
-            )}
-
             <div className="secure-badge">
               <div className="secure-lock">
                 <Image src="/images/booking/Secure lock.svg" alt="Secure lock" width={20} height={20} />
               </div>
               <p className="secure-booking">Secure booking</p>
             </div>
+            <BookingUserBadge />
           </div>
         </header>
+
+        {/* Sub-navbar Right-Aligned Back Link */}
+        <div className="booking-subnav-back-row">
+          {currentStep === 2 && (
+            <Link href={currentRoom.roomPage} className="back-to-room">
+              <div className="back">
+                <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
+              </div>
+              <p className="back-to-room-2">
+                <span className="md:hidden">Back</span>
+                <span className="hidden md:inline">Back to room</span>
+              </p>
+            </Link>
+          )}
+
+          {currentStep === 3 && (
+            <button type="button" onClick={handleBackToStep2} className="back-to-room">
+              <div className="back">
+                <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
+              </div>
+              <p className="back-to-room-2">
+                <span className="md:hidden">Back</span>
+                <span className="hidden md:inline">Back to guest details</span>
+              </p>
+            </button>
+          )}
+
+          {currentStep === 4 && (
+            <Link href="/" className="back-to-room">
+              <div className="back">
+                <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
+              </div>
+              <p className="back-to-room-2">
+                <span className="md:hidden">Back</span>
+                <span className="hidden md:inline">Back to home</span>
+              </p>
+            </Link>
+          )}
+        </div>
 
         {/* ================= STEP PROGRESS BAR ================= */}
         <nav aria-label="Booking steps" className="booking-progress">
@@ -406,18 +420,6 @@ export function BookingGuestDetails() {
                         </div>
                       </>
                     )}
-                  </div>
-
-                  <div className="continue-as-guest-selected">
-                    <div className="selected-radio">
-                      <div className="radio-dot" />
-                    </div>
-                    <div className="guest-booking-explanation">
-                      <p className="continue-as-guest">Continue as Guest</p>
-                      <p className="book-without-an-account-we-ll-only-use">
-                        Book without an account. We’ll only use your details for this reservation.
-                      </p>
-                    </div>
                   </div>
                 </div>
 
@@ -622,13 +624,6 @@ export function BookingGuestDetails() {
 
                   {/* Actions */}
                   <div className="form-actions">
-                    <Link href={currentRoom.roomPage} className="return-to-room">
-                      <div className="back">
-                        <Image src="/images/booking/Back.svg" alt="Back" width={18} height={18} />
-                      </div>
-                      <span>Back to room</span>
-                    </Link>
-
                     <button type="submit" className="btn-continue-review">
                       <span>CONTINUE TO REVIEW</span>
                       <Image src="/images/booking/Frame 5.svg" alt="Next" width={16} height={16} />

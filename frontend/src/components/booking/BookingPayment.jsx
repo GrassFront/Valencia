@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
+import { ChevronDown } from "lucide-react";
 import { BookingConfirmationHotelContactVersion } from "./BookingConfirmationHotelContactVersion";
+import { BookingUserBadge } from "./BookingUserBadge";
 import "./css/booking-payment.css";
 
 const ROOM_DATA = {
@@ -77,6 +79,7 @@ export function BookingPayment({ onBack, onComplete }) {
 
   // Payment states
   const [paymentMethod, setPaymentMethod] = useState("upi"); // 'upi' | 'card' | 'netbanking'
+  const [expandedMethod, setExpandedMethod] = useState(null); // null by default so all accordions start closed
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -140,18 +143,25 @@ export function BookingPayment({ onBack, onComplete }) {
           </Link>
 
           <div className="booking-navigation">
-            <button type="button" onClick={handleBack} className="back-to-room">
-              <div className="back">
-                <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
-              </div>
-              <p className="back-to-review">Back to review</p>
-            </button>
-
             <div className="secure-lock">
               <Image src="/images/booking/Secure lock.svg" alt="Secure lock" width={21} height={21} />
             </div>
             <p className="secure-payment">Secure payment</p>
+            <BookingUserBadge />
           </div>
+        </div>
+
+        {/* Sub-navbar Right-Aligned Back Link */}
+        <div className="booking-subnav-back-row">
+          <button type="button" onClick={handleBack} className="back-to-room">
+            <div className="back">
+              <Image src="/images/booking/Back.svg" alt="Back" width={20} height={20} />
+            </div>
+            <p className="back-to-review">
+              <span className="md:hidden">Back</span>
+              <span className="hidden md:inline">Back to review</span>
+            </p>
+          </button>
         </div>
 
         {/* ================= PROGRESS BAR ================= */}
@@ -215,7 +225,10 @@ export function BookingPayment({ onBack, onComplete }) {
               {/* 1. UPI Payment Option */}
               <div
                 className={`upi ${paymentMethod === "upi" ? "" : "collapsed"}`}
-                onClick={() => setPaymentMethod("upi")}
+                onClick={() => {
+                  setPaymentMethod("upi");
+                  setExpandedMethod((prev) => (prev === "upi" ? null : "upi"));
+                }}
               >
                 <div className="payment-method-header">
                   <div className="payment-method-left">
@@ -231,13 +244,13 @@ export function BookingPayment({ onBack, onComplete }) {
                     </div>
                     <p className="method-title">UPI</p>
                   </div>
-                  <div className={`chevron-icon ${paymentMethod === "upi" ? "open" : ""}`}>
-                    {paymentMethod === "upi" ? "⌃" : "⌄"}
+                  <div className={`chevron-icon ${expandedMethod === "upi" ? "open" : ""}`} aria-hidden="true">
+                    <ChevronDown size={20} strokeWidth={1.8} />
                   </div>
                 </div>
 
-                {paymentMethod === "upi" && (
-                  <div className="upi-app-payment-guidance">
+                {expandedMethod === "upi" && (
+                  <div className="upi-app-payment-guidance" onClick={(e) => e.stopPropagation()}>
                     <div className="upi-phone-illustration">
                       <div className="phone-backdrop">
                         {/* Phone graphic with arrow */}
@@ -268,7 +281,10 @@ export function BookingPayment({ onBack, onComplete }) {
               {/* 2. Credit / Debit Card Option */}
               <div
                 className={`credit-debit-card ${paymentMethod === "card" ? "selected" : ""}`}
-                onClick={() => setPaymentMethod("card")}
+                onClick={() => {
+                  setPaymentMethod("card");
+                  setExpandedMethod((prev) => (prev === "card" ? null : "card"));
+                }}
               >
                 <div className="payment-method-header">
                   <div className="payment-method-left">
@@ -283,13 +299,13 @@ export function BookingPayment({ onBack, onComplete }) {
                     </div>
                     <p className="method-title">Credit / Debit Card</p>
                   </div>
-                  <div className={`chevron-icon ${paymentMethod === "card" ? "open" : ""}`}>
-                    {paymentMethod === "card" ? "⌃" : "⌄"}
+                  <div className={`chevron-icon ${expandedMethod === "card" ? "open" : ""}`} aria-hidden="true">
+                    <ChevronDown size={20} strokeWidth={1.8} />
                   </div>
                 </div>
 
-                {paymentMethod === "card" && (
-                  <div className="card-input-guidance">
+                {expandedMethod === "card" && (
+                  <div className="card-input-guidance" onClick={(e) => e.stopPropagation()}>
                     <p className="method-detail-text">
                       We accept Visa, MasterCard, RuPay, and American Express. You will enter your card details on the bank-grade encrypted gateway.
                     </p>
@@ -300,7 +316,10 @@ export function BookingPayment({ onBack, onComplete }) {
               {/* 3. Netbanking Option */}
               <div
                 className={`netbanking ${paymentMethod === "netbanking" ? "selected" : ""}`}
-                onClick={() => setPaymentMethod("netbanking")}
+                onClick={() => {
+                  setPaymentMethod("netbanking");
+                  setExpandedMethod((prev) => (prev === "netbanking" ? null : "netbanking"));
+                }}
               >
                 <div className="payment-method-header">
                   <div className="payment-method-left">
@@ -314,13 +333,13 @@ export function BookingPayment({ onBack, onComplete }) {
                     </div>
                     <p className="method-title">Netbanking</p>
                   </div>
-                  <div className={`chevron-icon ${paymentMethod === "netbanking" ? "open" : ""}`}>
-                    {paymentMethod === "netbanking" ? "⌃" : "⌄"}
+                  <div className={`chevron-icon ${expandedMethod === "netbanking" ? "open" : ""}`} aria-hidden="true">
+                    <ChevronDown size={20} strokeWidth={1.8} />
                   </div>
                 </div>
 
-                {paymentMethod === "netbanking" && (
-                  <div className="card-input-guidance">
+                {expandedMethod === "netbanking" && (
+                  <div className="card-input-guidance" onClick={(e) => e.stopPropagation()}>
                     <p className="method-detail-text">
                       Supported banks: HDFC, ICICI, SBI, Axis, Kotak, and 50+ other Indian banks.
                     </p>
@@ -453,14 +472,6 @@ export function BookingPayment({ onBack, onComplete }) {
             </div>
           </div>
         </div>
-
-        {/* ================= BACK LINK ================= */}
-        <button type="button" onClick={handleBack} className="back-to-review-2">
-          <div className="frame-20">
-            <Image src="/images/booking/Back.svg" alt="Back" width={18} height={18} />
-          </div>
-          <p className="back-to-review-3">Back to review</p>
-        </button>
 
         {/* ================= FOOTER ================= */}
         <div className="booking-footer">

@@ -41,8 +41,19 @@ export default function DeluxeRoomHeroGallery({
 }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+  const [autoOffset, setAutoOffset] = useState(0);
+  const [isGalleryPaused, setIsGalleryPaused] = useState(false);
 
   const galleryPhotos = photos && photos.length > 0 ? photos : DELUXE_GALLERY_PHOTOS;
+
+  // Auto-advance room gallery images every 2 seconds unless paused or lightbox is open
+  useEffect(() => {
+    if (lightboxOpen || isGalleryPaused || galleryPhotos.length <= 1) return;
+    const timer = setInterval(() => {
+      setAutoOffset((prev) => (prev + 1) % galleryPhotos.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [lightboxOpen, isGalleryPaused, galleryPhotos.length]);
 
   // Close lightbox on Escape
   useEffect(() => {
@@ -84,9 +95,9 @@ export default function DeluxeRoomHeroGallery({
     );
   };
 
-  const photoMain = galleryPhotos[0] || DELUXE_GALLERY_PHOTOS[0];
-  const photoSub1 = galleryPhotos[1] || DELUXE_GALLERY_PHOTOS[1];
-  const photoSub2 = galleryPhotos[2] || DELUXE_GALLERY_PHOTOS[2];
+  const photoMain = galleryPhotos[autoOffset % galleryPhotos.length] || DELUXE_GALLERY_PHOTOS[0];
+  const photoSub1 = galleryPhotos[(autoOffset + 1) % galleryPhotos.length] || DELUXE_GALLERY_PHOTOS[1];
+  const photoSub2 = galleryPhotos[(autoOffset + 2) % galleryPhotos.length] || DELUXE_GALLERY_PHOTOS[2];
 
   return (
     <section
@@ -94,28 +105,19 @@ export default function DeluxeRoomHeroGallery({
       className="deluxe-room-hero-gallery-section"
     >
       <div className="deluxe-room-container">
-        {/* 1. Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" className="deluxe-room-breadcrumb-nav">
-          <Link href="/" className="deluxe-breadcrumb-link">
-            Home
-          </Link>
-          <span className="deluxe-breadcrumb-separator">/</span>
-          <Link href="/rooms" className="deluxe-breadcrumb-link">
-            Rooms &amp; Suites
-          </Link>
-          <span className="deluxe-breadcrumb-separator">/</span>
-          <span className="deluxe-breadcrumb-active">{roomName}</span>
-        </nav>
-
-        {/* 2. Room Title and Back Return Link */}
-        <div className="deluxe-room-header-row">
-          <div className="deluxe-room-heading-block">
-            <p className="deluxe-room-eyebrow">{eyebrow}</p>
-            <h1 className="deluxe-room-title">{roomName}</h1>
-            <p className="deluxe-room-subtitle">
-              {subtitle}
-            </p>
-          </div>
+        {/* 1. Breadcrumb & Back Navigation Top Row */}
+        <div className="deluxe-room-top-bar">
+          <nav aria-label="Breadcrumb" className="deluxe-room-breadcrumb-nav">
+            <Link href="/" className="deluxe-breadcrumb-link">
+              Home
+            </Link>
+            <span className="deluxe-breadcrumb-separator">/</span>
+            <Link href="/rooms" className="deluxe-breadcrumb-link">
+              Rooms &amp; Suites
+            </Link>
+            <span className="deluxe-breadcrumb-separator">/</span>
+            <span className="deluxe-breadcrumb-active">{roomName}</span>
+          </nav>
 
           <Link href="/rooms" className="deluxe-back-link">
             <Image
@@ -130,8 +132,23 @@ export default function DeluxeRoomHeroGallery({
           </Link>
         </div>
 
+        {/* 2. Room Title */}
+        <div className="deluxe-room-header-row">
+          <div className="deluxe-room-heading-block">
+            <p className="deluxe-room-eyebrow">{eyebrow}</p>
+            <h1 className="deluxe-room-title">{roomName}</h1>
+            <p className="deluxe-room-subtitle">
+              {subtitle}
+            </p>
+          </div>
+        </div>
+
         {/* 3. Nested 3-Photo Gallery Grid */}
-        <div className="deluxe-gallery-grid">
+        <div
+          className="deluxe-gallery-grid"
+          onMouseEnter={() => setIsGalleryPaused(true)}
+          onMouseLeave={() => setIsGalleryPaused(false)}
+        >
           {/* Left Large Main Bedroom Image */}
           <div
             className="main-bedroom-card"

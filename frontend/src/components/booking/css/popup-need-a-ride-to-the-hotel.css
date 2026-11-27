@@ -317,17 +317,127 @@
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .popup-need-a-ride-to-the-hotel {
-    padding: 36px 20px 24px 20px;
+    padding: 28px 20px 22px 20px;
+    border-radius: 14px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .close-button {
+    right: 12px;
+    top: 12px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .close-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .confirmation-status {
+    padding: 0 30px;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .confirmed-check {
+    width: 22px;
+    height: 22px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .your-stay-is-confirmed {
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .popup-need-a-ride-to-the-hotel .cab-icon-badge {
+    width: 84px;
+    height: 84px;
+    margin-bottom: 10px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .popup-title {
+    font-size: 25px;
+    margin-bottom: 8px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .popup-description {
+    font-size: 14.5px;
+    line-height: 1.45;
+    margin-bottom: 16px;
   }
 
   .popup-need-a-ride-to-the-hotel .hotel-and-check-in-details {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
-    padding: 14px 18px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .location-pin,
+  .popup-need-a-ride-to-the-hotel .calendar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .destination,
+  .popup-need-a-ride-to-the-hotel .check-in {
+    font-size: 14.5px;
   }
 
   .popup-need-a-ride-to-the-hotel .vertical-divider {
     display: none;
+  }
+
+  .popup-need-a-ride-to-the-hotel .helper-text {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .book-a-cab {
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .button-label {
+    font-size: 16px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .arrow-right {
+    width: 20px;
+    height: 20px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .maybe-later {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .footer-divider {
+    margin-bottom: 12px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .cab-charge-note {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .popup-need-a-ride-to-the-hotel {
+    padding: 26px 16px 20px 16px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .confirmation-status {
+    padding: 0 26px;
+  }
+
+  .popup-need-a-ride-to-the-hotel .your-stay-is-confirmed {
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+  }
+
+  .popup-need-a-ride-to-the-hotel .popup-title {
+    font-size: 23px;
   }
 }

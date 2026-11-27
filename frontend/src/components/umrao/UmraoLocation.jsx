@@ -81,15 +81,15 @@ export default function UmraoLocation() {
             <a
               href="#enquiry"
               onClick={scrollToEnquiry}
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-[380px] h-[52px] sm:h-[56px] bg-[#194E35] hover:bg-[#123d2a] active:bg-[#0c2b1e] rounded-[9px] text-[#FAF6EC] transition-all shadow-md group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 w-full sm:w-[360px] min-h-[48px] sm:h-[54px] px-4 py-2.5 bg-[#194E35] hover:bg-[#123d2a] active:bg-[#0c2b1e] rounded-[9px] text-[#FAF6EC] transition-all shadow-md group cursor-pointer"
             >
-              <span className="font-body font-bold text-[17px] sm:text-[19px] lg:text-[21px] leading-[26px] tracking-wide uppercase">
+              <span className="font-body font-bold text-[13px] sm:text-[16px] lg:text-[18px] leading-tight tracking-[1px] sm:tracking-wide uppercase whitespace-nowrap">
                 REQUEST A VENUE VISIT
               </span>
               <ArrowRightIcon
-                size={22}
+                size={18}
                 color="#FAF6EC"
-                className="group-hover:translate-x-1 transition-transform"
+                className="shrink-0 group-hover:translate-x-1 transition-transform"
               />
             </a>
 
